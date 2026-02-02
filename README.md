@@ -16,10 +16,16 @@ Jeden HTML soubor funguje pro web i tisk:
 2.  **Tisk (Print):** Po stisku `CTRL+P` se přepne do úsporného ČB režimu, odstraní dekorace a zalomí stránky po situacích.
 
 ## 🤖 AI Workflow (Jak generovat)
-Pro vytvoření nového scénáře použijte soubor [CONTEXT.md](./CONTEXT.md), který obsahuje veškeré technické specifikace střelnice a pravidel.
+Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`CONTEXT.md`), tak **existující kód** jako vzor (`scenario.html`).
 
-**Příklad promptu pro AI:**
-> "Přečti si soubor CONTEXT.md. Navrhni HTML kód pro nový scénář na téma 'Vzpoura na vesmírné lodi'. Dodrž definovaná fyzická omezení a strukturu."
+**Doporučený prompt pro AI:**
+> "Přečti si soubor `CONTEXT.md` (pro pravidla střelnice) a podívej se na soubor `01_sector4_cyberpunk/scenario.html` (jako vzor kódu a stylu).
+>
+> Navrhni kompletní HTML kód pro nový scénář na téma: **[VAŠE TÉMA, např. Zombie Apokalypsa]**.
+>
+> * Dodrž strukturu HTML a CSS třídy ze vzoru (stage-box, status-bar, svg grid).
+> * Respektuj fyzická omezení z kontextu (4 dráhy, kolmá střelba).
+> * Vymysli unikátní vizuální styl (barvy, fonty) pro nové téma."
 
 ---
 *Více informací o pravidlech a vybavení najdete v [CONTEXT.md](./CONTEXT.md).*
