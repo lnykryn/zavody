@@ -51,9 +51,9 @@ Scénáře jsou určeny pro specifickou vnitřní střelnici.
 Každý závod je "Mini-kampaň" se 4 situacemi (Stages).
 
 ### Struktura kampaně
-1.  **Stage 1 (Intro):** Seznámení, statický start (např. vsedě, zády), střelba na blízko (3-7m).
-2.  **Stage 2 (Dynamika):** Pohyb vpřed/vzad/do stran, střelba za pohybu, využití krytů.
-3.  **Stage 3 (Skill Check):** Technická výzva (Slabá ruka, Přebíjení, Omezená munice, Paměť).
+1.  **Stage 1 (Warm-up):** Jednoduchá a přehledná situace na "zahřátí". Start ve stoje, zbraň skrytě (nebo dle divize). Žádné složité procedury, důraz na čistou střelbu a základní práci s krytem. Vzdálenost 3-10m.
+2.  **Stage 2 (Dynamika):** Pohyb vpřed/vzad/do stran, střelba za pohybu, využití více krytů.
+3.  **Stage 3 (Skill Check / Twist):** Technická výzva (Slabá ruka, Přebíjení, Omezená munice, Start vsedě/zády, Paměť).
 4.  **Stage 4 (Finále):** Komplexní situace, volba postupu, No-Shoots, příběhové vyvrcholení.
 
 ---
