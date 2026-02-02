@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WESTERN: THE EL CORTÉZ HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- DESIGN (SCREEN / WESTERN MODE) --- */
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4e4bc; /* Starý papír */
+            color: #4b3621; /* Hnědá/Sépiová */
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px;
+            padding-bottom: 60px;
+            line-height: 1.6;
+            border: 8px double #4b3621;
+        }
+
+        /* Hlavička */
+        .header-container {
+            text-align: center;
+            border-bottom: 2px solid #4b3621;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            background-image: radial-gradient(#4b3621 1px, transparent 1px);
+            background-size: 10px 10px;
+            background-color: rgba(244, 228, 188, 0.9);
+        }
+
+        h1 {
+            font-family: 'Rye', serif;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            margin: 10px 0;
+            text-shadow: 2px 2px 0px rgba(75, 54, 33, 0.2);
+        }
+
+        .wanted-label {
+            font-family: 'Rye', serif;
+            font-size: 1.2em;
+            background-color: #4b3621;
+            color: #f4e4bc;
+            display: inline-block;
+            padding: 5px 30px;
+            clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0% 100%);
+            margin-bottom: 15px;
+        }
+
+        .mission-brief {
+            background: #fff8e7;
+            border: 1px dashed #4b3621;
+            padding: 20px;
+            margin: 20px auto;
+            font-style: italic;
+            max-width: 85%;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+        }
+
+        .meta-info {
+            font-weight: bold;
+            border-top: 2px solid #4b3621;
+            padding-top: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 0.9em;
+        }
+
+        /* Boxy situací */
+        .rules-box {
+            border: 2px solid #8b0000;
+            padding: 20px;
+            margin-bottom: 40px;
+            background: rgba(139, 0, 0, 0.05);
+        }
+        .rules-box h3 { margin-top: 0; color: #8b0000; font-family: 'Rye', serif; border-bottom: 1px dotted #8b0000; display: inline-block; }
+
+        .stage-box {
+            background: #fff;
+            border: 2px solid #4b3621;
+            padding: 25px;
+            margin-bottom: 60px;
+            position: relative;
+            box-shadow: 8px 8px 0px rgba(75, 54, 33, 0.15);
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            font-family: 'Rye', serif;
+            color: #4b3621;
+            border-bottom: 4px double #4b3621;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .status-bar {
+            font-family: sans-serif;
+            font-size: 0.8em;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 1px dotted #4b3621;
+        }
+
+        .legend {
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #fdf5e6;
+            border-left: 5px solid #4b3621;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        strong { color: #8b0000; font-weight: bold; }
+
+        /* SVG Nákresy */
+        svg { display: block; margin: 20px auto; overflow: visible; background: #fff8e7; border: 1px solid #cbb; }
+        .grid { stroke: #e6dcc3; stroke-width: 1; }
+        
+        .target-body { fill: #cba; stroke: #000; stroke-width: 2px; }
+        .target-head { fill: #cba; stroke: #000; stroke-width: 2px; }
+        
+        .cover-solid { stroke: #3e2723; stroke-width: 2; fill: #5d4037; } /* Tmavé dřevo */
+        .start-pos { fill: #fff; stroke: #8b0000; stroke-width: 4; }
+        .shoot-line { stroke: #8b0000; stroke-width: 2; stroke-dasharray: 5,2; marker-end: url(#arrowRed); }
+        .label { fill: #000; font-size: 14px; font-weight: bold; font-family: 'Courier Prime'; }
+        .warning-text { fill: #8b0000; font-weight: bold; text-decoration: underline; }
+
+        /* --- STYLY PRO TISK (ECO MODE) --- */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                border: none !important;
+                padding: 0;
+                margin: 0;
+                font-size: 11px;
+                font-family: 'Courier New', monospace; /* Bezpečný font pro tisk */
+            }
+            .header-container { border-bottom: 2px solid black; margin-bottom: 10px; background: none; }
+            h1 { color: black; text-shadow: none; font-size: 2.5em; font-family: sans-serif; }
+            .wanted-label { border: 2px solid black; background: none; color: black; clip-path: none; padding: 5px; }
+            .mission-brief { border: 1px solid black; background: none; box-shadow: none; }
+            .meta-info { border-top: 1px solid black; }
+            
+            .rules-box {
+                border: 2px solid black;
+                background: none;
+                padding: 10px;
+            }
+            .rules-box h3 { color: black; border-bottom: 1px solid black; }
+
+            .stage-box {
+                background: white;
+                border: 2px solid black;
+                box-shadow: none;
+                margin-bottom: 0;
+                height: auto;
+                min-height: 95vh;
+                break-before: page;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            
+            .legend { border-left: 4px solid black; background: #eee; padding: 10px; }
+            strong { color: black; text-decoration: underline; }
+            .status-bar { color: black; border-bottom: 1px solid black; }
+
+            /* SVG Print */
+            svg { background: white !important; border: 1px solid #ccc; max-height: 280px; width: auto; }
+            .grid { stroke: #eee; }
+            .target-body, .target-head { fill: #ddd !important; stroke: black !important; }
+            .cover-solid { fill: #fff !important; stroke: black !important; stroke-width: 2px; }
+            .shoot-line { stroke: #999 !important; }
+            .warning-text { fill: black !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="wanted-label">REWARD: 5000$</div>
+        <h1>WESTERN: THE EL CORTÉZ HUNT</h1>
+        <div class="subtitle">GUNSLINGER SERIES // VOL. 1</div>
+        
+        <div class="mission-brief">
+            <strong>PŘÍBĚH:</strong> Jsi federální maršál, který eskortuje obávaného banditu "El Cortéze" vlakem do vězení v Yumě. Cesta se však změní v peklo. Musíš odrazit přepadení ve vlaku, probojovat se přes hlavní ulici plnou ostřelovačů, ubránit se přesile na opuštěném ranči s posledními náboji a nakonec se vrátit do města, abys zlikvidoval gang tam, kde to začalo – v Saloonu u pokerového stolu.
+        </div>
+
+        <div class="meta-info">
+            <span>LOC: ARIZONA</span>
+            <span>EVAL: BEST 2 HITS</span>
+            <span>SAFETY: 180°</span>
+        </div>
+    </div>
+
+    <div class="rules-box">
+        <h3>ZÁSADY POUŽITÍ KRYTU</h3>
+        <ul>
+            <li><strong>[KRÁJENÍ KOLÁČE]:</strong> Terče řešíme postupně od vnějšího okraje k vnitřnímu (Pieing). Nikdy se nevystavujeme terči, který jsme ještě neřešili.</li>
+            <li><strong>[EXPOZICE]:</strong> Z krytu vykukuje pouze zbraň a nezbytná část hlavy a paží. Nohy a tělo musí zůstat skryté.</li>
+            <li><strong>[PŘEBÍJENÍ]:</strong> Pokud je nutné přebít a je k dispozici kryt, střelec musí přebíjet v krytu.</li>
+            <li><strong>[ODSTUP]:</strong> "Nelep se na kryt." Udržuj odstup od hrany krytu pro lepší manévrovatelnost.</li>
+        </ul>
+    </div>
+
+    <div class="stage-box">
+        <h2>01: VLAK DO YUMY</h2>
+        <div class="status-bar">
+            TERČE: 4 || START: VLEVO || TYPE: SYSTEMATICKÝ POSTUP
+        </div>
+        <div class="legend">
+            "Vezeš El Cortéze k soudu, když vlak náhle prudce zabrzdí. Výbuch dynamitu utrhl lokomotivu. Chodbou se valí kouř a Cortézovi muži naskakují do vagónů. Jsi v pasti v úzké uličce posledního vagonu. Musíš postupovat systematicky kupé po kupé a zneškodnit každého desperáta, který vykoukne!"
+        </div>
+        <ul>
+            <li><strong>START:</strong> Vlevo (před T1).</li>
+            <li><strong>ÚKOL:</strong> Na signál tasit a řešit terče T1-T4.</li>
+            <li><strong>PROCEDURA:</strong> Nutný fyzický přesun (úkrok) před každý terč (kolmá střelba).</li>
+        </ul>
+        
+        <svg width="700" height="250" viewBox="0 0 700 250">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e6dcc3" stroke-width="1"/></pattern>
+                <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8b0000" /></marker>
+            </defs>
+            
+            <rect x="0" y="10" width="700" height="30" fill="#ddd" stroke="#999" />
+            <text x="350" y="30" text-anchor="middle" font-size="12" fill="#555">LAPAČE (BACKSTOP)</text>
+
+            <rect x="100" y="60" width="40" height="60" class="target-body" /> <text x="110" y="55" class="label">T1</text>
+            <rect x="250" y="60" width="40" height="60" class="target-body" /> <text x="260" y="55" class="label">T2</text>
+            <rect x="400" y="60" width="40" height="60" class="target-body" /> <text x="410" y="55" class="label">T3</text>
+            <rect x="550" y="60" width="40" height="60" class="target-body" /> <text x="560" y="55" class="label">T4</text>
+
+            <circle cx="120" cy="180" r="8" class="start-pos" />
+            <text x="100" y="210" class="label">START</text>
+
+            <line x1="120" y1="180" x2="120" y2="130" class="shoot-line" style="stroke-dasharray: 2,2; opacity: 0.5;" />
+            
+            <line x1="140" y1="180" x2="230" y2="180" class="shoot-line" style="stroke-width: 3;" />
+            <line x1="290" y1="180" x2="380" y2="180" class="shoot-line" style="stroke-width: 3;" />
+            <line x1="440" y1="180" x2="530" y2="180" class="shoot-line" style="stroke-width: 3;" />
+
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>02: PRAVÉ POLEDNE</h2>
+        <div class="status-bar">
+            TERČE: 4 || START: 10M || TYPE: POHYB VPŘED-VPRAVO
+        </div>
+        <div class="legend">
+            "Vyskočil jsi z hořícího vlaku rovnou do pekla. Hlavní třída je rozpálená poledním sluncem a na jejím konci se zformovala uvítací četa. Stojíš proti nim sám uprostřed prachu. Rozhodne přesnost a rychlé nohy. Pokud zůstaneš stát, jsi mrtvý. Sundej odstřelovače a probij se k těm napájecím korytům, než tě rozstřílejí na řešeto!"
+        </div>
+        <ul>
+            <li><strong>START:</strong> Vzadu na čáře (10 m), pozice vlevo (mezi T1 a T2).</li>
+            <li><strong>KROK 1:</strong> Na signál z místa řešit T1 a T2 (střelba na dálku).</li>
+            <li><strong>KROK 2:</strong> Rychlý přesun <strong>šikmo dopředu vpravo</strong> za kryt.</li>
+            <li><strong>KROK 3:</strong> Zpoza krytu (zleva/zprava) řešit T3 a T4 (střelba na blízko).</li>
+        </ul>
+
+        <svg width="700" height="350" viewBox="0 0 700 350">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <text x="650" y="30" class="label" fill="#aaa">25m (TERČE)</text>
+            <line x1="50" y1="300" x2="650" y2="300" stroke="black" stroke-width="2" stroke-dasharray="10,5" />
+            <text x="10" y="305" class="label">10m LINE</text>
+
+            <rect x="100" y="40" width="40" height="60" class="target-body" /> <text x="110" y="35" class="label">T1</text>
+            <rect x="250" y="40" width="40" height="60" class="target-body" /> <text x="260" y="35" class="label">T2</text>
+            <rect x="400" y="40" width="40" height="60" class="target-body" /> <text x="410" y="35" class="label">T3</text>
+            <rect x="550" y="40" width="40" height="60" class="target-body" /> <text x="560" y="35" class="label">T4</text>
+
+            <circle cx="175" cy="300" r="8" class="start-pos" />
+            <text x="150" y="330" class="label">START</text>
+
+            <rect x="400" y="180" width="200" height="20" class="cover-solid" />
+            <text x="450" y="215" class="label" fill="black">KRYT (ŽLAB)</text>
+
+            <line x1="185" y1="290" x2="420" y2="210" class="shoot-line" style="stroke-width: 4; stroke-dasharray: none;" />
+            <text x="250" y="240" class="warning-text" transform="rotate(-15 250 240)">SPRINT VPRAVO</text>
+
+            <line x1="175" y1="290" x2="120" y2="100" class="shoot-line" style="opacity: 0.3;" /> <line x1="175" y1="290" x2="270" y2="100" class="shoot-line" style="opacity: 0.3;" /> <line x1="450" y1="200" x2="420" y2="100" class="shoot-line" style="opacity: 0.5;" />
+            <line x1="500" y1="200" x2="570" y2="100" class="shoot-line" style="opacity: 0.5;" />
+            
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>03: OBRANA RANČE</h2>
+        <div class="status-bar">
+            TERČE: 4 || OMEZENÍ: 6 NÁBOJŮ || TYPE: PŘEBÍJENÍ
+        </div>
+        <div class="legend">
+            "Stáhl jsi se na starou farmu za městem, abys přečkal noc a ošetřil si rány. Našli tě. Jsi obklíčen ze všech stran. Munice je skoro pryč – v bubnu tvého revolveru chrastí posledních 6 nábojů! Každá rána se musí počítat. Střílej z oken, hýbej se a nenech je, aby tě přišpendlili na místě."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Uprostřed za krytem (Start). <strong>Zbraň jen 6 nábojů!</strong></li>
+            <li><strong>PROCEDURA:</strong>
+                1. Střelba přes střed na T2 a T3.<br>
+                2. Přesun na stranu -> T1.<br>
+                3. <strong>PŘEBITÍ</strong> (ideálně za pohybu nebo v krytu).<br>
+                4. Přesun na druhou stranu -> T4.
+            </li>
+        </ul>
+
+        <svg width="700" height="300" viewBox="0 0 700 300">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <rect x="50" y="50" width="40" height="60" class="target-body" /> <text x="60" y="45" class="label">T1</text>
+            <rect x="250" y="50" width="40" height="60" class="target-body" /> <text x="260" y="45" class="label">T2</text>
+            <rect x="410" y="50" width="40" height="60" class="target-body" /> <text x="420" y="45" class="label">T3</text>
+            <rect x="610" y="50" width="40" height="60" class="target-body" /> <text x="620" y="45" class="label">T4</text>
+
+            <polyline points="150,200 150,250 550,250 550,200" fill="none" stroke="#3e2723" stroke-width="8" />
+            <rect x="300" y="246" width="100" height="8" fill="#aaa" /> <circle cx="350" cy="265" r="8" class="start-pos" />
+            <text x="330" y="290" class="label">START (6 RAN)</text>
+
+            <line x1="330" y1="260" x2="180" y2="260" class="shoot-line" />
+            <line x1="370" y1="260" x2="520" y2="260" class="shoot-line" />
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>04: POSLEDNÍ HRA (SALOON)</h2>
+        <div class="status-bar">
+            TERČE: 4 || START: VSEDĚ || TYPE: ÚSTUP
+        </div>
+        <div class="legend">
+            "Vracíš se tam, kde to všechno začalo. El Cortéz sedí u svého stolu a počítá uloupené peníze. Hudba utichla. Vzduch je hustý kouřem a napětím. Stačí jediné slovo - 'PODVÁDÍŠ' - a peklo se rozpoutá nanovo. Tas, vyřiď účty s bossem a prostřílej si cestu ven dřív, než se na tebe sesype celý bar!"
+        </div>
+        <ul>
+            <li><strong>START:</strong> V sedě za stolem <strong>vpravo</strong>. Zbraň leží na stole.</li>
+            <li><strong>KROK 1:</strong> Zvolat <strong>"TY PODVÁDÍŠ!"</strong>.</li>
+            <li><strong>KROK 2:</strong> Na signál z místa řešit T1.</li>
+            <li><strong>KROK 3:</strong> Zahájit šikmý ústup <strong>doleva</strong> směrem ke krytu. Během pohybu řešit T2.</li>
+            <li><strong>KROK 4:</strong> Zapadnout za kryt (vlevo) a dořešit T3, T4.</li>
+        </ul>
+
+        <svg width="700" height="350" viewBox="0 0 700 350">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <text x="650" y="40" class="label" fill="#aaa">25m</text>
+            <text x="650" y="150" class="label" fill="#aaa">20m</text>
+            <text x="650" y="220" class="label" fill="#aaa">17m</text>
+            <text x="650" y="300" class="label" fill="#aaa">10m</text>
+            
+            <rect x="80" y="40" width="40" height="60" class="target-body" /> <text x="90" y="35" class="label">T4</text>
+            <rect x="180" y="40" width="40" height="60" class="target-body" /> <text x="190" y="35" class="label">T3</text>
+            
+            <rect x="400" y="40" width="40" height="60" class="target-body" /> <text x="410" y="35" class="label">T2</text>
+            
+            <rect x="600" y="120" width="40" height="60" class="target-body" /> <text x="610" y="115" class="label">T1</text>
+
+            <rect x="550" y="220" width="120" height="60" class="cover-solid" />
+            <text x="580" y="255" class="label" fill="white">STŮL</text>
+            <circle cx="610" cy="300" r="8" class="start-pos" />
+            <text x="630" y="305" class="label">START</text>
+
+            <rect x="50" y="300" width="200" height="20" class="cover-solid" />
+            <text x="110" y="315" class="label" fill="white">KRYT (10m)</text>
+
+            <line x1="610" y1="300" x2="250" y2="310" class="shoot-line" style="stroke-width: 3; marker-end: url(#arrowRed);" />
+            <text x="350" y="280" class="warning-text">ÚSTUP DOLEVA</text>
+            
+            <line x1="400" y1="280" x2="420" y2="100" class="shoot-line" style="stroke-dasharray: 2,2; opacity: 0.6;" />
+            
+            <line x1="150" y1="300" x2="180" y2="100" class="shoot-line" style="stroke-dasharray: 2,2; opacity: 0.6;" />
+            <line x1="150" y1="300" x2="100" y2="100" class="shoot-line" style="stroke-dasharray: 2,2; opacity: 0.6;" />
+            
+        </svg>
+    </div>
+
+</body>
+</html>
