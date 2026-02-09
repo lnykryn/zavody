@@ -3,6 +3,8 @@
 Repozitář designů pro **zážitkovou/taktickou střelbu s příběhem**.
 Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátěží a atmosféra.
 
+🌐 **[Zobrazit scénáře online](https://lnykryn.github.io/zavody/)**
+
 ## 📂 Dostupné scénáře
 
 | Scénář | Téma | Styl | Status |
