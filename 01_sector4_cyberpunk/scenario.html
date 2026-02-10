@@ -5,251 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SECTOR 4: LOCKDOWN</title>
     <style>
-        /* --- ZÁKLADNÍ STYLY (SCREEN / NEON MODE) --- */
+        /* --- NEON MODE STYLES --- */
         body {
             font-family: 'Consolas', 'Monaco', monospace;
-            background-color: #0d0d15;
-            color: #00f3ff;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 40px;
-            padding-bottom: 60px;
-            line-height: 1.6;
+            background-color: #0d0d15; color: #00f3ff;
+            max-width: 950px; margin: 0 auto; padding: 40px;
             border-top: 5px solid #d600ff;
         }
-
-        /* Scanline efekt pro hlavičku */
         .header-container {
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 2px, 3px 100%;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #333;
-            margin-bottom: 40px;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 2px; border-bottom: 1px solid #333; margin-bottom: 30px;
         }
-
-        h1 {
-            text-align: center;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 3em;
-            text-shadow: 0 0 10px #d600ff, 0 0 20px #d600ff;
-            margin: 0 0 5px 0;
-        }
-        h2 {
-            color: #d600ff;
-            border-bottom: 2px solid #d600ff;
-            padding-bottom: 10px;
-            margin-top: 0;
-            text-transform: uppercase;
-            text-shadow: 0 0 5px #d600ff;
-            font-size: 1.8em;
-        }
-        .subtitle {
-            text-align: center;
-            color: #777;
-            margin-bottom: 30px;
-            font-size: 0.9em;
-            letter-spacing: 2px;
-        }
+        h1 { text-align: center; color: #fff; text-shadow: 0 0 10px #d600ff; margin: 0; }
+        .subtitle { text-align: center; color: #777; margin-bottom: 20px; }
+        
         .mission-brief {
-            text-align: center;
-            color: #e0e0e0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #333;
-            padding: 15px;
-            margin-bottom: 30px;
-            font-style: italic;
-            font-size: 0.95em;
-        }
-        .meta-info {
-            background: #111;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-            padding: 10px;
-            text-align: center;
-            color: #fff;
-            font-size: 0.8em;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-family: sans-serif;
+            text-align: center; color: #e0e0e0; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333; padding: 15px; margin-bottom: 20px; font-style: italic;
         }
 
-        /* Boxy */
-        .rules-box {
-            border: 1px dashed #ffe600;
-            padding: 20px;
-            margin-bottom: 40px;
-            background: rgba(255, 230, 0, 0.05);
-            box-shadow: 0 0 10px rgba(255, 230, 0, 0.1);
+        /* THEME GUIDE */
+        .theme-guide {
+            border: 1px dashed #00f3ff; background: rgba(0, 243, 255, 0.05);
+            padding: 15px; margin-bottom: 30px; font-size: 0.9em; color: #ccc;
         }
-        .rules-box h3 { margin-top: 0; color: #ffe600; text-shadow: 0 0 5px #ffe600; border-bottom: 1px dashed #ffe600; padding-bottom: 10px; display: inline-block;}
+        .theme-guide strong { color: #00f3ff; }
 
+        .rules-box { border: 1px dashed #ffe600; padding: 20px; margin-bottom: 40px; }
+        .rules-box h3 { color: #ffe600; margin-top: 0; }
+        
         .stage-box {
-            background: #111;
-            border: 1px solid #333;
-            padding: 20px;
-            margin-bottom: 60px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.05);
-            page-break-inside: avoid;
+            background: #111; border: 1px solid #333; padding: 20px; margin-bottom: 60px;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.05); page-break-inside: avoid;
         }
-        .stage-box::after {
-            content: "SEC_LEVEL_4 :: CLASSIFIED";
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            font-size: 10px;
-            color: #333;
-            opacity: 0.5;
-        }
+        h2 { color: #d600ff; border-bottom: 2px solid #d600ff; margin-top: 0; }
         
-        /* Texty */
-        .legend {
-            color: #e0e0e0;
-            background: rgba(214, 0, 255, 0.1);
-            border-left: 3px solid #d600ff;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 10px; padding-left: 25px; text-indent: -25px; }
-        li::before { content: ">> "; color: #ffe600; font-weight: bold; font-family: monospace; }
-        strong { color: #ffe600; }
-        .tech-term { color: #00f3ff; font-weight: bold; }
-        .status-bar {
-            font-size: 0.75em;
-            color: #555;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #222;
-            padding-bottom: 5px;
-            font-family: sans-serif;
-            text-transform: uppercase;
-        }
+        .status-bar { color: #555; border-bottom: 1px solid #222; margin-bottom: 15px; font-size: 0.8em; }
+        .legend { border-left: 3px solid #d600ff; padding: 15px; background: rgba(214, 0, 255, 0.1); margin-bottom: 20px; font-style: italic; color: #ddd; }
         
-        .footer-terminal {
-            text-align: center;
-            font-size: 0.8em;
-            color: #444;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-            padding-top: 10px;
-            letter-spacing: 2px;
-        }
-
-        /* --- SVG GRAFIKA (WEB NASTAVENÍ) --- */
-        svg { display: block; margin: 20px auto; overflow: visible; background: #16161e; border: 1px solid #333; }
-        
-        .grid { stroke: #222; stroke-width: 1; }
-        .wall { stroke: #00f3ff; stroke-width: 2; fill: rgba(0, 243, 255, 0.05); filter: drop-shadow(0 0 2px #00f3ff); }
-        .cover-solid { stroke: #ffe600; stroke-width: 2; fill: rgba(255, 230, 0, 0.1); }
-        
+        /* SVG */
+        svg { display: block; margin: 20px auto; background: #16161e; border: 1px solid #333; overflow: visible; }
+        .grid { stroke: #222; }
         .target-body { fill: #2a2a2a; stroke: #ff0055; stroke-width: 2px; }
-        .target-head { fill: #2a2a2a; stroke: #ff0055; stroke-width: 2px; }
-        .target-zone { fill: rgba(255, 0, 85, 0.3); stroke: none; }
-        
-        .hacker-target { stroke: #ff0000; stroke-width: 3; filter: drop-shadow(0 0 5px red); }
-        .heavy-target { stroke: #d600ff; stroke-width: 3; stroke-dasharray: 4,2; }
-        .shield-icon { fill: none; stroke: #d600ff; stroke-width: 2; opacity: 0.8; }
-        
-        .symbol-shape { fill: none; stroke: #ffe600; stroke-width: 2; filter: drop-shadow(0 0 3px #ffe600); }
-        .arrow-path { fill: none; stroke: #ffe600; stroke-width: 2; stroke-dasharray: 5,5; }
+        .cover-solid { stroke: #ffe600; stroke-width: 2; fill: rgba(255, 230, 0, 0.1); }
         .start-pos { fill: #111; stroke: #fff; stroke-width: 2; }
         .shoot-line { stroke: #ff0055; stroke-width: 1; stroke-dasharray: 2,2; opacity: 0.6; }
         .label { fill: #fff; font-size: 12px; font-family: monospace; font-weight: bold; }
-        .dist { fill: #555; font-size: 10px; }
-        .warning-text { fill: #ff0055; font-size: 11px; font-weight: bold; text-shadow: 0 0 5px #ff0055; }
+        .warning-text { fill: #ff0055; font-size: 12px; font-weight: bold; font-family: monospace; }
+        .dist { fill: #555; font-size: 10px; font-family: monospace; }
 
-        /* --- STYLY PRO TISK (KOMPAKTNÍ ECO MODE) --- */
+        /* PRINT */
         @media print {
-            body {
-                background-color: white !important;
-                color: black !important;
-                max-width: 100%;
-                padding: 0;
-                margin: 0;
-                border: none;
-                font-size: 11px; /* Zmenšené písmo pro jistotu */
-            }
-            .header-container { background: none; border-bottom: 2px solid black; margin-bottom: 10px; padding-bottom: 10px; }
-            h1 { color: black; text-shadow: none; font-size: 2.2em; margin-bottom: 0; }
-            h2 { color: black; text-shadow: none; border-bottom: 2px solid black; font-size: 1.5em; margin-bottom: 5px; }
-            .subtitle, .mission-brief { color: #333; background: none; border: none; font-style: normal; margin-bottom: 10px; }
-            .mission-brief { border-bottom: 1px solid #ccc; padding: 5px 0 10px 0; }
-            .meta-info { background: none; border: 1px solid black; color: black; font-size: 0.9em; padding: 5px; }
-            
-            .rules-box {
-                border: 2px solid black;
-                background: none;
-                box-shadow: none;
-                break-after: page;
-                padding: 15px;
-            }
-            .rules-box h3 { color: black; text-shadow: none; border-bottom: 1px solid black; }
-
-            .stage-box {
-                background: white;
-                border: 2px solid black;
-                box-shadow: none;
-                margin-bottom: 0;
-                /* Změna pro lepší fit: */
-                height: auto; 
-                min-height: 95vh;
-                padding: 10px; /* Menší padding */
-                break-before: page;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
-            .stage-box::after { color: #999; content: "PRINT_VER_2077"; bottom: 2px; right: 5px; }
-            
-            .legend { color: black; background: #f0f0f0; border-left: 4px solid black; padding: 10px; margin-bottom: 10px; }
-            ul { margin-top: 5px; margin-bottom: 5px; }
-            ul li { margin-bottom: 4px; }
-            ul li::before { color: black; }
-            strong { color: black; text-decoration: underline; }
-            .tech-term { color: black; font-weight: bold; }
-            .status-bar { color: #333; border-bottom: 1px solid #ccc; margin-bottom: 10px; font-size: 0.85em; }
-
-            /* SVG PŘEPIS PRO TISK */
-            svg { 
-                background: white !important; 
-                border: 1px solid #ccc; 
-                margin: 5px auto; /* Menší mezera kolem nákresu */
-                max-height: 280px; /* Omezení výšky, aby neutekl nákres */
-                width: auto;
-            }
-            .grid { stroke: #eee; }
-            .wall { stroke: black; fill: none; filter: none; stroke-width: 3; }
-            .cover-solid { stroke: black; fill: #ddd; stroke-width: 2; }
-            
-            /* FIX PRO TISK TERČŮ */
-            .target-body, .target-head { 
-                fill: #ddd !important;
-                stroke: black !important;
-                stroke-width: 2px !important;
-            }
-            .target-zone { fill: #bbb !important; opacity: 1; }
-            
-            /* Speciální barvy pro tisk */
-            .hacker-target { stroke: black !important; stroke-width: 3 !important; stroke-dasharray: 2,2; filter: none; }
-            .heavy-target { stroke: black !important; stroke-width: 4 !important; }
-            .shield-icon { stroke: black !important; stroke-width: 2 !important; }
-            .symbol-shape { stroke: black !important; filter: none; }
-            
-            .arrow-path { stroke: black !important; }
-            .start-pos { fill: white !important; stroke: black !important; }
+            body { background: white !important; color: black !important; border: none; padding: 0; }
+            .theme-guide { border: 1px solid #ccc; color: #333; background: none; }
+            .stage-box { break-before: page; border: 2px solid black; background: white; box-shadow: none; }
+            svg { background: white !important; border: 1px solid #ccc; }
+            .target-body { fill: #ddd !important; stroke: black !important; }
             .shoot-line { stroke: #999 !important; }
-            .label { fill: black !important; font-weight: bold; }
-            .dist { fill: black !important; }
-            .warning-text { fill: black !important; text-decoration: underline; text-shadow: none; }
-            
-            /* Barvy tříd pro tisk */
-            strong[style*="color: #00f3ff"] { color: black !important; font-style: italic; }
-            strong[style*="color: #ff0055"] { color: black !important; font-weight: 900; }
-            
-            .footer-terminal { display: none; } /* Na tisku není potřeba, šetří místo */
+            h1, h2, strong { color: black !important; text-shadow: none; }
+            .cover-solid { fill: #eee !important; stroke: black !important; }
         }
     </style>
 </head>
@@ -257,238 +71,161 @@
 
     <div class="header-container">
         <h1>SECTOR 4: LOCKDOWN</h1>
-        <div class="subtitle">// OPERATION: ASSET RECOVERY // TACTICAL SIMULATION //</div>
+        <div class="subtitle">// OPERATION: ASSET RECOVERY //</div>
         
         <div class="mission-brief">
-            <strong>MISSION BRIEFING:</strong> Korporace Arasaka zadržuje klíčového svědka (Subjekt Zero) v silně střeženém Sektoru 4. Tvým úkolem je infiltrovat vnější perimetr, probít se přes zásahové jednotky v technickém zázemí, neutralizovat kybernetickou ochranu datového centra a provést extrakci cíle dříve, než dorazí posily.
+            <strong>MISSION BRIEFING:</strong> Korporace Arasaka zadržuje klíčového svědka. Tvým úkolem je infiltrovat perimetr, probít se přes ostrahu a extrahovat cíl dříve, než dorazí posily Max-Tac.
         </div>
 
-        <div class="meta-info">
-            DATE: 2077-11-24 &nbsp;|&nbsp; LOCATION: SECTOR 4 &nbsp;|&nbsp; STATUS: LIVE FIRE &nbsp;|&nbsp; TIME: 02:00 AM
+        <div class="theme-guide">
+            <strong>// STYLE GUIDE: CYBERPUNK //</strong><br>
+            <em>"High Tech, Low Life."</em><br>
+            Temná budoucnost (rok 2077). Svět ovládají bezohledné megakorporace. Pokročilá technologie, neony, déšť a špinavé ulice. Hrdinové jsou "Edgerunners" – žoldáci na okraji společnosti bojující proti systému.
         </div>
     </div>
 
     <div class="rules-box">
         <h3>SYSTEM PROTOCOLS</h3>
         <ul>
-            <li><span class="tech-term">[SAFETY_OVERRIDE]:</span> Střelba povolena pouze kolmo do lapačů. Zásah stropu, podlahy nebo bočních stěn znamená okamžité ukončení simulace (DQ).</li>
-            <li><span class="tech-term">[STEALTH_MECHANICS]:</span> Aplikujte standardní obranné procedury (Pieing). Z krytu nesmí být exponována žádná část těla kromě zbraně a nezbytné části hlavy.</li>
-            <li><span class="tech-term">[RELOAD_ROUTINE]:</span> Přebíjení provádět výhradně v krytu.</li>
-            <li><span class="tech-term">[SCORING_ALGORITHM]:</span> Vyhodnocení dle standardu LOS.</li>
+            <li><strong>[SAFETY]:</strong> Střelba pouze kolmo do lapačů (180°).</li>
+            <li><strong>[STEALTH]:</strong> Využívej krytí (Pieing). Z krytu vykukuje jen zbraň a část hlavy.</li>
+            <li><strong>[TARGETS]:</strong> Všechny terče jsou papírové. Kovové implantáty (poppery) nejsou přítomny.</li>
         </ul>
     </div>
 
     <div class="stage-box">
         <h2>01: CHECKPOINT DELTA</h2>
-        <div class="status-bar">
-            DISTANCE: 3-10M || HOSTILES: 3 || TYPE: INFILTRATION
-        </div>
+        <div class="status-bar">DISTANCE: 5-7M || HOSTILES: 3 || TYPE: WARM-UP</div>
         <div class="legend">
-            "První fáze operace: Infiltrace Sektoru 4. Měla to být jen rutinní formalita na vnějším perimetru. Stojíš v biometrickém skeneru, ruce od těla, když se kontrolka náhle změní ze zelené na rudou. 'NARUŠITEL DETEKOVÁN,' zahlásí syntetický hlas a hermetická vrata se začínají zavírat. Jsi v pasti. Reaguj okamžitě! Tas, vyčisti bezprostřední hrozbu a dostaň se do krytu za masivní recepční pult, než dorazí velitel ostrahy (Těžkooděnec). Pozor, má zesílený plát – dvě rány mu stačit nebudou!"
+            "Rutinní kontrola na vnějším perimetru. Skener se rozblikal červeně. 'NARUŠITEL DETEKOVÁN'. Ostraha sahá po zbraních. Jsi rychlejší. Tas a vyčisti prostor, než se spustí hlavní poplach."
         </div>
         <ul>
-            <li><strong>DEPLOYMENT:</strong> Střelec stojí uvnitř vyznačeného čtverce (Skener). <strong>Zbraň v pouzdře (nabito)</strong>, ruce mírně od těla, dlaně směřují vpřed (pozice "Skener").</li>
-            <li><strong>EXECUTION:</strong>
-                1. Na signál tasit a řešit blízké cíle T1 a T2.<br>
-                2. Přesun vpřed/do boku za <strong>vysoký horizontální kryt</strong> (Recepční pult).<br>
-                3. Zpoza pultu řešit T3 (Těžkooděnec) -> <strong>NUTNÉ 4 ZÁSAHY!</strong>
-            </li>
+            <li><strong>START:</strong> Ve stoje na vyznačené značce (Skener). Zbraň skrytě/v pouzdře. Uvolněný postoj.</li>
+            <li><strong>EXECUTION:</strong> Na signál tasit a řešit terče T1, T2 a T3 (dva výstřely na každý).</li>
         </ul>
-        
-        <svg width="700" height="300" viewBox="0 0 700 300">
+        <svg width="700" height="250" viewBox="0 0 700 250">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="10" x2="690" y2="10" class="wall" /> 
-
             <defs>
                 <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#222" stroke-width="1"/></pattern>
-                <symbol id="badguy" viewBox="0 0 40 60">
-                    <rect x="5" y="15" width="30" height="40" class="target-body" />
-                    <rect x="12" y="0" width="16" height="12" class="target-head" />
-                    <circle cx="20" cy="35" r="5" class="target-zone" />
-                </symbol>
-                <marker id="arrowNeon" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L9,3 z" fill="#ffe600" />
-                </marker>
-                <path id="shield" d="M 5 15 L 35 15 L 35 40 Q 20 55 5 40 Z" class="shield-icon" fill="none"/>
+                <marker id="arrowNeon" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ffe600" /></marker>
+                <g id="badguy"><rect width="40" height="60" class="target-body" /><rect x="10" y="-20" width="20" height="20" class="target-body" /></g>
             </defs>
-
-            <use href="#badguy" x="200" y="50" width="40" height="60" /> <text x="210" y="45" class="label">T1</text>
-            <use href="#badguy" x="350" y="50" width="40" height="60" /> <text x="360" y="45" class="label">T2</text>
             
-            <g transform="translate(550, 30)">
-                <rect x="5" y="15" width="30" height="40" class="target-body heavy-target" />
-                <rect x="12" y="0" width="16" height="12" class="target-head heavy-target" />
-                <use href="#shield" x="0" y="0" /> <text x="10" y="-5" class="label">T3</text>
-                <text x="-15" y="75" class="warning-text">4 RÁNY!</text>
-            </g>
+            <use href="#badguy" x="200" y="50" /> <text x="210" y="45" class="label">T1</text>
+            <use href="#badguy" x="350" y="50" /> <text x="360" y="45" class="label">T2</text>
+            <use href="#badguy" x="500" y="50" /> <text x="510" y="45" class="label">T3</text>
 
-            <rect x="250" y="220" width="80" height="50" stroke="#00f3ff" stroke-width="2" fill="none" stroke-dasharray="5,2"/>
-            <text x="265" y="250" class="label" fill="#00f3ff">SKENER</text>
-            <text x="270" y="290" class="dist">START</text>
-            <circle cx="290" cy="245" r="5" class="start-pos" />
-
-            <rect x="450" y="200" width="120" height="20" class="cover-solid" />
-            <text x="460" y="240" class="label" fill="#ffe600">VYSOKÝ PULT</text>
-
-            <line x1="290" y1="220" x2="220" y2="110" class="shoot-line" />
-            <line x1="290" y1="220" x2="370" y2="110" class="shoot-line" />
-            <path d="M 330 245 L 480 230" class="arrow-path" marker-end="url(#arrowNeon)" />
-            <line x1="510" y1="200" x2="570" y2="90" class="shoot-line" />
+            <circle cx="350" cy="200" r="8" class="start-pos" />
+            <text x="330" y="230" class="label">START</text>
+            <line x1="350" y1="200" x2="220" y2="80" class="shoot-line" />
+            <line x1="350" y1="200" x2="370" y2="80" class="shoot-line" />
+            <line x1="350" y1="200" x2="520" y2="80" class="shoot-line" />
         </svg>
     </div>
 
     <div class="stage-box">
         <h2>02: CORRIDOR B-12</h2>
-        <div class="status-bar">
-            DISTANCE: 5-15M || HOSTILES: 4 || TYPE: CONTACT FRONT
-        </div>
+        <div class="status-bar">DISTANCE: 5-15M || TYPE: DYNAMIC MOVEMENT</div>
         <div class="legend">
-            "Perimetr prolomen, postupuješ do hloubky komplexu. Alarm na recepci ale uzavřel hlavní trasy, takže musíš projít přes technické zázemí koridoru B-12. Špatná zpráva: Právě tam dorazila Zásahová jednotka (Rapid Response Team), která pročesává sektor. Narazil jsi přímo na jejich předsunutého pátrače (T1). Stojíš uprostřed servisní chodby bez krytí. Musíš ho eliminovat agresivním postupem vpřed dříve, než stačí zformovat obranu, a pak se vypořádat se zbytkem týmu zpoza rohu."
+            "Perimetr prolomen. Postupuješ do hloubky komplexu. Narazil jsi na hlídku v technické chodbě. Musíš je zatlačit a dostat se do krytu dřív, než tě přišpendlí palbou."
         </div>
         <ul>
-            <li><strong>DEPLOYMENT:</strong> <strong>Vpravo</strong> vzadu. <strong>Zbraň v pouzdře (nabito)</strong>.</li>
-            <li><strong>EXECUTION:</strong>
-                1. Na signál tasit a zahájit pohyb <strong>PŘÍMO VPŘED</strong>.<br>
-                2. <strong>ZA CHŮZE VPŘED</strong> řešit nejbližší cíl <strong>T1</strong>.<br>
-                3. Přesunout se <strong>DOLEVA</strong> za vertikální kryt. Odtud postupně ("vykrájením") vyřešit <strong>T2, T3 a T4</strong>.
+            <li><strong>START:</strong> Vzadu v prostoru. Zbraň v pouzdře.</li>
+            <li><strong>EXECUTION:</strong> 
+                1. Tasit a za pohybu VPŘED řešit T1.<br>
+                2. Doběhnout za kryt (vlevo).<br>
+                3. Zpoza krytu vyřešit T2, T3 a T4.
             </li>
         </ul>
-
-        <svg width="700" height="400" viewBox="0 0 700 400">
+        <svg width="700" height="300" viewBox="0 0 700 300">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="10" x2="690" y2="10" class="wall" />
-
-            <use href="#badguy" x="60" y="50" width="40" height="60" /> <text x="70" y="45" class="label">T4</text>
-            <use href="#badguy" x="180" y="50" width="40" height="60" /> <text x="190" y="45" class="label">T3</text>
-            <use href="#badguy" x="300" y="50" width="40" height="60" /> <text x="310" y="45" class="label">T2</text>
-
-            <use href="#badguy" x="530" y="100" width="40" height="60" /> 
-            <text x="540" y="90" class="label">T1 (ZA POHYBU)</text>
-
-            <rect x="260" y="250" width="40" height="40" class="cover-solid" />
-            <text x="200" y="310" class="label" fill="#ffe600">VERTIKÁLNÍ KRYT</text>
-
-            <circle cx="550" cy="350" r="10" class="start-pos" />
-            <text x="530" y="380" class="label">START</text>
-
-            <path d="M 550 350 L 550 250 L 320 270" class="arrow-path" marker-end="url(#arrowNeon)" stroke-width="3" />
+            <use href="#badguy" x="250" y="50" /> <text x="260" y="45" class="label">T2</text>
+            <use href="#badguy" x="400" y="50" /> <text x="410" y="45" class="label">T3</text>
+            <use href="#badguy" x="550" y="50" /> <text x="560" y="45" class="label">T4</text>
             
-            <text x="560" y="300" class="dist" fill="#ff0055">CHŮZE VPŘED (T1)</text>
+            <use href="#badguy" x="350" y="150" opacity="0.5" /> 
+            <text x="300" y="140" class="label">T1 (ZA POHYBU)</text>
 
-            <line x1="550" y1="300" x2="550" y2="160" class="shoot-line" stroke-width="2" /> <line x1="280" y1="250" x2="320" y2="110" class="shoot-line" /> <line x1="270" y1="260" x2="200" y2="110" class="shoot-line" /> <line x1="260" y1="270" x2="80" y2="110" class="shoot-line" /> </svg>
-    </div>
+            <rect x="150" y="220" width="40" height="40" class="cover-solid" />
+            <text x="100" y="250" class="label" fill="#ffe600">KRYT</text>
 
-    <div class="stage-box" style="border: 2px solid #ff0055;">
-        <h2 style="color: #ff0055; border-bottom-color: #ff0055;">03: SYSTEM COMPROMISED</h2>
-        <div class="status-bar">
-            DISTANCE: 5-25M || HOSTILES: 4 || TYPE: CYBERNETIC BREACH
-        </div>
-        <div class="legend">
-            "Vstup do datového centra. Obranný systém detekoval vniknutí a aktivoval specialistu na kyber-bezpečnost. Ten ti prolomil ICE a dálkově odpálil serva v silné ruce. Je to jen mrtvá váha. Jsi v bezpečí za zdí serverovny a přes průzory vidíš, že bezpečnostní tým drží pozice – myslí si, že jsi vyřízený. To je tvá šance. Buď přijmeš nevýhodu a zkusíš je 'vyzobat' slabou rukou přes okna, nebo využiješ stínů v chodbě, proběhneš jim pod nosem a provedeš 'hard reset' – vyřídíš specialistu zblízka. Jakmile padne, systém naskočí a ty můžeš dořešit zbytek plnou silou."
-        </div>
-        <ul>
-            <li><strong>DEPLOYMENT:</strong> Vzadu vlevo za vzdáleným krytem. <strong>Zbraň držená ve SLABÉ RUCE (nabito, náboj v komoře)</strong>, hlaveň se dotýká vyznačeného bodu na krytu (Safety).</li>
-            <li><strong>SYSTEM PROTOCOLS:</strong>
-                <ul>
-                    <li>Dokud není zneškodněn <strong>T4 (Specialista)</strong>, smíš střílet <strong>POUZE SLABOU RUKOU</strong>.</li>
-                    <li>Jakmile je T4 zasažen, systém se obnoví = smíš střílet obouruč.</li>
-                </ul>
-            </li>
-            <li><strong>EXECUTION (VOLBA TAKTIKY):</strong>
-                <ul>
-                    <li><strong style="color: #00f3ff;">CLASS: AMBIDEXTER:</strong> Vyřešit T1 a T2 z dálky (Slabá ruka), pak postupovat na T4 a T3.</li>
-                    <li><strong style="color: #ff0055;">CLASS: RUSHER:</strong> Běžet hned dopředu na T4 (Slabá ruka), poté už Obouruč T3 a zbytek.</li>
-                </ul>
-            </li>
-        </ul>
-
-        <svg width="700" height="400" viewBox="0 0 700 400">
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="10" x2="690" y2="10" class="wall" /> 
+            <circle cx="550" cy="250" r="8" class="start-pos" />
+            <text x="530" y="280" class="label">START</text>
             
-            <text x="650" y="30" class="dist">25m</text>
-            <line x1="630" y1="10" x2="630" y2="380" class="shoot-line" style="opacity:0.2"/>
-
-            <use href="#badguy" x="100" y="40" width="40" height="60" /> <text x="110" y="35" class="label">T1</text>
-            <use href="#badguy" x="200" y="40" width="40" height="60" /> <text x="210" y="35" class="label">T2</text>
-            <use href="#badguy" x="450" y="40" width="40" height="60" /> <text x="460" y="35" class="label">T3</text>
-            
-            <g transform="translate(550, 40)">
-                <rect x="5" y="15" width="30" height="40" class="target-body hacker-target" />
-                <rect x="12" y="0" width="16" height="12" class="target-head hacker-target" />
-                <circle cx="20" cy="35" r="5" class="target-zone" fill="red"/>
-                <text x="-10" y="-10" class="warning-text">SPECIALISTA (T4)</text>
-            </g>
-
-            <rect x="50" y="350" width="200" height="20" class="cover-solid" />
-            <text x="100" y="390" class="label">START (KRYT A)</text>
-            <circle cx="80" cy="380" r="10" class="start-pos" />
-
-            <rect x="450" y="200" width="200" height="20" class="cover-solid" />
-            <text x="500" y="240" class="label">KRYT B (BLÍZKO)</text>
-
-            <path d="M 150 350 L 450 220" class="arrow-path" marker-end="url(#arrowNeon)" stroke-width="3" />
-            <text x="250" y="300" class="dist" transform="rotate(-20 250,300)" fill="#ffe600">PŘESUN</text>
-
-            <text x="50" y="330" class="warning-text">SYSTEM: OFFLINE (SLABÁ RUKA)</text>
+            <path d="M 550 250 L 550 200 L 200 240" fill="none" stroke="#ffe600" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowNeon)" />
         </svg>
     </div>
 
-    <div class="stage-box">
-        <h2>04: RECOGNITION FAILURE</h2>
+    <div class="stage-box" style="border: 2px solid #ff0055;">
+        <h2 style="color: #ff0055; border-bottom-color: #ff0055;">03: ADAPTIVE ICE PROTOCOL</h2>
         <div class="status-bar">
-            DISTANCE: 5-10M || HOSTILES: 3 || TYPE: VIP EXTRACTION
+            DISTANCE: 10-15M || TYPE: ADAPTIVE FAILURE (SHO -> WHO)
         </div>
         <div class="legend">
-            "Finále: Extrakce. Vrazil jsi do VIP salónku, ale ochranka byla připravena. Aktivovali 'Protokol Dvojník' – elitní gardisté spustili holografické maskování a vypadají identicky jako tvůj cíl, aby ho skryli v davu a mohli ho vyvést. Jediný rozdíl je v digitálním podpisu na ID kartě. Bleskově identifikuj Subjekt Zero, nestřílej na něj (No-Shoot) a zlikviduj gardu (ostatní symboly), která se ho snaží odvést. A kryj se! Jejich palba je hustá a tvůj jediný kryt – <strong>masivní dekorativní stěna salónku</strong> – už se rozpadá na kusy. Pro každou ránu musíš najít jinou skulinu v rozstříleném obložení, abys je dostal."
+            "Útočíš na jádro. Obranná AI se učí. První virus ti vyřadil pomocná serva (Slabá ruka OFFLINE). Proraz první linii hrubou silou. Během přesunu se ale ICE adaptuje na tvůj styl boje a udeří na dominantní paži! Silná ruka 'zamrzla'. Musíš dokončit hackování přes záložní obvody (Slabá ruka)."
         </div>
         <ul>
-            <li><strong>INTEL:</strong> Na terčích T1-T4 jsou symboly (Čtverec, Kolo, Trojúhelník, Kříž).</li>
-            <li><strong>DEPLOYMENT:</strong> Střelec stojí <strong>zády k terčům</strong> před V-TAC bariérou. Drží kartu se symbolem. <strong>Zbraň v pouzdře (nabito)</strong>.</li>
-            <li><strong>EXECUTION:</strong>
-                1. Na signál se otočit a tasit.<br>
-                2. Identifikovat VIP (symbol na kartě) -> <strong>NESTŘÍLET!</strong> (No-Shoot / PENALIZACE).<br>
-                3. Neutralizovat ostatní 3 cíle (Garda).<br>
-                4. <strong>POZOR:</strong> Každý cíl musí být zasažen skrz <strong>JINÝ OTVOR</strong> v bariéře.
+            <li><strong>START:</strong> Vzadu (15m). Zbraň v <strong>SILNÉ RUCE</strong>. Slabá ruka volně podél těla (simulace poruchy).</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Na signál řešit T1 a T2 pouze <strong>SILNOU RUKOU</strong>.<br>
+                2. Přesun vpřed za kryt. (Během pohybu se 'restartuje' slabá, ale 'zamrzá' silná).<br>
+                3. Zpoza krytu řešit T3 a T4 pouze <strong>SLABOU RUKOU</strong>.
             </li>
         </ul>
-
         <svg width="700" height="300" viewBox="0 0 700 300">
             <rect width="100%" height="100%" fill="url(#grid)" />
             <line x1="10" y1="10" x2="690" y2="10" class="wall" />
 
-            <g transform="translate(100, 30)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-10" class="label">T1</text>
-                <rect x="10" y="-30" width="20" height="20" class="symbol-shape" />
-            </g>
-            <g transform="translate(250, 30)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-10" class="label">T2</text>
-                <circle cx="20" cy="-20" r="10" class="symbol-shape" />
-            </g>
-            <g transform="translate(400, 30)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-10" class="label">T3</text>
-                <polygon points="20,-30 10,-10 30,-10" class="symbol-shape" />
-            </g>
-            <g transform="translate(550, 30)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-10" class="label">T4</text>
-                <line x1="10" y="-30" x2="30" y2="-10" class="symbol-shape"/> <line x1="30" y1="-30" x2="10" y2="-10" class="symbol-shape"/>
-            </g>
+            <use href="#badguy" x="200" y="50" /> <text x="210" y="45" class="label">T1</text>
+            <use href="#badguy" x="500" y="50" /> <text x="510" y="45" class="label">T2</text>
+            
+            <line x1="50" y1="280" x2="650" y2="280" stroke="#00f3ff" stroke-dasharray="5,5" />
+            <text x="20" y="285" class="dist">15m LINE</text>
+            <circle cx="350" cy="280" r="8" class="start-pos" />
+            <text x="320" y="310" class="label">START (SILNÁ)</text>
 
-            <rect x="150" y="200" width="400" height="15" class="cover-solid" />
-            <text x="350" y="235" class="label" text-anchor="middle" fill="#ffe600">V-TAC BARIÉRA</text>
-            <rect x="180" y="200" width="30" height="15" fill="#111" stroke="none"/>
-            <rect x="280" y="200" width="30" height="15" fill="#111" stroke="none"/>
-            <rect x="380" y="200" width="30" height="15" fill="#111" stroke="none"/>
-            <rect x="480" y="200" width="30" height="15" fill="#111" stroke="none"/>
+            <rect x="250" y="180" width="200" height="20" class="cover-solid" stroke="#ff0055" />
+            <text x="280" y="215" class="label" fill="#ff0055">FIREWALL (10m)</text>
 
-            <circle cx="350" cy="260" r="10" class="start-pos" />
-            <text x="350" y="290" class="label" text-anchor="middle">START (ZÁDY)</text>
-            <path d="M 340 255 A 15 15 0 1 0 360 255" fill="none" stroke="#ffe600" stroke-width="2" marker-end="url(#arrowNeon)" />
+            <use href="#badguy" x="100" y="120" /> <text x="110" y="115" class="label">T3</text>
+            <use href="#badguy" x="600" y="120" /> <text x="610" y="115" class="label">T4</text>
+
+            <path d="M 350 270 L 350 210" class="arrow-path" marker-end="url(#arrowNeon)" stroke-width="3" />
+            <text x="360" y="250" class="dist" fill="#ffe600">ADAPTACE ICE</text>
+            <text x="500" y="200" class="warning-text">SLABÁ RUKA</text>
         </svg>
     </div>
 
-    <div class="footer-terminal">
-        // END OF FILE // ARASAKA SECURITY PROTOCOLS VER. 2.4 // SESSION TERMINATED
+    <div class="stage-box">
+        <h2>04: EXTRACTION POINT</h2>
+        <div class="status-bar">DISTANCE: 5-10M || TYPE: NO-SHOOTS</div>
+        <div class="legend">
+            "Finále. VIP cíl je v davu civilistů. Arasaka poslala komando, aby ho zlikvidovala i s rukojmími. Identifikuj hrozby. Nestřílej na civilisty (Bílé terče). Zachraň cíl a zmiz!"
+        </div>
+        <ul>
+            <li><strong>START:</strong> Zády k terčům. Ruce nad hlavou.</li>
+            <li><strong>EXECUTION:</strong> Otočení, identifikace cílů. T1-T3 (Hrozby) řešit. NS1-NS2 (Civilisté) NESTŘÍLET (+10s penalizace).</li>
+        </ul>
+        <svg width="700" height="250" viewBox="0 0 700 250">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <g transform="translate(150,50)">
+                <use href="#badguy" /> <text x="10" y="-5" class="label">T1</text>
+            </g>
+            <g transform="translate(200,60)">
+                <rect width="40" height="60" fill="#ddd" stroke="#fff" stroke-width="2" /> <text x="10" y="-5" class="label" fill="#fff">NS1</text>
+                <line x1="0" y1="0" x2="40" y2="60" stroke="#fff" stroke-width="2"/>
+            </g>
+            <g transform="translate(350,50)">
+                <use href="#badguy" /> <text x="10" y="-5" class="label">T2</text>
+            </g>
+             <g transform="translate(550,50)">
+                <use href="#badguy" /> <text x="10" y="-5" class="label">T3</text>
+            </g>
+
+            <circle cx="350" cy="200" r="8" class="start-pos" />
+            <text x="320" y="230" class="label">START (ZÁDY)</text>
+        </svg>
     </div>
 
 </body>
