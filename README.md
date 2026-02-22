@@ -7,10 +7,11 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 
 ## 📂 Dostupné scénáře
 
-| Scénář | Téma | Styl | Status |
-| :--- | :--- | :--- | :--- |
-| **[01_sector4_cyberpunk](./01_sector4_cyberpunk/scenario.html)** | 🤖 Sci-Fi / Cyberpunk | Neon Mode | ✅ Hotovo |
-| **[02_el_cortez_western](./02_el_cortez_western/scenario.html)** | 🤠 Western / 1885 | Sepia Mode | ✅ Hotovo |
+| Scénář | Téma |
+| :--- | :--- |
+| **[01_sector4_cyberpunk](./01_sector4_cyberpunk/scenario.html)** | 🤖 Sci-Fi / Cyberpunk |
+| **[02_el_cortez_western](./02_el_cortez_western/scenario.html)** | 🤠 Western / 1885 |
+| **[03_excommunicado](./03_excommunicado/scenario.html)** | 🕴️ Akce / John Wick |
 
 ## 🖨️ Formát "Smart Hybrid"
 Jeden HTML soubor funguje pro web i tisk:
