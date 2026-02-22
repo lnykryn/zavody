@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCOMMUNICADO: THE CONTINENTAL</title>
+    <style>
+        /* --- EXCOMMUNICADO STYLES (GOLD & BLACK) --- */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px;
+            padding-bottom: 60px;
+            line-height: 1.6;
+            border-top: 5px solid #d4af37;
+        }
+
+        .header-container {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        h2 {
+            color: #d4af37;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 10px;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.8em;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1em;
+            letter-spacing: 4px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .mission-brief {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid #d4af37;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .rules-box {
+            border: 1px solid #8a0303;
+            padding: 20px;
+            margin-bottom: 40px;
+            background: rgba(138, 3, 3, 0.05);
+        }
+        .rules-box h3 { margin-top: 0; color: #8a0303; text-transform: uppercase; letter-spacing: 2px;}
+
+        .stage-box {
+            background: #111;
+            border: 1px solid #222;
+            padding: 25px;
+            margin-bottom: 60px;
+            position: relative;
+            page-break-inside: avoid;
+        }
+        
+        .legend {
+            color: #ccc;
+            border-left: 3px solid #8a0303;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        ul { list-style: none; padding-left: 0; font-family: 'Arial', sans-serif; }
+        li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
+        li::before { content: "♦ "; color: #d4af37; }
+        strong { color: #d4af37; }
+
+        .status-bar {
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- SVG GRAFIKA --- */
+        svg { display: block; margin: 20px auto; overflow: visible; background: #0f0f0f; border: 1px solid #333; }
+        .grid { stroke: #1a1a1a; stroke-width: 1; }
+        .wall { stroke: #d4af37; stroke-width: 2; fill: rgba(212, 175, 55, 0.05); }
+        .cover-solid { stroke: #888; stroke-width: 2; fill: #222; }
+        
+        .target-body { fill: #2a2a2a; stroke: #555; stroke-width: 2px; }
+        .target-head { fill: #2a2a2a; stroke: #555; stroke-width: 2px; }
+        .hostage-cover { fill: #fff; stroke: #333; stroke-width: 1px; opacity: 0.9; }
+        
+        .arrow-path { fill: none; stroke: #8a0303; stroke-width: 2; stroke-dasharray: 5,5; }
+        .start-pos { fill: #111; stroke: #d4af37; stroke-width: 2; }
+        .shoot-line { stroke: #8a0303; stroke-width: 1; stroke-dasharray: 2,2; opacity: 0.6; }
+        .label { fill: #ccc; font-size: 12px; font-family: sans-serif; font-weight: bold; }
+        .dist { fill: #666; font-size: 10px; font-family: sans-serif; }
+        .warning-text { fill: #8a0303; font-size: 11px; font-weight: bold; font-family: sans-serif; text-transform: uppercase;}
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            body { background: white !important; color: black !important; border: none; font-size: 12px; }
+            h1, h2, strong { color: black !important; text-shadow: none; }
+            .mission-brief, .rules-box, .stage-box { background: none; border: 1px solid black; break-inside: avoid; }
+            .stage-box { break-before: auto; border: 2px solid black; }
+            svg { background: white !important; border: 1px solid #ccc; max-height: 280px; width: auto; }
+            .grid { stroke: #eee; }
+            .wall, .cover-solid { stroke: black; fill: #ddd; }
+            .target-body, .target-head { fill: #eee !important; stroke: black !important; }
+            .arrow-path, .shoot-line { stroke: black !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" class="grid"/>
+            </pattern>
+            <symbol id="badguy" viewBox="0 0 40 60">
+                <rect x="5" y="15" width="30" height="40" class="target-body" />
+                <rect x="12" y="0" width="16" height="12" class="target-head" />
+                <rect x="15" y="25" width="10" height="15" fill="rgba(212,175,55,0.2)" />
+            </symbol>
+            <symbol id="badguy-hostage" viewBox="0 0 40 60">
+                <rect x="5" y="15" width="30" height="40" class="target-body" />
+                <rect x="12" y="0" width="16" height="12" class="target-head" />
+                <path d="M 0 10 L 20 10 L 20 60 L 0 60 Z" class="hostage-cover" />
+                <circle cx="10" cy="20" r="5" fill="#333" />
+            </symbol>
+            <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#8a0303" />
+            </marker>
+        </defs>
+    </svg>
+
+    <div class="header-container">
+        <h1>EXCOMMUNICADO</h1>
+        <div class="subtitle">// STATUS: ACTIVE // BOUNTY: $14,000,000 //</div>
+        <div class="mission-brief">
+            Myslel jsi, že máš ještě čas zmizet dřív, než se tvé jméno objeví na displejích lovců odměn. Chyba. Status Excommunicado byl aktivován právě teď. Z přátel jsou lovci, z bezpečného úkrytu je past. Nemáš plán, máš jen své instinkty a 9mm železa v pouzdře. Přežij tohle ráno.
+        </div>
+    </div>
+
+    <div class="rules-box">
+        <h3>Pravidla Managementu</h3>
+        <ul>
+            <li><strong>BEZPEČNOST:</strong> Všechny terče jsou umístěny na zadních lapačích (25m). Střelba přísně v úhlu 180°.</li>
+            <li><strong>KRYTÍ:</strong> Sloupy (V-TAC) musí být využívány k taktickému krytí (Pieing).</li>
+            <li><strong>PENALIZACE:</strong> Zásah civilisty (bílý neterč) se trestá dle standardních pravidel. Neplnění procedury znamená časovou penalizaci.</li>
+        </ul>
+    </div>
+
+    <div class="stage-box">
+        <h2>01: Zrádné ráno</h2>
+        <div class="status-bar">METERS: Kontaktní start -> Přesun vpřed a vpravo || TARGETS: 3 || TYPE: REACT & ASSAULT</div>
+        <div class="legend">
+            "Sedíš u baru v Continentalu, v ruce poslední poctivý kafe. Najednou se sálem rozlehne sborové pípnutí – notifikace o novém kontraktu na 14 milionů dolarů dorazila všem. Barista, který ti ještě před minutou přál dobré ráno, pouští utěrku a sahá pod pult pro zbraň. Tohle nebude klidná snídaně."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Střelec stojí těsně před barmanem (v levé části střelnice). Zbraň nabitá v pouzdře. Slabá ruka drží kelímek s kávou před hrudníkem, silná volně.</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Na signál zahodit kávu a tasit.<br>
+                2. Na velmi krátkou vzdálenost vyřešit <strong>T1 (Barman vlevo)</strong>.<br>
+                3. Dynamický přesun <strong>VPŘED a DOPRAVA</strong> za V-TAC bariéru (sloup).<br>
+                4. Zpoza hran bariéry vyřešit <strong>T2 a T3 (vpravo na 25m)</strong>.
+            </li>
+        </ul>
+        <svg width="700" height="300" viewBox="0 0 700 300">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <line x1="10" y1="50" x2="690" y2="50" class="wall" /> <text x="20" y="45" class="dist">25m LAPAČ</text>
+            
+            <use href="#badguy" x="400" y="20" width="40" height="60" /> <text x="410" y="15" class="label">T2</text>
+            <use href="#badguy" x="550" y="20" width="40" height="60" /> <text x="560" y="15" class="label">T3</text>
+            
+            <use href="#badguy" x="80" y="120" width="40" height="60" /> <text x="90" y="115" class="label">T1 (Barman)</text>
+            <line x1="50" y1="190" x2="160" y2="190" class="wall" stroke-width="4" /> <text x="55" y="185" class="label">BAROVÝ PULT</text>
+            
+            <circle cx="100" cy="220" r="8" class="start-pos" />
+            <text x="115" y="225" class="label">START (10m vlevo)</text>
+            
+            <line x1="100" y1="210" x2="100" y2="190" class="shoot-line" stroke-width="2" />
+
+            <rect x="350" y="140" width="80" height="20" class="cover-solid" />
+            <text x="355" y="175" class="label" fill="#d4af37">SLOUP (15m)</text>
+            
+            <path d="M 120 220 L 330 155" class="arrow-path" marker-end="url(#arrowRed)" />
+            <text x="190" y="210" class="warning-text" transform="rotate(-15 190,210)">PŘESUN VPŘED A VPRAVO</text>
+            
+            <line x1="350" y1="140" x2="420" y2="80" class="shoot-line" />
+            <line x1="430" y1="140" x2="570" y2="80" class="shoot-line" />
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>02: Úzké chodby</h2>
+        <div class="status-bar">METERS: 5m -> 10m přesun || TARGETS: 4 || TYPE: DOUBLE COVER & RELOAD</div>
+        <div class="legend">
+            "Cesta hlavním vchodem je odříznutá, musíš to vzít přes sklepení. Lovci jsou ti v patách a v potemnělých chodbách se rozpoutává peklo. Ochranka v dálce navíc neváhá použít civilní personál jako živé štíty. Tohle už není boj, to je chirurgický zákrok."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Střelec na metě 5m, skrytý za <strong>levým</strong> krytem. Zbraň nabitá v pouzdře.</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Na signál tasit.<br>
+                2. Z <strong>LEVÉ STRANY</strong> Krytu A vyřešit čisté terče <strong>T1, T2</strong>.<br>
+                3. Přesun ke Krytu B (na 10m). Během přesunu nebo v krytu <strong>TAKTICKY PŘEBÍT</strong>.<br>
+                4. Z <strong>PRAVÉ STRANY</strong> Krytu B vyřešit terče <strong>T3, T4 (Rukojmí)</strong>.
+            </li>
+        </ul>
+        <svg width="700" height="350" viewBox="0 0 700 350">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <line x1="10" y1="50" x2="690" y2="50" class="wall" /> <text x="20" y="45" class="dist">25m LAPAČ</text>
+            
+            <use href="#badguy" x="150" y="20" width="40" height="60" /> <text x="160" y="15" class="label">T1</text>
+            <use href="#badguy" x="250" y="20" width="40" height="60" /> <text x="260" y="15" class="label">T2</text>
+            <use href="#badguy-hostage" x="450" y="20" width="40" height="60" /> <text x="460" y="15" class="label">T3</text>
+            <use href="#badguy-hostage" x="550" y="20" width="40" height="60" /> <text x="560" y="15" class="label">T4</text>
+            <text x="500" y="90" class="warning-text">RUKOJMÍ!</text>
+
+            <rect x="400" y="200" width="80" height="20" class="cover-solid" /> <text x="410" y="235" class="label">KRYT B (10m)</text>
+            <rect x="200" y="250" width="80" height="20" class="cover-solid" /> <text x="210" y="285" class="label">KRYT A (5m)</text>
+            
+            <circle cx="240" cy="280" r="8" class="start-pos" />
+            <path d="M 260 270 Q 350 240 420 230" class="arrow-path" marker-end="url(#arrowRed)" />
+            <text x="320" y="240" class="warning-text" fill="#d4af37">PŘEBITÍ</text>
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>03: Zlatý náklad</h2>
+        <div class="status-bar">METERS: 15m start -> 10m přesun || TARGETS: 4 || TYPE: LATERAL MOVEMENT / SHO</div>
+        <div class="legend">
+            "Z nouzové schránky jsi popadl těžkou tašku narvanou zlatými mincemi. Je to tvá jediná vstupenka do nového života, nesmíš ji pustit. Cesta k únikovému vozidlu je ale pod těžkou palbou. Musíš si prorazit cestu silou. Zastavit se znamená zemřít."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Na metě 15m (před bariérami). Zbraň v pouzdře. Slabá ruka drží tašku (zátěž).</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Tasit <strong>POUZE SILNOU RUKOU</strong>. Taška celou dobu nesmí na zem.<br>
+                2. Plynulá <strong>CHŮZE VPŘED</strong> středem k hranici bariér (k metě 10m).<br>
+                3. Za pohybu vyřešit středové terče <strong>T2, T3</strong>.<br>
+                4. Zastavit, přesunout se do strany (např. doleva) a zpoza bariéry vyřešit <strong>T1</strong> v levé uličce.<br>
+                5. Rychlý boční přesun na druhou stranu (doprava) a vyřešit <strong>T4</strong> v pravé uličce.
+            </li>
+        </ul>
+        <svg width="700" height="350" viewBox="0 0 700 350">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist">25m LAPAČ</text>
+            
+            <rect x="230" y="30" width="15" height="140" class="cover-solid" />
+            <rect x="450" y="30" width="15" height="140" class="cover-solid" />
+            <text x="250" y="160" class="label" fill="#d4af37">V-TAC ZDÍ</text>
+            
+            <use href="#badguy" x="100" y="40" width="40" height="60" /> <text x="110" y="35" class="label">T1 (Levá)</text>
+            <use href="#badguy" x="300" y="40" width="40" height="60" /> <text x="310" y="35" class="label">T2 (Střed)</text>
+            <use href="#badguy" x="360" y="40" width="40" height="60" /> <text x="370" y="35" class="label">T3 (Střed)</text>
+            <use href="#badguy" x="550" y="40" width="40" height="60" /> <text x="560" y="35" class="label">T4 (Pravá)</text>
+
+            <circle cx="350" cy="300" r="8" class="start-pos" />
+            <text x="350" y="325" class="label" text-anchor="middle">START (15m)</text>
+            
+            <path d="M 350 290 L 350 200" class="arrow-path" marker-end="url(#arrowRed)" />
+            <text x="360" y="240" class="warning-text">CHŮZE VPŘED (SILNÁ RUKA)</text>
+            
+            <line x1="350" y1="200" x2="320" y2="100" class="shoot-line" />
+            <line x1="350" y1="200" x2="380" y2="100" class="shoot-line" />
+
+            <path d="M 350 190 L 150 190" class="arrow-path" marker-end="url(#arrowRed)" />
+            <path d="M 150 180 L 550 180" class="arrow-path" marker-end="url(#arrowRed)" />
+            
+            <line x1="150" y1="190" x2="120" y2="100" class="shoot-line" />
+            <line x1="550" y1="180" x2="570" y2="100" class="shoot-line" />
+            
+            <text x="400" y="170" class="label" fill="#888">LATERÁLNÍ PŘESUN</text>
+        </svg>
+    </div>
+
+    <div class="stage-box" style="border-color: #d4af37;">
+        <h2 style="color: #d4af37; border-bottom-color: #d4af37;">04: Diplomacie olovem</h2>
+        <div class="status-bar">METERS: 10m start || TARGETS: 4 || TYPE: INVERSE SCORING / COGNITIVE LOAD</div>
+        <div class="legend">
+            "U východu tě čeká poslední překážka. Tvůj kontakt ti nahrává data do sluchátka: Polovina cílů jsou smrtelní nepřátelé, kteří musí jít nekompromisně k zemi. Zbytek jsou vlivní neutrální hráči, které smíš jen zneschopnit, jinak si nadobro zavřeš všechny dveře v podsvětí. Mrtví nevyjednávají."
+        </div>
+        <ul>
+            <li><strong>TERČE:</strong> T1 a T3 mají na sobě <strong>KŘÍŽ (X)</strong>. T2 a T4 mají <strong>KOLEČKO (O)</strong>.</li>
+            <li><strong>START:</strong> U stolu na 10m. Zbraň nabitá v pouzdře.</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Po zaznění signáku střelec otočí kartu s určeným symbolem (X nebo O).<br>
+                2. <strong>VYLOSOVANÝ SYMBOL ("Zabít"):</strong> U těchto terčů je platný <strong>POUZE zásah v ALFĚ</strong>. Zásah C/D je miss.<br>
+                3. <strong>NEVYLOSOVANÝ SYMBOL ("Postřelit"):</strong> U těchto terčů je <strong>ALFA = NETERČ (Penalizace)</strong>! Musíš je trefit do C/D (okraje těla).
+            </li>
+        </ul>
+        <svg width="700" height="250" viewBox="0 0 700 250">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <line x1="10" y1="50" x2="690" y2="50" class="wall" /> <text x="20" y="45" class="dist">25m LAPAČ</text>
+            
+            <g transform="translate(150, 20)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T1</text>
+                <text x="14" y="35" fill="white" font-family="sans-serif" font-weight="bold">X</text>
+            </g>
+            <g transform="translate(280, 20)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T2</text>
+                <text x="12" y="35" fill="white" font-family="sans-serif" font-weight="bold">O</text>
+            </g>
+            <g transform="translate(410, 20)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T3</text>
+                <text x="14" y="35" fill="white" font-family="sans-serif" font-weight="bold">X</text>
+            </g>
+            <g transform="translate(540, 20)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T4</text>
+                <text x="12" y="35" fill="white" font-family="sans-serif" font-weight="bold">O</text>
+            </g>
+
+            <rect x="300" y="200" width="100" height="30" class="cover-solid" />
+            <text x="350" y="220" class="label" text-anchor="middle">STŮL & KARTY</text>
+            <circle cx="350" cy="245" r="5" class="start-pos" />
+        </svg>
+    </div>
+
+</body>
+</html>
