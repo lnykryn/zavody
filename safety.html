@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEZPEČNOSTNÍ PRAVIDLA - Taktické Závody</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --alert-red: #d90429;
+            --accent-gray: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #111;
+            border-top: 8px solid var(--alert-red);
+            border-radius: 6px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gray);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--alert-red);
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .intro {
+            font-style: italic;
+            color: #aaa;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(217, 4, 41, 0.05);
+            border-left: 4px solid var(--alert-red);
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            border-bottom: 1px solid var(--accent-gray);
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1em;
+        }
+
+        strong {
+            color: var(--alert-red);
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1a1a;
+            border: 1px dashed #555;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #888;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .btn-back:hover {
+            color: #fff;
+        }
+
+        /* --- STYLY PRO TISK --- */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                padding: 0;
+            }
+            .container {
+                background: white !important;
+                border-top: 5px solid black !important;
+                box-shadow: none !important;
+                padding: 0;
+                max-width: 100%;
+            }
+            h1, strong {
+                color: black !important;
+            }
+            .intro {
+                background: none !important;
+                border-left: 4px solid black !important;
+                color: black !important;
+            }
+            h2 {
+                color: black !important;
+                border-bottom: 1px solid black !important;
+            }
+            .summary {
+                background: white !important;
+                border: 2px solid black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            li::before {
+                content: "■";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="btn-back no-print">← Zpět na rozcestník</a>
+
+    <div class="container">
+        <div class="header">
+            <h1>BEZPEČNOSTNÍ PRAVIDLA</h1>
+            <div class="subtitle">Závazný briefing před závodem</div>
+        </div>
+
+        <div class="intro">
+            „Pánové a dámy, vítejte. Než začneme řešit dnešní situace, projdeme si to absolutně nejdůležitější – bezpečnostní pravidla. Jsme tu, abychom se bavili a posunuli svoje limity, ale bezpečnost je nekompromisní. Porušení kteréhokoliv z následujících bodů znamená okamžité DQ (Disqulifikaci) a pro dnešek jste dostříleli.“
+        </div>
+
+        <h2>1. Režim zbraně a manipulace</h2>
+        <ul>
+            <li>Vaše zbraň je po celou dobu pohybu na střelnici <strong>v pouzdře</strong>.</li>
+            <li>Je striktně <strong>bez zásobníku a bez náboje v komoře</strong>.</li>
+            <li>Na zbraň se mimo palebnou čáru za žádných okolností nesahá.</li>
+            <li>Zásobníky si můžete páskovat kdekoliv a kdykoliv, ale zbraň a plný zásobník se potkají až na palebné čáře, a to <strong>výhradně na povel rozhodčího</strong>.</li>
+        </ul>
+
+        <h2>2. Směr střelby a úhly (Pravidlo 180°)</h2>
+        <ul>
+            <li>Ústí zbraně míří <strong>zásadně a pouze do zadního lapače</strong>.</li>
+            <li>Striktně dodržujeme úhel <strong>180 stupňů</strong>. Jakmile ústí vaší zbraně protne osu vašich ramen směrem dozadu, nebo namíříte do bočních zdí, končíte.</li>
+            <li>Dávejte si na to obrovský pozor <strong>zejména při couvání, ústupech do stran nebo otevírání dveří</strong>. Vaše tělo se může kroutit a otáčet jak potřebuje, ale hlaveň musí vždy směřovat bezpečně vpřed.</li>
+        </ul>
+
+        <h2>3. Prst mimo spoušť</h2>
+        <ul>
+            <li>Váš prst je na spoušti <em>pouze</em> v momentě, kdy máte srovnaná mířidla na terči a úmyslně střílíte.</li>
+            <li>Jakmile přestanete střílet, během jakéhokoliv přesunu, vyklánění z krytu nebo přebíjení, musí být prst <strong>jasně a viditelně natažený mimo lučík</strong> (na rámu zbraně). Nechceme vidět prst, co jen tak plandá uvnitř lučíku.</li>
+        </ul>
+
+        <div class="summary">
+            Zbraň ven z pouzdra a nabít jen na povel. Hlaveň vždy dopředu. Prst mimo spoušť, když nestřílím.
+        </div>
+    </div>
+
+</body>
+</html>

@@ -13,6 +13,8 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[02_el_cortez_western](./02_el_cortez_western/scenario.html)** | 🤠 Western / 1885 |
 | **[03_excommunicado](./03_excommunicado/scenario.html)** | 🕴️ Akce / John Wick |
 
+🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
+
 ## 🖨️ Formát "Smart Hybrid"
 Jeden HTML soubor funguje pro web i tisk:
 1.  **Web (Screen):** Barevný, tématický design (pro atmosféru).
