@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TISK - Stage 04: Slepá evoluce</title>
+    <style>
+        /* --- NÁHLED NA OBRAZOVCE --- */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .no-print {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px dashed #39ff14;
+            background: #000;
+            display: inline-block;
+        }
+
+        .no-print h1 { color: #39ff14; margin-top: 0; }
+        
+        button {
+            background-color: #39ff14;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.2s;
+        }
+        
+        button:hover { background-color: #fff; }
+
+        /* Pomocné ohraničení stránek na obrazovce */
+        .page-preview {
+            background: #fff;
+            color: #000;
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- STYLY PRO TISK --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0; /* Bez okrajů prohlížeče */
+            }
+            body {
+                background: #fff !important;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .page-preview {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always; /* Každý blok je nová stránka */
+            }
+            /* Poslední stránka nesmí mít page-break, aby nevznikla prázdná stránka navíc */
+            .page-preview:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        /* --- OBSAH STRÁNEK --- */
+        .target-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            border: 5px solid #000;
+            box-sizing: border-box;
+            padding: 20mm;
+        }
+
+        .flavor-text {
+            position: absolute;
+            top: 20mm;
+            left: 20mm;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: left;
+        }
+
+        .flavor-bottom {
+            position: absolute;
+            bottom: 20mm;
+            right: 20mm;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: right;
+        }
+
+        .symbol-large {
+            width: 150mm;
+            height: 150mm;
+        }
+
+        /* Kartičky na losování */
+        .cards-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-item {
+            border: 2px dashed #000; /* Střihací čáry */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-symbol {
+            width: 60mm;
+            height: 60mm;
+        }
+
+        .card-text {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-top: 2px solid #000;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print">
+        <h1>TISK MATERIÁLŮ: STAGE 04</h1>
+        <p>1. Stránka: <strong>A4 Terč Trojúhelník</strong></p>
+        <p>2. Stránka: <strong>A4 Terč Kruh</strong></p>
+        <p>3. Stránka: <strong>A4 Terč Kříž (X)</strong></p>
+        <p>4. Stránka: <strong>A4 Terč Čtverec</strong></p>
+        <p>5. Stránka: <strong>1x A4 k rozstřižení na 4 losovací karty</strong></p>
+        <button onclick="window.print()">Vytisknout materiály</button>
+    </div>
+
+    <div class="page-preview target-page">
+        <div class="flavor-text">DIAGNOSTIC SENSOR ID: T-1<br>STATUS: UNKNOWN</div>
+        <svg viewBox="0 0 100 100" class="symbol-large">
+            <polygon points="50,10 95,85 5,85" fill="#000" />
+        </svg>
+        <div class="flavor-bottom">PATHOGEN PROTOCOL<br>SECTOR 7</div>
+    </div>
+
+    <div class="page-preview target-page">
+        <div class="flavor-text">DIAGNOSTIC SENSOR ID: C-2<br>STATUS: UNKNOWN</div>
+        <svg viewBox="0 0 100 100" class="symbol-large">
+            <circle cx="50" cy="50" r="42" fill="#000" />
+        </svg>
+        <div class="flavor-bottom">PATHOGEN PROTOCOL<br>SECTOR 7</div>
+    </div>
+
+    <div class="page-preview target-page">
+        <div class="flavor-text">DIAGNOSTIC SENSOR ID: X-3<br>STATUS: UNKNOWN</div>
+        <svg viewBox="0 0 100 100" class="symbol-large">
+            <g transform="rotate(45 50 50)">
+                <rect x="35" y="5" width="30" height="90" rx="3" fill="#000" />
+                <rect x="5" y="35" width="90" height="30" rx="3" fill="#000" />
+            </g>
+        </svg>
+        <div class="flavor-bottom">PATHOGEN PROTOCOL<br>SECTOR 7</div>
+    </div>
+
+    <div class="page-preview target-page">
+        <div class="flavor-text">DIAGNOSTIC SENSOR ID: S-4<br>STATUS: UNKNOWN</div>
+        <svg viewBox="0 0 100 100" class="symbol-large">
+            <rect x="10" y="10" width="80" height="80" fill="#000" rx="5" />
+        </svg>
+        <div class="flavor-bottom">PATHOGEN PROTOCOL<br>SECTOR 7</div>
+    </div>
+
+    <div class="page-preview cards-page">
+        <div class="card-item">
+            <svg viewBox="0 0 100 100" class="card-symbol">
+                <polygon points="50,10 95,85 5,85" fill="#000" />
+            </svg>
+            <div class="card-text">IMMUNE SUBJECT (NO-SHOOT)</div>
+        </div>
+        <div class="card-item">
+            <svg viewBox="0 0 100 100" class="card-symbol">
+                <circle cx="50" cy="50" r="42" fill="#000" />
+            </svg>
+            <div class="card-text">IMMUNE SUBJECT (NO-SHOOT)</div>
+        </div>
+        <div class="card-item">
+            <svg viewBox="0 0 100 100" class="card-symbol">
+                <g transform="rotate(45 50 50)">
+                    <rect x="35" y="5" width="30" height="90" rx="3" fill="#000" />
+                    <rect x="5" y="35" width="90" height="30" rx="3" fill="#000" />
+                </g>
+            </svg>
+            <div class="card-text">IMMUNE SUBJECT (NO-SHOOT)</div>
+        </div>
+        <div class="card-item">
+            <svg viewBox="0 0 100 100" class="card-symbol">
+                <rect x="10" y="10" width="80" height="80" fill="#000" rx="5" />
+            </svg>
+            <div class="card-text">IMMUNE SUBJECT (NO-SHOOT)</div>
+        </div>
+    </div>
+
+</body>
+</html>
