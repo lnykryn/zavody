@@ -126,9 +126,9 @@
         
         /* Světelný kužel */
         .beam { fill: url(#flashlight-grad); opacity: 0.4; }
+        .beam-reverse { fill: url(#flashlight-reverse-grad); opacity: 0.3; }
         .vision-barrier { stroke: #ffea00; stroke-width: 2; fill: #1a1a00; stroke-dasharray: 5,5; }
         .start-box-rect { fill: none; stroke: #ffea00; stroke-width: 3; stroke-dasharray: 10,5; }
-        .question-mark { font-size: 150px; fill: #39ff14; opacity: 0.2; font-weight: bold; font-family: sans-serif; }
 
         /* --- PRINT STYLES --- */
         @media print {
@@ -143,7 +143,7 @@
             .arrow-path, .shoot-line { stroke: black !important; }
             .hostage-cover { fill: white !important; stroke: black !important;}
             .vision-barrier, .start-box-rect { stroke: black !important; fill: #ddd !important;}
-            .question-mark { fill: #ccc !important; }
+            .beam, .beam-reverse { display: none; }
         }
     </style>
 </head>
@@ -157,6 +157,14 @@
             <radialGradient id="flashlight-grad" cx="0%" cy="50%" r="100%">
                 <stop offset="0%" stop-color="#ffea00" stop-opacity="0.8" />
                 <stop offset="100%" stop-color="#ffea00" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="flashlight-reverse-grad" cx="50%" cy="100%" r="100%">
+                <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#39ff14" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="red-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ff3333" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#ff3333" stop-opacity="0" />
             </radialGradient>
             <symbol id="badguy" viewBox="0 0 40 60">
                 <rect x="5" y="15" width="30" height="40" class="target-body" />
@@ -178,7 +186,7 @@
         <h1>BLACKOUT</h1>
         <div class="subtitle">☣ BUNKER BREACH ☣</div>
         <div class="mission-brief">
-            Hlášení systému: Sektor 7 se odmlčel v 03:00. Generátory jsou mimo provoz. Tlakové uzávěry karantény byly prolomeny zevnitř. Jsi tři patra pod zemí a vysílačka hlásí jen statický šum. Z temnoty chodeb se ozývají zvuky, které rozhodně nepatří lidem. Máš u sebe jen svou zbraň a baterku s tenčícím se zdrojem. Kdo uvidí hrozbu dřív, přežije. Vítej v absolutní tmě.
+            Hlášení systému: Sektor 7 se odmlčel v 03:00. Generátory jsou mimo provoz, tlakové uzávěry karantény byly prolomeny zevnitř. Jsi tři patra pod zemí a vysílačka hlásí jen statický šum. Z temnoty chodeb se ozývají zvuky, které rozhodně nepatří lidem. Tvým jediným úkolem je přežít, prostřílet se do laboratoří, najít zdroj imunity a dostat se na povrch. Máš u sebe jen zbraň a baterku s tenčícím se zdrojem. Vítej v absolutní tmě.
         </div>
     </div>
 
@@ -186,7 +194,6 @@
         <h3>Pravidla Low-Light Operace</h3>
         <ul>
             <li><strong>BEZPEČNOST PŘESUNU:</strong> Jsme v absolutní tmě. Jakmile je zbraň vytažena z pouzdra, <strong>svítilna se nesmí zhasnout</strong>! Přesuny s tasenou zbraní probíhají VŽDY s rozsvícenou svítilnou, zbraň míří bezpečně vpřed do lapače, prst viditelně mimo spoušť.</li>
-            <li><strong>SLEPÁ STAGE (LOS):</strong> U situace 4 střelci předem neznají rozložení terčů. Jakékoliv nahlížení do stage před startem je přísně zakázáno a trestá se DQ.</li>
         </ul>
     </div>
 
@@ -194,7 +201,7 @@
         <h2>01: Probuzení do tmy</h2>
         <div class="status-bar">METERS: 10m statický start || TARGETS: 3 || TYPE: FLASHLIGHT DEPLOYMENT</div>
         <div class="legend">
-            "Monotónní hučení ventilace zničehonic utichlo. Místo něj tě probudil vzdálený jekot a duté rány na ocelové dveře tvé ubikace. Než si tvoje oči stihly zvyknout na temnotu, něco rozrazilo zámek a vpadlo dovnitř. Zbraň máš na opasku, ale baterka zůstala ležet na stole. Srdce ti buší v krku. Nahmatáš potmě světlo dřív, než si pro tebe dojdou, nebo zemřeš dřív, než stihneš tasit?"
+            "Monotónní hučení ventilace zničehonic utichlo. Místo něj tě probudil vzdálený jekot a duté rány na ocelové dveře tvé ubikace. Než si tvé oči stihly zvyknout na temnotu, něco rozrazilo zámek a vpadlo dovnitř. Zbraň máš na opasku, ale baterka zůstala ležet na stole. Srdce ti buší v krku. Nahmatáš potmě světlo dřív, než si pro tebe dojdou, nebo zemřeš dřív, než stihneš tasit?"
         </div>
         <ul>
             <li><strong>START:</strong> Střelec stojí u stolu (meta 10m). Zbraň nabitá v pouzdře. Ruce se nesmí dotýkat stolu. Svítilna leží na stole zhasnutá.</li>
@@ -225,18 +232,18 @@
     </div>
 
     <div class="stage-box">
-        <h2>02: Krvavý tunel (Kryty)</h2>
-        <div class="status-bar">METERS: 15m -> 10m diagonální přesun || TARGETS: 4 || TYPE: COVER USAGE / ELEVATION CHANGE</div>
+        <h2>02: Krvavý tunel</h2>
+        <div class="status-bar">METERS: 15m -> 10m diagonální přesun || TARGETS: 4 || TYPE: COVER USAGE / SLICING THE PIE</div>
         <div class="legend">
-            "Servisní chodba páchne mědí a spálenou izolací. V kuželu tvého světla se ve stínech na vteřinu zableskly oči. Stáhl ses za masivní elektrický rozvaděč, ale víš, že tady dlouho nevydržíš. Musíš se pod palbou probít dopředu a krýt se za barikádou z převrácených sudů. Pokud zůstaneš stát na otevřeném prostoru a tvé světlo z tebe udělá terč, roztrhají tě."
+            "Prorazil jsi z ubikací do hlavní servisní chodby vedoucí k laboratořím. Páchne to tu mědí a spálenou izolací. V kuželu tvého světla se ve stínech na vteřinu zableskly oči. Stáhl ses za masivní elektrický rozvaděč, ale dlouho tady nevydržíš. Subjekty se k tobě stahují ze všech stran. Musíš se pod palbou probít dopředu a využít každý dostupný sloup. Nezapomeň správně krájet úhly tmy, abys neodhalil svou siluetu dřív, než musíš."
         </div>
         <ul>
-            <li><strong>START:</strong> Meta 15m, <strong>úplně vlevo</strong> za vysokým krytem. Zbraň v pouzdře, svítilna zhasnutá.</li>
+            <li><strong>START:</strong> Meta 15m, <strong>úplně vlevo</strong> za vertikálním krytem. Zbraň v pouzdře, svítilna zhasnutá.</li>
             <li><strong>PROCEDURA:</strong>
                 1. Na signál rozsvítit a tasit.<br>
-                2. Zpoza levého vysokého krytu (ve stoje) vyřešit T1 a T2.<br>
-                3. Plynulý přesun vpřed a doprava na metu 10m k nízkému krytu. (Svítí se celou cestu).<br>
-                4. Na 10m jít do <strong>kleku</strong> a zpoza nízkého krytu vyřešit pravé terče T3 a T4.
+                2. Z <strong>levého krytu</strong> (vyklonění zpoza levé hrany první zástěny) vyřešit T1 a T2.<br>
+                3. Plynulý přesun vpřed a doprava k druhé zástěně (meta 10m). Svítí se celou cestu.<br>
+                4. Z <strong>pravého krytu</strong> (vyklonění zpoza pravé hrany druhé zástěny) vyřešit T3 a T4.
             </li>
         </ul>
         <svg width="700" height="350" viewBox="0 0 700 350">
@@ -248,22 +255,26 @@
             <use href="#badguy" x="350" y="20" width="40" height="60" /> <text x="360" y="15" class="label">T3</text>
             <use href="#badguy" x="450" y="20" width="40" height="60" /> <text x="460" y="15" class="label">T4</text>
             
-            <polygon points="100,280 130,80 290,80" class="beam" />
+            <rect x="100" y="250" width="80" height="20" class="cover-solid" /> 
+            <text x="140" y="285" class="label" text-anchor="middle">ZÁSTĚNA 1 (15m)</text>
+            <text x="100" y="300" class="warning-text" text-anchor="middle" fill="#ffea00">LEVÁ HRANA</text>
             
-            <polygon points="400,150 330,80 490,80" class="beam" />
-            
-            <rect x="50" y="250" width="80" height="20" class="cover-solid" /> <text x="60" y="285" class="label">VYSOKÝ KRYT (15m) - STOJ</text>
-            <rect x="330" y="150" width="150" height="20" class="cover-solid" /> <text x="405" y="185" class="label" text-anchor="middle">NÍZKÝ KRYT (10m) - KLEK</text>
+            <polygon points="100,250 130,80 290,80" class="beam" />
+            <circle cx="80" cy="280" r="8" class="start-pos" />
+            <line x1="100" y1="250" x2="170" y2="80" class="shoot-line" />
+            <line x1="100" y1="250" x2="270" y2="80" class="shoot-line" />
 
-            <circle cx="100" cy="280" r="8" class="start-pos" /> <text x="120" y="285" class="label">START VLEVO</text>
+            <rect x="400" y="150" width="80" height="20" class="cover-solid" /> 
+            <text x="440" y="185" class="label" text-anchor="middle">ZÁSTĚNA 2 (10m)</text>
+            <text x="480" y="200" class="warning-text" text-anchor="middle" fill="#ffea00">PRAVÁ HRANA</text>
             
-            <path d="M 100 240 L 380 170" class="arrow-path" marker-end="url(#arrowYellow)" />
-            <text x="250" y="220" class="warning-text" text-anchor="middle">PŘESUN ROZSVÍCENO</text>
+            <polygon points="480,150 330,80 470,80" class="beam" />
+            <line x1="480" y1="150" x2="370" y2="80" class="shoot-line" />
+            <line x1="480" y1="150" x2="470" y2="80" class="shoot-line" />
             
-            <line x1="100" y1="280" x2="170" y2="80" class="shoot-line" />
-            <line x1="100" y1="280" x2="270" y2="80" class="shoot-line" />
-            <line x1="400" y1="150" x2="370" y2="80" class="shoot-line" />
-            <line x1="400" y1="150" x2="470" y2="80" class="shoot-line" />
+            <path d="M 80 240 L 480 170" class="arrow-path" marker-end="url(#arrowYellow)" />
+            <text x="280" y="220" class="warning-text" text-anchor="middle">PŘESUN ROZSVÍCENO</text>
+            
         </svg>
     </div>
 
@@ -271,7 +282,7 @@
         <h2>03: Ocelová uzávěra</h2>
         <div class="status-bar">METERS: 10m statický start || TARGETS: 4 || TYPE: V-TAC PORTS / LIGHT TECHNIQUES</div>
         <div class="legend">
-            "Konečně jsi dorazil k bezpečnostním vratům, ale karanténní systém je uzamkl. Ti 'venku' už tě ucítili. Slyšíš, jak škrábou drápy o pancíř. Jediná šance je pálit skrz poškozené průzory a větrací šachty. Zlom své tělo, prostrč tam hlaveň i světlo a modli se, ať tě odraz tvé vlastní baterky o ocel neoslepí v tu nejhorší možnou chvíli."
+            "Konečně jsi dorazil k bezpečnostním vratům sektoru 'Líheň', ale systém je uzamkl a pomalu se restartuje. Ti 'venku' už tě ucítili a tlačí tě do kouta. Jediná šance, jak přežít do otevření dveří, je pálit skrz poškozené průzory a větrací šachty v barikádě. Zlom své tělo, prostrč tam hlaveň i světlo a modli se, ať tě odraz tvé vlastní baterky o ocel neoslepí v tu nejhorší možnou chvíli."
         </div>
         <ul>
             <li><strong>START:</strong> Meta 10m. Střelec stojí přímo za V-TAC bariérou. Zbraň v pouzdře, svítilna zhasnutá v ruce.</li>
@@ -307,32 +318,62 @@
     </div>
 
     <div class="stage-box" style="border-color: #ff3333;">
-        <h2 style="color: #ff3333; border-bottom-color: #ff3333;">04: Mrtvá zóna (Slepá LOS Stage)</h2>
-        <div class="status-bar">METERS: 20m start -> Diagonální postup vpřed || TARGETS: Skryté || TYPE: BLIND / SLICING THE PIE</div>
+        <h2>04: Slepá evoluce</h2>
+        <div class="status-bar">METERS: 25m čtení -> 15m střelba || TARGETS: 4 || TYPE: COGNITIVE OVERLOAD</div>
         <div class="legend">
-            "Vstoupil jsi do laboratoří. Někde v téhle tmě by měli být schovaní poslední přeživší. Problém je, že místnost je plná stínů a některé z nich se začaly hýbat směrem k tobě. Každá zástěna může znamenat záchranu, nebo okamžitou smrt. Dýchej mělce a krájej tmu po centimetrech. Nesmíš stisknout spoušť, dokud tvůj kužel jasně neodhalí, co před tebou stojí."
+            "Vrata se otevřela, ale při obraně jsi vystřílel poslední zásobník. Ocitl ses v samém srdci laboratoří. Na zdejších subjektech byl testován nový patogen. Tři z nich podlehli nákaze a zmutovali, ale jeden má přirozenou imunitu. V absolutní tmě ses proplížil za nehybné postavy, abys na jejich zádových monitorech přečetl identifikační znaky. V dálce svítí červená lampička na pultu mrtvého strážného, kde leží nabitá zbraň a diagnostický terminál. Sprintuj k červenému světlu! Terminál ti ukáže znak subjektu s čistou krví (NO-SHOOT). Infikovaní musí zemřít, imunní musí přežít, jinak to tu dole bylo všechno zbytečné!"
         </div>
         <ul>
-            <li><strong>SLEPÁ STAGE:</strong> Střelci před zahájením <strong>neznají</strong> rozložení terčů ani pozici zástěn. Nahlížení do prostoru předem znamená DQ z této stage.</li>
-            <li><strong>START:</strong> Meta 20m, <strong>pravý okraj střelnice</strong>. Zbraň v pouzdře, svítilna zhasnutá.</li>
+            <li><strong>BEZPEČNOST:</strong> Zbraň po celou první část leží <strong>vybitá na podélném stole na 15m a míří bezpečně doleva do stěny</strong> (nikdy ne nahoru k terčům)! Střelec na 25m (nahoře) je neozbrojen! Svícení z 25m musí být bezpečné (neoslňovat čekající).</li>
+            <li><strong>TERČE:</strong> Na zádech každého terče je symbol (Kruh, Trojúhelník, Kříž, Čtverec). Zepředu jsou to čisté terče.</li>
             <li><strong>PROCEDURA:</strong>
-                1. Na signál rozsvítit a tasit.<br>
-                2. Diagonální postup zprava vzadu směrem doleva vpřed.<br>
-                3. Za použití svítilny si musí střelec takticky "nakrájet" prostor kolem neprůhledných zástěn, aby odhalil izolované terče.<br>
-                4. V prostoru se mohou nacházet rukojmí (civilisté/no-shoots). Identifikace cíle je nutná.
+                1. Start na 25m (úplně nahoře). Na signál střelec <strong>rozsvítí baterku</strong> a podívá se na zadní stranu terčů (identifikace monitorů).<br>
+                2. Střelec se zapnutou baterkou <strong>sprintuje dolů k červenému světlu</strong> na ovládacím pultu (meta 15m).<br>
+                3. U pultu se natočí doleva k lapači, <strong>vylosuje si kartu se symbolem Imunního subjektu</strong>, srovná se k lapači a tasí zbraň ze stolu (hlaveň stále míří do zdi).<br>
+                4. Poté nabije a zlikviduje 3 Infikované (Hrozby). Musí si v hlavě zrcadlově převrátit pořadí terčů, které viděl zezadu!
             </li>
         </ul>
-        <svg width="700" height="320" viewBox="0 0 700 320">
+        <svg width="700" height="380" viewBox="0 0 700 380">
             <rect width="100%" height="100%" fill="url(#grid)" />
             <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist" fill="#39ff14">25m LAPAČ</text>
             
-            <rect x="580" y="250" width="100" height="50" class="start-box-rect" />
-            <text x="630" y="280" class="label" text-anchor="middle" fill="#ffea00">START (20m) VPRAVO</text>
-            <circle cx="630" cy="275" r="8" class="start-pos" />
+            <g transform="translate(150, 50)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T1</text>
+                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">Δ</text> </g>
+            <g transform="translate(250, 50)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T2</text>
+                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">O</text> </g>
+            <g transform="translate(350, 50)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T3</text>
+                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">X</text> </g>
+            <g transform="translate(450, 50)">
+                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T4</text>
+                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">□</text> </g>
 
-            <text x="350" y="200" class="question-mark" text-anchor="middle">?</text>
+            <circle cx="320" cy="15" r="5" class="start-pos" fill="#ffea00" />
+            <text x="335" y="18" class="label" fill="#ffea00">START (25m+) - BEZ ZBRANĚ</text>
+            <polygon points="320,20 120,120 560,120" class="flashlight-reverse-grad" fill="url(#flashlight-reverse-grad)" opacity="0.3" />
+            <text x="180" y="135" class="warning-text" fill="#39ff14">KROK 1: NASVÍTIT MONITORY (ZÁDA)</text>
+
+            <path d="M 320 25 L 560 25 L 560 300 L 370 300" class="arrow-path" marker-end="url(#arrowYellow)" />
+            <text x="575" y="160" class="warning-text" transform="rotate(90 575,160)">KROK 2: SPRINT DOLŮ (ROZSVÍCENO)</text>
+
+            <rect x="340" y="270" width="20" height="80" class="cover-solid" fill="#222" />
             
-            <text x="350" y="270" class="warning-text" text-anchor="middle" fill="#ff3333">SLEPÁ STAGE - ŽÁDNÝ WALKTHROUGH</text>
+            <circle cx="350" cy="335" r="20" fill="url(#red-glow)" />
+            <circle cx="350" cy="335" r="4" fill="#ff3333" />
+            
+            <text x="370" y="310" class="label" fill="#fff">STŮL (15m)</text>
+            <text x="370" y="325" class="warning-text" fill="#ff3333">ZBRAŇ MÍŘÍ VLEVO DO ZDI</text>
+            <path d="M 350 310 L 310 310" stroke="#ff3333" stroke-width="3" marker-end="url(#arrowYellow)" />
+            
+            <circle cx="350" cy="360" r="5" class="start-pos" fill="#ff3333" />
+            
+            <line x1="350" y1="360" x2="170" y2="115" class="shoot-line" />
+            <line x1="350" y1="360" x2="470" y2="115" class="shoot-line" />
+            
+            <text x="130" y="375" class="warning-text" fill="#ff3333">KROK 3: OTOČIT SE, LOSOVAT, PÁLIT NAHORU</text>
+
         </svg>
     </div>
 

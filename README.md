@@ -12,7 +12,7 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[01_sector4_cyberpunk](./01_sector4_cyberpunk/scenario.html)** | 🤖 Sci-Fi / Cyberpunk |
 | **[02_el_cortez_western](./02_el_cortez_western/scenario.html)** | 🤠 Western / 1885 |
 | **[03_excommunicado](./03_excommunicado/scenario.html)** | 🕴️ Akce / John Wick |
-| **[04_blackout](./04_blackout/scenario.html)** | ☣️ Survival Horror (Low-Light) 🚧 *[WIP]* |
+| **[04_blackout](./04_blackout/scenario.html)** | ☣️ Survival Horror (Low-Light) |
 
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
 
