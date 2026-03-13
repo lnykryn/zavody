@@ -47,14 +47,21 @@ Scénáře jsou určeny pro specifickou vnitřní střelnici.
 
 ---
 
-## 3. DESIGNOVÁ FILOSOFIE (GAMEPLAY)
-Každý závod je "Mini-kampaň" se 4 situacemi (Stages).
+## 3. DESIGNOVÁ FILOSOFIE (GAMEPLAY & STORYTELLING)
++Každý závod je "Mini-kampaň" se 4 situacemi (Stages). Situace musí tvořit soudržný mechanický i příběhový celek.
 
-### Struktura kampaně
+### A. Struktura kampaně
 1.  **Stage 1 (Warm-up):** Jednoduchá a přehledná situace na "zahřátí". Start ve stoje, zbraň skrytě (nebo dle divize). Žádné složité procedury, důraz na čistou střelbu a základní práci s krytem. Vzdálenost 3-10m.
 2.  **Stage 2 (Dynamika):** Pohyb vpřed/vzad/do stran, střelba za pohybu, využití více krytů.
 3.  **Stage 3 (Skill Check / Twist):** Technická výzva (Slabá ruka, Přebíjení, Omezená munice, Start vsedě/zády, Paměť).
 4.  **Stage 4 (Finále):** Komplexní situace, volba postupu, No-Shoots, příběhové vyvrcholení.
+
+### B. Narativní design a příběh (Storytelling)
+* **Koherence příběhu:** Situace na sebe musí logicky navazovat a dějová linka gradovat. Pokud střelec v jedné stage získá příběhový předmět (dokument, artefakt, zbraň), měl by ho fyzicky nebo příběhově využít v některé z dalších stage.
+* **Pravidlo striktního oddělení (Legenda vs. Procedura):**
+    * Blok `.legend` slouží VÝHRADNĚ k budování atmosféry, emocí a motivace (vnitřní monolog, synopse). **Nesmí** obsahovat technické instrukce k řešení stage (počty ran, metry, popis postupu, nutnost krytí).
+    * Blok `PROCEDURA` slouží čistě jako chladný technický popis úkolu pro rozhodčího a střelce. Nesmí obsahovat příběhovou omáčku.
+* **Žánrová integrita:** Slovník, názvy situací a rekvizity se musí vždy 100% držet zvoleného tématu. Příběh musí logicky omlouvat použité vybavení a výstroj.
 
 ---
 
