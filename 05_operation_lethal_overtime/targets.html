@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRINTABLE MEDIA - OPERATION: LETHAL OVERTIME</title>
+    <style>
+        /* --- TONER SAVER 80s POLICE DATABASE STYLES --- */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Vynucení tisku barevných akcentů */
+        * {
+            -webkit-print-color-adjust: exact !important;   
+            color-adjust: exact !important;                 
+            print-color-adjust: exact !important;           
+        }
+
+        /* Definice A4 stránky pro tisk - zmenšeno pro bezpečné okraje tiskárny */
+        @page {
+            size: A4;
+            margin: 5mm; 
+        }
+
+        .page-break {
+            page-break-after: always;
+            width: 100%;
+            height: 275mm; /* Safe-zone výška, aby nedošlo k ořezu */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            padding-top: 5mm;
+        }
+
+        /* --- STYLIZACE OBLIČEJŮ --- */
+        .head { fill: #ffffff; stroke: #000000; stroke-width: 5; }
+        .feature { fill: #000000; stroke: #000000; stroke-width: 3; }
+        
+        /* Neonové 80s akcenty */
+        .accent-cyan { fill: rgba(0, 240, 255, 0.4); stroke: #00b3cc; stroke-width: 5; }
+        .accent-pink { fill: #ff0055; stroke: #000000; stroke-width: 4; }
+        .accent-yellow { fill: #ffe600; stroke: #000000; stroke-width: 4; }
+        .scar { stroke: #ff0055; stroke-width: 6; fill: none; stroke-dasharray: 6,4; }
+        .strap { stroke: #ff0055; stroke-width: 6; }
+
+        /* --- STYLIZACE TERČŮ (Full Page A4) --- */
+        .full-page-face-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .full-page-face-container svg {
+            width: 100%;
+            height: auto;
+            max-width: 180mm; 
+        }
+
+        /* --- STYLIZACE ZATYKAČŮ (Mřížka na A4) --- */
+        .fax-container {
+            padding: 15mm; /* Zmenšeno odsazení */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            border: 4px solid #000;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, #ccc 19px, #ccc 20px);
+            box-sizing: border-box;
+        }
+
+        .fax-header {
+            text-align: center;
+            color: #ff0055;
+            font-weight: bold;
+            font-size: 2.5em;
+            letter-spacing: 5px;
+            border-bottom: 4px solid #00b3cc;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        .fax-faces-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15mm; /* Zmenšeny mezery v mřížce */
+            flex-grow: 1;
+            align-content: center;
+        }
+
+        .fax-face-item {
+            border: 4px solid #000;
+            background: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 10px 10px 0px #ffe600;
+        }
+
+        .fax-face-item svg {
+            width: 100%;
+            height: auto;
+            max-width: 65mm; 
+        }
+
+        /* SVG Definice obličejů (používány v `<use>`) */
+        symbol[id^="face"] {
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <symbol id="face_t1f" viewBox="0 0 100 120">
+                <rect x="20" y="20" width="60" height="80" rx="10" class="head" />
+                <rect x="25" y="45" width="20" height="15" class="accent-cyan" /><rect x="55" y="45" width="20" height="15" class="accent-cyan" /><line x1="45" y1="52" x2="55" y2="52" class="feature" />
+                <line x1="40" y1="80" x2="60" y2="80" class="feature" />
+            </symbol>
+            <symbol id="face_t1b" viewBox="0 0 100 120">
+                <circle cx="50" cy="60" r="40" class="head" />
+                <line x1="10" y1="30" x2="90" y2="70" class="strap" /><circle cx="35" cy="50" r="12" class="feature" /><circle cx="65" cy="50" r="4" class="feature" />
+                <path d="M 40 85 Q 50 95 60 85" fill="none" class="feature" />
+            </symbol>
+            <symbol id="face_t2f" viewBox="0 0 100 120">
+                <ellipse cx="50" cy="60" rx="35" ry="45" class="head" />
+                <circle cx="35" cy="45" r="5" class="accent-cyan" stroke="none"/><circle cx="65" cy="45" r="5" class="accent-cyan" stroke="none"/>
+                <path d="M 25 70 Q 50 60 75 70 Q 80 80 50 75 Q 20 80 25 70 Z" class="feature" />
+            </symbol>
+            <symbol id="face_t2b" viewBox="0 0 100 120">
+                <rect x="25" y="40" width="50" height="60" rx="5" class="head" />
+                <path d="M 40 40 L 45 10 L 50 30 L 55 10 L 60 40 Z" class="accent-pink" />
+                <line x1="30" y1="60" x2="45" y2="55" class="feature" /><line x1="70" y1="60" x2="55" y2="55" class="feature" />
+                <line x1="40" y1="85" x2="60" y2="85" class="feature" stroke-width="5" />
+            </symbol>
+            <symbol id="face_t3f" viewBox="0 0 100 120">
+                <circle cx="50" cy="50" r="35" class="head" />
+                <path d="M 15 50 Q 50 120 85 50 Z" class="feature" />
+                <circle cx="35" cy="40" r="4" fill="#ff0055" /><circle cx="65" cy="40" r="4" fill="#ff0055" />
+            </symbol>
+            <symbol id="face_t3b" viewBox="0 0 100 120">
+                <rect x="20" y="20" width="60" height="80" class="head" />
+                <circle cx="35" cy="45" r="5" class="feature" /><circle cx="65" cy="45" r="5" class="feature" />
+                <path d="M 60 25 L 80 65" class="scar" />
+                <line x1="35" y1="80" x2="55" y2="85" class="feature" />
+            </symbol>
+            <symbol id="face_t4f" viewBox="0 0 100 120">
+                <ellipse cx="50" cy="70" rx="30" ry="35" class="head" />
+                <ellipse cx="50" cy="35" rx="45" ry="10" class="feature" />
+                <rect x="30" y="10" width="40" height="25" class="feature" />
+                <rect x="30" y="28" width="40" height="6" class="accent-yellow" stroke="none" /> 
+                <circle cx="35" cy="65" r="4" class="feature" /><circle cx="65" cy="65" r="4" class="feature" />
+            </symbol>
+            <symbol id="face_t4b" viewBox="0 0 100 120">
+                <circle cx="50" cy="50" r="35" class="head" />
+                <path d="M 15 55 L 85 55 L 70 100 L 30 100 Z" class="accent-cyan" />
+                <line x1="30" y1="35" x2="45" y2="40" class="feature" /><line x1="70" y1="35" x2="55" y2="40" class="feature" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t1f"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t1b"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t2f"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t2b"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t3f"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t3b"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t4f"/></svg></div></div>
+    <div class="page-break"><div class="full-page-face-container"><svg viewBox="0 0 100 120"><use href="#face_t4b"/></svg></div></div>
+
+    <div class="page-break">
+        <div class="fax-container">
+            <div class="fax-header">SLOŽKA: ALPHA</div>
+            <div class="fax-faces-grid">
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t1f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t2b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t3f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t4b"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break">
+        <div class="fax-container">
+            <div class="fax-header">SLOŽKA: BRAVO</div>
+            <div class="fax-faces-grid">
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t1b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t2f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t3b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t4f"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break">
+        <div class="fax-container">
+            <div class="fax-header">SLOŽKA: CHARLIE</div>
+            <div class="fax-faces-grid">
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t1f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t2b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t3b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t4f"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break">
+        <div class="fax-container">
+            <div class="fax-header">SLOŽKA: DELTA</div>
+            <div class="fax-faces-grid">
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t1b"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t2f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t3f"/></svg></div>
+                <div class="fax-face-item"><svg viewBox="0 0 100 120"><use href="#face_t4b"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
