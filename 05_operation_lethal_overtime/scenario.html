@@ -83,14 +83,6 @@
             color: #ccc;
         }
 
-        .rules-box {
-            border: 2px solid #555;
-            padding: 20px;
-            margin-bottom: 40px;
-            background: rgba(0, 0, 0, 0.4);
-        }
-        .rules-box h3 { margin-top: 0; color: #8b0000; text-transform: uppercase; letter-spacing: 2px; font-family: 'Arial Black', sans-serif;}
-
         .stage-box {
             background: #1a1a1a;
             border: 1px solid #333;
@@ -100,19 +92,6 @@
             position: relative;
             page-break-inside: avoid;
             box-shadow: 5px 5px 0px #000;
-        }
-        
-        .blind-warning {
-            color: #fff;
-            background-color: #8b0000;
-            display: inline-block;
-            padding: 2px 8px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-left: 10px;
-            vertical-align: middle;
-            font-size: 0.6em;
-            transform: skewX(5deg);
         }
         
         .legend {
@@ -141,17 +120,15 @@
             font-weight: bold;
         }
 
-        /* --- SVG GRAFIKA (GRITTY TACTICAL) --- */
+        /* --- SVG GRAFIKA --- */
         svg { display: block; margin: 20px auto; overflow: visible; background: #222; border: 2px solid #000; }
         .grid { stroke: #111; stroke-width: 1; }
         .wall { stroke: #555; stroke-width: 4; fill: none; }
         .door { stroke: #8b0000; stroke-width: 4; stroke-dasharray: none; }
         .cover-solid { stroke: #444; stroke-width: 2; fill: #111; }
-        
         .target-body { fill: #0a0a0a; stroke: #ff8c00; stroke-width: 2px; opacity: 1; }
         .target-head { fill: #0a0a0a; stroke: #ff8c00; stroke-width: 2px; opacity: 1; }
         .hostage-cover { fill: #2a2a2a; stroke: #555; stroke-width: 2px; opacity: 1; }
-        
         .arrow-path { fill: none; stroke: #ff8c00; stroke-width: 2; stroke-dasharray: 4,4; }
         .start-pos { fill: #8b0000; stroke: #ff8c00; stroke-width: 2; }
         .shoot-line { stroke: #ff0000; stroke-width: 1.5; stroke-dasharray: 4,2; opacity: 0.6; }
@@ -186,7 +163,7 @@
         <h1>OPERATION: LETHAL OVERTIME <span class="cz-title">(SMRTONOSNÝ PŘESČAS)</span></h1>
         <div class="subtitle">VHS ACTION SERIES // TIER 1 RESPONDER</div>
         <div class="mission-brief">
-            Jsou pozdní osmdesátky a tohle měl bejt tvůj první volnej víkend po půl roce. Seš unavenej polda, co šel jenom vrátit kazety do videopůjčovny. V dešti se na asfaltu odráží jen slabý světlo z kanceláří a ty zrovna ukusuješ z oschlýho donutu, když procházíš kolem finančního centra. Něco nehraje. Hlídač u dveří chybí a přes tónovaný sklo zahlídneš chlapy v maskách s automatama, jak zrovna zamykají hlavní vchod. Ulice je tichá, kavalérie nedorazí a gauneři se rozhodli, že tenhle mrakodrap bude jejich. Seš v blbej čas na blbým místě. Pod koženou bundou máš jen svou záložní pětačtyřicítku. Než bys doběhl k budce pro posily, budou všichni uvnitř mrtví. Pravidla ulice jsou v týhle dekádě naprosto jasná – žádný taktický vyjednávání. Smazat šmejdy, ochránit nevinný. Yippee-Ki-Yay... jdeš na to.
+            Jsou pozdní osmdesátky a tohle měl bejt tvůj první volnej víkend po půl roce. Seš unavenej polda, co šel jenom vrátit kazety do videopůjčovny. V dešti se na asfaltu odráží jen slabý světlo z kanceláří a ty zrovna ukusuješ z oschlýho donutu, když procházíš kolem finančního centra. Něco nehraje. Hlídač u dveří chybí a přes tónovaný sklo zahlídneš chlapy v maskách s automatama, jak zrovna zamykají hlavní vchod. Ulice je tichá, kavalérie nedorazí a gauneři se rozhodli, že tuhle budovu si vezmou jako rukojmí. Seš v blbej čas na blbým místě. Pod koženou bundou máš jen svou záložní pětačtyřicítku. Než bys doběhl k budce pro posily, budou všichni uvnitř mrtví. Pravidla ulice jsou v týhle dekádě naprosto jasná – žádný taktický vyjednávání. Smazat šmejdy, ochránit nevinný. Jdeš na to.
         </div>
     </div>
 
@@ -206,26 +183,19 @@
         </ul>
         <svg width="700" height="280" viewBox="0 0 700 280">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            
             <use href="#badguy" x="100" y="20" width="40" height="60" /> <text x="110" y="15" class="label">T1</text>
             <use href="#badguy" x="220" y="20" width="40" height="60" /> <text x="230" y="15" class="label">T2</text>
             <use href="#badguy" x="450" y="20" width="40" height="60" /> <text x="460" y="15" class="label">T3</text>
             <use href="#badguy" x="580" y="20" width="40" height="60" /> <text x="590" y="15" class="label">T4</text>
-            
             <line x1="50" y1="200" x2="250" y2="200" class="wall" />
             <line x1="350" y1="200" x2="650" y2="200" class="wall" />
-            
             <rect x="250" y="195" width="40" height="10" class="cover-solid" />
             <text x="270" y="190" class="warning-text" fill="#8b0000" text-anchor="middle">VÝLOHA</text>
-            
             <line x1="290" y1="200" x2="350" y2="200" class="door" />
             <text x="320" y="220" class="warning-text" text-anchor="middle">HLAVNÍ DVEŘE (15m)</text>
-
             <circle cx="320" cy="250" r="5" class="start-pos" />
-            
             <line x1="270" y1="200" x2="120" y2="80" class="shoot-line" />
             <line x1="270" y1="200" x2="240" y2="80" class="shoot-line" />
-            
             <path d="M 320 250 L 320 190" class="arrow-path" marker-end="url(#arrowOrange)" />
             <path d="M 320 190 L 320 80" class="arrow-path" marker-end="url(#arrowOrange)" />
             <text x="330" y="140" class="warning-text">AGRESIVNÍ VSTUP + HLÁŠKA</text>
@@ -251,33 +221,24 @@
         </ul>
         <svg width="700" height="340" viewBox="0 0 700 340">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            
             <use href="#badguy" x="100" y="30" width="40" height="60" /> <text x="110" y="25" class="label">T1</text>
             <use href="#badguy" x="250" y="30" width="40" height="60" /> <text x="260" y="25" class="label">T2</text>
             <use href="#badguy-hostage" x="450" y="30" width="40" height="60" /> <text x="460" y="25" class="label">T3</text>
             <use href="#badguy-hostage" x="600" y="30" width="40" height="60" /> <text x="610" y="25" class="label">T4</text>
-            
             <rect x="260" y="100" width="80" height="20" class="cover-solid" />
             <text x="300" y="115" class="warning-text" fill="#fff" text-anchor="middle">STŮL & CIVILISTA (20m)</text>
-
             <line x1="350" y1="180" x2="450" y2="180" class="wall" />
             <line x1="450" y1="180" x2="550" y2="180" class="door" />
             <line x1="550" y1="180" x2="650" y2="180" class="wall" />
             <text x="500" y="195" class="warning-text" text-anchor="middle">DVEŘE (15m)</text>
-
             <circle cx="200" cy="280" r="5" class="start-pos" />
             <text x="200" y="300" class="warning-text" text-anchor="middle">START (10m)</text>
-            
             <path d="M 210 270 L 500 200" class="arrow-path" marker-end="url(#arrowOrange)" />
-            
             <line x1="500" y1="180" x2="470" y2="90" class="shoot-line" />
             <line x1="500" y1="180" x2="620" y2="90" class="shoot-line" />
-            
             <path d="M 500 170 L 320 125" class="arrow-path" marker-end="url(#arrowOrange)" />
-            
             <path d="M 300 120 L 200 250" stroke="#8b0000" stroke-width="2" stroke-dasharray="4,4" fill="none" marker-end="url(#arrowOrange)" />
             <text x="220" y="190" class="warning-text" fill="#8b0000" transform="rotate(-55 220,190)">COUVÁNÍ + TAŽENÍ (SHO)</text>
-            
             <line x1="250" y1="185" x2="120" y2="90" class="shoot-line" />
             <line x1="250" y1="185" x2="270" y2="90" class="shoot-line" />
         </svg>
@@ -285,51 +246,40 @@
 
     <div class="stage-box">
         <h2>03: Špinavá práce</h2>
-        <div class="status-bar">METERS: 10m (START) -> 15m -> 20m (Složka) || TARGETS: 4 || TYPE: VERTICAL COVER & ACTIVE SHOOTER PUSH & SHOOT ON MOVE</div>
+        <div class="status-bar">METERS: 10m (START) -> 15m -> 20m (Sběr obálky) || TARGETS: 4 || TYPE: VERTICAL COVER & ACTIVE SHOOTER PUSH & SHOOT ON MOVE</div>
         <div class="legend">
-            "Tihle šmejdi už tuší, že šlápli do hodně velkýho hovna. Zpoza rohu sundáš prvního gaunera a rozrazíš dveře do kanceláře. Další dva srabi se tam krejou za vyděšeným personálem, tak si dej sakra pozor na spoušť. Ten čtvrtej zpanikaří. Při ústupu upustí na stůl černou složku. Letmým pohledem vidíš, že je plná falešnejch pasů – jejich skutečný xichty. Ty papíry potřebuješ. Popadni důkazy a s ledovým klidem, za stálý chůze, doraz toho posledního zmetka dřív, než stihne zahnout za roh."
+            "Tihle šmejdi už tuší, že šlápli do hodně velkýho hovna. Zpoza rohu sundáš prvního gaunera a rozrazíš dveře do kanceláře. Další dva srabi se tam krejou za vyděšenejma personálem, tak si dej sakra pozor na spoušť. Ten čtvrtej zpanikaří a zdrhá. Při ústupu mu z kapsy vypadne na stůl tlustá zalepená obálka. Nemáš čas ji otevírat a zkoumat, co v ní je, protože po tobě střílí. Popadni ten balíček a s ledovým klidem, za stálý chůze, doraz toho posledního zmetka dřív, než stihne zahnout za roh."
         </div>
         <ul>
             <li><strong>START:</strong> Meta 10m vpravo. Zbraň je nabitá a zasunutá v pouzdře.</li>
             <li><strong>PROCEDURA:</strong>
                 1. Na signál tasí a přesouvá se na 10m ke Krytu A. Z levé strany vertikálního krytu (zástěny) vyřeší <strong>T1</strong>.<br>
                 2. <strong>Postup vpřed a vpravo</strong> ke Krytu B (Dveře, 15m). Otevře dveře a z nich zlikviduje <strong>T3 a T4</strong>.<br>
-                3. <strong>Postup vpřed a vlevo</strong> ke stolu. Cestou <strong>musí sebrat ze stolu SLOŽKU s obličeji</strong> (Zatykač pro další stage).<br>
-                4. Od stolu postupuje <strong>za stálé chůze</strong> (Active Shooter) vpřed k cílové metě 20m. Výhradně během pohybu zasáhne <strong>T2</strong>. Zastavení během střelby na T2 = tučná penalizace! Složku si ponechává.
+                3. <strong>Postup vpřed a vlevo</strong> ke stolu. Cestou <strong>musí sebrat ze stolu ZALEPENOU OBÁLKU</strong> (důkaz pro další stage). Obálku během této situace nesmí otevřít!<br>
+                4. Od stolu postupuje <strong>za stálé chůze</strong> (Active Shooter) vpřed k cílové metě 20m. Výhradně během pohybu zasáhne <strong>T2</strong>. Zastavení během střelby na T2 = tučná penalizace! Zalepenou obálku si ponechává.
             </li>
         </ul>
         <svg width="700" height="340" viewBox="0 0 700 340">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            
             <use href="#badguy" x="100" y="20" width="40" height="60" /> <text x="110" y="15" class="label">T1</text>
             <use href="#badguy" x="250" y="20" width="40" height="60" /> <text x="260" y="15" class="label">T2</text>
             <use href="#badguy-hostage" x="450" y="20" width="40" height="60" /> <text x="460" y="15" class="label">T3</text>
             <use href="#badguy-hostage" x="600" y="20" width="40" height="60" /> <text x="610" y="15" class="label">T4</text>
-
             <rect x="300" y="150" width="40" height="40" fill="#1a0008" stroke="#8b0000" stroke-width="2" />
-            <text x="320" y="145" class="warning-text" fill="#ff8c00" text-anchor="middle">STŮL & SLOŽKA</text>
-
+            <text x="320" y="145" class="warning-text" fill="#ff8c00" text-anchor="middle">STŮL & OBÁLKA</text>
             <line x1="380" y1="190" x2="480" y2="190" class="wall" />
             <line x1="580" y1="190" x2="680" y2="190" class="wall" />
             <line x1="480" y1="190" x2="580" y2="190" class="door" />
             <text x="530" y="185" class="warning-text" text-anchor="middle">KRYT B (DVEŘE, 15m)</text>
-
             <rect x="100" y="280" width="15" height="40" class="cover-solid" />
             <text x="107" y="275" class="warning-text" fill="#8b0000" text-anchor="middle">KRYT A (10m)</text>
-
             <circle cx="107" cy="310" r="5" class="start-pos" />
-            <text x="107" y="325" class="warning-text" text-anchor="middle">V LEVO JEN</text>
-            
             <line x1="100" y1="280" x2="120" y2="80" class="shoot-line" stroke="#ff0000" stroke-width="2" />
-            
             <path d="M 120 300 L 530 200" class="arrow-path" marker-end="url(#arrowOrange)" />
-            
             <line x1="530" y1="190" x2="470" y2="80" class="shoot-line" />
             <line x1="530" y1="190" x2="620" y2="80" class="shoot-line" />
-
             <path d="M 520 180 L 320 170" class="arrow-path" marker-end="url(#arrowOrange)" />
             <path d="M 320 170 L 220 120" class="arrow-path" marker-end="url(#arrowOrange)" />
-
             <line x1="220" y1="120" x2="270" y2="80" stroke="#ff8c00" stroke-width="2" stroke-dasharray="2,2" />
             <text x="190" y="95" class="warning-text" fill="#ff8c00">ZÁSAH ZA CHŮZE</text>
         </svg>
@@ -339,24 +289,26 @@
         <h2>04: Zúčtování v atriu</h2>
         <div class="status-bar">METERS: 10m (V-TAC A) -> 17m (V-TAC B) || TARGETS: 4 ze 8 obličejů || TYPE: FACIAL RECOGNITION & SPRINT</div>
         <div class="legend">
-            "Hlavounům týhle operace právě docvaklo, že smrt má dneska na sobě tvoji koženou bundu. V panice zahodili zbraně, strhli masky a utíkaj dolů do hlavního atria splynout s davem rukojmí. Máš v kapse jejich složku, takže teď záleží na každým zlomku vteřiny. Najdi v tom chaosu ty správný ksichty a ukaž jim, co znamená smrtonosnej přesčas. Tref nevinnýho a zítra tě sežerou novináři."
+            "Roztrhneš tu špinavou obálku a zíráš na falešný pasy s fotkama. Teď už přesně víš, jak tyhle šmejdi vypadají. A je to sakra potřeba. V panice seběhli dolů do hlavního atria a se zbraněma pod kabátem se vmíchali mezi dav vyděšenýho personálu. Než tam vtrhneš, zafixuj si ty xichty do paměti a ukaž jim, co znamená smrtonosnej přesčas. Tref nevinnýho kravaťáka a zítra tě sežerou novináři. Yippee-Ki-Yay, motherfucker!"
         </div>
         <ul>
             <li><strong>TERČE (25m):</strong> T1 až T4 zleva doprava. Každý má Přední (F) a Zadní (B) cíl (maskování/překrývání). Každý terč má unikátní obličej.</li>
             <li><strong>ZÁSTĚNY:</strong> 2x V-TAC. Zástěna A je na 10m vlevo, zástěna B na 17m vpravo.</li>
-            <li><strong>START:</strong> Meta 10m u V-TAC A. Zbraň je nabitá a zasunutá v pouzdře. Střelec má u sebe (v ruce nebo v kapse) <strong>Složku s fotkami ze Stage 03</strong>.</li>
+            <li><strong>START:</strong> Meta 10m u V-TAC A. Zbraň je nabitá a zasunutá v pouzdře. Střelec má v ruce (nebo v kapse) <strong>ZALEPENOU OBÁLKU ze Stage 03</strong>.</li>
             <li><strong>PROCEDURA:</strong>
-                1. Na signál tasí a zpoza V-TAC A identifikuje dle své Složky a eliminuje cíle na <strong>T1 a T2</strong>.<br>
-                2. Sprintuje šikmo vpřed na 17m za V-TAC B.<br>
-                3. Zpoza V-TAC B identifikuje a eliminuje zbylé cíle na <strong>T3 a T4</strong>.<br>
-                4. Zásah špatného obličeje znamená tučnou penalizaci. 
+                1. Na signál <strong>střelec nejprve otevře obálku</strong> a prohlédne si fotky uvnitř.<br>
+                2. Až poté tasí zbraň a zpoza V-TAC A identifikuje a eliminuje cíle <strong>T1 a T2</strong>.<br>
+                3. Sprintuje šikmo vpřed na 17m za V-TAC B.<br>
+                4. Zpoza V-TAC B identifikuje a eliminuje zbylé cíle na <strong>T3 a T4</strong>.<br>
+                5. Zásah špatného obličeje znamená tučnou penalizaci. 
             </li>
         </ul>
         <svg width="700" height="280" viewBox="0 0 700 280">
             <rect width="100%" height="100%" fill="url(#grid)" />
-            
             <g transform="translate(100, 20)">
-                <rect x="0" y="0" width="30" height="50" fill="#1a0008" stroke="#8b0000" /> <rect x="10" y="10" width="30" height="50" fill="#2a2a2a" stroke="#555" /> <text x="15" y="-5" class="label">T1 (F/B)</text>
+                <rect x="0" y="0" width="30" height="50" fill="#1a0008" stroke="#8b0000" />
+                <rect x="10" y="10" width="30" height="50" fill="#2a2a2a" stroke="#555" />
+                <text x="15" y="-5" class="label">T1 (F/B)</text>
             </g>
             <g transform="translate(250, 20)">
                 <rect x="0" y="0" width="30" height="50" fill="#1a0008" stroke="#8b0000" />
@@ -373,24 +325,18 @@
                 <rect x="10" y="10" width="30" height="50" fill="#2a2a2a" stroke="#555" />
                 <text x="15" y="-5" class="label">T4 (F/B)</text>
             </g>
-
             <rect x="150" y="240" width="100" height="15" class="cover-solid" />
             <text x="200" y="235" class="warning-text" text-anchor="middle">V-TAC A (10m)</text>
             <circle cx="180" cy="270" r="5" class="start-pos" />
-            
             <rect x="425" y="120" width="100" height="15" class="cover-solid" />
             <text x="475" y="115" class="warning-text" text-anchor="middle">V-TAC B (17m)</text>
-            
             <path d="M 220 250 L 450 140" class="arrow-path" marker-end="url(#arrowOrange)" />
             <text x="350" y="210" class="warning-text" fill="#ff8c00" transform="rotate(-30 350,210)">SPRINT</text>
-
             <line x1="200" y1="240" x2="115" y2="70" class="shoot-line" />
             <line x1="200" y1="240" x2="265" y2="70" class="shoot-line" />
-            
             <line x1="475" y1="120" x2="415" y2="70" class="shoot-line" />
             <line x1="475" y1="120" x2="565" y2="70" class="shoot-line" />
-            
-            <text x="350" y="110" class="warning-text" fill="#8b0000" text-anchor="middle">IDENTIFIKACE Z PŘINESENÉ SLOŽKY</text>
+            <text x="350" y="110" class="warning-text" fill="#ff0055" text-anchor="middle">IDENTIFIKACE Z PŘINESENÉ SLOŽKY</text>
         </svg>
     </div>
 
