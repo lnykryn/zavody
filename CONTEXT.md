@@ -21,13 +21,16 @@ AI musí navrhovat situace tak, aby vynucovaly správné krytí:
 3.  **Vodorovný kryt:** Střelba nad překážkou (stůl, barel). Lokty nesmí být před hranou krytu.
 4.  **Pohyb:** Střelba za pohybu je povolená forma krytí (pokud se hýbu, jsem "hůře zasažitelný").
 
-### C. Hodnocení a Terče (SCORING)
-* **Terče:** Používáme **VÝHRADNĚ PAPÍROVÉ TERČE** (LOS terče se zónami A, C, D).
-* **Metodika:**
-    * **Hodnocení:** Obvykle 2 nejlepší zásahy na terč (Best 2).
+### C. Hodnocení a Pravidla Zbraní (SCORING & WEAPONS)
+* **Terče:** Používáme **VÝHRADNĚ PAPÍROVÉ TERČE** (LOS terče se zónami A, C, D) a papírové neterče. Na střelnici NEJSOU kovové terče (poppery/gongy). Vše musí být řešitelné střelbou do papíru.
+* **Metodika a Variabilita:** AI by měla (dle náročnosti stage) využívat různé režimy hodnocení:
+    * **Standard:** Obvykle 2 nejlepší zásahy kdekoli na terči (Best 2).
+    * **Mozambique drill:** Striktně 2 rány tělo, 1 rána hlava (zóna A).
+    * **Hit/Miss sypák:** Cílem je pouze doručit určitý počet ran do kartonu (např. 4 díry, bez ohledu na zóny), typické pro stresové střelby zblízka.
+* **Balanc zbraní:** Scénáře mohou specifikovat rozdílná pravidla pro Pistoli a Dlouhou zbraň (PDW/Puška). Např. střelci s pistolí mohou mít mírnější požadavky na přesnost z extrémních úhlů.
+* **Penalizace:**
     * **Neterč (No-Shoot):** Penalizace +10s (bílý/přeškrtnutý papírový terč).
     * **Procedura (chyba v krytí/postupu):** Penalizace +3s.
-* **Pozor:** Na střelnici NEJSOU kovové terče (poppery/gongy). Vše musí být řešitelné střelbou do papíru.
 
 ---
 
@@ -37,23 +40,27 @@ Scénáře jsou určeny pro specifickou vnitřní střelnici.
 ### A. Terčový systém (4 Pojezdové dráhy)
 * **Osa X (Šířka):** FIXNÍ. K dispozici jsou **4 dráhy (Lanes)**. Rozestup mezi nimi nelze měnit.
 * **Osa Z (Hloubka):** VARIABILNÍ. Každý terč lze poslat do libovolné vzdálenosti (3m až 25m).
-* **Důsledek:** Můžeme vytvářet hloubkové formace (V-formace, Echelon), ale ne shluky terčů u sebe na jedné linii.
+* **ZÁKAZ KŘÍŽOVÉ PALBY:** Terče se řeší VŽDY pouze kolmo vpřed (v linii dané dráhy). Střelec nesmí střílet z levého kraje střelnice ostře křížem na pravý terč, aby nedošlo k prostřelení pojezdových lan.
+* **Důsledek:** Můžeme vytvářet hloubkové formace (V-formace, Echelon), ale ne shluky terčů u sebe na jedné linii. Střelec se musí k terči vždy fyzicky přesunout (vykrýt si ho).
 
 ### B. Vybavení (Props)
-* **2x V-TAC zástěna:** Vysoká bariéra s různými otvory pro střelbu.
-* **1x Stůl:** Pro start vsedě, odkládání zbraně nebo jako nízký kryt.
+**ZÁKAZ HALUCINACÍ:** AI nesmí do scénářů generovat žádné fiktivní rekvizity (auta, budovy, okna). Vše v příběhu musí být simulováno POUZE tímto reálným inventářem:
+* **2x V-TAC zástěna:** Vysoká bariéra s různými otvory pro střelbu (nahrazuje zdi, rohy budov).
+* **1x Dveře s bočními rámy (Maketa):** Samostatně stojící maketa dveří doplněná o neprůhledné boční rámy/stěny. Střelec maketu nemůže jednoduše obejít, musí s dveřmi reálně manipulovat (otevírání silnou/slabou rukou, CQB vstupy, krájení místnosti).
+* **1x Stůl:** Pro start vsedě, odkládání zbraní/lootování nebo jako nízký kryt (nahrazuje pult, bar, kapotu).
 * **1x Židle:** Pro start vsedě.
-* **Volitelné:** Barely (jako kryt nebo překážka).
+* **Doplňky:** Dřevěný špalek, lehká plastová ohrádka ("nízké okno"), barely (jako kryt nebo překážka).
+* **Ocelová branka/Kabel:** Pouze jako interaktivní prvek pro nůž na startovní čáře.
 
 ---
 
 ## 3. DESIGNOVÁ FILOSOFIE (GAMEPLAY & STORYTELLING)
-+Každý závod je "Mini-kampaň" se 4 situacemi (Stages). Situace musí tvořit soudržný mechanický i příběhový celek.
+Každý závod je "Mini-kampaň" se 4 situacemi (Stages). Situace musí tvořit soudržný mechanický i příběhový celek.
 
 ### A. Struktura kampaně
 1.  **Stage 1 (Warm-up):** Jednoduchá a přehledná situace na "zahřátí". Start ve stoje, zbraň skrytě (nebo dle divize). Žádné složité procedury, důraz na čistou střelbu a základní práci s krytem. Vzdálenost 3-10m.
 2.  **Stage 2 (Dynamika):** Pohyb vpřed/vzad/do stran, střelba za pohybu, využití více krytů.
-3.  **Stage 3 (Skill Check / Twist):** Technická výzva (Slabá ruka, Přebíjení, Omezená munice, Start vsedě/zády, Paměť).
+3.  **Stage 3 (Skill Check / Twist):** Technická výzva (Slabá ruka, Přebíjení, Omezená munice, Start vsedě/zády, Paměť, Fyzická zátěž - např. dřep).
 4.  **Stage 4 (Finále):** Komplexní situace, volba postupu, No-Shoots, příběhové vyvrcholení.
 
 ### B. Narativní design a příběh (Storytelling)
