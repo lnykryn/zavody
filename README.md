@@ -14,6 +14,7 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[03_excommunicado](./03_excommunicado/scenario.html)** | 🕴️ Akce / John Wick |
 | **[04_blackout](./04_blackout/scenario.html)** | ☣️ Survival Horror (Low-Light) |
 | **[05_operation_lethal_overtime](./05_operation_lethal_overtime/scenario.html)** | 💥 Akce / 80s VHS |
+| **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
 

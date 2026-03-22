@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☢️ MRTVÁ ZÓNA ☢️ // TAKTICKÁ SIMULACE</title>
+    <style>
+        /* --- POST-APO / STALKER STYLES --- */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #12140e;
+            color: #dcdcdc;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+            border-top: 8px solid #5d7018; /* Toxic green */
+            background-image: 
+                linear-gradient(rgba(93, 112, 24, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(93, 112, 24, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .header-container {
+            border-bottom: 2px dashed #555;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffcc00; /* Radiation yellow */
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            font-family: 'Arial Black', Impact, sans-serif;
+            text-shadow: 2px 2px 0px #000;
+        }
+        
+        h2 {
+            color: #ffcc00;
+            border-bottom: 3px solid #5d7018;
+            padding-bottom: 5px;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.6em;
+            font-family: 'Arial Black', Impact, sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0px #000;
+        }
+
+        .subtitle {
+            color: #12140e;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: #ffcc00;
+            display: inline-block;
+            padding: 5px 15px;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .mission-brief {
+            background: rgba(0, 0, 0, 0.6);
+            border-left: 5px solid #ffcc00;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #ccc;
+            text-align: left;
+        }
+
+        .modifications-box {
+            background: rgba(255, 204, 0, 0.1);
+            border: 2px solid #ffcc00;
+            padding: 15px;
+            margin-bottom: 25px;
+            color: #ffcc00;
+            page-break-inside: avoid;
+            box-shadow: 3px 3px 0px #000;
+        }
+        .modifications-box h3 {
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        .stage-box {
+            background: #181a14;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            page-break-inside: avoid;
+            box-shadow: 5px 5px 0px #000;
+        }
+        
+        .legend {
+            color: #bbb;
+            border-left: 3px solid #5d7018;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(93, 112, 24, 0.1);
+            font-style: italic;
+            font-weight: normal;
+        }
+        
+        ul { list-style: none; padding-left: 0; margin-top: 0; }
+        li { margin-bottom: 5px; padding-left: 20px; text-indent: -20px; color: #aaa; }
+        li::before { content: "☢ "; color: #ffcc00; font-weight: bold; }
+        strong { color: #fff; }
+
+        /* --- RESPONSIVE SVG GRAFIKA --- */
+        svg { 
+            display: block; 
+            margin: 10px auto; 
+            background: #111; 
+            border: 2px solid #000;
+            max-width: 100%; 
+            height: auto; 
+            overflow: visible; 
+        }
+        
+        svg g, svg rect, svg line, svg path, svg circle { overflow: hidden; }
+
+        .grid { stroke: #1a1a1a; stroke-width: 1; }
+        .wall { stroke: #444; stroke-width: 4; fill: none; }
+        .door { stroke: #5d7018; stroke-width: 4; stroke-dasharray: 4,2; }
+        .cover-solid { stroke: #333; stroke-width: 2; fill: #222; }
+        
+        .ghost-prop { stroke: #5d7018; stroke-width: 2; fill: #1a1a1a; stroke-dasharray: 4,4; opacity: 0.3; }
+        .ghost-text { fill: #5d7018; font-size: 10px; font-weight: bold; text-anchor: middle; opacity: 0.5; }
+
+        .target-body { fill: #0a0a0a; stroke: #ffcc00; stroke-width: 2px; }
+        .target-head { fill: #0a0a0a; stroke: #ffcc00; stroke-width: 2px; }
+        
+        .arrow-path { fill: none; stroke: #5d7018; stroke-width: 2; stroke-dasharray: 4,4; }
+        .start-pos { fill: #ffcc00; stroke: #000; stroke-width: 2; }
+        .shoot-line { stroke: #ffcc00; stroke-width: 1.5; stroke-dasharray: 4,2; opacity: 0.4; }
+        .label { fill: #ffcc00; font-size: 12px; font-weight: bold; font-family: 'Courier New', monospace; }
+        .warning-text { fill: #aaa; font-size: 11px; font-weight: bold; text-transform: uppercase; font-family: 'Arial', sans-serif;}
+
+        @media print {
+            body { padding: 10px; line-height: 1.3; }
+            .header-container { margin-bottom: 15px; padding-bottom: 8px; }
+            h1 { font-size: 3em; }
+            .mission-brief { padding: 10px; margin-bottom: 10px; font-size: 0.9em; }
+            .modifications-box { padding: 10px; margin-bottom: 15px; font-size: 0.9em; }
+            .stage-box { padding: 10px; margin-bottom: 25px; }
+            .legend { padding: 5px; margin-bottom: 10px; font-size: 0.9em; }
+            svg { margin: 5px auto; max-width: 90%; }
+            ul li { font-size: 0.9em; margin-bottom: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" class="grid"/>
+            </pattern>
+            <symbol id="mutant" viewBox="0 0 40 60">
+                <rect x="5" y="15" width="30" height="40" class="target-body" rx="5" />
+                <rect x="12" y="0" width="16" height="12" class="target-head" rx="3" />
+            </symbol>
+            <symbol id="noshoot" viewBox="0 0 40 60">
+                <rect x="5" y="15" width="30" height="40" fill="#fff" stroke="#f00" stroke-width="2" rx="5" />
+                <rect x="12" y="0" width="16" height="12" fill="#fff" stroke="#f00" stroke-width="2" rx="3" />
+                <line x1="10" y1="20" x2="30" y2="50" stroke="#f00" stroke-width="3" />
+                <line x1="30" y1="20" x2="10" y2="50" stroke="#f00" stroke-width="3" />
+            </symbol>
+            <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#5d7018" />
+            </marker>
+        </defs>
+    </svg>
+
+    <div class="header-container">
+        <h1>☢️ MRTVÁ ZÓNA ☢️</h1>
+        <div class="subtitle">PROTOKOL S.T.A.L.K.E.R. // TAKTICKÁ SIMULACE</div>
+        <div class="mission-brief">
+            Zóna neodpouští chyby. Každý pohyb musí být jistý, každá rána přesná. Cesta zpátky neexistuje, musíš skrz. Tohle není sport, tady jde o přežití.
+        </div>
+    </div>
+
+    <div class="modifications-box">
+        <h3>Volitelné modifikace (Hardcore mód)</h3>
+        Máte pocit, že je k vám Zóna moc mírná? Pokud si chcete sáhnout na dno, aplikujte tyto úpravy:
+        <ul>
+            <li><strong>Zátěžový batoh (Všechny stages):</strong> Všechno, co máš, si neseš s sebou. Střelec má na sobě po celou dobu simulace naložený batoh.</li>
+            <li><strong>Horda na steroidech (Stage 02):</strong> Místo 8 nábojů si do primární zbraně nabijte přesně 12. Tím pádem vás čekají celkem tři cykly s přebíháním zleva doprava a střídáním výšky, než vám dojde munice a půjdete pro záložní.</li>
+            <li><strong>Tma v katakombách (Stage 03):</strong> Volitelně lze celou třetí stage střílet za tmy nebo v šeru s použitím zbraňové či ruční svítilny.</li>
+        </ul>
+    </div>
+
+    <div class="stage-box">
+        <h2>01: Smečka Šakalů</h2>
+        <div class="legend">
+            "Hlídka u vchodu. Nůž je nutnost, šetři munici. Ale jakmile čepel zajede do krku, ozve se z chodby ryk. Zkurvená ozvěna. Poplach. Zezadu se hrnou další odpadlíci a hned začínají pálit. Masivní betonové sloupy jsou teď tvoje jediné krytí. Musíš se vyklánět opatrně zpoza okrajů a brát si je po jednom. A hlídej si prst na spoušti – drží tu zajatce. Ve tmě Zóny vypadají všichni stejně."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Střelec stojí mimo hlavní plochu (v pravém stavu) před stojanem s kartonovou hlídkou. Zbraň v pohotovostní poloze. Nůž v ruce.</li>
+            <li><strong>PRAVIDLO ZBRANĚ:</strong> PDW/Puška = Mozambique drill (2x tělo, 1x hlava). Pouze Pistole = Klasická střelba (2x tělo).</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Na signál bodne nožem do kartonové hlídky a nůž v terči nechá bezpečně zapíchnutý.<br>
+                2. Tasí zbraň a přesouvá se na hlavní plochu k <strong>V-TAC A (vpravo, 15m)</strong>.<br>
+                3. Zpoza <strong>vertikálního okraje V-TAC A</strong> postupným vykrajováním (slicing the pie) řeší terče <strong>T4</strong> a <strong>T3</strong> (Pozor na Neterč u T3).<br>
+                4. Přesune se vpřed a doleva k <strong>V-TAC B (10m)</strong>.<br>
+                5. Zpoza <strong>levého (vnějšího) okraje V-TAC B</strong> postupným vykrajováním řeší terče <strong>T2</strong> a <strong>T1</strong> (Pozor na Neterč u T1).
+            </li>
+        </ul>
+        <svg viewBox="0 0 700 380">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <line x1="580" y1="200" x2="580" y2="380" class="wall" stroke-dasharray="10,5" stroke="#ff0000" />
+            <text x="600" y="220" class="warning-text" fill="#ff0000">PRAVÝ STAV</text>
+            <rect x="610" y="270" width="30" height="10" fill="#553311" /> <text x="610" y="260" class="label" fill="#ff5555">HLÍDKA</text>
+            <circle cx="625" cy="310" r="5" class="start-pos" />
+            <text x="625" y="330" class="warning-text" text-anchor="middle">START</text>
+
+            <use href="#mutant" x="150" y="30" width="40" height="60" /> <text x="160" y="25" class="label">T1</text>
+            <use href="#noshoot" x="125" y="45" width="40" height="60" /> <text x="110" y="40" class="label" fill="#f00">NO-SHOOT</text>
+
+            <use href="#mutant" x="250" y="30" width="40" height="60" /> <text x="260" y="25" class="label">T2</text>
+            
+            <use href="#mutant" x="370" y="30" width="40" height="60" /> <text x="380" y="25" class="label">T3</text>
+            <use href="#noshoot" x="345" y="45" width="40" height="60" /> <text x="330" y="40" class="label" fill="#f00">NO-SHOOT</text>
+            
+            <use href="#mutant" x="470" y="30" width="40" height="60" /> <text x="480" y="25" class="label">T4</text>
+            
+            <rect x="400" y="260" width="100" height="15" class="cover-solid" /> 
+            <text x="450" y="285" class="warning-text" text-anchor="middle">V-TAC A (15m)</text>
+
+            <rect x="150" y="180" width="100" height="15" class="cover-solid" /> 
+            <text x="200" y="205" class="warning-text" text-anchor="middle">V-TAC B (10m)</text>
+
+            <path d="M 600 310 C 530 310, 520 290, 515 280" class="arrow-path" stroke="#ff0000" stroke-width="3" marker-end="url(#arrowGreen)" />
+            <text x="520" y="340" class="warning-text" fill="#ff0000">PŘESUN S TASENÍM</text>
+
+            <line x1="500" y1="260" x2="490" y2="100" class="shoot-line" />
+            <line x1="500" y1="260" x2="390" y2="100" class="shoot-line" />
+            <text x="485" y="230" class="warning-text" fill="#ffcc00" font-size="9px">VYKRAJOVÁNÍ</text>
+            
+            <path d="M 480 250 L 150 200" class="arrow-path" marker-end="url(#arrowGreen)" />
+            <text x="310" y="220" class="warning-text" fill="#ffcc00" transform="rotate(-10 310,220)">PŘESUN</text>
+            
+            <line x1="150" y1="180" x2="270" y2="100" class="shoot-line" />
+            <line x1="150" y1="180" x2="170" y2="100" class="shoot-line" />
+            <text x="100" y="150" class="warning-text" fill="#ffcc00" font-size="9px">VYKRAJOVÁNÍ</text>
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>02: Probuzení Hordy</h2>
+        <div class="legend">
+            "Hluk přilákal něco z hlubin bunkru. Horda bestií se valí tmou a zatlačila tě do slepé chodby. V zásobníku máš posledních pár ran. Neřeš precizní míření, prostě je zasyp olovem, ať si udržíš odstup. Pálit z rohu, pak se skrčit k díře ve zdi a hned zase zpátky. Udržet je v šachu! Jakmile zbraň cvakne naprázdno, jsi mrtvej. Skoč k tomu odpadlíkovi, co jsi před chvílí sundal, serví mu zbraň z mrtvých prstů a syp to do nich, zatímco stahuješ ústupem zpátky k východu."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Meta 10m u levé zástěny. Zbraň nabitá na <strong>PŘESNĚ 8 RAN</strong> (nebo 12). Na stole leží plný zásobník pro pistolkáře, nebo cizí pistole a zásobník pro PDWčkáře.</li>
+            <li><strong>PRAVIDLO ZBRANĚ:</strong> Standardní hodnocení s penalizací. <strong>VÝJIMKA (Pouze pro pistoli):</strong> U krajních terčů <strong>T1 a T4</strong> se střelcům s pistolí počítá jakýkoliv zásah do kartonu jako čistá ALFA. PDW/Puška střílí na zóny.</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Zpoza <strong>levého (vnějšího) okraje levé zástěny</strong> řeší 2 ranami terč <strong>T1</strong>.<br>
+                2. Přeběhne doprava a skrze <strong>nízké okno (lehká překážka)</strong> vkleče/ve dřepu řeší 2 ranami terč <strong>T4</strong>.<br>
+                3. Vrací se zpět doleva (2 rány z levého okraje na <strong>T1</strong>) a znovu doprava (2 rány z okna na <strong>T4</strong>). Zbraň je tímto prázdná.<br>
+                4. Přesune se ke stolu. Odloží prázdnou zbraň (pokud má PDW). <em>Pistolkář bere nový zásobník a přebíjí. PDWčkář bere cizí pistoli a nabitý zásobník ze stolu.</em><br>
+                5. Během <strong>couvání dozadu k metě 15m</strong> likviduje oba středové terče (T2 a T3).
+            </li>
+        </ul>
+        <svg viewBox="0 0 700 380">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <use href="#mutant" x="100" y="30" width="40" height="60" /> <text x="110" y="25" class="label">T1 (Křídlo)</text>
+            <use href="#mutant" x="250" y="30" width="40" height="60" /> <text x="260" y="25" class="label">T2 (Střed)</text>
+            <use href="#mutant" x="400" y="30" width="40" height="60" /> <text x="410" y="25" class="label">T3 (Střed)</text>
+            <use href="#mutant" x="550" y="30" width="40" height="60" /> <text x="560" y="25" class="label">T4 (Křídlo)</text>
+            
+            <rect x="400" y="260" width="100" height="15" class="ghost-prop" /> 
+            <text x="450" y="285" class="ghost-text">NEPOUŽITO (V-TAC A z Jedničky)</text>
+
+            <rect x="150" y="180" width="100" height="15" class="cover-solid" /> 
+            <text x="200" y="170" class="warning-text" text-anchor="middle">LEVÁ ZÁSTĚNA</text>
+
+            <rect x="280" y="180" width="180" height="30" fill="#222" stroke="#5d7018" stroke-width="3" /> 
+            <text x="370" y="198" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">STŮL & ZÁLOŽNÍ ZBRAŇ / MAG</text>
+            
+            <rect x="500" y="180" width="80" height="15" fill="#111" stroke="#ffcc00" stroke-dasharray="4,2" />
+            <text x="540" y="170" class="warning-text" text-anchor="middle">NÍZKÉ OKNO (Dřep)</text>
+
+            <circle cx="150" cy="220" r="5" class="start-pos" />
+            <text x="150" y="240" class="warning-text" text-anchor="middle">START (10m)</text>
+
+            <line x1="150" y1="180" x2="120" y2="100" class="shoot-line" stroke-width="2" />
+            <text x="100" y="150" class="warning-text" fill="#ffcc00" font-size="9px">VNĚJŠÍ OKRAJ</text>
+
+            <path d="M 130 210 L 530 210" class="arrow-path" marker-end="url(#arrowGreen)" stroke-dasharray="2,2" />
+            <path d="M 530 220 L 130 220" class="arrow-path" marker-end="url(#arrowGreen)" stroke-dasharray="2,2" />
+            <text x="330" y="240" class="warning-text" fill="#ffcc00" text-anchor="middle">PENDLOVÁNÍ (VLEVO <-> VPRAVO)</text>
+
+            <line x1="540" y1="180" x2="570" y2="100" class="shoot-line" stroke-width="2" />
+            <text x="570" y="150" class="warning-text" fill="#ffcc00" font-size="9px">OKNO (DŘEP)</text>
+            
+            <path d="M 370 220 L 370 290" stroke="#ffcc00" stroke-width="3" stroke-dasharray="6,6" fill="none" marker-end="url(#arrowGreen)" />
+            <text x="380" y="270" class="warning-text" fill="#ffcc00">NABITÍ + ÚSTUP VZAD (k 15m)</text>
+
+            <line x1="370" y1="280" x2="270" y2="100" class="shoot-line" stroke="#ff0000" />
+            <line x1="370" y1="280" x2="420" y2="100" class="shoot-line" stroke="#ff0000" />
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>03: Zavalený tunel</h2>
+        <div class="legend">
+            "Zablokovaná branka. Přeřízni kabel a jdi dovnitř. První metry staré ventilační šachty jsou čisté, ale pak se strop masivně propadá. Dál už to po dvou nepůjde. Musíš do dřepu. Plíce pálí z prachu, batoh tě drtí k zemi. Každý přesun v těchhle sutinách bolí. Cokoliv se skrývá ve tmě před tebou, dostaneš na mušku jen přes ty nejnižší průrazy v betonu. Hlavně se nezaseknout."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Meta 0m (u branky). Zbraň nabitá v pouzdře. Nůž v ruce.</li>
+            <li><strong>PROCEDURA:</strong>
+                1. Přeřízne kabel u branky. Nůž bezpečně zapíchne do špalku (případně do kartonu).<br>
+                2. Tasí zbraň, otevírá branku a přesouvá se k <strong>V-TAC A (15m)</strong> (lze ve stoje).<br>
+                3. Tam <strong>klesne do dřepu/kleku</strong> a skrze <strong>nejnižší spodní průzory v pravé zástěně</strong> řeší terče <strong>T4</strong> a <strong>T3</strong>.<br>
+                4. Následný přesun vpřed a doleva k <strong>V-TAC B (10m)</strong> probíhá <strong>POUZE v kačáku/kleku</strong>. Skrze <strong>nejnižší spodní průzory v levé zástěně</strong> řeší terče <strong>T2</strong> a <strong>T1</strong>.
+            </li>
+        </ul>
+        <svg viewBox="0 0 700 380">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            
+            <use href="#mutant" x="150" y="30" width="40" height="60" /> <text x="160" y="25" class="label">T1</text>
+            <use href="#mutant" x="250" y="30" width="40" height="60" /> <text x="260" y="25" class="label">T2</text>
+            <use href="#mutant" x="350" y="30" width="40" height="60" /> <text x="360" y="25" class="label">T3</text>
+            <use href="#mutant" x="450" y="30" width="40" height="60" /> <text x="460" y="25" class="label">T4</text>
+
+            <rect x="400" y="260" width="100" height="15" class="cover-solid" /> 
+            <rect x="435" y="260" width="15" height="15" fill="#111" stroke="#ffcc00" /> 
+            <text x="350" y="272" class="warning-text" text-anchor="middle">V-TAC A (15m)</text>
+
+            <rect x="150" y="180" width="100" height="15" class="cover-solid" /> 
+            <rect x="185" y="180" width="15" height="15" fill="#111" stroke="#ffcc00" /> 
+            <text x="100" y="192" class="warning-text" text-anchor="middle">V-TAC B (10m)</text>
+
+            <line x1="50" y1="340" x2="650" y2="340" class="wall" stroke="#555" stroke-width="2" />
+            <text x="60" y="335" class="warning-text">META 0m</text>
+            
+            <rect x="200" y="340" width="100" height="40" fill="none" stroke="#ffcc00" stroke-width="2" stroke-dasharray="5,5" />
+            <circle cx="250" cy="360" r="5" class="start-pos" />
+            <text x="250" y="380" class="warning-text" text-anchor="middle">START BOX</text>
+
+            <line x1="400" y1="340" x2="500" y2="340" class="door" />
+            <line x1="430" y1="330" x2="470" y2="350" stroke="#ff0000" stroke-width="4" />
+            
+            <rect x="510" y="330" width="20" height="20" fill="#553311" stroke="#000" />
+            <text x="535" y="345" class="warning-text" fill="#ff5555">ŠPALEK</text>
+
+            <path d="M 270 360 L 410 360" class="arrow-path" marker-end="url(#arrowGreen)" />
+            <text x="340" y="375" class="warning-text">BĚH k 15m</text>
+            <path d="M 450 340 L 460 280" class="arrow-path" marker-end="url(#arrowGreen)" />
+            
+            <path d="M 430 250 L 250 200" class="arrow-path" marker-end="url(#arrowGreen)" />
+            <text x="350" y="240" class="warning-text" fill="#ffcc00" transform="rotate(-15 350,240)">PŘESUN V KAČÁKU!</text>
+
+            <line x1="450" y1="260" x2="470" y2="100" class="shoot-line" /> <line x1="450" y1="260" x2="370" y2="100" class="shoot-line" /> <line x1="200" y1="180" x2="270" y2="100" class="shoot-line" /> <line x1="200" y1="180" x2="170" y2="100" class="shoot-line" /> <text x="470" y="240" class="warning-text" fill="#ffcc00" font-size="9px">SPODNÍ PRŮZOR</text>
+            <text x="210" y="160" class="warning-text" fill="#ffcc00" font-size="9px">SPODNÍ PRŮZOR</text>
+        </svg>
+    </div>
+
+    <div class="stage-box">
+        <h2>04: Obranná linie</h2>
+        <div class="legend">
+            "Jsi zpátky na povrchu, ale hlava ti třeští a v uších píská. Kontrolér. Stojí venku a vaří ti mozek zaživa, zatímco z dálky se blíží jeho poskoci. Jsi zalezlý ve staré strážnici plné úzkých buněk. Nesmíš zůstat stát na místě. Vlítnout do první, vyčistit výhled ven, bezpečně s nabitou zbraní vycouvat zpět na chodbu a hned do další! V té úplně poslední leží na pultu opuštěná malorážka s optikou. Odhoď pistoli. Tohle je tvoje jediná šance. Zklidni tep a prostřel té zrůdě lebku, než si vezme tvoji mysl."
+        </div>
+        <ul>
+            <li><strong>START:</strong> Střelec začíná v <strong>pravém střeleckém boxu (Box 1) na metě 0m</strong>. Pistole nabitá v ruce. Malorážka leží připravená na pultu v levém krajním boxu (Box 4).</li>
+            <li><strong>PROCEDURA:</strong>
+                1. <strong>POSTUP KÓJEMI:</strong> Na signál střelec řeší z prvního (pravého) boxu terč <strong>T4</strong>. <br>
+                2. S nabitou zbraní <strong>bezpečně vycouvá</strong> a s hlavní směřující do valu se přesune do sousedního boxu vlevo (Box 2), odkud řeší terč <strong>T3</strong>.<br>
+                3. Znovu vycouvá, přesune se do dalšího boxu vlevo (Box 3) a řeší terč <strong>T2</strong>.<br>
+                4. <strong>OSTROSTŘELBA:</strong> Vběhne do posledního levého boxu (Box 4). <strong>VYBIJE A BEZPEČNĚ ODLOŽÍ</strong> pistoli. Zasedne k malorážce na pultíku a na maximální vzdálenost zasáhne <strong>4 malé malorážkové terče (slabá místa na T1)</strong>.
+            </li>
+        </ul>
+        <svg viewBox="0 0 700 450">
+            <rect width="100%" height="100%" fill="url(#grid)" />
+
+            <rect x="100" y="15" width="80" height="25" fill="#111" stroke="#ffcc00" stroke-width="1" rx="10" />
+            <circle cx="115" cy="27" r="6" fill="#ff0000" stroke="#ffcc00" stroke-width="1" />
+            <circle cx="132" cy="27" r="6" fill="#ff0000" stroke="#ffcc00" stroke-width="1" />
+            <circle cx="148" cy="27" r="6" fill="#ff0000" stroke="#ffcc00" stroke-width="1" />
+            <circle cx="165" cy="27" r="6" fill="#ff0000" stroke="#ffcc00" stroke-width="1" />
+            <text x="140" y="10" class="label" fill="#ff0000" text-anchor="middle">T1 (4x HLAVA 25m)</text>
+            
+            <use href="#mutant" x="230" y="120" width="40" height="60" /> <text x="250" y="115" class="label" text-anchor="middle">T2</text>
+            <use href="#mutant" x="380" y="140" width="40" height="60" /> <text x="400" y="135" class="label" text-anchor="middle">T3</text>
+            <use href="#mutant" x="530" y="120" width="40" height="60" /> <text x="550" y="115" class="label" text-anchor="middle">T4</text>
+
+            <line x1="50" y1="340" x2="650" y2="340" class="wall" stroke="#555" stroke-width="2" />
+            
+            <line x1="510" y1="340" x2="510" y2="380" class="wall" stroke="#5d7018" />
+            <line x1="590" y1="340" x2="590" y2="380" class="wall" stroke="#5d7018" />
+            <text x="550" y="360" class="warning-text" text-anchor="middle">BOX 1</text>
+            <circle cx="550" cy="370" r="5" class="start-pos" />
+            <text x="550" y="390" class="warning-text" text-anchor="middle">START</text>
+
+            <line x1="360" y1="340" x2="360" y2="380" class="wall" stroke="#5d7018" />
+            <line x1="440" y1="340" x2="440" y2="380" class="wall" stroke="#5d7018" />
+            <text x="400" y="360" class="warning-text" text-anchor="middle">BOX 2</text>
+
+            <line x1="210" y1="340" x2="210" y2="380" class="wall" stroke="#5d7018" />
+            <line x1="290" y1="340" x2="290" y2="380" class="wall" stroke="#5d7018" />
+            <text x="250" y="360" class="warning-text" text-anchor="middle">BOX 3</text>
+
+            <line x1="100" y1="340" x2="100" y2="380" class="wall" stroke="#5d7018" />
+            <line x1="180" y1="340" x2="180" y2="380" class="wall" stroke="#5d7018" />
+            <rect x="100" y="330" width="80" height="10" fill="#222" stroke="#5d7018" stroke-width="2" />
+            <text x="140" y="325" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">PULT & PUŠKA</text>
+            <text x="140" y="360" class="warning-text" text-anchor="middle">BOX 4</text>
+
+            <path d="M 550 380 C 490 410, 460 410, 400 380" class="arrow-path" stroke="#ff0000" stroke-dasharray="2,2" marker-end="url(#arrowGreen)" />
+            <path d="M 400 380 C 340 410, 310 410, 250 380" class="arrow-path" stroke="#ff0000" stroke-dasharray="2,2" marker-end="url(#arrowGreen)" />
+            <path d="M 250 380 C 190 410, 160 410, 140 380" class="arrow-path" stroke="#ff0000" stroke-dasharray="2,2" marker-end="url(#arrowGreen)" />
+            
+            <text x="325" y="425" class="warning-text" fill="#ffcc00" text-anchor="middle">BEZPEČNÉ COUVÁNÍ A PŘESUN</text>
+
+            <line x1="550" y1="335" x2="550" y2="180" class="shoot-line" />
+            <line x1="400" y1="335" x2="400" y2="200" class="shoot-line" />
+            <line x1="250" y1="335" x2="250" y2="180" class="shoot-line" />
+
+            <line x1="140" y1="325" x2="115" y2="40" class="shoot-line" stroke="#ff0000" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="140" y1="325" x2="132" y2="40" class="shoot-line" stroke="#ff0000" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="140" y1="325" x2="148" y2="40" class="shoot-line" stroke="#ff0000" stroke-width="1.5" stroke-dasharray="6,4" />
+            <line x1="140" y1="325" x2="165" y2="40" class="shoot-line" stroke="#ff0000" stroke-width="1.5" stroke-dasharray="6,4" />
+        </svg>
+    </div>
+
+</body>
+</html>
