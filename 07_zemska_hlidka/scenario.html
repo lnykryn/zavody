@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>🩸 KOCOVINA A JINÝ SRAČKY // ZEMSKÁ OKULTNÍ STRÁŽ 🩸</title>
+    <title>🩸 ZEMSKÁ HLÍDKA // KEBAB A NEKROMANCIE 🩸</title>
     <style>
         /* --- KOTLETA / BRNO DESIGN SYSTEM --- */
         body {
@@ -46,24 +46,12 @@
             letter-spacing: 3px;
         }
 
-        .global-rules {
-            background: #1a0505;
-            border: 1px solid #ff1a1a;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .global-rules h3 { color: #ff1a1a; margin-top: 0; margin-bottom: 15px; }
-        .global-rules p { font-size: 1em; margin: 5px 0; color: #fff; }
-        .global-rules .highlight-rule { color: #ff4d4d; font-weight: bold; }
-
         .mission-brief {
             background: linear-gradient(135deg, #1f0505 0%, #0d0000 100%);
             border: 1px solid #ff1a1a;
             border-left: 8px solid #ff1a1a;
             padding: 25px 30px;
-            margin: 40px 0;
+            margin-bottom: 40px;
             font-size: 1.15em;
             font-style: italic;
             color: #eee;
@@ -90,6 +78,18 @@
             right: 15px;
             font-family: serif;
         }
+
+        .global-rules {
+            background: #1a0505;
+            border: 1px solid #ff1a1a;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .global-rules h3 { color: #ff1a1a; margin-top: 0; margin-bottom: 15px; }
+        .global-rules p { font-size: 1em; margin: 5px 0; color: #fff; }
+        .global-rules .highlight-rule { color: #ff4d4d; font-weight: bold; }
 
         .stage-box {
             background: #141010;
@@ -171,7 +171,7 @@
 
         .seals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
         .seal-box { background: #fff; border: 2px dashed #000; padding: 20px; text-align: center; }
-        .seal-box svg { height: 250px; width: 250px; border: none; background: transparent; margin: 0 auto; }
+        .seal-box img { max-height: 250px; width: 100%; object-fit: contain; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.2); }
         .seal-box h3 { color: #000; margin: 10px 0 0 0; font-size: 2em; letter-spacing: 5px; }
 
         /* --- STYLY EXKLUZIVNĚ PRO TISK --- */
@@ -185,7 +185,6 @@
             }
             header { margin-bottom: 15px; padding-bottom: 10px; }
             h1 { font-size: 2em; }
-            .global-rules { padding: 10px; margin-bottom: 15px; }
 
             .mission-brief {
                 background: #f4f4f4;
@@ -194,9 +193,11 @@
                 border-left: 8px solid #000;
                 box-shadow: none;
                 padding: 15px;
-                margin: 20px 0;
+                margin-bottom: 20px;
             }
             .mission-brief::before, .mission-brief::after { color: #aaa; }
+
+            .global-rules { padding: 10px; margin-bottom: 20px; }
 
             .stage-box {
                 border: 2px solid black;
@@ -236,16 +237,20 @@
             .text-ns { fill: black !important; }
             .poem-box { background: #fff; border-color: black; color: black; }
 
-            .seal-box svg { max-height: none; height: 350px; width: 350px; }
+            .seal-box img { max-height: 350px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>KOCOVINA A JINÝ SRAČKY</h1>
-    <div class="subtitle">ZEMSKÁ OKULTNÍ STRÁŽ // NEDĚLNÍ RUTINA</div>
+    <h1>ZEMSKÁ HLÍDKA</h1>
+    <div class="subtitle">KEBAB A NEKROMANCIE // NEDĚLNÍ RUTINA</div>
 </header>
+
+<div class="mission-brief">
+    "Viktor Draxler, namachrovanej pražskej nekromant, to plánoval měsíce. Velkolepá invaze. Oživená armáda staletých mrtvol zpod Petrova. Složitý magický štíty. Plánoval srazit Brno na kolena v epické a krvavé bitvě, o které se budou psát legendy. Jenže Zemská hlídka má víkend. Teda, ty máš víkend. Vstal jsi po poledni s bolehlavem jak kráva po včerejší pařbě na Flédě a šel sis do podchodu na Hlavák pro vyprošťovací kebab. Draxlerova 'apokalypsa' tě zastihla ve chvíli, kdy jsi kousal do tortilly."
+</div>
 
 <div class="global-rules">
     <h3>ZÁKLADNÍ LIKVIDAČNÍ PROTOKOL & HODNOCENÍ (IDPA TERČE)</h3>
@@ -256,15 +261,12 @@
     <p>U pečetí se hraje pouze na počet zásahů v terči (zásahové zóny se nehodnotí, stačí trefit papír).<br>Chybějící rána = MISS. Přebývající rána = PROCEDURA.<br>Finální headshot bosse (Draxlera) – stačí alespoň jedna díra kdekoliv v hlavě.</p>
 </div>
 
-<div class="mission-brief">
-    "Viktor Draxler, namachrovanej pražskej nekromant, to plánoval měsíce. Velkolepá invaze. Oživená armáda staletých mrtvol zpod Petrova. Složitý magický štíty. Plánoval srazit Brno na kolena v epické a krvavé bitvě, o které se budou psát legendy. Jenže Zemská okultní stráž má víkend. Teda, ty máš víkend. Vstal jsi po poledni s bolehlavem jak kráva po včerejší pařbě na Flédě a šel sis do podchodu na Hlavák pro vyprošťovací kebab. Draxlerova 'apokalypsa' tě zastihla ve chvíli, kdy jsi kousal do tortilly."
-</div>
-
+<!-- STAGE 01 -->
 <div class="stage-box">
     <h2>01: Zkaženej Kebab u Nádru</h2>
 
     <div class="lore">
-        "Kupuješ si svůj vyprošťovák. Než se do něj pořádně zakousneš, praští tě do nosu hnusnej smrad hniloby, kterej spolehlivě přebije i tu pochybnou česnekovou omáčku. Draxlerův oživlej ghúl se přehoupne přes pult a přišpendlí ti pravačku rituální kudlou k umakartu. Vylije ti u toho Ayran. Velká chyba. Z temnoty podchodu se noří další tři mrtvý stíny, ale ty seš teď hlavně nasranej, že ti nějakej Cajzl zkazil snídani. A koukni, z jednoho z těch zmetků u toho vypadnul nějakej zmačkanej papír s básničkou – Draxlerův kód k rituálu. Ten se ti bude hodit."
+        "Kupuješ si svůj vyprošťovák. Na umakartovým stole před tebou leží zmačkaná ranní svodka od Rady Hlídky. Prý se nějaký pražský nekromant jménem Draxler *možná* pokusí o víkendu o nějaký rituál, a *kdyby náhodou jo*, tak tady máš preventivně dešifrovací básničku, jak mu zrušit magický štíty. Typickej úřední šiml. Než se ale do kebabu pořádně zakousneš, praští tě do nosu hnusnej smrad hniloby, kterej spolehlivě přebije i tu pochybnou česnekovou omáčku. Draxlerův oživlej ghúl se přehoupne přes pult a přišpendlí ti pravačku rituální kudlou ke stolu. Vylije ti u toho Ayran. Velká chyba. Z temnoty podchodu se noří další tři mrtvý stíny, ale ty seš teď hlavně nasranej, že ti nějakej Cajzl zkazil snídani. Tu debilní básničku ze stolu si radši vezmi s sebou."
     </div>
 
     <div class="procedure">
@@ -272,7 +274,7 @@
         <ul>
             <li><strong>Start:</strong> Vsedě (nebo v předklonu). Silná ruka leží naplocho na stole ("přibitá"), nesmí se po celou dobu pohnout z místa. <span class="highlight">Zbraň leží na stole (NE v pouzdře).</span></li>
             <li><strong>Akce:</strong> Na signál střelec <strong>striktně slabou rukou (WHO)</strong> bere zbraň ze stolu a eliminuje tři terče na zadním valu.</li>
-            <li><strong>Sběr depeše:</strong> Po odstřílení situace si střelec z boku jednoho z terčů fyzicky utrhne/vezme papírek s dešifrovací básničkou, který zde visí (jakože ghúlovi vypadl z kapsy). Bude ho potřebovat na čtvrtou stage.</li>
+            <li><strong>Sběr depeše:</strong> Po odstřílení situace si střelec sebere ze stolu papírek s ranní svodkou a básničkou od Rady. Bude ho potřebovat na čtvrtou stage.</li>
             <li><strong>Spotřeba:</strong> 3 terče = 9 ran (Mozambik).</li>
         </ul>
     </div>
@@ -281,13 +283,18 @@
         <rect x="200" y="50" width="40" height="60" class="terc" /> <text x="205" y="40" class="text-terc">T1</text>
         <rect x="380" y="50" width="40" height="60" class="terc" /> <text x="385" y="40" class="text-terc">T2</text>
         <rect x="560" y="50" width="40" height="60" class="terc" /> <text x="565" y="40" class="text-terc">T3</text>
-        <rect x="600" y="70" width="15" height="20" fill="#fff" stroke="#ff1a1a" /> <text x="618" y="85" class="text-info">BÁSNIČKA</text>
 
+        <!-- Pult -->
         <rect x="250" y="250" width="300" height="50" class="barricade" />
         <text x="310" y="280" class="text-terc">PULT STÁNKU</text>
 
+        <!-- Služební papírek na stole -->
+        <rect x="440" y="260" width="15" height="20" fill="#fff" stroke="#ff1a1a" />
+        <text x="465" y="275" class="text-info">DEPEŠE</text>
+
+        <!-- Střelec a střelba -->
         <circle cx="400" cy="350" r="10" class="start-bod" />
-        <text x="420" y="355" class="text-info">START VSEDĚ (ZBRAŇ NA STOLE)</text>
+        <text x="420" y="370" class="text-info">START VSEDĚ (ZBRAŇ NA STOLE)</text>
 
         <path d="M 390 340 L 220 110" class="shoot-line" />
         <path d="M 400 340 L 400 110" class="shoot-line" />
@@ -295,6 +302,7 @@
     </svg>
 </div>
 
+<!-- STAGE 02 -->
 <div class="stage-box">
     <h2>02: Ulička smrti na Josefské</h2>
 
@@ -352,68 +360,71 @@
     </svg>
 </div>
 
+<!-- STAGE 03 -->
 <div class="stage-box">
     <h2>03: Jatka v Metru</h2>
 
     <div class="lore">
-        "Z Josefské to bereš dál přes Poštovskou. Z Metro Music Baru s jekotem zdrhají lidi, zevnitř duní techno a Draxlerovi poskoci si tam dělají švédský stůl z těch, co nestihli utéct. Normálně by ses na to vykašlal a šel rovnou po šéfovi, protože tě z těch basů třeští hlava, ale máš zrovna slabší chvilku. Rozhodneš se tam vlítnout a pomoct chudákům v salóncích. Mezi mrtvýma loutkama pobíhají zmatení civilisti. Tady musíš přesně vykrajovat úhly – jestli s touhle kocovinou pošleš olovo do nevinnýho, Rada Stráže ti tenhle přesčas rozhodně neproplatí."
+        "Vletíš do Metro Music Baru a hned vlevo u parketu na tebe nastoupí dva Draxlerovi zmetci na férovku. Rychlá práce. Než ale stihneš vydechnout, z VIP salónku vzadu se ozve řev. Zbylí poskoci si tam dělají švédský stůl z těch, co nestihli utéct. Rychle se přesuneš k jejich dveřím. Tady už to chce chirurgickou přesnost – musíš opatrně vykrajovat úhly zpoza futer. Jestli s touhle kocovinou pošleš olovo do nějakýho nevinnýho civilisty, Rada Hlídky ti tenhle přesčas rozhodně neproplatí."
     </div>
 
     <div class="procedure">
         <h4>Procedura:</h4>
         <ul>
-            <li><strong>Start:</strong> Meta 25m. <span class="highlight">Zbraň v pouzdře.</span></li>
-            <li><strong>Akce 1 (První dveře):</strong> Na pípnutí tasit, postup k bližším dveřím. Pomocí <strong>taktického vykrajování ("slicing the pie")</strong> eliminovat T1 a T2. Pozor na Neterče (NS)!</li>
-            <li><strong>Akce 2 (Druhé dveře):</strong> Průchod přes první místnost ke vzdálenějším dveřím. Opět taktické vykrajování a eliminace T3, T4, T5. Pozor na Neterče!</li>
+            <li><strong>Start:</strong> Meta 25m, vlevo. <span class="highlight">Zbraň v pouzdře.</span></li>
+            <li><strong>Akce 1 (Na férovku):</strong> Na pípnutí tasit a z otevřeného prostoru eliminovat T1 a T2.</li>
+            <li><strong>Akce 2 (Přesun):</strong> Rychlý přesun doprava k VIP salónku (dveře na cca 10-15m).</li>
+            <li><strong>Akce 3 (Dveře a rukojmí):</strong> Pomocí <strong>taktického vykrajování ("slicing the pie")</strong> zpoza hrany dveří eliminovat T3, T4, T5. Pozor na Neterče!</li>
             <li><strong>Spotřeba:</strong> 5 terčů = 15 ran (Mozambik). Zásah Neterče = fatální penalizace.</li>
         </ul>
     </div>
 
     <svg viewBox="0 0 800 400">
-        <path d="M 50 260 L 350 260 M 450 260 L 750 260" class="wall" />
-        <path d="M 50 140 L 550 140 M 650 140 L 750 140" class="wall" />
+        <!-- T1 & T2 vlevo -->
+        <rect x="120" y="50" width="30" height="50" class="terc" /> <text x="125" y="40" class="text-terc">T1</text>
+        <rect x="280" y="50" width="30" height="50" class="terc" /> <text x="285" y="40" class="text-terc">T2</text>
 
-        <text x="60" y="250" class="text-info">PRVNÍ SALÓNEK</text>
-        <text x="60" y="130" class="text-info">ZADNÍ SALÓNEK</text>
-        <text x="400" y="275" class="text-info">DVEŘE 1</text>
-        <text x="600" y="155" class="text-info">DVEŘE 2</text>
+        <!-- VIP Salónek vpravo -->
+        <path d="M 400 150 L 550 150 M 650 150 L 800 150 M 400 150 L 400 50" class="wall" />
+        <text x="560" y="140" class="text-info">DVEŘE VIP SALÓNKU</text>
 
-        <rect x="180" y="180" width="30" height="50" class="terc" /> <text x="185" y="170" class="text-terc">T1</text>
-        <rect x="200" y="195" width="25" height="40" class="no-shoot" /> <text x="203" y="220" class="text-ns">NS</text>
+        <rect x="440" y="50" width="30" height="50" class="terc" /> <text x="445" y="40" class="text-terc">T3</text>
 
-        <rect x="300" y="180" width="30" height="50" class="terc" /> <text x="305" y="170" class="text-terc">T2</text>
+        <rect x="580" y="50" width="30" height="50" class="terc" /> <text x="585" y="40" class="text-terc">T4</text>
+        <rect x="560" y="65" width="25" height="40" class="no-shoot" /> <text x="563" y="90" class="text-ns">NS</text>
 
-        <rect x="350" y="50" width="30" height="50" class="terc" /> <text x="355" y="40" class="text-terc">T3</text>
-        <rect x="370" y="65" width="25" height="40" class="no-shoot" /> <text x="373" y="90" class="text-ns">NS</text>
+        <rect x="720" y="50" width="30" height="50" class="terc" /> <text x="725" y="40" class="text-terc">T5</text>
+        <rect x="745" y="65" width="25" height="40" class="no-shoot" /> <text x="748" y="90" class="text-ns">NS</text>
 
-        <rect x="500" y="50" width="30" height="50" class="terc" /> <text x="505" y="40" class="text-terc">T4</text>
+        <!-- Start -->
+        <circle cx="200" cy="370" r="10" class="start-bod" />
+        <text x="220" y="375" class="text-info">START VLEVO (25m)</text>
 
-        <rect x="680" y="50" width="30" height="50" class="terc" /> <text x="685" y="40" class="text-terc">T5</text>
-        <rect x="665" y="65" width="25" height="40" class="no-shoot" /> <text x="668" y="90" class="text-ns">NS</text>
+        <!-- Shoot lines T1, T2 -->
+        <path d="M 200 360 L 135 100" class="shoot-line" />
+        <path d="M 200 360 L 295 100" class="shoot-line" />
 
-        <circle cx="400" cy="370" r="10" class="start-bod" />
-        <text x="420" y="375" class="text-info">START (Z POUZDRA)</text>
+        <!-- Path to door -->
+        <path d="M 200 360 L 600 200" class="path-line" />
+        <polygon points="595,200 605,200 600,190" class="path-arrow" transform="rotate(70 600 200)" />
 
-        <path d="M 400 360 L 400 300" class="path-line" />
-        <polygon points="395,300 405,300 400,290" class="path-arrow" />
+        <!-- Vykrajování symbol (obloucek/šipky) -->
+        <path d="M 580 190 Q 600 170 620 190" fill="none" stroke="#fff" stroke-dasharray="2,2" />
+        <text x="630" y="210" class="text-info">VYKRAJOVÁNÍ</text>
 
-        <path d="M 400 290 L 195 230" class="shoot-line" />
-        <path d="M 400 290 L 315 230" class="shoot-line" />
-
-        <path d="M 400 270 L 400 230 L 600 180" class="path-line" />
-        <polygon points="595,180 605,180 600,170" class="path-arrow" transform="rotate(25 600 180)" />
-
-        <path d="M 600 170 L 365 100" class="shoot-line" />
-        <path d="M 600 170 L 515 100" class="shoot-line" />
-        <path d="M 600 170 L 695 100" class="shoot-line" />
+        <!-- Shoot lines T3, T4, T5 -->
+        <path d="M 600 190 L 455 100" class="shoot-line" />
+        <path d="M 600 190 L 595 100" class="shoot-line" />
+        <path d="M 600 190 L 735 100" class="shoot-line" />
     </svg>
 </div>
 
+<!-- STAGE 04 -->
 <div class="stage-box">
-    <h2>04: Rituál u Orloje</h2>
+    <h2>04: Rituál u Orloje (Závěrečný účet)</h2>
 
     <div class="lore">
-        "Konečně Svoboďák. Pražskej arcimág se zakopal u Orloje, vznáší se v oblaku temný magie a nadechuje se k epickýmu monologu o tom, jak ovládne Štatl. Kreje ho štít napojený na čtyři okultní pečetě – Oko, Had, Kříž a Lebku. Nemáš absolutně náladu to poslouchat. V kapse nahmatáš papírek s básničkou, co jsi sebral ghúlovi u kebabu. Zlomíš pečetě přesně podle počtu ran v textu, a jakmile pražská čarodějina spadne, prostě nezastavuješ. Plynulou chůzí k němu dojdeš, zařveš na něj přes celý náměstí a pošleš mu definitivní tečku mezi oči, než stihne doříct větu. Čas jít dospat."
+        "Konečně Svoboďák. Pražskej arcimág se zakopal u Orloje, vznáší se v oblaku temný magie a nadechuje se k epickýmu monologu o tom, jak ovládne Štatl. Kreje ho štít napojený na čtyři okultní pečetě – Oko, Had, Kříž a Lebku. Nemáš absolutně náladu to poslouchat. V kapse nahmatáš ranní svodku, co jsi sebral u kebabu. Zlomíš pečetě přesně podle počtu ran v textu, a jakmile pražská čarodějina spadne, prostě nezastavuješ. Plynulou chůzí k němu dojdeš, zařveš na něj přes celý náměstí a pošleš mu definitivní tečku mezi oči, než stihne doříct větu. Čas jít dospat."
     </div>
 
     <div class="procedure">
@@ -458,6 +469,7 @@
     </svg>
 </div>
 
+<!-- SAMOSTATNÁ STRÁNKA PRO BÁSNIČKY -->
 <div class="poems-page">
     <h2>DEKRYPTOVACÍ RITUÁLY (POČET RAN PRO STAGE 4)</h2>
     <div class="poem-grid">
@@ -492,48 +504,31 @@
     </div>
 </div>
 
+<!-- SAMOSTATNÁ STRÁNKA: TERČOVÉ ZNAČKY PRO STAGE 4 -->
 <div class="seals-page">
     <h2>TERČOVÉ ZNAČKY PRO STAGE 4 (K VYTISKNUTÍ)</h2>
     <div class="seals-grid">
+        <!-- OKO -->
         <div class="seal-box">
-            <svg viewBox="0 0 200 200">
-                <polygon points="100,30 20,160 180,160" fill="none" stroke="#000" stroke-width="12" stroke-linejoin="round"/>
-                <path d="M 60 120 Q 100 80 140 120 Q 100 150 60 120 Z" fill="none" stroke="#000" stroke-width="8"/>
-                <circle cx="100" cy="118" r="15" fill="#000"/>
-            </svg>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/2681654835985887447" alt="OKO">
             <h3>OKO</h3>
         </div>
 
+        <!-- HAD -->
         <div class="seal-box">
-            <svg viewBox="0 0 200 200">
-                <path d="M 100 180 C 100 100 160 100 160 60 C 160 20 40 20 40 60 C 40 100 100 100 100 180" fill="none" stroke="#000" stroke-width="20"/>
-                <circle cx="100" cy="70" r="25" fill="#000"/>
-                <circle cx="90" cy="65" r="4" fill="#fff"/>
-                <circle cx="110" cy="65" r="4" fill="#fff"/>
-                <path d="M 100 95 L 95 110 L 105 110 Z" fill="#000"/>
-            </svg>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/6481093703876422882" alt="HAD">
             <h3>HAD</h3>
         </div>
 
+        <!-- KŘÍŽ -->
         <div class="seal-box">
-            <svg viewBox="0 0 200 200">
-                <g stroke="#000" stroke-width="25" stroke-linecap="square">
-                    <line x1="100" y1="20" x2="100" y2="180"/>
-                    <line x1="20" y1="100" x2="180" y2="100"/>
-                    <line x1="40" y1="40" x2="160" y2="160"/>
-                    <line x1="40" y1="160" x2="160" y2="40"/>
-                </g>
-            </svg>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/763826768697162071" alt="KŘÍŽ">
             <h3>KŘÍŽ</h3>
         </div>
 
+        <!-- LEBKA -->
         <div class="seal-box">
-            <svg viewBox="0 0 200 200">
-                <path d="M 50 110 C 30 110 30 50 100 50 C 170 50 170 110 150 110 L 140 160 L 60 160 Z" fill="none" stroke="#000" stroke-width="15" stroke-linejoin="round"/>
-                <circle cx="75" cy="100" r="15" fill="#000"/>
-                <circle cx="125" cy="100" r="15" fill="#000"/>
-                <path d="M 100 130 L 100 160 M 80 130 L 80 160 M 120 130 L 120 160" stroke="#000" stroke-width="8"/>
-            </svg>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/12786892252501416857" alt="LEBKA">
             <h3>LEBKA</h3>
         </div>
     </div>
