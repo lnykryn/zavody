@@ -3,6 +3,8 @@
 Tento soubor slouží jako "systémová paměť" pro generování tématických střeleckých scénářů.
 Scénáře jsou **inspirovány pravidly LOS (Lidová Obranná Střelba)**, ale jsou gamifikované pro zážitkový trénink.
 
+**Upřesnění zadání:** Inspirace LOS se týká i technického provedení, stavby a průběhu situací, ne jen příběhu. Jednotlivé situace mají mít odlišný charakter; neopakovat čtyřikrát stejný průchod stanovišti s jinou legendou. Uvést konkrétní start, stav zbraně, vybavení, postup a hodnocení.
+
 ---
 
 ## 1. PRAVIDLA A DESIGN SITUACÍ (LOS RULES BASIS)
@@ -22,7 +24,8 @@ AI musí navrhovat situace tak, aby vynucovaly správné krytí:
 4.  **Pohyb:** Střelba za pohybu je povolená forma krytí (pokud se hýbu, jsem "hůře zasažitelný").
 
 ### C. Hodnocení a Pravidla Zbraní (SCORING & WEAPONS)
-* **Terče:** Používáme **VÝHRADNĚ PAPÍROVÉ TERČE** (LOS terče se zónami A, C, D) a papírové neterče. Na střelnici NEJSOU kovové terče (poppery/gongy). Vše musí být řešitelné střelbou do papíru.
+* **Upřesnění pořadatele:** Střílíme na IDPA terče. Závod má ideálně obsahovat pohyb mezi stanovišti a střelbu z krytu; samotné statické disciplíny s vlastními kruhovými terči nejsou výchozí formát. Typ terče automaticky neznamená použití celého soutěžního řádu IDPA.
+* **Terče:** Používáme **VÝHRADNĚ PAPÍROVÉ TERČE** (IDPA terče se zónami −0, −1, −3) a papírové neterče. Na střelnici NEJSOU kovové terče (poppery/gongy). Vše musí být řešitelné střelbou do papíru.
 * **Metodika a Variabilita:** AI by měla (dle náročnosti stage) využívat různé režimy hodnocení:
     * **Standard:** Obvykle 2 nejlepší zásahy kdekoli na terči (Best 2).
     * **Mozambique drill:** Striktně 2 rány tělo, 1 rána hlava (zóna A).

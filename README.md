@@ -17,6 +17,10 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 | **[07_zemska_hlidka](./07_zemska_hlidka/scenario.html)** | 🍺 Urban Fantasy / Kotleta |
 
+## Klubové speciály mimo číslovanou řadu
+
+- **[Zemská hlídka — Popice](./popice_zemska_hlidka/scenario.html)** — pracovní návrh venkovního závodu, dvě dvojice situací a dvě varianty kovových terčů. [Zadání a otevřené body](./popice_zemska_hlidka/README.md).
+
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
 
 ## 🖨️ Formát "Smart Hybrid"

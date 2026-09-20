@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="cs">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Zemská hlídka — Popice | Klubový speciál
+  </title>
+  <style>
+   :root{--bg:#17151a;--panel:#242029;--ink:#eaf0e9;--muted:#b4c6c9;--accent:#f3bc68;--line:#675365;--mint:#d6b3dd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Segoe UI',sans-serif}a{color:var(--mint)}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}.wrap{max-width:1080px;margin:auto;padding:32px 36px 70px}nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:12px/1.5 monospace;letter-spacing:1px;margin-bottom:36px}nav a{text-decoration:none}.hero{border:1px solid var(--line);border-top:7px solid var(--accent);padding:40px;position:relative;overflow:hidden;background:linear-gradient(125deg,#452336,#17151a)}.eyebrow,.status-bar,.serial{font:12px/1.6 monospace;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(46px,8vw,88px);line-height:.98;letter-spacing:-3px;margin:24px 0}h1 span{color:var(--accent)}h2{font-size:27px;line-height:1.18;margin:0 0 15px}h3{font-size:15px;text-transform:uppercase;letter-spacing:1px;margin:18px 0 8px}p{margin:10px 0}.lead{max-width:650px;font-size:19px;color:var(--muted)}.mission-brief{max-width:720px;margin-top:30px}.stamp{display:inline-block;border:1px solid var(--accent);padding:5px 10px;color:var(--accent);font:12px monospace}.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin:20px 0 32px}.facts div{padding:18px;border-right:1px solid var(--line);font-size:12px;color:var(--muted)}.facts div:last-child{border:0}.facts b{display:block;font-size:24px;color:var(--ink)}.rules-box,.stage-box,.organizer{padding:30px;border:1px solid var(--line);background:var(--panel);margin-top:26px}.stage-head{display:flex;gap:20px;align-items:flex-start}.number{font:54px/.95 monospace;color:var(--accent)}.status-bar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin:20px 0;letter-spacing:1px}.legend{border-left:3px solid var(--accent);padding:4px 0 4px 18px;color:var(--muted);font-style:italic;margin:18px 0}.procedure{padding-left:22px}.procedure li{padding-left:5px;margin:8px 0}.note{font-size:13px;color:var(--muted)}.outcome{border-top:1px dashed var(--line);padding-top:12px;color:var(--mint)}table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}th,td{text-align:left;vertical-align:top;padding:9px;border-bottom:1px solid var(--line)}th{color:var(--accent)}.map{width:100%;height:auto;display:block;background:#102029;border:1px solid var(--line);margin-top:18px}.map text{font:13px monospace;fill:var(--ink)}.map .muted{fill:var(--muted);font-size:11px}.grid{stroke:var(--line);stroke-dasharray:4 7;stroke-width:1}.target{fill:var(--panel);stroke:var(--accent);stroke-width:2}.shoot-line{stroke:var(--mint);stroke-width:2}.start-pos{fill:var(--accent);stroke:var(--ink);stroke-width:1}.map .boundary{stroke:var(--ink);stroke-width:2}.map .paper-mark{fill:var(--accent);font-size:10px}.footer{margin-top:30px;font:12px monospace;color:var(--muted)}.table-scroll{overflow:auto}button{font:inherit;color:var(--bg);background:var(--accent);border:0;padding:10px 18px;cursor:pointer}.screen-only{margin-top:20px}
+@media(max-width:600px){.wrap{padding:20px 16px 40px}.hero,.rules-box,.stage-box,.organizer{padding:22px}.facts{grid-template-columns:repeat(2,1fr)}.facts div{border-bottom:1px solid var(--line)}.stage-head{gap:12px}.number{font-size:40px}h2{font-size:23px}th,td{padding:6px;font-size:12px}}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;color:#000;font:10pt/1.35 sans-serif;--ink:#000;--muted:#222;--accent:#000;--line:#666;--mint:#000;--panel:#fff}.wrap{max-width:none;padding:0}nav,.screen-only{display:none!important}.hero{padding:6mm;background:#fff;border:1px solid #000;border-top:3px solid #000}h1{font-size:42pt;margin:5mm 0;letter-spacing:-1px}.lead{font-size:12pt}.mission-brief{margin-top:5mm}.facts{margin:5mm 0}.facts div{padding:3mm}.facts b{font-size:17pt}.rules-box,.stage-box,.organizer{padding:5mm;background:#fff;box-shadow:none;border:1px solid #000;margin:0;break-before:page;break-inside:avoid}.stage-box{border:2px solid #000}h2{font-size:20pt}h3{font-size:11pt;margin:4mm 0 2mm}.number{font-size:38pt}.status-bar{font-size:8pt;margin:4mm 0;padding:2mm 0}.legend{margin:4mm 0;padding-left:3mm}.procedure li{margin:2.5mm 0}.map{background:#fff;margin-top:4mm;max-height:67mm}.map text{fill:#000}.note{font-size:9pt}.outcome{margin-top:3mm}table{font-size:9pt}th,td{padding:2mm}.footer{font-size:8pt}a{color:#000;text-decoration:none}}
+  
+.cover{stroke:var(--ink);stroke-width:7;fill:none}.move{stroke:var(--accent);stroke-width:1.5;stroke-dasharray:5 4;fill:none;color:var(--accent)}
+  
+.table-prop{fill:var(--panel);stroke:var(--ink);stroke-width:2}.map{max-width:100%}@media print{.map{max-height:70mm}.procedure li{margin:2mm 0}}
+  
+.pending{border:1px dashed var(--accent);padding:12px;margin:16px 0}.schedule{display:grid;grid-template-columns:1fr 1fr;gap:16px}.schedule div{padding:15px;border:1px solid var(--line)}.seal{width:100%;height:auto;max-height:130mm}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ritual{border:2px dashed var(--line);padding:22px}.ritual p{line-height:1.9}@media(max-width:600px){.schedule,.cards{grid-template-columns:1fr}}@media print{.pending{padding:3mm}.cards{grid-template-columns:1fr 1fr}.stage-box{break-inside:avoid}.schedule div{padding:3mm}}
+  
+.map{background:var(--panel);max-height:none}.map .label{font:15px sans-serif;fill:var(--ink)}.map .muted{font:11px sans-serif;fill:var(--muted)}.berm{stroke:var(--line);stroke-width:9}.cover{stroke:var(--ink);stroke-width:7;fill:none}.prop{fill:var(--panel);stroke:var(--ink);stroke-width:2}.zone{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:5 4}.no-shoot{fill:var(--ink);stroke:var(--line);stroke-width:2}.ns-cross{stroke:var(--bg);stroke-width:2}.finish{stroke:var(--accent);stroke-width:4;stroke-dasharray:6 4}.map-caption{font-size:11px;color:var(--muted);margin:5px 0}.variant-story{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:15px}@media print{.map{max-height:65mm}.detail{max-height:28mm}.variant-story{font-size:9pt}.map-caption{font-size:8pt}.ns-cross{stroke:#000}.no-shoot{fill:#fff}.legend{margin:3mm 0}.procedure li{margin:2mm 0}}
+  
+.tape{stroke:var(--accent);stroke-width:3;stroke-dasharray:10 5}.stage-head{align-items:center;margin-bottom:20px}.stage-head h2{margin:0}.hero{border-top-width:3px}h1{font-size:clamp(40px,7vw,72px)}
+  
+#situace-2 .map{max-height:none}@media print{#situace-2 .map{max-height:110mm}}
+  
+#situace-3 .map{max-height:none}@media print{#situace-3 .map{max-height:95mm}}
+</style>
+ </head>
+ <body>
+  <main class="wrap">
+   <nav>
+    <a href="../index.html">
+     ← ROZCESTNÍK
+    </a>
+    <a href="targets.html">
+     RITUÁL A ZNAČKY ↗
+    </a>
+    <a href="../Pravidla_LOS_2026%20%282%29.pdf">
+     PRAVIDLA LOS ↗
+    </a>
+    <a href="README.md">
+     PRACOVNÍ POZNÁMKY
+    </a>
+   </nav>
+   <header class="hero">
+    <h1>
+     ZEMSKÁ
+     <br/>
+     HLÍDKA
+     <span>
+      .
+     </span>
+    </h1>
+    <p class="lead">
+     Štatl přesčas neproplácí.
+     <br/>
+     Čtyři hlášení, jeden zkažený den volna.
+    </p>
+    <div class="mission-brief">
+     Měls den volna. Kebab, šalina, domů. Jenže nějakej pražskej nekromant rozjel v Brně živnost a mrtví začali chodit mezi lidi. Rada Zemské hlídky má čtyři hlášení a jednoho člověka, kterej jí ještě zvedá telefon. Tebe. Kebab počká. Přesčas ti samozřejmě nikdo neproplatí.
+    </div>
+   </header>
+   <div class="screen-only">
+    <button onclick="window.print()">
+     Vytisknout propozice
+    </button>
+   </div>
+   <section class="rules-box">
+    <h2>
+     Hodnocení
+    </h2>
+    <p>
+     Používají se IDPA terče s hodnocením LOS: −0 = alfa (0 s), −1 = charlie (+1 s), −3 = delta (+2 s). Chybějící hodnocený zásah +5 s, nevyřešený kov +10 s, zasažený neterč +10 s jednou bez ohledu na počet zásahů. Procedura +3 s.
+    </p>
+    <p>
+     Počet hodnocených zásahů určuje každá situace. Opravy jsou povoleny. O pořadí rozhoduje součet procent ze situací podle LOS. Klubové upřesnění krytí bude oznámeno při briefingu.
+    </p>
+    <p>
+     Manipulace podle povelů rozhodčího; při startu vsedě prázdná komora. Společný prostor se uvolňuje k hodnocení až po dokončení obou střídavých pokusů. Konkrétní bezpečné směry a podmínky kovových terčů potvrdí pořadatel.
+    </p>
+    <p>
+     Situace 4 má vlastní výjimku: pečetě se hodnotí pouze počtem zásahů, přebytečný zásah je penalizován. Podrobnosti jsou v jejím zadání.
+    </p>
+   </section>
+   <section class="stage-box" id="situace-1">
+    <div class="stage-head">
+     <span class="number">
+      1
+     </span>
+     <div>
+      <h2>
+       Kebab s přílohou ze záhrobí
+      </h2>
+     </div>
+    </div>
+    <div class="legend">
+     Na nádru sis objednal kebab se vším. Že tím myslí i kletbu, ti nikdo neřekl. Sotva se posadíš, prodavač ti sevře ruku, kterou střílíš a přimáčkne ji ke stolu. Je ledovej, chybí mu kus tváře a na reklamaci nereaguje. Ze zázemí se hrnou jeho kolegové. Podle zápachu mají všichni dávno po směně. Volnou rukou odstrčíš ayran. Tohle bude na delší lokty.
+    </div>
+    <h3>
+     Procedura
+    </h3>
+    <ul class="procedure">
+     <li>
+      <strong>
+       START:
+      </strong>
+      Vsedě za stolem. Pistole na stole, zásobník zasunutý, komora prázdná. Silná ruka na označeném místě.
+     </li>
+     <li>
+      <strong>
+       ÚKOL:
+      </strong>
+      Střelba pouze slabou rukou ze sedu. Silná ruka zůstává na stole; pro úvodní nabití a přebíjení lze použít obě ruce, poté se silná ruka vrací na označené místo.
+     </li>
+     <li>
+      <strong>
+       HODNOCENÍ:
+      </strong>
+      Mozambik: na každém terči dvě rány do těla a jedna do hlavy. Hodnotí se dva nejlepší zásahy v těle a jeden nejlepší v hlavě podle zón LOS. Zásah navíc v těle nenahrazuje chybějící zásah v hlavě. Čtyři terče, celkem 12 hodnocených zásahů.
+     </li>
+    </ul>
+    <svg aria-labelledby="map-1" class="map" role="img" viewbox="0 0 800 330">
+     <title id="map-1">
+      Situace 1: schematický pohled shora na terče, rekvizity a start. Bez měřítka.
+     </title>
+     <defs><marker id="shot-1" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"/></marker></defs>
+     <g fill="none" stroke="#b76c25" stroke-width="2" marker-end="url(#shot-1)">
+      <path d="M400 211 L175 136"/><path d="M400 211 L325 136"/>
+      <path d="M400 211 L475 136"/><path d="M400 211 L625 136"/>
+     </g>
+     <path class="berm" d="M35 38 H765">
+     </path>
+     <text class="muted" text-anchor="middle" x="400" y="23">
+      VAL / SMĚR DO PROSTORU TERČŮ
+     </text>
+     <path class="target" d="M166 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="175" y="66">
+      T1
+     </text>
+     <path class="target" d="M316 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="325" y="66">
+      T2
+     </text>
+     <path class="target" d="M466 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="475" y="66">
+      T3
+     </text>
+     <path class="target" d="M616 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="625" y="66">
+      T4
+     </text>
+     <rect class="prop" height="30" width="190" x="305" y="214">
+     </rect>
+     <text class="label" text-anchor="middle" x="400" y="234">
+      STŮL
+     </text>
+     <rect class="prop" height="26" width="40" x="380" y="267">
+     </rect>
+     <circle class="start-pos" cx="400" cy="265" r="9">
+     </circle>
+     <text class="label" text-anchor="middle" x="400" y="291">
+      START VSEDĚ
+     </text>
+    </svg>
+    <p class="map-caption">
+     Schéma bez měřítka. Plné šipky = směry střelby ze sedu; bez přesunu.
+    </p>
+   </section>
+   <section class="stage-box" id="situace-2">
+    <div class="stage-head">
+     <span class="number">
+      2
+     </span>
+     <div>
+      <h2>
+       Čtyřka do jiné dimenze
+      </h2>
+     </div>
+    </div>
+    <div class="legend">
+     V ranní čtyřce se mačkají lidi, co jedou do práce, s lidma, co už měli být třicet let na hřbitově. Rozdíl poznáš až ve chvíli, kdy se jeden zakousne do spolucestujícího. Šalina stojí, řidič nadává a živí se krčí mezi sedačkama. Nemrtví mají konečně místo k sezení a jen tak ho nepustí. Hlídka bude muset projít celej vůz. Tohle zpoždění dopravní podnik na výluku nesvede.
+    </div>
+    <h3>
+     Procedura
+    </h3>
+    <ul class="procedure">
+     <li>
+      <strong>
+       START:
+      </strong>
+      Vlevo na začátku vyznačeného prostoru, na místě bez výhledu na terče. Pistole v pouzdře, připravenost podle briefingu.
+     </li>
+     <li>
+      <strong>
+       TERČE:
+      </strong>
+      Šest IDPA terčů. U každé ze dvou vnitřních zástěn je dvojice terčů pro střelbu zpoza svislého krytu, částečně překrytá neterči. Obě boční okénka tvoří otvory ve dvou VTAC bariérách vlevo; každému náleží jeden samostatný terč. Okénko A je před zástěnou A směrem ke startu, okénko B je posunuté k valu. Zástěna A navazuje na levou pásku, zástěna B na pravou; jejich dvojice terčů jsou posunuté na odpovídající stranu.
+     </li>
+     <li>
+      <strong>
+       ÚKOL:
+      </strong>
+      Přesun k okénku A: T3 skrz určený otvor VTAC bariéry A. Poté za zástěnu A: T2 a T1 z vertikálního krytu. Následuje přesun za zástěnu B: T4 a T5 z vertikálního krytu. Nakonec okénko B: T6 skrz určený otvor VTAC bariéry B. U obou vertikálních krytů se terče řeší v pořadí, v jakém se střelci odkrývají.
+     </li>
+     <li>
+      <strong>
+       HODNOCENÍ:
+      </strong>
+      Dva nejlepší zásahy na každý terč, celkem 12. Neterče podle LOS, +10 s za každý zasažený neterč jednou bez ohledu na počet zásahů.
+     </li>
+    </ul>
+    <svg aria-labelledby="map-2" class="map" role="img" viewbox="0 0 900 560">
+     <title id="map-2">
+      Pracovní půdorys podle zadání: dvě vnitřní zástěny, dvě VTAC bariéry s okénky vlevo. U každé zástěny dvojice IDPA terčů s neterči, za každým okénkem jeden terč.
+     </title>
+     <defs>
+      <marker id="move-2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"/></marker>
+      <marker id="shot-2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"/></marker>
+     </defs>
+     <g fill="none" stroke="#397c91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#move-2)">
+      <path d="M260 486 L260 450"/>
+      <path d="M270 450 L460 420 L460 395"/>
+      <path d="M460 383 L460 345 L365 230 L365 190"/>
+      <path d="M355 184 L320 150 L260 110"/>
+     </g>
+     <g fill="none" stroke="#b76c25" stroke-width="1.8" marker-end="url(#shot-2)">
+      <path d="M250 450 L70 450"/>
+      <path d="M453 388 L375 332"/><path d="M450 391 L265 332"/>
+      <path d="M369 181 L425 118"/><path d="M375 185 L530 118"/>
+      <path d="M250 110 L70 110"/>
+     </g>
+     <g fill="white" stroke="#397c91" stroke-width="2">
+      <circle cx="260" cy="450" r="10"/><circle cx="460" cy="395" r="10"/>
+      <circle cx="365" cy="190" r="10"/><circle cx="260" cy="110" r="10"/>
+     </g>
+     <g fill="#245769" font-size="13" font-weight="bold" text-anchor="middle">
+      <text x="260" y="455">1</text><text x="460" y="400">2</text>
+      <text x="365" y="195">3</text><text x="260" y="115">4</text>
+     </g>
+     <g font-size="14" fill="currentColor">
+      <text x="620" y="265">1 · VTAC A — T3</text>
+      <text x="620" y="291">2 · Zástěna A — T2, T1</text>
+      <text x="620" y="317">3 · Zástěna B — T4, T5</text>
+      <text x="620" y="343">4 · VTAC B — T6</text>
+     </g>
+     <text class="muted" text-anchor="middle" x="440" y="24">
+      POHLED SHORA · VAL NAHOŘE
+     </text>
+     <path class="tape" d="M235 48 V493 M575 48 V493">
+     </path>
+     <text class="muted" text-anchor="middle" x="180" y="535">
+      PÁSKA
+     </text>
+     <text class="muted" text-anchor="middle" x="625" y="470">
+      PÁSKA
+     </text>
+     <g transform="translate(60 0)">
+     <path class="target" d="M358 70 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="365" y="60">
+      T4
+     </text>
+     <rect class="no-shoot" height="31" width="29" x="366" y="84">
+     </rect>
+     <path class="ns-cross" d="M370 89 l21 20 M391 89 l-21 20">
+     </path>
+     <text class="muted" text-anchor="middle" x="407" y="108">
+      NS
+     </text>
+     <path class="target" d="M463 70 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="470" y="60">
+      T5
+     </text>
+     <rect class="no-shoot" height="31" width="29" x="471" y="84">
+     </rect>
+     <path class="ns-cross" d="M475 89 l21 20 M496 89 l-21 20">
+     </path>
+     <text class="muted" text-anchor="middle" x="495" y="130">
+      NS
+     </text>
+     </g>
+     <g transform="translate(-50 0)">
+     <path class="target" d="M308 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="315" y="275">
+      T1
+     </text>
+     <rect class="no-shoot" height="31" width="29" x="316" y="299">
+     </rect>
+     <path class="ns-cross" d="M320 304 l21 20 M341 304 l-21 20">
+     </path>
+     <text class="muted" text-anchor="middle" x="357" y="323">
+      NS
+     </text>
+     <path class="target" d="M418 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="425" y="275">
+      T2
+     </text>
+     <rect class="no-shoot" height="31" width="29" x="426" y="299">
+     </rect>
+     <path class="ns-cross" d="M430 304 l21 20 M451 304 l-21 20">
+     </path>
+     <text class="muted" text-anchor="middle" x="467" y="323">
+      NS
+     </text>
+     </g>
+     <path class="cover" d="M400 174 H575 M235 381 H410">
+     </path>
+     <text class="muted" text-anchor="middle" x="487" y="200">
+      ZÁSTĚNA B
+     </text>
+     <text class="muted" text-anchor="middle" x="322" y="407">
+      ZÁSTĚNA A
+     </text>
+     <path class="cover" d="M205 50 V89 M205 131 V170 M205 390 V429 M205 471 V510">
+     </path>
+     <text class="muted" text-anchor="middle" x="150" y="138">
+      VTAC B
+     </text>
+     <text class="muted" text-anchor="middle" x="150" y="478">
+      VTAC A
+     </text>
+     <path class="target" d="M33 91 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="40" y="81">
+      T6
+     </text>
+     <path class="target" d="M33 430 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="40" y="420">
+      T3
+     </text>
+     <circle class="start-pos" cx="260" cy="486" r="9">
+     </circle>
+     <text class="label" text-anchor="middle" x="260" y="512">
+      START
+     </text>
+     <text class="muted" text-anchor="middle" x="450" y="546">
+      Dvojice u zástěn: T1–T2 a T4–T5 · Levá okénka: T3 a T6
+     </text>
+    </svg>
+    <p class="map-caption">
+     Schéma bez měřítka. Přerušované šipky = přesuny, plné šipky = směry na terče, čísla = střelecké pozice. Obrys = IDPA, plocha s křížem = neterč. Šipky nevyznačují hranice povoleného úhlu.
+    </p>
+   </section>
+   <section class="stage-box" id="situace-3">
+    <div class="stage-head">
+     <span class="number">
+      3
+     </span>
+     <div>
+      <h2>
+       Hygiena přijde až v pondělí
+      </h2>
+     </div>
+    </div>
+    <div class="legend">
+     Z indické restaurace na Poštovské přišlo hlášení, že se něco hýbe ve sklepě. Personál tvrdil, že je to zásobování. Teď se za tebou ze dveří hrnou čtyři mrtví chlapi a něco chlupatýho. Hygiena má zavřeno. Zase to zbylo na Hlídku.
+     <br/><strong>Ježek:</strong> Pes po každým zásahu znovu vstane. Vzadu jsi zahlédl karabinu. Je čas změnit názor na to, co patří do vybavení restaurace.
+     <br/><strong>Gongy:</strong> Za chlapama se žene smečka nemrtvých psů. Aspoň už víš, proč byla na dveřích cedule „Se psy vstup zakázán“.
+    </div>
+    <h3>
+     Procedura
+    </h3>
+    <ul class="procedure">
+     <li>
+      <strong>
+       START:
+      </strong>
+      V přední části situace, několik metrů před T1 a T2, čelem k hlavnímu valu. Boční T3 a T4 jsou při startu za zády střelce. Připravenost pistole podle briefingu.
+     </li>
+     <li>
+      <strong>
+       PAPÍROVÁ ČÁST:
+      </strong>
+      Čtyři IDPA terče, na každém se hodnotí dva nejlepší zásahy podle zón LOS; celkem osm hodnocených zásahů. Při couvání střelec řeší nejprve T1 a T2 před hlavním valem, poté boční terče, jak se mu při přesunu objeví. Pravý T3 je blíže k hlavnímu valu než levý T4; u T3 je zamýšlen směr do hlavního valu, u T4 do levého bočního valu. Ve variantě 3J musí střelec docouvat za stůl s PCC; ve variantě 3G za vyznačenou čáru. Teprve poté řeší kovy.
+     </li>
+     <li>
+      <strong>
+       KOVOVÁ ČÁST:
+      </strong>
+      Kovy jsou u hlavního valu a řeší se až po dokončení papírové části a docouvání za hranici příslušné varianty. Pro tento závod nejméně 10 m od ústí hlavně ke kovu, u ježka po celou dobu jeho pohybu. Konkrétní vzdálenost se určí podle vybavení; 10 m je klubové minimum, nikoli údaj převzatý z LOS.
+     </li>
+     <li>
+      <strong>
+       VARIANTA 3J — JEŽEK:
+      </strong>
+      Malý ježek představuje nesmrtelného psa. Na stole leží nenabitá 9mm PCC, hlavní doleva; zásobník s náboji leží samostatně na stole. Střelec docouvá za stůl, položí pistoli na stůl hlavní směrem do situace a poté přejde na PCC. Kovovou část řeší touto karabinou. Navržený úkol: zahnat jej za označenou čáru. Cílová čára, podmínky dokončení a hodnocení se doplní po zkoušce; počet ran je proměnlivý.
+     </li>
+     <li><strong>VARIANTA 3G — GONGY:</strong> Čtyři gongy představují smečku nemrtvých psů. Střelec docouvá za čáru nastříkanou sprejem na zem a odtud řeší gongy pistolí. Každý gong musí být alespoň jednou zasažen; za nevyřešený gong +10 s. S osmi hodnocenými zásahy do papíru je minimum 12 ran.
+     </li>
+    </ul>
+    <svg aria-labelledby="map-3" class="map" role="img" viewBox="0 0 800 570">
+     <title id="map-3">Pracovní rozmístění podle zadání pořadatele: dva papírové terče a kovy u hlavního valu, boční terče za počáteční pozicí, couvání za stůl s PCC ve variantě 3J nebo za čáru ve variantě 3G.</title>
+     <defs>
+      <marker id="move-3" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"/></marker>
+      <marker id="shot-3" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"/></marker>
+     </defs>
+     <path class="berm" fill="none" d="M65 460 V38 H750"/>
+     <text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text>
+     <text class="muted" transform="translate(43 285) rotate(-90)" text-anchor="middle">LEVÝ BOČNÍ VAL</text>
+     <rect class="zone" x="280" y="58" width="240" height="46"/>
+     <text class="label" text-anchor="middle" x="400" y="77">3J: JEŽEK / 3G: 4 GONGY</text>
+     <text class="muted" text-anchor="middle" x="400" y="95">KOVY — PO DOKONČENÍ PŘESUNU</text>
+<path class="target" d="M293 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"/><text class="label" text-anchor="middle" x="300" y="125">T1</text><path class="target" d="M498 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"/><text class="label" text-anchor="middle" x="505" y="125">T2</text><path class="target" d="M603 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"/><text class="label" text-anchor="middle" x="610" y="275">T3</text><path class="target" d="M138 370 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"/><text class="label" text-anchor="middle" x="145" y="360">T4</text>
+     <g fill="none" stroke="#397c91" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#move-3)">
+      <path d="M400 236 V295"/><path d="M400 305 V370"/><path d="M400 380 V475"/>
+     </g>
+     <g fill="none" stroke="#b76c25" stroke-width="1.8" marker-end="url(#shot-3)">
+      <path d="M395 270 L300 183"/><path d="M405 270 L505 183"/>
+      <path d="M410 375 L600 332"/><path d="M390 438 L170 402"/>
+     </g>
+     <circle class="start-pos" cx="400" cy="225" r="9"/>
+     <text class="label" x="425" y="230">START</text>
+     <text class="muted" x="425" y="300">COUVÁNÍ</text>
+     <text class="muted" x="425" y="318">PAPÍROVÉ TERČE ZA CHŮZE</text>
+     <path class="tape" d="M90 495 H725"/>
+     <text class="muted" x="95" y="516">3G · ČÁRA SPREJEM</text>
+     <rect class="prop" x="310" y="507" width="180" height="30"/>
+     <text class="label" text-anchor="middle" x="400" y="527">3J · STŮL S PCC</text>
+     <text class="muted" text-anchor="middle" x="400" y="558">3J: ZA STŮL / 3G: ZA ČÁRU · KOVY MIN. 10 m OD ÚSTÍ</text>
+    </svg>
+    <p class="map-caption">Schéma bez měřítka podle zadání pořadatele. Přerušované šipky = couvání, plné = směry na papírové terče. Polohy šipek jsou orientační, nikoli povinná místa zastavení. Konkrétní vzdálenosti a úhly nejsou v tomto nákresu stanovené.</p>
+   </section>
+   <section class="stage-box" id="situace-4">
+    <div class="stage-head">
+     <span class="number">
+      4
+     </span>
+     <div>
+      <h2>
+       Rituál u orloje
+      </h2>
+     </div>
+    </div>
+    <div class="legend">
+     Na Svoboďáku stojí pražskej nekromant Draxler a u orloje si připravuje proslov. Chce Brnu oznámit, komu teď patří. Před sebou má čtyři magické pečetě a výraz člověka, kterej nikdy nečekal na noční rozjezd. Rada ti poslala návod na zrušení štítu. V básničce. Na centrále se evidentně nikdo nepředře. Draxler si odkašle. Nejdřív mu zrušíš kouzla, potom vystoupení. Uvítací proslov máš vlastní: „VÍTEJ VE ŠTATLU, CAJZLE!“
+    </div>
+    <h3>
+     Procedura
+    </h3>
+    <ul class="procedure">
+     <li>
+      <strong>
+       START:
+      </strong>
+      Pistole v pouzdře, připravenost podle briefingu. Básničku dostane každý přímo na této situaci; lze do ní nahlížet i během pokusu.
+     </li>
+     <li>
+      <strong>
+       PEČETĚ:
+      </strong>
+      Čtyři IDPA terče se symboly OKO, HAD, KŘÍŽ a LEBKA. Podle původní básničky: KŘÍŽ 1 zásah, HAD 2, LEBKA 3, OKO 4. Na pečetích se počítají zásahy do papíru, zóny se nehodnotí. Mozambik zde neplatí. Od startu se střelec přesune nejprve za levou VTAC bariéru a řeší dvě levé pečetě, každou jiným otvorem. Poté se přesune za pravou VTAC bariéru a stejným způsobem řeší dvě pravé pečetě.
+     </li>
+     <li>
+      <strong>
+       KOUZELNÍK:
+      </strong>
+      Po dokončení všech čtyř pečetí následuje samostatný pátý terč — Draxler, umístěný dále směrem k valu za řadou pečetí. Střelec vyběhne do prostoru mezi VTAC bariérami, zvolá „VÍTEJ VE ŠTATLU, CAJZLE!“ a za chůze dokončí situaci běžným LOS dvojstřelem na tento papírový terč.
+     </li>
+     <li>
+      <strong>
+       HODNOCENÍ:
+      </strong>
+      U pečetí chybějící zásah = MISS (+5 s), přebytečný = procedura (+3 s). Na kouzelníkovi se hodnotí dva nejlepší zásahy podle zón LOS. Celkem 10 zásahů do pečetí + 2 do kouzelníka = minimum 12 ran.
+     </li>
+    </ul>
+    <svg aria-labelledby="map-4" class="map" role="img" viewbox="0 0 800 460">
+     <title id="map-4">
+      Čtyři pečetě přes čtyři různé otvory dvou VTAC bariér a samostatný pátý papírový terč Draxlera, řešený za chůze mezi bariérami. Schematické rozmístění bez měřítka.
+     </title>
+     <path class="berm" d="M35 38 H765">
+     </path>
+     <text class="muted" text-anchor="middle" x="400" y="23">
+      VAL / SMĚR DO PROSTORU TERČŮ
+     </text>
+     <g transform="translate(0 70)">
+     <path class="target" d="M121 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="130" y="74">
+      LEBKA · 3
+     </text>
+     <path class="target" d="M301 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="310" y="74">
+      OKO · 4
+     </text>
+     <path class="target" d="M481 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="490" y="74">
+      KŘÍŽ · 1
+     </text>
+     <path class="target" d="M661 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="670" y="74">
+      HAD · 2
+     </text>
+     <path class="cover" d="M153 215 H174 M196 215 H254 M276 215 H297 M503 215 H524 M546 215 H604 M626 215 H647"/>
+     <text class="muted" text-anchor="middle" x="225" y="194">VTAC A · 2 OTVORY</text>
+     <text class="muted" text-anchor="middle" x="575" y="194">VTAC B · 2 OTVORY</text>
+     <defs>
+      <marker id="shot-4" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"/></marker>
+      <marker id="move-4" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"/></marker>
+     </defs>
+     <g fill="none" stroke="#b76c25" stroke-width="2" marker-end="url(#shot-4)">
+      <path d="M185 260 L185 215 L130 142"/><path d="M265 260 L265 215 L310 142"/>
+      <path d="M535 260 L535 215 L490 142"/><path d="M615 260 L615 215 L670 142"/>
+      <path d="M412 175 L400 48"/>
+     </g>
+     <g fill="none" stroke="#397c91" stroke-width="2.5" stroke-dasharray="7 5">
+      <path d="M371 335 L225 280" marker-end="url(#move-4)"/>
+      <path d="M235 280 L565 280" marker-end="url(#move-4)"/>
+      <path d="M575 280 L575 300 L400 300 L400 170" marker-end="url(#move-4)"/>
+     </g>
+     <text class="muted" text-anchor="middle" x="400" y="160">ZA CHŮZE</text>
+     <rect class="prop" height="20" width="90" x="430" y="326">
+     </rect>
+     <text class="muted" text-anchor="middle" x="475" y="341">
+      KARTA
+     </text>
+     <circle class="start-pos" cx="380" cy="340" r="9">
+     </circle>
+     <text class="label" text-anchor="middle" x="380" y="366">
+      START
+     </text>
+     </g>
+     <path class="target" d="M391 55 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
+     </path>
+     <text class="label" text-anchor="middle" x="400" y="50">
+      T5 · DRAXLER
+     </text>
+    </svg>
+    <p class="map-caption">
+     Schéma bez měřítka. Plné šipky = směry střelby, přerušované = trasa od startu za levou VTAC, za pravou VTAC a nakonec prostředkem směrem k nekromantovi. Otvory VTAC jsou zakreslené schematicky; konkrétní otvory se určí při stavbě.
+    </p>
+   </section>
+  </main>
+ </body>
+</html>
