@@ -29,6 +29,7 @@ Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavebn�
 
 - `01_*` až `07_*`: původní vnitřní série; stávající názvy a odkazy zůstávají zachované.
 - `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
+- `popice_zemska_hlidka/scenario.html`: přesměrování původního sdíleného odkazu na venkovní závod; zachovat kvůli zpětné kompatibilitě.
 - `index.html`: společný rozcestník obou sérií.
 - `CONTEXT.md`: podklady pro návrhy; omezení vnitřní střelnice se na venkovní závody nepřenášejí automaticky.
 - Složka závodu obsahuje `scenario.html` a případné přílohy nebo stavební podklady.
