@@ -5,7 +5,7 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 
 🌐 **[Zobrazit scénáře online](https://lnykryn.github.io/zavody/)**
 
-## 📂 Dostupné scénáře
+## Vnitřní závody
 
 | Scénář | Téma |
 | :--- | :--- |
@@ -17,9 +17,21 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 | **[07_zemska_hlidka](./07_zemska_hlidka/scenario.html)** | 🍺 Urban Fantasy / Kotleta |
 
-## Klubové speciály mimo číslovanou řadu
+## Venkovní závody
 
-- **[Zemská hlídka — Popice](./popice_zemska_hlidka/scenario.html)** — pracovní návrh venkovního závodu, dvě dvojice situací a dvě varianty kovových terčů. [Zadání a otevřené body](./popice_zemska_hlidka/README.md).
+| Závod | Podklady |
+| :--- | :--- |
+| **[01: Zemská hlídka — Zkažená sobota](./outside_01_zemska_hlidka/scenario.html)** | Popice · [Stavební listy](./outside_01_zemska_hlidka/builders.html) · [Básničky a symboly](./outside_01_zemska_hlidka/targets.html) |
+
+Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavební listy, básničky a symboly. Podrobnosti jsou v [README závodu](./outside_01_zemska_hlidka/README.md).
+
+## Struktura repozitáře
+
+- `01_*` až `07_*`: původní vnitřní série; stávající názvy a odkazy zůstávají zachované.
+- `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
+- `index.html`: společný rozcestník obou sérií.
+- `CONTEXT.md`: podklady pro návrhy; omezení vnitřní střelnice se na venkovní závody nepřenášejí automaticky.
+- Složka závodu obsahuje `scenario.html` a případné přílohy nebo stavební podklady.
 
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
 
@@ -38,7 +50,7 @@ Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`CONTEXT.
 > Navrhni kompletní HTML kód pro nový scénář na téma: **[VAŠE TÉMA, např. Zombie Apokalypsa]**.
 >
 > * Dodrž strukturu HTML a CSS třídy ze vzorů (stage-box, status-bar, svg grid).
-> * Respektuj fyzická omezení z kontextu (4 dráhy, kolmá střelba).
+> * U vnitřního závodu respektuj fyzická omezení z kontextu (4 dráhy, kolmá střelba). U venkovního vycházej ze zadání konkrétní střelnice.
 > * Vymysli unikátní vizuální styl (barvy, fonty) pro nové téma."
 
 ---

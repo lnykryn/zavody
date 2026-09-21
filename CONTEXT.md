@@ -5,6 +5,8 @@ Scénáře jsou **inspirovány pravidly LOS (Lidová Obranná Střelba)**, ale j
 
 **Upřesnění zadání:** Inspirace LOS se týká i technického provedení, stavby a průběhu situací, ne jen příběhu. Jednotlivé situace mají mít odlišný charakter; neopakovat čtyřikrát stejný průchod stanovišti s jinou legendou. Uvést konkrétní start, stav zbraně, vybavení, postup a hodnocení.
 
+**Rozsah:** Geometrie čtyř drah, inventář a požadavek kolmé střelby níže popisují vnitřní střelnici. Venkovní řada `outside_NN_nazev` má vlastní zadání ve složce závodu; její uspořádání a vybavení se řídí tímto zadáním.
+
 ---
 
 ## 1. PRAVIDLA A DESIGN SITUACÍ (LOS RULES BASIS)

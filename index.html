@@ -126,6 +126,10 @@
         .tag-wip { background: #d90429; color: #fff; font-weight: bold; }
         .tag-postapo { background: #5d7018; color: #fff; font-weight: bold; }
 
+        .race-section { width: 100%; max-width: 900px; margin-bottom: 42px; }
+        .race-section h2 { color: #fff; font-size: 1.7em; margin: 0 0 8px; }
+        .section-description { color: #aaa; margin: 0 0 24px; line-height: 1.5; }
+        @media (max-width: 400px) { .grid-container { grid-template-columns: 1fr; } .card { padding: 22px; } }
     </style>
 </head>
 <body>
@@ -137,6 +141,9 @@
         ⚠️ Závazná Bezpečnostní Pravidla
     </a>
 
+    <section class="race-section" aria-labelledby="indoor-title">
+        <h2 id="indoor-title">Vnitřní závody</h2>
+        <p class="section-description">Původní série pro vnitřní střelnici.</p>
     <div class="grid-container">
 
         <a href="./01_sector4_cyberpunk/scenario.html" class="card" style="border-left: 5px solid #00f3ff;">
@@ -180,13 +187,21 @@
             <p class="desc"><strong>Kebab a nekromancie.</strong> Drsný brněnský ráno s bolehlavem. Kebab u nádru, prostřílení se Josefskou a finální kropna na Pražáka u Orloje.</p>
         </a>
 
-        <a href="./popice_zemska_hlidka/scenario.html" class="card" style="border-left: 5px solid #c485ba;">
-            <h3>ZEMSKÁ HLÍDKA — POPICE</h3>
-            <div><span class="tag" style="background: #c485ba; color: #17151a;">KLUBOVÝ SPECIÁL</span> <span class="tag tag-wip">PRACOVNÍ NÁVRH</span></div>
-            <p class="desc">Kebab, přízračná šalina, nemrtvá havěť a rituál u orloje. Samostatný venkovní závod pro dva squady se společnou obědovou přestavbou.</p>
+    </div>
+    </section>
+
+    <section class="race-section" aria-labelledby="outdoor-title">
+        <h2 id="outdoor-title">Venkovní závody</h2>
+        <p class="section-description">Samostatná řada s vlastním číslováním a podklady pro stavbu.</p>
+    <div class="grid-container">
+        <a href="./outside_01_zemska_hlidka/scenario.html" class="card" style="border-left: 5px solid #c485ba;">
+            <h3>01: ZEMSKÁ HLÍDKA — ZKAŽENÁ SOBOTA</h3>
+            <div><span class="tag" style="background: #c485ba; color: #17151a;">KLUBOVÝ SPECIÁL</span> <span class="tag">POPICE</span></div>
+            <p class="desc">Kebab pod Hlavákem, ranní čtyřka, nemrtví v Lužánkách a magie na Svoboďáku. Samostatný venkovní závod pro dva squady se společnou obědovou přestavbou.</p>
         </a>
 
     </div>
+    </section>
 
 </body>
 </html>
