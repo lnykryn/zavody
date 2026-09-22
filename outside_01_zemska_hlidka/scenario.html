@@ -104,6 +104,7 @@
 @page matchpages{size:A4;margin:13mm}
 @media print{.bonus-stage{page:matchpages;width:100%;box-sizing:border-box}.map.iso-map{max-height:80mm!important}#situace-2 .iso-map{max-height:103mm!important}#situace-3 .iso-map{max-height:83mm!important}#situace-4 .iso-map{max-height:90mm!important}.bonus-stage .iso-map{max-height:85mm!important}}
 </style>
+<link rel="stylesheet" href="mobile.css"/>
 </head>
 <body>
 <main class="wrap">
@@ -133,6 +134,7 @@
      Měls den volna. Jenže pražská sekta nekromantů rozjela v Brně živnost a mrtví začali chodit mezi lidi. Centrála Zemské hlídky má čtyři hlášení a jednoho člověka, kterej jí ještě zvedá telefon. Tebe. Přesčas ti samozřejmě nikdo neproplatí.
     </div>
 </header>
+<nav class="stage-nav" aria-label="Přejít na situaci"><a href="#situace-1" aria-label="Situace 1">1</a><a href="#situace-2" aria-label="Situace 2">2</a><a href="#situace-3" aria-label="Situace 3">3</a><a href="#situace-4" aria-label="Situace 4">4</a><a class="bonus-link" href="#bonus-1" aria-label="Bonus 1">B1</a><a class="bonus-link" href="#bonus-2" aria-label="Bonus 2">B2</a></nav>
 <div class="screen-only">
 <button onclick="window.print()">
      Vytisknout celý závod
@@ -425,5 +427,6 @@
 </svg>
 </section></div>
 </main>
+<script src="mobile.js" defer></script>
 </body>
 </html>

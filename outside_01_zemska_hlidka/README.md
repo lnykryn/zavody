@@ -30,3 +30,7 @@ Tisk z `scenario.html` obsahuje celý balíček: 5 stran hlavních propozic, 2 s
 B1 **Průlom na Špilberku**: puška + pistole, opakované střídání stanovišť a pistolový závěr. B2 **Poslední návštěvník**: přesnost, pohyb, horizontální kryt a rekvizita civilisty; puška s volitelným přechodem na pistoli. Oba bonusy jsou určené pokročilým a nezapočítávají se do hlavního závodu. Jejich konkrétní stavba a společný briefing se připraví zvlášť.
 
 Pro nástěnku hlavního závodu vytisknout strany 1–5; bonusy jsou samostatně na stranách 6–7.
+
+## Mobilní zobrazení
+
+Propozice mají na telefonu přepínání situací a nákresy otevírané přes celou obrazovku s přiblížením a posouváním. Základní obsah a odkazy fungují i bez JavaScriptu. Mobilní úpravy v `mobile.css` a `mobile.js` nemění tiskový balíček; styly používají také karty a podklady pořadatelů.
