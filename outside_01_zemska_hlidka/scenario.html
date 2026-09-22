@@ -68,6 +68,27 @@
 @media print{.symbol-page{page:symbols;break-before:page;break-inside:avoid;border:0!important;padding:0!important;margin:0!important;width:100%;height:280mm;min-height:0;background:white;color:black}.symbol-page .seal{width:100%;height:280mm;max-height:none!important}}
 
 @media print{.print-extras .equipment-list{font-size:9pt;line-height:1.3;padding-left:5mm;margin:2mm 0}.print-extras .equipment-list li{margin:1.5mm 0}}
+
+/* Dvě samostatné karty, řez přesně v polovině A4. */
+@page poemcards{size:A4;margin:0}
+.poem-sheet .ritual{text-align:center;border:0;display:flex;flex-direction:column;justify-content:center}
+@media print{
+.poem-sheet{page:poemcards;width:210mm;height:297mm;padding:0!important;margin:0!important;border:0!important;break-before:page;break-inside:avoid}
+.poem-sheet .poem-pair{display:grid;grid-template-rows:148.5mm 148.5mm;gap:0;height:297mm}
+.poem-sheet .poem-pair .ritual{height:148.5mm;padding:15mm;border:0;margin:0;box-sizing:border-box}
+.poem-sheet .poem-pair .ritual:first-child{border-bottom:1px dashed #888}
+.poem-sheet .poem-pair .ritual h2{font-size:25pt;margin:0 0 10mm}
+.poem-sheet .poem-pair .ritual p{font-size:18pt;line-height:1.8;margin:0}
+}
+
+@media print{.organizer-brief h1{font-size:19pt!important}.organizer-brief{font:10pt/1.3 sans-serif}.organizer-brief ul{padding-left:5mm;margin:2mm 0}.organizer-brief li{margin:2mm 0}}
+
+.bonus-label{font:700 12px/1.5 sans-serif;letter-spacing:1px;color:var(--accent);margin-bottom:18px}.bonus-stage{border-top:4px solid var(--accent)}
+@media print{.bonus-stage{break-before:page;break-inside:avoid}.bonus-label{font-size:9pt;margin-bottom:5mm}.bonus-stage h3{margin-top:5mm}.bonus-stage .procedure li{margin:3mm 0}}
+
+@media print{.bonus-stage .bonus-map{max-height:65mm;margin-top:3mm}.bonus-stage .procedure li{margin:2mm 0}.bonus-stage h3{margin-top:3mm}}
+
+@media print{.bonus-stage .bonus-map{max-height:85mm}.bonus-stage .legend{font-size:9pt}.bonus-stage .procedure li{margin:1.5mm 0}}
 </style>
 </head>
 <body>
@@ -79,7 +100,7 @@
 <a href="targets.html">
      RITUÁL A ZNAČKY ↗
     </a>
-<a href="builders.html">KARTA PRO STAVĚČE ↗</a>
+<a href="builders.html">STAVĚČI A ROZHODČÍ</a>
 </nav>
 <header class="hero">
 <h1>
@@ -95,7 +116,7 @@
 <span class="event-edition">Klubový venkovní speciál · Popice</span>
 </p>
 <div class="mission-brief">
-     Měls den volna. Jenže pražská sekta nekromantů rozjela v Brně živnost a mrtví začali chodit mezi lidi. Rada Zemské hlídky má čtyři hlášení a jednoho člověka, kterej jí ještě zvedá telefon. Tebe. Přesčas ti samozřejmě nikdo neproplatí.
+     Měls den volna. Jenže pražská sekta nekromantů rozjela v Brně živnost a mrtví začali chodit mezi lidi. Centrála Zemské hlídky má čtyři hlášení a jednoho člověka, kterej jí ještě zvedá telefon. Tebe. Přesčas ti samozřejmě nikdo neproplatí.
     </div>
 </header>
 <div class="screen-only">
@@ -110,7 +131,7 @@
 <div class="scoring-grid">
 <!-- Schematic follows the organizer’s specified target variant with rectangular alpha zones. -->
 <figure class="target-guide">
-<svg aria-labelledby="idpa-title idpa-desc" role="img" viewbox="0 0 310 355">
+<svg aria-labelledby="idpa-title idpa-desc" role="img" viewBox="0 0 310 355">
 <title id="idpa-title">Schéma terče a hodnocení zón LOS</title>
 <desc id="idpa-desc">Dvě obdélníkové zóny alfa: vodorovná v hlavě a svislá v těle, bez penalizace. Okolí obdélníků: charlie, plus jedna sekunda. Vnější část těla: delta, plus dvě sekundy. Schéma není v měřítku.</desc>
 <path d="M104 12 H176 V84 H212 L248 120 V300 L212 336 H68 L32 300 V120 L68 84 H104 Z" fill="#c8b9a1" stroke="#29252b" stroke-width="2"></path>
@@ -159,7 +180,7 @@
 <ul><li>Rozhodčí vysvětlí postup, krytí a bezpečné směry. Manipulace se zbraní podle jeho povelů.</li>
 <li>Ve společném prostoru střílí vždy jen jeden člověk. Hodnotí a lepí se až po dokončení obou střídavých pokusů a uvolnění prostoru.</li>
 </ul>
-<p class="score-note">Detaily a startovní stav zbraně jsou u každé situace. S gongy má závod minimum <strong>48 ran</strong>; s ježkem záleží na jeho dokončení.</p>
+<p class="score-note">Detaily a startovní stav zbraně jsou u každé situace. Závod má minimum 48 ran.</p>
 </div>
 </div>
 </section>
@@ -170,13 +191,11 @@
      </span>
 <div>
 <h2>
-       Ranní kebab
+       Kebap na České
       </h2>
 </div>
 </div>
-<div class="legend">
-     Hlášení o výtržnostech u fastfoodu v podchodu pod Hlavákem. Zrovna sis tam chtěl koupit snídaňovej kebab. Maso je trochu moc po záruce a prodavač taky, ale hlad je hlad. Sedneš si ke stolku. Než rozbalíš alobal, oživlej ghúl ti přišpendlí ruku, kterou střílíš, k umakartu. Ze zázemí se hrnou jeho kolegové. Snídaně se definitivně odkládá.
-    </div>
+<div class="legend">Na České sis objednal snídaňovej kebap. Maso je trochu moc po záruce a prodavač taky, ale hlad je hlad. Sedneš si ke stolku. Než rozbalíš alobal, oživlej ghúl ti přišpendlí šikovnější ruku ke stolu. Ze zázemí se hrnou jeho kolegové. Dvě, aby lehli. Jedna, aby už nevstali. Když nemůžeš od stolu, nechceš nikoho vyřizovat dvakrát. Snídaně se definitivně odkládá.</div>
 <h3>
      Procedura
     </h3>
@@ -200,11 +219,11 @@
       Mozambik: na každém terči dvě rány do těla a jedna do hlavy. Hodnotí se dva nejlepší zásahy v těle a jeden nejlepší v hlavě podle zón LOS. Zásah navíc v těle nenahrazuje chybějící zásah v hlavě. Čtyři terče, celkem 12 hodnocených zásahů.
      </li>
 </ul>
-<svg aria-labelledby="map-1" class="map" role="img" viewbox="0 0 800 330">
+<svg aria-labelledby="map-1" class="map" role="img" viewBox="0 0 800 330">
 <title id="map-1">
       Situace 1: schematický pohled shora na terče, rekvizity a start. Bez měřítka.
      </title>
-<defs><marker id="shot-1" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs>
+<defs><marker id="shot-1" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs>
 <g fill="none" marker-end="url(#shot-1)" stroke="#b76c25" stroke-width="2">
 <path d="M400 211 L175 136"></path><path d="M400 211 L325 136"></path>
 <path d="M400 211 L475 136"></path><path d="M400 211 L625 136"></path>
@@ -258,12 +277,12 @@
      </span>
 <div>
 <h2>
-       Ranní špička
+       Ranní špička na Masaryčce
       </h2>
 </div>
 </div>
 <div class="legend">
-     Dispečink tě poslal k odstavené čtyřce na Masaryčce. Uvnitř je hlava na hlavě — lidi, co jedou do práce, se mačkají s lidma, co už měli třicet let ležet na Ústředním hřbitově. Rozdíl poznáš až ve chvíli, kdy se jeden zakousne do spolucestujícího. Živí se krčí mezi sedačkama, mrtví se přes ně derou a z nástupiště se dovnitř okny tlačí další zmetci. Dopravní podnik tohle zpoždění na běžnou výluku fakt nesvede.
+     Centrála tě poslala k odstavené čtyřce na Masaryčce. Uvnitř je hlava na hlavě — lidi, co jedou do práce, se mačkají s lidma, co už měli třicet let ležet na Ústředním hřbitově. Rozdíl poznáš až ve chvíli, kdy se jeden zakousne do spolucestujícího. Živí se krčí mezi sedačkama, mrtví se přes ně derou a z nástupiště se dovnitř okny tlačí další zmetci. Dopravní podnik tohle zpoždění na běžnou výluku fakt nesvede.
     </div>
 <h3>
      Procedura
@@ -294,13 +313,13 @@
       Dva nejlepší zásahy na každý terč, celkem 12. Neterče podle LOS, +10 s za každý zasažený neterč jednou bez ohledu na počet zásahů.
      </li>
 </ul>
-<svg aria-labelledby="map-2" class="map" role="img" viewbox="0 0 900 560">
+<svg aria-labelledby="map-2" class="map" role="img" viewBox="0 0 900 560">
 <title id="map-2">
       Pracovní půdorys podle zadání: dvě vnitřní zástěny, dvě VTAC bariéry s okénky vlevo. U každé zástěny dvojice IDPA terčů s neterči, za každým okénkem jeden terč.
      </title>
 <defs>
-<marker id="move-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
-<marker id="shot-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
+<marker id="move-2" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
+<marker id="shot-2" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
 </defs>
 <g fill="none" marker-end="url(#move-2)" stroke="#397c91" stroke-dasharray="7 5" stroke-width="2.5">
 <path d="M260 486 L260 450"></path>
@@ -437,13 +456,11 @@
      </span>
 <div>
 <h2>
-       Magie na Svoboďáku
+       Vystoupení na Svoboďáku
       </h2>
 </div>
 </div>
-<div class="legend">
-     Poplach na Svoboďáku. U toho podivnýho kamennýho dilda stojí samozvanej pražskej arcimág, točí kolem sebe čtyři ochranné pečetě a chystá se ovládnout město. Z centrály ti poslali návod, jak mu zrušit štít. Samozřejmě ve formě říkanky. Asi se tam někdo nudí. Arcimág už se nadechuje k proslovu. Nejdřív mu zrušíš kouzla, potom vystoupení. Co mu na přivítanou zařveš, nechala centrála tentokrát na tobě.
-    </div>
+<div class="legend">Poplach na Svoboďáku. U toho podivnýho kamennýho dilda stojí samozvanej pražskej arcimág, točí kolem sebe čtyři ochranné pečetě a chystá se ovládnout město. Z centrály ti poslali návod, jak mu zrušit štít. Samozřejmě ve formě říkanky. Arcimág se nadechuje k proslovu. Nejdřív mu zrušíš kouzla, potom vystoupení. Vlastní připomínky můžeš přednést nahlas.</div>
 <h3>
      Procedura
     </h3>
@@ -458,7 +475,7 @@
 <strong>
        PEČETĚ:
       </strong>
-      Čtyři IDPA terče se symboly OKO, HAD, KŘÍŽ a LEBKA. Počty zásahů určuje přidělená básnička: na každé pečeti 1 až 4, dohromady 10. Na pečetích se počítají zásahy do papíru, zóny se nehodnotí. Od startu se střelec přesune nejprve za levou VTAC bariéru a řeší dvě levé pečetě, každou jiným otvorem. Poté se přesune za pravou VTAC bariéru a stejným způsobem řeší dvě pravé pečetě. Otvory si volí střelec či střelkyně; výška otvoru ani poloha nejsou předepsané.
+      Čtyři papírové terče (menší IPSC podle dostupnosti, případně IDPA) se symboly OKO, HAD, KŘÍŽ a LEBKA. Počty zásahů určuje přidělená básnička: na každé pečeti 1 až 4, dohromady 10. Na pečetích se počítají zásahy do papíru, zóny se nehodnotí. Od startu se střelec přesune nejprve za levou VTAC bariéru a řeší dvě levé pečetě, každou jiným otvorem. Poté se přesune za pravou VTAC bariéru a stejným způsobem řeší dvě pravé pečetě. Otvory si volí střelec či střelkyně; výška otvoru ani poloha nejsou předepsané.
      </li>
 <li>
 <strong>
@@ -473,7 +490,7 @@
       U pečetí chybějící zásah = MISS (+5 s), přebytečný = procedura (+3 s). Na kouzelníkovi se hodnotí dva nejlepší zásahy podle zón LOS. Celkem 10 zásahů do pečetí + 2 do kouzelníka = minimum 12 ran.
      </li>
 </ul>
-<svg aria-labelledby="map-3" class="map" role="img" viewbox="0 0 800 460">
+<svg aria-labelledby="map-3" class="map" role="img" viewBox="0 0 800 460">
 <title id="map-3">
       Čtyři pečetě přes čtyři různé otvory dvou VTAC bariér a samostatný pátý papírový terč arcimága, řešený za chůze mezi bariérami. Schematické rozmístění bez měřítka.
      </title>
@@ -507,8 +524,8 @@
 <text class="muted" text-anchor="middle" x="225" y="194">VTAC A · 2 OTVORY</text>
 <text class="muted" text-anchor="middle" x="575" y="194">VTAC B · 2 OTVORY</text>
 <defs>
-<marker id="shot-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
-<marker id="move-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
+<marker id="shot-3" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
+<marker id="move-3" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
 </defs>
 <g fill="none" marker-end="url(#shot-3)" stroke="#b76c25" stroke-width="2">
 <path d="M185 260 L185 215 L130 142"></path><path d="M265 260 L265 215 L310 142"></path>
@@ -549,361 +566,72 @@
      </span>
 <div>
 <h2>
-       Venčení v Lužánkách
+       Klidná sobota na Petrově
       </h2>
 </div>
 </div>
-<div class="legend">
-     Dispečink hlásí problémy v Lužánkách. Nějakej amatérskej vyvolávač tam zkazil ranní jógu: cvičenci vstali z podložek jako nemrtví a přidali se k jeho oživlé partě. Přišel jsi vyřešit jedno hlášení. Teď hlavně potřebuješ, aby tě nepřeválcovali. A z křoví se ozývá vrčení.
-     <br/><strong>Ježek:</strong> Vyrazí pes, kterej po každým zásahu zase vstane. Ještě že Hlídka nechala u brány připravenou karabinu. Jen se k ní dostat.
-     <br/><strong>Gongy:</strong> Z křoví se vyřítí smečka oživlejch pitbulů. Zlatý časy, kdy lidi po svejch psech jenom neuklízeli hovna.
-    </div>
+<div class="legend">Centrála tě poslala prověřit divný zvuky v Denisových sadech. Mezi stromama se motají mrtví a rozhodně nehledají lavičku. Ustupuješ, jenže zpoza rohu vyrazí smečka psů. Srst žádná, zuby všechny. Zalezeš za zídku a vyřídíš štěkání. Z druhý strany se sbíhají další mrtváci. Přebiješ a prázdnej zásobník strčíš do kapsy. Zbrojíř Hlídky má pro ztráty menší pochopení než pro nekromancii. A dost. Jestli dneska ještě někdo bude ustupovat, ty už to nebudeš.</div>
 <h3>
      Procedura
     </h3>
-<ul class="procedure">
-<li>
-<strong>
-       START:
-      </strong>
-      V přední části situace, několik metrů před T1 a T2, čelem k hlavnímu valu. Boční T3 a T4 jsou při startu za zády střelce. Připravenost pistole podle briefingu.
-     </li>
-<li>
-<strong>
-       PAPÍROVÁ ČÁST:
-      </strong>
-      Čtyři IDPA terče, na každém se hodnotí dva nejlepší zásahy podle zón LOS; celkem osm hodnocených zásahů. Při couvání střelec řeší nejprve T1 a T2 před hlavním valem, poté boční terče, jak se mu při přesunu objeví. Pravý T3 je blíže k hlavnímu valu než levý T4; u T3 je zamýšlen směr do hlavního valu, u T4 do levého bočního valu. Ve variantě 4J musí střelec docouvat za stůl s PCC; ve variantě 4G za vyznačenou čáru. Teprve poté řeší kovy.
-     </li>
-<li>
-<strong>
-       KOVOVÁ ČÁST:
-      </strong>
-      Kovy jsou u hlavního valu a řeší se až po dokončení papírové části a docouvání za hranici příslušné varianty. Pro tento závod nejméně 10 m od ústí hlavně ke kovu, u ježka po celou dobu jeho pohybu. Konkrétní vzdálenost se určí podle vybavení; 10 m je klubové minimum, nikoli údaj převzatý z LOS.
-     </li>
-<li>
-<strong>
-       VARIANTA 4J — JEŽEK:
-      </strong>
-      Malý ježek představuje nesmrtelného psa. Na stole leží nenabitá 9mm PCC, hlavní doleva; zásobník s náboji leží samostatně na stole. Střelec docouvá za stůl, položí pistoli na stůl hlavní směrem do situace a poté přejde na PCC. Kovovou část řeší touto karabinou. Navržený úkol: zahnat jej za označenou čáru. Cílová čára, podmínky dokončení a hodnocení se doplní po zkoušce; počet ran je proměnlivý.
-     </li>
-<li><strong>VARIANTA 4G — GONGY:</strong> Čtyři gongy představují smečku nemrtvých psů. Střelec docouvá za čáru nastříkanou sprejem na zem a odtud řeší gongy pistolí. Každý gong musí být alespoň jednou zasažen; za nevyřešený gong +10 s. S osmi hodnocenými zásahy do papíru je minimum 12 ran.
-     </li>
-</ul>
-<svg aria-labelledby="map-4" class="map" role="img" viewbox="0 0 800 570">
-<title id="map-4">Pracovní rozmístění podle zadání pořadatele: dva papírové terče a kovy u hlavního valu, boční terče za počáteční pozicí, couvání za stůl s PCC ve variantě 4J nebo za čáru ve variantě 4G.</title>
-<defs>
-<marker id="move-4" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
-<marker id="shot-4" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
-</defs>
-<path class="berm" d="M65 460 V38 H750" fill="none"></path>
-<text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text>
-<text class="muted" text-anchor="middle" transform="translate(43 285) rotate(-90)">LEVÝ BOČNÍ VAL</text>
-<rect class="zone" height="46" width="240" x="280" y="58"></rect>
-<text class="label" text-anchor="middle" x="400" y="77">4J: JEŽEK / 4G: 4 GONGY</text>
-<text class="muted" text-anchor="middle" x="400" y="95">KOVY — PO DOKONČENÍ PŘESUNU</text>
-<path class="target" d="M293 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="300" y="125">T1</text><path class="target" d="M498 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="505" y="125">T2</text><path class="target" d="M603 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="610" y="275">T3</text><path class="target" d="M138 370 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="145" y="360">T4</text>
-<g fill="none" marker-end="url(#move-4)" stroke="#397c91" stroke-dasharray="7 5" stroke-width="2.5">
-<path d="M400 236 V295"></path><path d="M400 305 V370"></path><path d="M400 380 V475"></path>
-</g>
-<g fill="none" marker-end="url(#shot-4)" stroke="#b76c25" stroke-width="1.8">
-<path d="M395 270 L300 183"></path><path d="M405 270 L505 183"></path>
-<path d="M410 375 L600 332"></path><path d="M390 438 L170 402"></path>
-</g>
-<circle class="start-pos" cx="400" cy="225" r="9"></circle>
-<text class="label" x="425" y="230">START</text>
-<text class="muted" x="425" y="300">COUVÁNÍ</text>
-<text class="muted" x="425" y="318">PAPÍROVÉ TERČE ZA CHŮZE</text>
-<path class="tape" d="M90 495 H725"></path>
-<text class="muted" x="95" y="516">4G · ČÁRA SPREJEM</text>
-<rect class="prop" height="30" width="180" x="310" y="507"></rect>
-<text class="label" text-anchor="middle" x="400" y="527">4J · STŮL S PCC</text>
-<text class="muted" text-anchor="middle" x="400" y="558">4J: ZA STŮL / 4G: ZA ČÁRU · KOVY MIN. 10 m OD ÚSTÍ</text>
-</svg>
-<p class="map-caption">Schéma bez měřítka podle zadání pořadatele. Přerušované šipky = couvání, plné = směry na papírové terče. Polohy šipek jsou orientační, nikoli povinná místa zastavení. Konkrétní vzdálenosti a úhly nejsou v tomto nákresu stanovené.</p>
+<ul class="procedure"><li><strong>START: </strong>Na levé straně trasy ve tvaru U, čelem k hlavnímu valu. Pistole v pouzdře, připravenost podle briefingu.</li><li><strong>LEVÁ ČÁST: </strong>Za couvání řeš T1 a T2. T1 je vzadu u hlavního valu, T2 bokem vlevo, blíže ke střelecké čáře.</li><li><strong>GONGY A PŘEBITÍ: </strong>Ve spodní části U řeš čtyři gongy z horizontálního krytu za překážkou. Za touto překážkou musíš alespoň jednou přebít; vyjmutý zásobník nesmíš odhodit na zem. Přebití se počítá i během střelby na gongy — nemusí být až po posledním. Před odchodem musí být vyřešené gongy i splněné přebití.</li><li><strong>PRAVÁ ČÁST: </strong>Pokračuj pravou stranou U vpřed a za chůze řeš T3 a T4 v různých vzdálenostech.</li><li><strong>HODNOCENÍ: </strong>Na každém papírovém terči se hodnotí dva nejlepší zásahy podle zón LOS, každý gong musí být alespoň jednou zasažen. Čtyři papíry × 2 + čtyři gongy = minimum 12 ran. Nevyřešený gong +10 s; nesplnění předepsaného přebití nebo odhození zásobníku na zem je procedurální chyba (+3 s).</li></ul>
+<svg aria-labelledby="map-4" class="map" role="img" viewBox="0 0 800 560"><title id="map-4">Účko: start vlevo, couvání kolem T1 a T2, čtyři gongy z horizontálního krytu a přebití, poté chůze vpřed pravou stranou k T3 a T4.</title>
+<defs><marker id="move-4" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker><marker id="shot-4" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs>
+<path class="berm" d="M45 440 V38 H755" fill="none"></path><text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text><text class="muted" text-anchor="middle" transform="translate(24 295) rotate(-90)">LEVÝ BOČNÍ VAL</text>
+<path class="target" d="M238 80 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="245" y="70">T1</text><path class="target" d="M98 326 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="105" y="316">T2</text><path class="target" d="M653 205 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="660" y="195">T3</text><path class="target" d="M718 80 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="725" y="70">T4</text>
+<g fill="var(--panel)" stroke="var(--ink)" stroke-width="2"><circle cx="365" cy="120" r="13"></circle><circle cx="415" cy="120" r="13"></circle><circle cx="465" cy="120" r="13"></circle><circle cx="515" cy="120" r="13"></circle></g>
+<text class="muted" text-anchor="middle" x="440" y="91">4 GONGY · MIN. 10 m OD ÚSTÍ</text>
+<g fill="none" marker-end="url(#move-4)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"><path d="M245 220 V325"></path><path d="M245 335 V467 Q245 485 270 485 H430"></path><path d="M452 485 H570 Q590 485 590 462 V395"></path><path d="M590 380 V285"></path></g>
+<g fill="none" marker-end="url(#shot-4)" stroke="#b76c25" stroke-width="1.8"><path d="M242 278 L245 129"></path><path d="M238 402 L130 365"></path><path d="M440 452 L365 136"></path><path d="M440 452 L415 136"></path><path d="M440 452 L465 136"></path><path d="M440 452 L515 136"></path><path d="M596 377 L656 253"></path><path d="M596 323 L720 129"></path></g>
+<path class="cover" d="M345 430 H525"></path><text class="muted" text-anchor="middle" x="435" y="419">HORIZONTÁLNÍ KRYT</text>
+<circle class="start-pos" cx="245" cy="210" r="9"></circle><text class="label" x="265" y="215">START</text>
+<text class="muted" text-anchor="middle" x="180" y="300">COUVÁNÍ</text><text class="muted" x="615" y="450">VPŘED</text>
+<text class="label" text-anchor="middle" x="440" y="513">ZA PŘEKÁŽKOU ALESPOŇ JEDNOU PŘEBÍT</text><text class="muted" text-anchor="middle" x="440" y="535">ZÁSOBNÍK NEODHAZOVAT NA ZEM</text></svg>
+<p class="map-caption">Schéma bez měřítka. Přerušované šipky = přesun, plné = směry na terče. Papíry se řeší za pohybu, gongy z horizontálního krytu. Konkrétní rozměry a úhly určí pořadatel při stavbě.</p>
 </section>
-<div class="print-extras"><section class="sheet"><h1>Karta pro stavěče</h1><p class="subtitle">Zemská hlídka: Zkažená sobota · Popice</p>
-<h2>Stavba a střídání</h2><p>Dopoledne stojí situace 1 a 2, po obědě se přestaví na 3 a 4. Squad A: 1 → 2 → 3 → 4; squad B: 2 → 1 → 4 → 3. Ve společném prostoru střílí vždy jen jeden střelec. Po prvním dokončeném pokusu a návratu za střeleckou čáru následuje druhý; hodnotí a lepí se společně po obou.</p>
-<p>Rozdělení prostoru: po situaci 1 se staví situace 3 (střelba dopředu), po situaci 2 situace 4 (využití levého bočního valu).</p><table><thead><tr><th>Situace</th><th>Papír / kov</th><th>Rekvizity</th></tr></thead><tbody>
-<tr><td>1 · Ranní kebab</td><td>4 IDPA</td><td>Stůl, židle, značka pro silnou ruku</td></tr>
-<tr><td>2 · Ranní špička</td><td>6 IDPA + 4 neterče</td><td>2 zástěny, 2 VTAC, dvě pásky pro uličku</td></tr>
-<tr><td>3 · Svoboďák</td><td>5 IDPA, 4 značky pečetí</td><td>2 VTAC, karty ALPHA–DELTA, podklad pro rozhodčího</td></tr><tr><td>4 · Lužánky</td><td>4 IDPA + 4 gongy NEBO malý ježek</td><td>4G: sprej; 4J: stůl, 9mm PCC, zásobník, střelivo, značení cíle ježka</td></tr>
+<section class="stage-box bonus-stage" id="bonus-1">
+<div class="bonus-label">DOBROVOLNÝ BONUS · MIMO SOUTĚŽ · PRO POKROČILÉ</div>
+<div class="stage-head"><span class="number">B1</span><h2>Průlom na Špilberku</h2></div>
+<div class="legend">Z kasemat pod Špilberkem se několika vchody hrnou nemrtví. Sotva zastavíš nápor u jednoho, z vedlejšího už lezou další. Přelítáváš mezi nimi a zuřivě se snažíš udržet oba vstupy. Pak cvak. Další zásobník do pušky už nemáš. Pistoli naštěstí jo. Začneš couvat. Prohlídka kasemat se dneska trochu protáhla.</div>
+<p><strong>Puška + pistole, jeden souvislý pokus.</strong> Bonus se nezapočítává do výsledků hlavního závodu ani do jeho spotřeby 48 ran.</p>
+<h3>Průběh</h3>
+<ul class="procedure">
+<li><strong>Pušková část:</strong> dvě VTAC bariéry představují vstupy do kasemat. Terč T1 stojí před levou a T2 před pravou bariérou, oba blíže k valu. Střelec je opakovaně střídá a na každém řeší příslušný papírový terč. Počet opakování a příděl nábojů určí společný briefing před zahájením bonusu.</li>
+<li><strong>Změna zbraně:</strong> po vyčerpání přídělu do pušky následuje přechod na pistoli během stejného měřeného pokusu. Puška zůstává na popruhu; provedení a stav zbraní při přechodu stanoví rozhodčí před startem.</li>
+<li><strong>Pistolový závěr:</strong> bližší terče T3 a T4 uprostřed mezi bariérami se řeší při couvání do vyznačeného konce situace, každý dvěma zásahy.</li>
+</ul><svg aria-labelledby="bonus-map-1" class="map bonus-map" role="img" viewBox="0 0 800 520"><title id="bonus-map-1">Bonus 1: dvě VTAC, dva vzdálenější terče před bariérami a dva bližší terče uprostřed; střídání stanovišť a couvání.</title><defs><marker id="bonus-move-1" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker><marker id="bonus-shot-1" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs><path class="berm" d="M35 38 H765" fill="none"></path><text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text><path class="target" d="M171 75 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="180" y="66">T1 · PUŠKA</text><path class="target" d="M611 75 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="620" y="66">T2 · PUŠKA</text><path class="target" d="M326 160 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="335" y="151">T3 · PISTOLE</text><path class="target" d="M456 160 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="465" y="151">T4 · PISTOLE</text><rect class="prop" height="17" width="130" x="115" y="255"></rect><rect fill="var(--ink)" height="9" width="13" x="137" y="259"></rect><rect fill="var(--ink)" height="9" width="13" x="173" y="259"></rect><rect fill="var(--ink)" height="9" width="13" x="209" y="259"></rect><text class="label" text-anchor="middle" x="180" y="242">VTAC A</text><rect class="prop" height="17" width="130" x="555" y="255"></rect><rect fill="var(--ink)" height="9" width="13" x="577" y="259"></rect><rect fill="var(--ink)" height="9" width="13" x="613" y="259"></rect><rect fill="var(--ink)" height="9" width="13" x="649" y="259"></rect><text class="label" text-anchor="middle" x="620" y="242">VTAC B</text><path d="M180 293 L180 128" fill="none" marker-end="url(#bonus-shot-1)" stroke="#b76c25" stroke-width="1.8"></path><path d="M620 293 L620 128" fill="none" marker-end="url(#bonus-shot-1)" stroke="#b76c25" stroke-width="1.8"></path><path d="M395 388 L337 212" fill="none" marker-end="url(#bonus-shot-1)" stroke="#b76c25" stroke-width="1.8"></path><path d="M405 428 L466 212" fill="none" marker-end="url(#bonus-shot-1)" stroke="#b76c25" stroke-width="1.8"></path><path d="M195 300 H605" fill="none" marker-end="url(#bonus-move-1)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path d="M605 322 H195" fill="none" marker-end="url(#bonus-move-1)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path d="M620 338 L400 365" fill="none" marker-end="url(#bonus-move-1)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path d="M400 370 V465" fill="none" marker-end="url(#bonus-move-1)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><text class="muted" text-anchor="middle" x="400" y="291">OPAKOVANÉ PŘEBĚHY</text><text class="muted" text-anchor="middle" x="553" y="373">PŘECHOD NA PISTOLI</text><text class="label" text-anchor="middle" x="495" y="440">COUVÁNÍ</text><circle class="start-pos" cx="180" cy="300" r="8"></circle><text class="label" text-anchor="middle" x="125" y="323">START</text><path class="finish" d="M310 480 H490"></path><text class="label" text-anchor="middle" x="400" y="505">KONEC</text></svg><p class="map-caption">Schematický pohled shora, bez měřítka. Oranžové šipky = směry střelby; modré přerušované šipky = pohyb. Konkrétní vzdálenosti se určí při stavbě.</p>
+<h3>Podklady k přípravě</h3>
+<p>Čtyři papírové terče, dvě VTAC bariéry, značení startu a konce. Před prvním pokusem sjednotit počet opakování, rozdělení zásahů a připravenost zbraní. Konkrétní rozmístění se určí podle prostoru, který zůstane po hlavním závodu.</p>
+<p class="outcome">Čas a zásahy slouží jen pro vlastní porovnání. Hlavní závod končí situací 4.</p>
+</section><section class="stage-box bonus-stage" id="bonus-2">
+<div class="bonus-label">DOBROVOLNÝ BONUS · MIMO SOUTĚŽ · PRO POKROČILÉ</div>
+<div class="stage-head"><span class="number">B2</span><h2>Poslední návštěvník</h2></div>
+<div class="legend">Na Špilberku sis z nemrtvejch udělal střelnici. Nikdo nereklamuje zásahy a vstupný už zaplatili za života. Pak mezi nima zahlídneš chlapa, kterej má barvu, puls a dost konkrétní námitky. Zábava skončila. Prodereš se k němu, jenže po svejch nepůjde. Podle ostrahy byl přitom hrad dávno prázdnej. Až ho dostaneš ven, půjdeš si s nima přepočítat návštěvníky.</div>
+<p><strong>Puška, volitelně přechod na pistoli v závěru.</strong> Variantu střelec oznámí před startem. Jde o samostatný bonus bez společného pořadí různých variant.</p>
+<h3>Průběh</h3>
+<ul class="procedure">
+<li><strong>Přesnost:</strong> začátek vleže, po dvou zásazích do hlavy vzdálenějších papírových terčů T1 a T2 u valu.</li>
+<li><strong>Pohyb vpřed:</strong> po vstání následují za chůze bližší terče T3 a T4, každý dvěma zásahy.</li>
+<li><strong>Horizontální kryt:</strong> u připravené překážky se řeší vzdálenější T5 a T6 u valu, každý dvěma zásahy.</li>
+<li><strong>Civilista:</strong> rekvizitou je pneumatika s provazem. Závěr představuje její odtažení do vyznačeného cíle a dva bližší papírové terče T7 a T8, každý dvěma zásahy. Podmínky manipulace s rekvizitou a použitou zbraní se stanoví při briefingu.</li>
+</ul><svg aria-labelledby="bonus-map-2" class="map bonus-map" role="img" viewBox="0 0 800 520"><title id="bonus-map-2">Bonus 2: čtyři dvojice terčů postupně zleva doprava: přesnost, pohyb vpřed, horizontální kryt a závěr.</title><defs><marker id="bonus-move-2" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker><marker id="bonus-shot-2" markerHeight="7" markerWidth="7" orient="auto" refX="6" refY="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs><path class="berm" d="M35 38 H765" fill="none"></path><text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text><path class="target" d="M86 85 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="95" y="76">T1</text><path class="target" d="M166 85 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="175" y="76">T2</text><path class="target" d="M276 195 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="285" y="186">T3</text><path class="target" d="M356 195 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="365" y="186">T4</text><path class="target" d="M466 85 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="475" y="76">T5</text><path class="target" d="M546 85 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="555" y="76">T6</text><path class="target" d="M656 195 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="665" y="186">T7</text><path class="target" d="M736 195 h18 v10 h12 l8 10 v30 h-58 v-30 l8 -10 h12 Z"></path><text class="label" text-anchor="middle" x="745" y="186">T8</text><text class="muted" text-anchor="middle" x="135" y="60">1 · PŘESNOST</text><text class="muted" text-anchor="middle" x="325" y="170">2 · ZA CHŮZE</text><text class="muted" text-anchor="middle" x="515" y="60">3 · Z KRYTU</text><text class="muted" text-anchor="middle" x="705" y="170">4 · ZÁVĚR</text><path d="M142 454 L95 138" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M151 454 L175 138" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M292 381 L285 248" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M320 367 L365 248" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M493 326 L475 138" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M503 326 L555 138" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M505 405 L665 248" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M505 455 L745 248" fill="none" marker-end="url(#bonus-shot-2)" stroke="#b76c25" stroke-width="1.8"></path><path d="M155 450 L325 345" fill="none" marker-end="url(#bonus-move-2)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path d="M338 335 H486" fill="none" marker-end="url(#bonus-move-2)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path d="M500 347 V475" fill="none" marker-end="url(#bonus-move-2)" stroke="#397c91" stroke-dasharray="8 6" stroke-width="3"></path><path class="cover" d="M430 307 H580"></path><text class="muted" text-anchor="middle" x="505" y="292">HORIZONTÁLNÍ KRYT</text><rect class="prop" height="30" rx="4" width="72" x="112" y="454"></rect><text class="label" text-anchor="middle" x="148" y="506">START VLEŽE</text><text class="muted" text-anchor="middle" x="218" y="389">VPŘED</text><circle cx="574" cy="350" fill="none" r="17" stroke="var(--ink)" stroke-width="7"></circle><path d="M560 363 Q544 380 514 370" fill="none" stroke="var(--ink)" stroke-width="2"></path><text class="muted" text-anchor="middle" x="643" y="360">CIVILISTA</text><text class="muted" text-anchor="middle" x="614" y="434">COUVÁNÍ</text><path class="finish" d="M445 487 H560"></path><text class="label" text-anchor="middle" x="503" y="510">CÍL</text></svg><p class="map-caption">Dvojice se řeší zleva doprava: T1–T2 → T3–T4 → T5–T6 → T7–T8. Schéma bez měřítka; oranžové šipky = směry střelby, modré přerušované = pohyb.</p>
+<h3>Podklady k přípravě</h3>
+<p>Osm papírových terčů, podložka pro start vleže, nízká překážka, pneumatika s provazem a značení startu a cíle. Celkem 16 požadovaných zásahů. Vzdálenosti a rozmístění se doplní při stavbě; první dvojice terčů tvoří přesnostní úlohu na delší vzdálenost.</p>
+<p class="outcome">Čas a zásahy pouze pro zajímavost. Bonus se nezapočítává do hlavního závodu.</p>
+</section><div class="print-extras"><section class="sheet organizer-brief"><h1>Podklady pro stavěče a rozhodčí</h1><p class="subtitle">Zemská hlídka: Zkažená sobota · doplněk k nákresům a postupům v propozicích</p>
+<h2>Vybavení</h2><table><thead><tr><th>Situace</th><th>Terče</th><th>Rekvizity</th></tr></thead><tbody>
+<tr><td>1 · Česká</td><td>4 IDPA</td><td>Stůl, židle, značka pro ruku</td></tr>
+<tr><td>2 · Masaryčka</td><td>6 IDPA + 4 neterče</td><td>2 zástěny, 2 VTAC, 2 pásky s kotvením</td></tr>
+<tr><td>3 · Svoboďák</td><td>4 pečetě + 1 IDPA</td><td>2 VTAC, 4 symboly, 4 karty básniček</td></tr>
+<tr><td>4 · Petrov</td><td>4 IDPA + 4 gongy</td><td>Nízká překážka, značení trasy U a startu</td></tr>
 </tbody></table>
-<p>Dopoledne 10 IDPA + 4 neterče, odpoledne 9 IDPA + kovy. Nejde o počty stojanů: na jeden lze upevnit více terčů. Obě VTAC se po obědě přesunou z dvojky do trojky; stůl z jedničky lze využít pro 4J.</p>
-<h2>Potřebné vybavení pro celý závod</h2><ul class="equipment-list"><li>2 běžné zástěny a 2 VTAC bariéry; po obědě se obě VTAC přesunou na situaci 3.</li><li>1 stůl a 1 židle. Stůl se po obědě využije pro variantu 4J.</li><li>19 IDPA terčů pro dvě čerstvé stavby (10 dopoledne + 9 odpoledne), 4 neterče a zálepky. Uchycení pro 10 IDPA současně; neterče připevnit k terčům situace 2. Více terčů může sdílet stojan.</li><li>2 podélné vymezovací pásky s kotvením pro uličku, značka pro ruku na stole a značení startovních míst.</li><li>4G: 4 gongy včetně závěsů či stojanů a sprej na zadní čáru. NEBO 4J: 1 malý ježek, 1 PCC v ráži 9 mm, 1 zásobník, odpovídající střelivo a značení cílové čáry.</li><li>4 velké symboly pečetí, 4 karty básniček ALPHA–DELTA a klíč pro rozhodčího; vše v tiskových přílohách.</li><li>Upevňovací materiál na papíry a značky, metr, popisovač a nářadí podle použitých stojanů.</li></ul>
-<h2>Co ještě doplnit před předáním stavby</h2><p>Konkrétní otvory VTAC pro dvojku. Ve trojce si otvory volí střelec či střelkyně. Rozměry a vzdálenosti v nákresech nejsou stanovené; schémata zachycují dohodnuté rozmístění. U 4J dosud chybí cílová čára, přesná podmínka dokončení a hodnocení po zkoušce ježka. Gongová varianta tento neuzavřený úkol nemá.</p>
-<p><strong>Kovy:</strong> klubové minimum 10 m od ústí hlavně, u ježka v celém pohybu. <strong>Minimum ran:</strong> 12 na každou situaci s variantou 4G, celkem 48; s 4J 44 papírových zásahů + proměnlivý počet ran na ježka.</p>
-<p class="small">Následují čtyři samostatné stavební listy. Propozice a tiskové přílohy jsou součástí stejné složky; tato karta nahrazuje staré pracovní poznámky.</p></section><section class="sheet stage-sheet build-1"><h1>1 · Ranní kebab</h1><p class="subtitle">4 IDPA · stůl · židle · značka na stole</p><ol><li>Čtyři papírové terče před stolem podle nákresu. Židle za stolem; vyznačit místo pro silnou ruku.</li><li>Start vsedě, pistole na stole, zásobník zasunutý, komora prázdná. Silná ruka na značce.</li><li>Bez přesunu, střelba slabou rukou. Úvodní nabití a přebíjení lze oběma rukama, poté silná ruka zpět na značku.</li></ol><p class="scoring">Mozambik pouze zde: na každém terči dva nejlepší zásahy do těla a jeden do hlavy podle zón LOS. Celkem 12.</p><svg aria-labelledby="print-map-1" class="map" role="img" viewbox="0 0 800 330">
-<title id="print-map-1">
-      Situace 1: schematický pohled shora na terče, rekvizity a start. Bez měřítka.
-     </title>
-<defs><marker id="print-shot-1" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker></defs>
-<g fill="none" marker-end="url(#print-shot-1)" stroke="#b76c25" stroke-width="2">
-<path d="M400 211 L175 136"></path><path d="M400 211 L325 136"></path>
-<path d="M400 211 L475 136"></path><path d="M400 211 L625 136"></path>
-</g>
-<path class="berm" d="M35 38 H765">
-</path>
-<text class="muted" text-anchor="middle" x="400" y="23">
-      VAL / SMĚR DO PROSTORU TERČŮ
-     </text>
-<path class="target" d="M166 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="175" y="66">
-      T1
-     </text>
-<path class="target" d="M316 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="325" y="66">
-      T2
-     </text>
-<path class="target" d="M466 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="475" y="66">
-      T3
-     </text>
-<path class="target" d="M616 75 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="625" y="66">
-      T4
-     </text>
-<rect class="prop" height="30" width="190" x="305" y="214">
-</rect>
-<text class="label" text-anchor="middle" x="400" y="234">
-      STŮL
-     </text>
-<rect class="prop" height="26" width="40" x="380" y="267">
-</rect>
-<circle class="start-pos" cx="400" cy="265" r="9">
-</circle>
-<text class="label" text-anchor="middle" x="400" y="312">
-      START VSEDĚ
-     </text>
-</svg><p class="small">Schéma bez měřítka. Šipky zachycují dohodnutý průběh, nejsou vyznačením hranic povolených úhlů.</p></section><section class="sheet stage-sheet build-2"><h1>2 · Ranní špička</h1><p class="subtitle">6 IDPA · 4 neterče · 2 zástěny · 2 VTAC · dvě podélné pásky</p><ol><li>Páskami vyznačit úzkou uličku. Zástěna A přiléhá k levé pásce, zástěna B k pravé.</li><li>T1–T2 více vlevo u zástěny A, T4–T5 více vpravo u zástěny B. Každý z těchto čtyř terčů částečně překrýt neterčem.</li><li>Obě VTAC vlevo: A před zástěnou A směrem ke startu, B blíže k valu. Samostatný T3 náleží VTAC A, T6 VTAC B.</li><li>Start vlevo bez výhledu na terče. Trasa: VTAC A / T3 → zástěna A / T2–T1 → zástěna B / T4–T5 → VTAC B / T6. U zástěn pořadí podle odkrývání. Otvory VTAC určit při stavbě.</li></ol><p class="scoring">Dva nejlepší zásahy na každý terč = 12. Zasažený neterč +10 s jednou za neterč.</p><svg aria-labelledby="print-map-2" class="map" role="img" viewbox="0 0 900 560">
-<title id="print-map-2">
-      Pracovní půdorys podle zadání: dvě vnitřní zástěny, dvě VTAC bariéry s okénky vlevo. U každé zástěny dvojice IDPA terčů s neterči, za každým okénkem jeden terč.
-     </title>
-<defs>
-<marker id="print-move-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
-<marker id="print-shot-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
-</defs>
-<g fill="none" marker-end="url(#print-move-2)" stroke="#397c91" stroke-dasharray="7 5" stroke-width="2.5">
-<path d="M260 486 L260 450"></path>
-<path d="M270 450 L460 420 L460 395"></path>
-<path d="M460 383 L460 345 L365 230 L365 190"></path>
-<path d="M355 184 L320 150 L260 110"></path>
-</g>
-<g fill="none" marker-end="url(#print-shot-2)" stroke="#b76c25" stroke-width="1.8">
-<path d="M250 450 L70 450"></path>
-<path d="M453 388 L375 332"></path><path d="M450 391 L265 332"></path>
-<path d="M369 181 L425 118"></path><path d="M375 185 L530 118"></path>
-<path d="M250 110 L70 110"></path>
-</g>
-<g fill="white" stroke="#397c91" stroke-width="2">
-<circle cx="260" cy="450" r="10"></circle><circle cx="460" cy="395" r="10"></circle>
-<circle cx="365" cy="190" r="10"></circle><circle cx="260" cy="110" r="10"></circle>
-</g>
-<g fill="#245769" font-size="13" font-weight="bold" text-anchor="middle">
-<text x="260" y="455">1</text><text x="460" y="400">2</text>
-<text x="365" y="195">3</text><text x="260" y="115">4</text>
-</g>
-<g fill="currentColor" font-size="14">
-<text x="620" y="265">1 · VTAC A — T3</text>
-<text x="620" y="291">2 · Zástěna A — T2, T1</text>
-<text x="620" y="317">3 · Zástěna B — T4, T5</text>
-<text x="620" y="343">4 · VTAC B — T6</text>
-</g>
-<text class="muted" text-anchor="middle" x="440" y="24">
-      POHLED SHORA · VAL NAHOŘE
-     </text>
-<path class="tape" d="M235 48 V493 M575 48 V493">
-</path>
-<text class="muted" text-anchor="middle" x="180" y="535">
-      PÁSKA
-     </text>
-<text class="muted" text-anchor="middle" x="625" y="470">
-      PÁSKA
-     </text>
-<g transform="translate(60 0)">
-<path class="target" d="M358 70 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="365" y="60">
-      T4
-     </text>
-<rect class="no-shoot" height="31" width="29" x="366" y="84">
-</rect>
-<path class="ns-cross" d="M370 89 l21 20 M391 89 l-21 20">
-</path>
-<text class="muted" text-anchor="middle" x="407" y="108">
-      NS
-     </text>
-<path class="target" d="M463 70 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="470" y="60">
-      T5
-     </text>
-<rect class="no-shoot" height="31" width="29" x="471" y="84">
-</rect>
-<path class="ns-cross" d="M475 89 l21 20 M496 89 l-21 20">
-</path>
-<text class="muted" text-anchor="middle" x="495" y="130">
-      NS
-     </text>
-</g>
-<g transform="translate(-50 0)">
-<path class="target" d="M308 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="315" y="275">
-      T1
-     </text>
-<rect class="no-shoot" height="31" width="29" x="316" y="299">
-</rect>
-<path class="ns-cross" d="M320 304 l21 20 M341 304 l-21 20">
-</path>
-<text class="muted" text-anchor="middle" x="357" y="323">
-      NS
-     </text>
-<path class="target" d="M418 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="425" y="275">
-      T2
-     </text>
-<rect class="no-shoot" height="31" width="29" x="426" y="299">
-</rect>
-<path class="ns-cross" d="M430 304 l21 20 M451 304 l-21 20">
-</path>
-<text class="muted" text-anchor="middle" x="467" y="323">
-      NS
-     </text>
-</g>
-<path class="cover" d="M400 174 H575 M235 381 H410">
-</path>
-<text class="muted" text-anchor="middle" x="487" y="200">
-      ZÁSTĚNA B
-     </text>
-<text class="muted" text-anchor="middle" x="322" y="407">
-      ZÁSTĚNA A
-     </text>
-<path class="cover" d="M205 50 V89 M205 131 V170 M205 390 V429 M205 471 V510">
-</path>
-<text class="muted" text-anchor="middle" x="150" y="138">
-      VTAC B
-     </text>
-<text class="muted" text-anchor="middle" x="150" y="478">
-      VTAC A
-     </text>
-<path class="target" d="M33 91 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="40" y="81">
-      T6
-     </text>
-<path class="target" d="M33 430 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z">
-</path>
-<text class="label" text-anchor="middle" x="40" y="420">
-      T3
-     </text>
-<circle class="start-pos" cx="260" cy="486" r="9">
-</circle>
-<text class="label" text-anchor="middle" x="260" y="512">
-      START
-     </text>
-<text class="muted" text-anchor="middle" x="450" y="546">
-      Dvojice u zástěn: T1–T2 a T4–T5 · Levá okénka: T3 a T6
-     </text>
-</svg><p class="small">Schéma bez měřítka. Šipky zachycují dohodnutý průběh, nejsou vyznačením hranic povolených úhlů.</p></section><section class="sheet stage-sheet build-3"><h1>3 · Magie na Svoboďáku</h1><p class="subtitle">5 IDPA · 2 VTAC · 4 symboly · 4 varianty karet</p><ol><li>Zleva rozmístit pečetě LEBKA, OKO, KŘÍŽ, HAD. Arcimág T5 uprostřed, dále směrem k valu za řadou pečetí.</li><li>Levá VTAC pro lebku a oko, pravá pro kříž a hada. Otvory si volí střelec či střelkyně; každou ze dvou pečetí u jedné bariéry řeší jiným otvorem. Výška otvoru ani poloha nejsou předepsané.</li><li>Trasa: start → za levou VTAC → za pravou VTAC → prostředkem vpřed; závěr na arcimága za chůze. Střelec či střelkyně musí hlasitě zařvat, obsah pokřiku je libovolný.</li><li>Před pokusem vydat jednu kartu a zapsat její název pro hodnocení. Do karty lze nahlížet během pokusu. Počty zásahů nepsat k pečetím — mění se podle karty.</li></ol><p class="scoring">Pečetě: počet zásahů do papíru podle karty; chybějící +5 s, přebytečný +3 s. Arcimág: dva nejlepší zásahy podle zón LOS. Celkem 12.</p><svg aria-labelledby="print-map-3" class="map" role="img" viewbox="0 0 800 460">
-<title id="print-map-3">
-      Čtyři pečetě přes čtyři různé otvory dvou VTAC bariér a samostatný pátý papírový terč arcimága, řešený za chůze mezi bariérami. Schematické rozmístění bez měřítka.
-     </title>
-<path class="berm" d="M35 38 H765">
-</path>
-<text class="muted" text-anchor="middle" x="400" y="23">
-      VAL / SMĚR DO PROSTORU TERČŮ
-     </text>
-<g transform="translate(0 70)">
-<path class="target" d="M121 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="130" y="74">
-      LEBKA
-     </text>
-<path class="target" d="M301 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="310" y="74">
-      OKO
-     </text>
-<path class="target" d="M481 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="490" y="74">
-      KŘÍŽ
-     </text>
-<path class="target" d="M661 83 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="670" y="74">
-      HAD
-     </text>
-<path class="cover" d="M153 215 H174 M196 215 H254 M276 215 H297 M503 215 H524 M546 215 H604 M626 215 H647"></path>
-<text class="muted" text-anchor="middle" x="225" y="194">VTAC A · 2 OTVORY</text>
-<text class="muted" text-anchor="middle" x="575" y="194">VTAC B · 2 OTVORY</text>
-<defs>
-<marker id="print-shot-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
-<marker id="print-move-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
-</defs>
-<g fill="none" marker-end="url(#print-shot-3)" stroke="#b76c25" stroke-width="2">
-<path d="M185 260 L185 215 L130 142"></path><path d="M265 260 L265 215 L310 142"></path>
-<path d="M535 260 L535 215 L490 142"></path><path d="M615 260 L615 215 L670 142"></path>
-<path d="M412 175 L400 48"></path>
-</g>
-<g fill="none" stroke="#397c91" stroke-dasharray="7 5" stroke-width="2.5">
-<path d="M371 335 L225 280" marker-end="url(#print-move-3)"></path>
-<path d="M235 280 L565 280" marker-end="url(#print-move-3)"></path>
-<path d="M575 280 L575 300 L400 300 L400 170" marker-end="url(#print-move-3)"></path>
-</g>
-<text class="muted" text-anchor="middle" x="400" y="160">ZA CHŮZE</text>
-<rect class="prop" height="20" width="90" x="430" y="326">
-</rect>
-<text class="muted" text-anchor="middle" x="475" y="341">
-      KARTA
-     </text>
-<circle class="start-pos" cx="380" cy="340" r="9">
-</circle>
-<text class="label" text-anchor="middle" x="380" y="366">
-      START
-     </text>
-</g>
-<path class="target" d="M391 55 h18 v10 h12 l8 10 v35 h-58 v-35 l8 -10 h12 Z">
-</path>
-<text class="label" text-anchor="middle" x="400" y="50">
-      T5 · ARCIMÁG
-     </text>
-</svg><h2>Klíč pro rozhodčího</h2><table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>ALPHA</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>BRAVO</td><td>2</td><td>3</td><td>4</td><td>1</td></tr><tr><td>CHARLIE</td><td>3</td><td>1</td><td>4</td><td>2</td></tr><tr><td>DELTA</td><td>2</td><td>4</td><td>1</td><td>3</td></tr></tbody></table><p class="small">Schéma bez měřítka. Šipky zachycují dohodnutý průběh, nejsou vyznačením hranic povolených úhlů.</p></section><section class="sheet stage-sheet build-4"><h1>4 · Venčení v Lužánkách</h1><p class="subtitle">4 IDPA · varianta 4G: 4 gongy / 4J: malý ježek a PCC</p><ol><li>T1–T2 a kovy u hlavního valu. Start několik metrů před T1–T2, čelem k valu; boční T3 a T4 při startu za zády.</li><li>Pravý T3 více vpředu než levý T4. Zamýšlený směr u T3 do hlavního valu, u T4 do levého bočního valu. Couvání s řešením papírů; kovy až po dokončení přesunu.</li><li>4G: sprejem vyznačit čáru na zemi. Docouvat za ni, poté pistolí zasáhnout každý ze čtyř gongů.</li><li>4J: zadní stůl, nenabitá PCC hlavní doleva a zásobník s náboji samostatně. Docouvat za stůl, odložit pistoli hlavní do situace a přejít na PCC. Úkol ježka „za cílovou čáru“ ještě vyžaduje doplnění po zkoušce.</li></ol><p class="scoring">Papír: 4 × 2 nejlepší zásahy = 8. S gongy minimum 12 ran, nevyřešený gong +10 s. Kovy nejméně 10 m od ústí; u ježka po celou dobu pohybu.</p><svg aria-labelledby="print-map-4" class="map" role="img" viewbox="0 0 800 570">
-<title id="print-map-4">Pracovní rozmístění podle zadání pořadatele: dva papírové terče a kovy u hlavního valu, boční terče za počáteční pozicí, couvání za stůl s PCC ve variantě 4J nebo za čáru ve variantě 4G.</title>
-<defs>
-<marker id="print-move-4" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#397c91" stroke-width="1.4"></path></marker>
-<marker id="print-shot-4" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6 Z" fill="#b76c25"></path></marker>
-</defs>
-<path class="berm" d="M65 460 V38 H750" fill="none"></path>
-<text class="muted" text-anchor="middle" x="400" y="24">HLAVNÍ VAL</text>
-<text class="muted" text-anchor="middle" transform="translate(43 285) rotate(-90)">LEVÝ BOČNÍ VAL</text>
-<rect class="zone" height="46" width="240" x="280" y="58"></rect>
-<text class="label" text-anchor="middle" x="400" y="77">4J: JEŽEK / 4G: 4 GONGY</text>
-<text class="muted" text-anchor="middle" x="400" y="95">KOVY — PO DOKONČENÍ PŘESUNU</text>
-<path class="target" d="M293 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="300" y="125">T1</text><path class="target" d="M498 135 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="505" y="125">T2</text><path class="target" d="M603 285 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="610" y="275">T3</text><path class="target" d="M138 370 h14 v8 h10 l7 8 v28 h-48 v-28 l7 -8 h10 Z"></path><text class="label" text-anchor="middle" x="145" y="360">T4</text>
-<g fill="none" marker-end="url(#print-move-4)" stroke="#397c91" stroke-dasharray="7 5" stroke-width="2.5">
-<path d="M400 236 V295"></path><path d="M400 305 V370"></path><path d="M400 380 V475"></path>
-</g>
-<g fill="none" marker-end="url(#print-shot-4)" stroke="#b76c25" stroke-width="1.8">
-<path d="M395 270 L300 183"></path><path d="M405 270 L505 183"></path>
-<path d="M410 375 L600 332"></path><path d="M390 438 L170 402"></path>
-</g>
-<circle class="start-pos" cx="400" cy="225" r="9"></circle>
-<text class="label" x="425" y="230">START</text>
-<text class="muted" x="425" y="300">COUVÁNÍ</text>
-<text class="muted" x="425" y="318">PAPÍROVÉ TERČE ZA CHŮZE</text>
-<path class="tape" d="M90 495 H725"></path>
-<text class="muted" x="95" y="516">4G · ČÁRA SPREJEM</text>
-<rect class="prop" height="30" width="180" x="310" y="507"></rect>
-<text class="label" text-anchor="middle" x="400" y="527">4J · STŮL S PCC</text>
-<text class="muted" text-anchor="middle" x="400" y="558">4J: ZA STŮL / 4G: ZA ČÁRU · KOVY MIN. 10 m OD ÚSTÍ</text>
-</svg><p class="small">Schéma bez měřítka. Šipky zachycují dohodnutý průběh, nejsou vyznačením hranic povolených úhlů.</p></section><section class="organizer poem-sheet"><h2>Magie na Svoboďáku — karty 1–2</h2><div class="poem-pair"><div class="ritual"><h2>ALPHA</h2><p>Jednou střel, kde kříž se tyčí,<br/>dvakrát had, co v koutě syčí.<br/>Třikrát rozbij prázdnou lebku,<br/>čtyři na to oko, zmetku.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div><div class="ritual"><h2>BRAVO</h2><p>Oko mrkne pouze jednou,<br/>dvě rány jen kříži sednou.<br/>Třikrát sykne hadí dech,<br/>čtyři rány lebce nech.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div></div><h3>Klíč pro rozhodčího — odstřihnout</h3><table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>ALPHA</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>BRAVO</td><td>2</td><td>3</td><td>4</td><td>1</td></tr></tbody></table><p class="note">Pečetě celkem 10 zásahů, arcimág 2 podle zón LOS. Minimum 12 ran.</p></section><section class="organizer poem-sheet"><h2>Magie na Svoboďáku — karty 3–4</h2><div class="poem-pair"><div class="ritual"><h2>CHARLIE</h2><p>Jednou střel, kde had se plazí,<br/>dvakrát tam, kde oko mrazí.<br/>Tři hřeby má svatý kříž,<br/>čtyřmi lebku rozdrtíš.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div><div class="ritual"><h2>DELTA</h2><p>Jednou střel tu suchou lebku,<br/>dvě do kříže, pražskej zmetku.<br/>Tři rány pošli do oka,<br/>čtyřmi hada krop zhluboka.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div></div><h3>Klíč pro rozhodčího — odstřihnout</h3><table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>CHARLIE</td><td>3</td><td>1</td><td>4</td><td>2</td></tr><tr><td>DELTA</td><td>2</td><td>4</td><td>1</td><td>3</td></tr></tbody></table><p class="note">Pečetě celkem 10 zásahů, arcimág 2 podle zón LOS. Minimum 12 ran.</p></section><section class="symbol-page">
-<svg aria-label="OKO" class="seal" role="img" viewbox="8 48 184 104">
+<p><strong>Celkem:</strong> 15 IDPA + 4 menší IPSC na pečetě (pokud nejsou, 19 IDPA), 4 neterče, 4 gongy se závěsy; bez rezervních papírů. Uchycení pro 10 papírových terčů současně a neterče k nim. Více terčů může sdílet stojan.</p>
+<p>2 zástěny, 2 VTAC, 1 stůl, 1 židle, 1 nízká překážka; po obědě lze podle provedení využít stůl. Dále zálepky, sponkovačka a spony, kotvení, páska či sprej, metr, popisovač a nářadí. Pro rozhodčí časomíra a záznamové listy s psacími potřebami.</p>
+<h2>Stavba a přestavba</h2><p>Dopoledne 1 + 2; po obědě 1 → 3 a 2 → 4. Obě VTAC se přesunou z dvojky do trojky. Squad A: 1–2–3–4, squad B: 2–1–4–3. Ve společném prostoru střílí jeden střelec; po jeho dokončení a návratu za čáru druhý. Hodnocení a lepení společně po obou.</p>
+<ul><li><strong>Dvojka:</strong> při stavbě vybrat a označit používaný otvor každé VTAC.</li><li><strong>Trojka:</strong> ověřit zásobu menších IPSC a použít pro všechny čtyři pečetě stejný typ. Symboly umístit vedle terčů, aby nezakrývaly jejich obrys. Počty zásahů k terčům nepsat.</li><li><strong>Čtyřka:</strong> vybrat nízkou překážku a vyznačit trasu podle nákresu.</li></ul>
+<h2>Klíč k básničkám pro rozhodčí</h2><p>Před pokusem přidělit kartu a zapsat její název. Tabulka uvádí požadovaný konečný počet zásahů v jednotlivých pečetích.</p>
+<table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>ALPHA</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>BRAVO</td><td>2</td><td>3</td><td>4</td><td>1</td></tr><tr><td>CHARLIE</td><td>3</td><td>1</td><td>4</td><td>2</td></tr><tr><td>DELTA</td><td>2</td><td>4</td><td>1</td><td>3</td></tr></tbody></table></section><section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>ALPHA</h2><p>Jednou střel, kde kříž se tyčí,<br/>dvakrát had, co v koutě syčí.<br/>Třikrát rozbij prázdnou lebku,<br/>čtyři na to oko, zmetku.</p></div><div class="ritual"><h2>BRAVO</h2><p>Oko mrkne pouze jednou,<br/>dvě rány jen kříži sednou.<br/>Třikrát sykne hadí dech,<br/>čtyři rány lebce nech.</p></div></div></section><section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>CHARLIE</h2><p>Jednou střel, kde had se plazí,<br/>dvakrát tam, kde oko mrazí.<br/>Tři hřeby má svatý kříž,<br/>čtyřmi lebku rozdrtíš.</p></div><div class="ritual"><h2>DELTA</h2><p>Jednou střel tu suchou lebku,<br/>dvě do kříže, pražskej zmetku.<br/>Tři rány pošli do oka,<br/>čtyřmi hada krop zhluboka.</p></div></div></section><section class="symbol-page">
+<svg aria-label="OKO" class="seal" role="img" viewBox="8 48 184 104">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
 <path d="M20 100 Q100 15 180 100 Q100 185 20 100 Z">
 </path>
@@ -912,7 +640,7 @@
 </g>
 </svg>
 </section><section class="symbol-page">
-<svg aria-label="Had se zvlněným tělem, hlavou, okem a rozeklaným jazykem" class="seal" role="img" viewbox="15 25 180 165">
+<svg aria-label="Had se zvlněným tělem, hlavou, okem a rozeklaným jazykem" class="seal" role="img" viewBox="15 25 180 165">
 <path d="M28 165 C69 185 153 183 159 143 C164 116 134 108 96 104 C56 100 40 81 53 61 C68 38 107 47 129 49" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="22"></path>
 <path d="M28 165 Q42 184 65 182 Q44 174 28 165" fill="currentColor"></path>
 <ellipse cx="143" cy="49" fill="currentColor" rx="23" ry="15"></ellipse>
@@ -920,7 +648,7 @@
 <path d="M165 51 H178 M178 51 L188 44 M178 51 L188 58" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="5"></path>
 </svg>
 </section><section class="symbol-page">
-<svg aria-label="LEBKA" class="seal" role="img" viewbox="18 12 164 176">
+<svg aria-label="LEBKA" class="seal" role="img" viewBox="18 12 164 176">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
 <path d="M55 125 C15 75 40 25 100 25 C160 25 185 75 145 125 L135 175 L65 175 Z">
 </path>
@@ -933,7 +661,7 @@
 </g>
 </svg>
 </section><section class="symbol-page">
-<svg aria-label="KŘÍŽ" class="seal" role="img" viewbox="10 5 180 190">
+<svg aria-label="KŘÍŽ" class="seal" role="img" viewBox="10 5 180 190">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="22">
 <path d="M100 20 V180 M25 80 H175">
 </path>

@@ -30,6 +30,18 @@
 .symbol-page .seal{display:block;width:100%;height:80vh;max-height:none;color:black}.symbol-page svg circle[fill="var(--panel)"]{fill:white}
 @page symbols{size:A4;margin:8mm}
 @media print{.symbol-page{page:symbols;break-before:page;break-inside:avoid;border:0!important;padding:0!important;margin:0!important;width:100%;height:280mm;min-height:0;background:white;color:black}.symbol-page .seal{width:100%;height:280mm;max-height:none!important}}
+
+/* Dvě samostatné karty, řez přesně v polovině A4. */
+@page poemcards{size:A4;margin:0}
+.poem-sheet .ritual{text-align:center;border:0;display:flex;flex-direction:column;justify-content:center}
+@media print{
+.poem-sheet{page:poemcards;width:210mm;height:297mm;padding:0!important;margin:0!important;border:0!important;break-before:page;break-inside:avoid}
+.poem-sheet .poem-pair{display:grid;grid-template-rows:148.5mm 148.5mm;gap:0;height:297mm}
+.poem-sheet .poem-pair .ritual{height:148.5mm;padding:15mm;border:0;margin:0;box-sizing:border-box}
+.poem-sheet .poem-pair .ritual:first-child{border-bottom:1px dashed #888}
+.poem-sheet .poem-pair .ritual h2{font-size:25pt;margin:0 0 10mm}
+.poem-sheet .poem-pair .ritual p{font-size:18pt;line-height:1.8;margin:0}
+}
 </style>
 </head>
 <body>
@@ -42,9 +54,8 @@
      Tisk příloh
     </button>
 </nav>
-<section class="organizer poem-sheet"><h2>Magie na Svoboďáku — karty 1–2</h2><div class="poem-pair"><div class="ritual"><h2>ALPHA</h2><p>Jednou střel, kde kříž se tyčí,<br/>dvakrát had, co v koutě syčí.<br/>Třikrát rozbij prázdnou lebku,<br/>čtyři na to oko, zmetku.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div><div class="ritual"><h2>BRAVO</h2><p>Oko mrkne pouze jednou,<br/>dvě rány jen kříži sednou.<br/>Třikrát sykne hadí dech,<br/>čtyři rány lebce nech.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div></div><h3>Klíč pro rozhodčího — odstřihnout</h3><table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>ALPHA</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>BRAVO</td><td>2</td><td>3</td><td>4</td><td>1</td></tr></tbody></table><p class="note">Pečetě celkem 10 zásahů, arcimág 2 podle zón LOS. Minimum 12 ran.</p></section><section class="organizer poem-sheet"><h2>Magie na Svoboďáku — karty 3–4</h2><div class="poem-pair"><div class="ritual"><h2>CHARLIE</h2><p>Jednou střel, kde had se plazí,<br/>dvakrát tam, kde oko mrazí.<br/>Tři hřeby má svatý kříž,<br/>čtyřmi lebku rozdrtíš.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div><div class="ritual"><h2>DELTA</h2><p>Jednou střel tu suchou lebku,<br/>dvě do kříže, pražskej zmetku.<br/>Tři rány pošli do oka,<br/>čtyřmi hada krop zhluboka.</p><p class="note">Po pečetích vlastní pokřik a arcimág: dva nejlepší zásahy podle zón LOS.</p></div></div><h3>Klíč pro rozhodčího — odstřihnout</h3><table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>CHARLIE</td><td>3</td><td>1</td><td>4</td><td>2</td></tr><tr><td>DELTA</td><td>2</td><td>4</td><td>1</td><td>3</td></tr></tbody></table><p class="note">Pečetě celkem 10 zásahů, arcimág 2 podle zón LOS. Minimum 12 ran.</p></section>
+<section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>ALPHA</h2><p>Jednou střel, kde kříž se tyčí,<br/>dvakrát had, co v koutě syčí.<br/>Třikrát rozbij prázdnou lebku,<br/>čtyři na to oko, zmetku.</p></div><div class="ritual"><h2>BRAVO</h2><p>Oko mrkne pouze jednou,<br/>dvě rány jen kříži sednou.<br/>Třikrát sykne hadí dech,<br/>čtyři rány lebce nech.</p></div></div></section><section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>CHARLIE</h2><p>Jednou střel, kde had se plazí,<br/>dvakrát tam, kde oko mrazí.<br/>Tři hřeby má svatý kříž,<br/>čtyřmi lebku rozdrtíš.</p></div><div class="ritual"><h2>DELTA</h2><p>Jednou střel tu suchou lebku,<br/>dvě do kříže, pražskej zmetku.<br/>Tři rány pošli do oka,<br/>čtyřmi hada krop zhluboka.</p></div></div></section>
 <section class="symbol-page">
-
 <svg aria-label="OKO" class="seal" role="img" viewBox="8 48 184 104">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
 <path d="M20 100 Q100 15 180 100 Q100 185 20 100 Z">
@@ -55,7 +66,6 @@
 </svg>
 </section>
 <section class="symbol-page">
-
 <svg aria-label="Had se zvlněným tělem, hlavou, okem a rozeklaným jazykem" class="seal" role="img" viewBox="15 25 180 165">
 <path d="M28 165 C69 185 153 183 159 143 C164 116 134 108 96 104 C56 100 40 81 53 61 C68 38 107 47 129 49" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="22"></path>
 <path d="M28 165 Q42 184 65 182 Q44 174 28 165" fill="currentColor"></path>
@@ -65,7 +75,6 @@
 </svg>
 </section>
 <section class="symbol-page">
-
 <svg aria-label="LEBKA" class="seal" role="img" viewBox="18 12 164 176">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
 <path d="M55 125 C15 75 40 25 100 25 C160 25 185 75 145 125 L135 175 L65 175 Z">
@@ -80,7 +89,6 @@
 </svg>
 </section>
 <section class="symbol-page">
-
 <svg aria-label="KŘÍŽ" class="seal" role="img" viewBox="10 5 180 190">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="22">
 <path d="M100 20 V180 M25 80 H175">
