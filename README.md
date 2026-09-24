@@ -31,7 +31,7 @@ Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavebn�
 - `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
 - `popice_zemska_hlidka/scenario.html`: přesměrování původního sdíleného odkazu na venkovní závod; zachovat kvůli zpětné kompatibilitě.
 - `index.html`: společný rozcestník obou sérií.
-- `AGENTS.md`: projektové dohody, pravidla práce, omezení střelnic a schválený vizuální standard.
+- `CONTEXT.md`: podklady pro návrhy; omezení vnitřní střelnice se na venkovní závody nepřenášejí automaticky.
 - Složka závodu obsahuje `scenario.html` a případné přílohy nebo stavební podklady.
 
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
@@ -42,10 +42,10 @@ Jeden HTML soubor funguje pro web i tisk:
 2.  **Tisk (Print):** Po stisku `CTRL+P` se přepne do úsporného ČB režimu, odstraní dekorace a zalomí stránky po situacích.
 
 ## 🤖 AI Workflow (Jak generovat)
-Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`AGENTS.md`), tak **všechny existující scénáře** jako vzory.
+Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`CONTEXT.md`), tak **všechny existující scénáře** jako vzory.
 
 **Doporučený prompt pro AI:**
-> "Přečti si soubor `AGENTS.md` (pro pravidla střelnice).
+> "Přečti si soubor `CONTEXT.md` (pro pravidla střelnice).
 > Dále si projdi **všechny existující soubory** `*/scenario.html` v tomto repozitáři (jako referenci pro kód a různé vizuální styly).
 >
 > Navrhni kompletní HTML kód pro nový scénář na téma: **[VAŠE TÉMA, např. Zombie Apokalypsa]**.
@@ -55,4 +55,4 @@ Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`AGENTS.m
 > * Vymysli unikátní vizuální styl (barvy, fonty) pro nové téma."
 
 ---
-*Více informací o pravidlech a vybavení najdete v [AGENTS.md](./AGENTS.md).*
+*Více informací o pravidlech a vybavení najdete v [CONTEXT.md](./CONTEXT.md).*
