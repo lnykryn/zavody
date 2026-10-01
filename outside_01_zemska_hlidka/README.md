@@ -15,7 +15,7 @@ Stavební karta nahrazuje dřívější průběžné pracovní poznámky. Rozmě
 1. Kebap na České
 2. Ranní špička na Masaryčce
 3. Vystoupení na Svoboďáku
-4. Klidná sobota na Petrově — U: couvání, gongy z horizontálního krytu s přebitím, chůze vpřed
+4. Venčení pod Petrovem — U: couvání, gongy z horizontálního krytu s přebitím, chůze vpřed
 
 Po obědě se ve stejné části staví 1 → 3 (dopředu) a 2 → 4 (také do levého bočního valu). Obě VTAC se přesunou z dvojky do trojky. Squad A: 1–2–3–4, squad B: 2–1–4–3.
 
