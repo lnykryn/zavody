@@ -3,7 +3,7 @@
 Samostatný venkovní klubový speciál v Popicích, mimo číslovanou řadu.
 
 - [Propozice](scenario.html): příběhy, postupy a nákresy čtyř situací.
-- [Karta pro stavěče](builders.html): soupis vybavení, doplňující pokyny ke stavbě a klíč pro rozhodčího na jednom listu.
+- [Karta pro stavěče](builders.html): soupis vybavení, doplňující pokyny ke stavbě a klíč pro rozhodčího a samostatný odškrtávací seznam k naložení.
 - [Karty a symboly](targets.html): čtyři původní básničky ALPHA, BRAVO, CHARLIE a DELTA, dvě karty na A4 k rozstřižení v půlce a čtyři značky pečetí.
 
 Stavební karta nahrazuje dřívější průběžné pracovní poznámky. Rozměry a otvory VTAC ve dvojce se doplní při stavbě. Ve trojce si otvory volí střelec či střelkyně, každou pečeť řeší jiným otvorem příslušné bariéry.
@@ -21,7 +21,7 @@ Po obědě se ve stejné části staví 1 → 3 (dopředu) a 2 → 4 (také do l
 
 ## Kompletní tisk
 
-Tisk z `scenario.html` obsahuje celý balíček: 5 stran hlavních propozic, 2 samostatné bonusové stránky, 1 list pro stavěče a rozhodčí, 2 strany básniček (dvě karty na A4) a 4 samostatné symboly. Podklady pro pořadatele a přílohy jsou v propozicích skryté na obrazovce a připojené pro tisk. Při změně samostatných podkladů je potřeba aktualizovat také jejich kopie v tiskové části propozic.
+Tisk z `scenario.html` obsahuje celý balíček: 5 stran hlavních propozic, 2 samostatné bonusové stránky, 1 odškrtávací seznam k naložení, 1 list pro stavěče a rozhodčí, 2 strany básniček (dvě karty na A4) a 4 samostatné symboly. Podklady pro pořadatele a přílohy jsou v propozicích skryté na obrazovce a připojené pro tisk. Při změně samostatných podkladů je potřeba aktualizovat také jejich kopie v tiskové části propozic.
 
 Čtyřka je pouze pistolová, bez ježka a PCC. Za překážkou musí střelec alespoň jednou přebít; přebití se počítá i během gongů. Vyjmutý zásobník nesmí odhodit na zem.
 

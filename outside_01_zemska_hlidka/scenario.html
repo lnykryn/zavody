@@ -103,8 +103,15 @@
 .map.iso-map{background:#fff;max-height:none}.map .iso-label{font:20px "Segoe UI",sans-serif;fill:#28333a;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
 @page matchpages{size:A4;margin:13mm}
 @media print{.bonus-stage{page:matchpages;width:100%;box-sizing:border-box}.map.iso-map{max-height:80mm!important}#situace-2 .iso-map{max-height:103mm!important}#situace-3 .iso-map{max-height:83mm!important}#situace-4 .iso-map{max-height:90mm!important}.bonus-stage .iso-map{max-height:85mm!important}}
+
+.packing-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px}.packing-items{list-style:none;padding:0}.packing-items li{position:relative;padding-left:19px;margin:7px 0}.packing-items li::before{content:"";position:absolute;left:0;top:.38em;width:9px;height:9px;border:1px solid currentColor}.packing-total{border-top:1px solid var(--line);padding-top:8px}
+@media screen and (max-width:700px){.packing-columns{grid-template-columns:1fr;gap:0}}
+@media print{.packing-columns{gap:7mm}.packing-list{font:9pt/1.3 sans-serif}.packing-list h1{font-size:20pt!important}.packing-list h2{font-size:11pt!important;margin:3mm 0 2mm!important}.packing-list .packing-items{margin:0!important;padding:0!important}.packing-list .packing-items li{margin:1.8mm 0!important;padding-left:4mm}.packing-items li::before{width:2.4mm;height:2.4mm}.packing-list .packing-total{font-size:9pt;margin:3mm 0!important}}
+
+@page organizerpages{size:A4;margin:13mm}
+@media print{.sheet{page:organizerpages;width:100%;box-sizing:border-box}}
 </style>
-<link rel="stylesheet" href="mobile.css"/>
+<link href="mobile.css" rel="stylesheet"/>
 </head>
 <body>
 <main class="wrap">
@@ -134,7 +141,7 @@
      Měls den volna. Jenže pražská sekta nekromantů rozjela v Brně živnost a mrtví začali chodit mezi lidi. Centrála Zemské hlídky má čtyři hlášení a jednoho člověka, kterej jí ještě zvedá telefon. Tebe. Přesčas ti samozřejmě nikdo neproplatí.
     </div>
 </header>
-<nav class="stage-nav" aria-label="Přejít na situaci"><a href="#situace-1" aria-label="Situace 1">1</a><a href="#situace-2" aria-label="Situace 2">2</a><a href="#situace-3" aria-label="Situace 3">3</a><a href="#situace-4" aria-label="Situace 4">4</a><a class="bonus-link" href="#bonus-1" aria-label="Bonus 1">B1</a><a class="bonus-link" href="#bonus-2" aria-label="Bonus 2">B2</a></nav>
+<nav aria-label="Přejít na situaci" class="stage-nav"><a aria-label="Situace 1" href="#situace-1">1</a><a aria-label="Situace 2" href="#situace-2">2</a><a aria-label="Situace 3" href="#situace-3">3</a><a aria-label="Situace 4" href="#situace-4">4</a><a aria-label="Bonus 1" class="bonus-link" href="#bonus-1">B1</a><a aria-label="Bonus 2" class="bonus-link" href="#bonus-2">B2</a></nav>
 <div class="screen-only">
 <button onclick="window.print()">
      Vytisknout celý závod
@@ -304,7 +311,7 @@
 <strong>
        START:
       </strong>
-      Pistole v pouzdře, připravenost podle briefingu. Střelec či střelkyně dostane přímo na situaci jednu ze čtyř karet ALPHA, BRAVO, CHARLIE nebo DELTA; lze do ní nahlížet i během pokusu. Rozhodčí zaznamená přidělenou variantu.
+      Pistole v pouzdře, připravenost podle briefingu. Střelec či střelkyně dostane přímo na situaci jednu ze čtyř karet ALPHA, BRAVO, CHARLIE nebo DELTA; lze do ní nahlížet i během pokusu.
      </li>
 <li>
 <strong>
@@ -376,18 +383,61 @@
 <h3>Podklady k přípravě</h3>
 <p>Osm papírových terčů, podložka pro start vleže, nízká překážka, pneumatika s provazem a značení startu a cíle. Celkem 16 požadovaných zásahů. Vzdálenosti a rozmístění se doplní při stavbě; první dvojice terčů tvoří přesnostní úlohu na delší vzdálenost.</p>
 <p class="outcome">Čas a zásahy pouze pro zajímavost. Bonus se nezapočítává do hlavního závodu.</p>
-</section><div class="print-extras"><section class="sheet organizer-brief"><h1>Podklady pro stavěče a rozhodčí</h1><p class="subtitle">Zemská hlídka: Zkažená sobota · doplněk k nákresům a postupům v propozicích</p>
+</section><div class="print-extras"><section class="sheet packing-list"><h1>Co naložit na závod</h1><p class="subtitle">Zemská hlídka: Zkažená sobota · na střelnici není vybavení, vše přivézt</p>
+<div class="packing-columns"><div><h2>Terče a velké vybavení</h2><ul class="packing-items">
+<li><strong>19 velkých papírů</strong>: 15 střeleckých + 4 neterče označené červenou páskou.</li>
+<li><strong>4 menší IPSC</strong> na pečetě, případně 4 velké místo nich.</li>
+<li>Rezervní papírové terče a kartony navíc.</li>
+<li>Stojany, latě a uchycení pro 10 střeleckých terčů současně + 4 neterče k nim; více terčů může sdílet stojan.</li>
+<li>2 plné zástěny s opěrami.</li>
+<li>2 zrcadlové VTAC s opěrami.</li>
+<li><strong>1 samostatná nízká zástěna</strong> pro horizontální kryt.</li>
+<li>1 stůl: dopoledne jednička, odpoledne kartičky.</li>
+<li>1 židle.</li>
+<li>4 gongy, závěsy, stojany a kotvení.</li>
+<li>2 pásky pro uličku a jejich kotvení.</li>
+<li>4 vytištěné symboly pečetí a uchycení.</li>
+</ul><p class="packing-total"><strong>Hlavní závod: 23 papírů + 4 gongy.</strong><br/>S čerstvými papíry pro oba bonusy: <strong>35 papírů + 4 gongy</strong>. Součty bez rezervy.</p>
+<h2>Jen pro bonusy</h2><ul class="packing-items">
+<li>Dalších 12 papírů (B1: 4, B2: 8) a uchycení, pokud nepoužijeme předchozí terče.</li>
+<li>Pneumatika s provazem.</li>
+<li>Podložka pro start vleže.</li>
+<li>Domluvené dlouhé zbraně, zásobníky, popruhy a střelivo; B1 přesně 16 nábojů do pušky na pokus + pistolová část.</li>
+</ul></div><div><h2>Nářadí a spotřební materiál</h2><ul class="packing-items">
+<li>Sponkovačky, spony a vytahovač spon.</li>
+<li>Zálepky, rezervní latě.</li>
+<li><strong>Červená páska na neterče.</strong></li>
+<li>Akušroubovák, nabité baterie, bity, vruty.</li>
+<li>Kladivo nebo palice, kleště.</li>
+<li>Dlouhé pásmo, fixy, nůž a nůžky.</li>
+<li>Stahovací pásky, pevná lepicí páska, provázek.</li>
+<li>Sprej nebo páska na starty, trasy a značku ruky.</li>
+<li>Kolíky, zátěže a kotvení proti větru.</li>
+<li>Pytle na odpad a nádoba na nábojnice.</li>
+</ul><h2>Pískání a zápis</h2><ul class="packing-items">
+<li>2 časomíry + případně záložní, náhradní baterie.</li>
+<li>2 pevné podložky s klipem, propisky navíc.</li>
+<li>Soukromé hodnoticí archy obou squadů a prázdné náhradní archy.</li>
+<li>Propozice pro obě dvojice rozhodčích + sada na nástěnku.</li>
+<li>4 rozstřižené karty básniček a klíč pro rozhodčí.</li>
+<li>Obaly nebo laminace, desky proti dešti a větru.</li>
+<li>Notebook s tabulkou, nabíječka, případně myš a prodlužka.</li>
+</ul><h2>Zázemí a rozdělení práce</h2><ul class="packing-items">
+<li>Lékárnička a určený člověk, který ji má na starosti.</li>
+<li>Rezervní ochrana zraku a sluchu, voda.</li>
+<li>Domluvit dopravu vybavení, lepení a přestavbu.</li>
+</ul></div></div></section><section class="sheet organizer-brief"><h1>Podklady pro stavěče a rozhodčí</h1><p class="subtitle">Zemská hlídka: Zkažená sobota · doplněk k nákresům a postupům v propozicích</p>
 <h2>Vybavení</h2><table><thead><tr><th>Situace</th><th>Terče</th><th>Rekvizity</th></tr></thead><tbody>
 <tr><td>1 · Česká</td><td>4 IDPA</td><td>Stůl, židle, značka pro ruku</td></tr>
 <tr><td>2 · Masaryčka</td><td>6 IDPA + 4 neterče</td><td>2 zástěny, 2 VTAC, 2 pásky s kotvením</td></tr>
-<tr><td>3 · Svoboďák</td><td>4 pečetě + 1 IDPA</td><td>2 VTAC, 4 symboly, 4 karty básniček</td></tr>
-<tr><td>4 · Petrov</td><td>4 IDPA + 4 gongy</td><td>Nízká překážka, značení trasy U a startu</td></tr>
+<tr><td>3 · Svoboďák</td><td>4 pečetě + 1 IDPA</td><td>2 VTAC, stůl na karty, 4 symboly, 4 karty básniček</td></tr>
+<tr><td>4 · Petrov</td><td>4 IDPA + 4 gongy</td><td>Samostatná nízká zástěna, značení trasy U a startu</td></tr>
 </tbody></table>
-<p><strong>Celkem:</strong> 15 IDPA + 4 menší IPSC na pečetě (pokud nejsou, 19 IDPA), 4 neterče, 4 gongy se závěsy; bez rezervních papírů. Uchycení pro 10 papírových terčů současně a neterče k nim. Více terčů může sdílet stojan.</p>
-<p>2 zástěny, 2 VTAC, 1 stůl, 1 židle, 1 nízká překážka; po obědě lze podle provedení využít stůl. Dále zálepky, sponkovačka a spony, kotvení, páska či sprej, metr, popisovač a nářadí. Pro rozhodčí časomíra a záznamové listy s psacími potřebami.</p>
+
+
 <h2>Stavba a přestavba</h2><p>Dopoledne 1 + 2; po obědě 1 → 3 a 2 → 4. Obě VTAC se přesunou z dvojky do trojky. Squad A: 1–2–3–4, squad B: 2–1–4–3. Ve společném prostoru střílí jeden střelec; po jeho dokončení a návratu za čáru druhý. Hodnocení a lepení společně po obou.</p>
-<ul><li><strong>Dvojka:</strong> při stavbě vybrat a označit používaný otvor každé VTAC.</li><li><strong>Trojka:</strong> ověřit zásobu menších IPSC a použít pro všechny čtyři pečetě stejný typ. Symboly umístit vedle terčů, aby nezakrývaly jejich obrys. Počty zásahů k terčům nepsat.</li><li><strong>Čtyřka:</strong> vybrat nízkou překážku a vyznačit trasu podle nákresu.</li></ul>
-<h2>Klíč k básničkám pro rozhodčí</h2><p>Před pokusem přidělit kartu a zapsat její název. Tabulka uvádí požadovaný konečný počet zásahů v jednotlivých pečetích.</p>
+<ul><li><strong>Dvojka:</strong> při stavbě vybrat a označit používaný otvor každé VTAC.</li><li><strong>Trojka:</strong> ověřit zásobu menších IPSC a použít pro všechny čtyři pečetě stejný typ. Symboly umístit vedle terčů, aby nezakrývaly jejich obrys. Počty zásahů k terčům nepsat.</li><li><strong>Čtyřka:</strong> postavit samostatnou nízkou zástěnu a vyznačit trasu podle nákresu. Stůl slouží kartičkám ve trojce.</li></ul>
+<h2>Klíč k básničkám pro rozhodčí</h2><p>Před pokusem vylosovat kartu; její název se do výsledků nezapisuje. Tabulka uvádí požadovaný konečný počet zásahů v jednotlivých pečetích.</p>
 <table><thead><tr><th>Karta</th><th>Kříž</th><th>Had</th><th>Lebka</th><th>Oko</th></tr></thead><tbody><tr><td>ALPHA</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>BRAVO</td><td>2</td><td>3</td><td>4</td><td>1</td></tr><tr><td>CHARLIE</td><td>3</td><td>1</td><td>4</td><td>2</td></tr><tr><td>DELTA</td><td>2</td><td>4</td><td>1</td><td>3</td></tr></tbody></table></section><section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>ALPHA</h2><p>Jednou střel, kde kříž se tyčí,<br/>dvakrát had, co v koutě syčí.<br/>Třikrát rozbij prázdnou lebku,<br/>čtyři na to oko, zmetku.</p></div><div class="ritual"><h2>BRAVO</h2><p>Oko mrkne pouze jednou,<br/>dvě rány jen kříži sednou.<br/>Třikrát sykne hadí dech,<br/>čtyři rány lebce nech.</p></div></div></section><section class="organizer poem-sheet"><div class="poem-pair"><div class="ritual"><h2>CHARLIE</h2><p>Jednou střel, kde had se plazí,<br/>dvakrát tam, kde oko mrazí.<br/>Tři hřeby má svatý kříž,<br/>čtyřmi lebku rozdrtíš.</p></div><div class="ritual"><h2>DELTA</h2><p>Jednou střel tu suchou lebku,<br/>dvě do kříže, pražskej zmetku.<br/>Tři rány pošli do oka,<br/>čtyřmi hada krop zhluboka.</p></div></div></section><section class="symbol-page">
 <svg aria-label="OKO" class="seal" role="img" viewBox="8 48 184 104">
 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
@@ -427,6 +477,6 @@
 </svg>
 </section></div>
 </main>
-<script src="mobile.js" defer></script>
+<script defer="" src="mobile.js"></script>
 </body>
 </html>
