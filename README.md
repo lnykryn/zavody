@@ -31,7 +31,7 @@ Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavebn�
 - `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
 - `popice_zemska_hlidka/scenario.html`: přesměrování původního sdíleného odkazu na venkovní závod; zachovat kvůli zpětné kompatibilitě.
 - `index.html`: společný rozcestník obou sérií.
-- `CONTEXT.md`: podklady pro návrhy; omezení vnitřní střelnice se na venkovní závody nepřenášejí automaticky.
+- `AGENTS.md`: pokyny pro spolupráci, vybavení a omezení vnitřní střelnice; venkovní závody mají vlastní zadání.
 - Složka závodu obsahuje `scenario.html` a případné přílohy nebo stavební podklady.
 
 🚨 **[Přečíst a vytisknout BEZPEČNOSTNÍ PRAVIDLA (Závazný Briefing)](./safety.html)** 🚨
@@ -41,18 +41,12 @@ Jeden HTML soubor funguje pro web i tisk:
 1.  **Web (Screen):** Barevný, tématický design (pro atmosféru).
 2.  **Tisk (Print):** Po stisku `CTRL+P` se přepne do úsporného ČB režimu, odstraní dekorace a zalomí stránky po situacích.
 
-## 🤖 AI Workflow (Jak generovat)
-Pro nejlepší výsledky doporučujeme poskytnout AI jak **pravidla** (`CONTEXT.md`), tak **všechny existující scénáře** jako vzory.
+## Spolupráce na novém závodu
 
-**Doporučený prompt pro AI:**
-> "Přečti si soubor `CONTEXT.md` (pro pravidla střelnice).
-> Dále si projdi **všechny existující soubory** `*/scenario.html` v tomto repozitáři (jako referenci pro kód a různé vizuální styly).
->
-> Navrhni kompletní HTML kód pro nový scénář na téma: **[VAŠE TÉMA, např. Zombie Apokalypsa]**.
->
-> * Dodrž strukturu HTML a CSS třídy ze vzorů (stage-box, status-bar, svg grid).
-> * U vnitřního závodu respektuj fyzická omezení z kontextu (4 dráhy, kolmá střelba). U venkovního vycházej ze zadání konkrétní střelnice.
-> * Vymysli unikátní vizuální styl (barvy, fonty) pro nové téma."
+Pokyny pro další práci jsou v `AGENTS.md`. Nejprve společně zvolíme téma a hlavní mechaniku závodu, potom jednotlivé situace. HTML a nákresy vznikají podle odsouhlaseného návrhu.
+
+**Doporučené zadání pro nový chat:**
+> Přečti si `AGENTS.md` a existující vnitřní závody jako referenci. Chceme společně navrhnout nový závod pro vnitřní střelnici. Pro zpracování nákresů, mobilní zobrazení a tisk použij jako vzor `outside_01_zemska_hlidka/scenario.html`, ale nepřebírej venkovní geometrii ani vybavení. Nejprve probereme téma a hlavní mechaniku; zatím nic neupravuj.
 
 ---
-*Více informací o pravidlech a vybavení najdete v [CONTEXT.md](./CONTEXT.md).*
+*Více informací o pravidlech a vybavení najdete v [AGENTS.md](./AGENTS.md).*
