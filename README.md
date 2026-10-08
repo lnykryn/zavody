@@ -16,8 +16,8 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[05_operation_lethal_overtime](./05_operation_lethal_overtime/scenario.html)** | 💥 Akce / 80s VHS |
 | **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 | **[07_zemska_hlidka](./07_zemska_hlidka/scenario.html)** | 🍺 Urban Fantasy / Kotleta |
+| **[08_zase_pondeli](./08_zase_pondeli/scenario.html)** | 🌀 Sci-Fi / Paralelní vesmíry · 3 situace · pistole |
 
-**Rozpracováno:** [08: Zase pondělí](./08_zase_pondeli/scenario.html) — paralelní vesmíry, tři situace pro čtyři střelce, pouze pistole; minimum 12 + 12 + 10 ran. Pracovní návrh k doladění stavby.
 
 ## Venkovní závody
 
@@ -29,7 +29,7 @@ Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavebn�
 
 ## Struktura repozitáře
 
-- `01_*` až `07_*`: původní vnitřní série; stávající názvy a odkazy zůstávají zachované.
+- `01_*` až `08_*`: vnitřní série závodů.
 - `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
 - `popice_zemska_hlidka/scenario.html`: přesměrování původního sdíleného odkazu na venkovní závod; zachovat kvůli zpětné kompatibilitě.
 - `index.html`: společný rozcestník obou sérií.

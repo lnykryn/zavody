@@ -45,6 +45,7 @@ Příběh může rekvizitám dát jiný význam, ale plán stavby musí použív
 - Výchozí hodnocení papíru: dva nejlepší zásahy; místní základ A bez přirážky, C +1 s, D +2 s, miss +5 s, neterč +10 s jednou za terč, procedura +3 s. U konkrétního závodu respektuj jeho odsouhlasená pravidla. Netvrď bez ověření, že jde o úplný aktuální soutěžní řád LOS.
 - Výjimky mohou být například dva zásahy do těla a jeden do hlavy nebo stanovený konečný počet zásahů bez hodnocení zón. Vždy odlišuj předepsaný počet výstřelů od počtu hodnocených zásahů.
 - Zbraň, připravenost, zvláštní manipulaci a výjimky určuj podle konkrétní domluvy. Nepřebírej automaticky pistolové či bonusové postupy z jiného závodu.
+- **Start vsedě za stolem:** zbraň musí být buď položená na stole, nebo v pouzdře **bez náboje v komoře**. Nenavrhuj start vsedě se zbraní v pouzdře a nábojem v komoře, ani pokud postup ukládá před tasením vstát. Důvodem je riziko, že střelec začne tasit ještě vsedě a přemíří si stehno. Konkrétní variantu startu a stav zbraně na stole určuj podle domluvy; toto pravidlo samo neurčuje, zda má být zbraň na stole nabitá.
 - Pořadatel odpovídá za podmínky a kontrolu skutečné stavby. Schéma označ jako orientační a bez měřítka; nevydávej ho za ověření bezpečnosti reálné střelnice. Konkrétní rozpor v návrhu pojmenuj věcně.
 
 ## Příběhy a postupy
