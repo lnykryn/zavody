@@ -17,7 +17,7 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 | **[07_zemska_hlidka](./07_zemska_hlidka/scenario.html)** | 🍺 Urban Fantasy / Kotleta |
 
-**Rozpracováno:** [08: Zase pondělí](./08_zase_pondeli/scenario.html) — paralelní vesmíry, tři situace pro čtyři střelce, pouze pistole; minimum 14 + 14 + 12 ran. Pracovní návrh k doladění stavby.
+**Rozpracováno:** [08: Zase pondělí](./08_zase_pondeli/scenario.html) — paralelní vesmíry, tři situace pro čtyři střelce, pouze pistole; minimum 12 + 12 + 10 ran. Pracovní návrh k doladění stavby.
 
 ## Venkovní závody
 
