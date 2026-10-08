@@ -478,6 +478,7 @@ html
     </svg>
     <p class="caption">
      Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+     V této situaci střelec dveře neotevírá: A i B jsou otevřené už na startu.
     </p>
     <p class="small ending">
      Poškozené jádro zabzučí. V další realitě snad konečně někdo opraví klimatizaci.
@@ -542,6 +543,10 @@ html
       </marker>
       <marker id="s-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
        <path d="M0 0L6 3L0 6" fill="#aa591f">
+       </path>
+      </marker>
+      <marker id="opening-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#6c3d80">
        </path>
       </marker>
      </defs>
@@ -785,9 +790,86 @@ html
      <text class="map-label" fill="#233641" font-size="14" x="35" y="829">
       Šedé osy: čtyři pojezdy · P / Q / K: místa řešení · bez závazných čar
      </text>
+     <g aria-label="Krok 1: střelec otevírá dveře A" class="door-action" role="img">
+      <polygon fill="#a88aba" fill-opacity=".09" points="185.3,596.7 276.3,609.9 276.3,473.9 185.3,460.7" stroke="#6c3d80" stroke-dasharray="6 5" stroke-width="2">
+      </polygon>
+      <path d="M268.1,533.2 Q257.0,572.2 165.8,566.6" fill="none" marker-end="url(#opening-2)" stroke="#6c3d80" stroke-width="3">
+      </path>
+      <path d="M222.0,554.2 L222.0,594.4" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M222.0,594.4 L205.3,637.5" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M222.0,594.4 L240.9,636.0" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M222.0,554.2 L167.7,563.8" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M222.0,554.2 L238.6,581.8" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M222.0,554.2 L222.0,594.4" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M222.0,594.4 L205.3,637.5" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M222.0,594.4 L240.9,636.0" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M222.0,554.2 L167.7,563.8" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M222.0,554.2 L238.6,581.8" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <circle cx="222.01999999999998" cy="535.88" fill="#294552" r="10" stroke="white" stroke-width="2">
+      </circle>
+      <path d="M70,496 L222.01999999999998,522.88" stroke="#6c3d80" stroke-width="1.5">
+      </path>
+      <rect fill="white" height="47" rx="5" stroke="#6c3d80" width="164" x="28" y="458">
+      </rect>
+      <text fill="#542b68" font-family="sans-serif" font-size="18" x="35" y="476">
+       1 · Otevřít A
+      </text>
+      <text fill="#542b68" font-family="sans-serif" font-size="12" x="35" y="495">
+       krok postupu po signálu
+      </text>
+     </g>
+     <g aria-label="Krok 3: střelec otevírá dveře B" class="door-action" role="img">
+      <polygon fill="#a88aba" fill-opacity=".09" points="642.9,399.1 733.9,412.3 733.9,276.3 642.9,263.1" stroke="#6c3d80" stroke-dasharray="6 5" stroke-width="2">
+      </polygon>
+      <path d="M725.7,335.6 Q714.6,374.6 623.4,369.0" fill="none" marker-end="url(#opening-2)" stroke="#6c3d80" stroke-width="3">
+      </path>
+      <path d="M679.6,356.6 L679.6,396.8" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,396.8 L662.9,439.9" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,396.8 L698.5,438.4" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L625.3,366.2" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L696.2,384.2" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L679.6,396.8" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,396.8 L662.9,439.9" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,396.8 L698.5,438.4" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,356.6 L625.3,366.2" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,356.6 L696.2,384.2" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <circle cx="679.62" cy="338.28" fill="#294552" r="10" stroke="white" stroke-width="2">
+      </circle>
+      <path d="M870,331 L679.62,325.28" stroke="#6c3d80" stroke-width="1.5">
+      </path>
+      <rect fill="white" height="47" rx="5" stroke="#6c3d80" width="164" x="828" y="293">
+      </rect>
+      <text fill="#542b68" font-family="sans-serif" font-size="18" x="835" y="311">
+       3 · Otevřít B
+      </text>
+      <text fill="#542b68" font-family="sans-serif" font-size="12" x="835" y="330">
+       krok postupu po signálu
+      </text>
+     </g>
     </svg>
     <p class="caption">
      Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+     Postavička a fialový oblouk označují okamžik otevření dveří; číslo odpovídá kroku postupu. Čárkovaný obrys ukazuje původně zavřené křídlo.
     </p>
     <p class="small ending">
      Jádro začne přeskakovat do další reality. Reklamace se přijímají v původním vesmíru.
@@ -858,6 +940,10 @@ html
       </marker>
       <marker id="s-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
        <path d="M0 0L6 3L0 6" fill="#aa591f">
+       </path>
+      </marker>
+      <marker id="opening-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#6c3d80">
        </path>
       </marker>
      </defs>
@@ -1110,9 +1196,48 @@ html
      <text class="map-label" fill="#233641" font-size="17" x="470" y="766">
       T5 ○ / T6 ×: vylosovaný symbol = kamarád; NS zůstává.
      </text>
+     <g aria-label="Krok 3: střelec otevírá dveře B" class="door-action" role="img">
+      <polygon fill="#a88aba" fill-opacity=".09" points="642.9,399.1 733.9,412.3 733.9,276.3 642.9,263.1" stroke="#6c3d80" stroke-dasharray="6 5" stroke-width="2">
+      </polygon>
+      <path d="M725.7,335.6 Q714.6,374.6 623.4,369.0" fill="none" marker-end="url(#opening-3)" stroke="#6c3d80" stroke-width="3">
+      </path>
+      <path d="M679.6,356.6 L679.6,396.8" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,396.8 L662.9,439.9" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,396.8 L698.5,438.4" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L625.3,366.2" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L696.2,384.2" stroke="white" stroke-linecap="round" stroke-width="10">
+      </path>
+      <path d="M679.6,356.6 L679.6,396.8" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,396.8 L662.9,439.9" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,396.8 L698.5,438.4" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,356.6 L625.3,366.2" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <path d="M679.6,356.6 L696.2,384.2" stroke="#294552" stroke-linecap="round" stroke-width="6">
+      </path>
+      <circle cx="679.62" cy="338.28" fill="#294552" r="10" stroke="white" stroke-width="2">
+      </circle>
+      <path d="M870,331 L679.62,325.28" stroke="#6c3d80" stroke-width="1.5">
+      </path>
+      <rect fill="white" height="47" rx="5" stroke="#6c3d80" width="164" x="828" y="293">
+      </rect>
+      <text fill="#542b68" font-family="sans-serif" font-size="18" x="835" y="311">
+       3 · Otevřít B
+      </text>
+      <text fill="#542b68" font-family="sans-serif" font-size="12" x="835" y="330">
+       krok postupu po signálu
+      </text>
+     </g>
     </svg>
     <p class="caption">
      Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+     Postavička a fialový oblouk označují okamžik otevření dveří; číslo odpovídá kroku postupu. Čárkovaný obrys ukazuje původně zavřené křídlo.
     </p>
     <p class="small ending">
      Zachráněný kolega vypne jádro. Do úterý zbývá 24 hodin. Přesčas ti stejně nikdo neproplatí.
