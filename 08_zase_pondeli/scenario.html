@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="cs">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Zase pondělí — pracovní návrh závodu
+  </title>
+  <style>
+   *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#101a24;color:#ecf0ef;font:16px/1.55 system-ui,sans-serif}main{max-width:1020px;margin:auto;padding:32px 28px 60px}a{color:#a6d9de}nav{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px;font-size:13px}h1{font-size:clamp(54px,10vw,100px);line-height:.9;letter-spacing:-4px;margin:28px 0}h2{font-size:30px;line-height:1.15;margin:0 0 16px}h3{font-size:16px;margin:20px 0 7px}p{margin:9px 0}.eyebrow{font:12px/1.6 monospace;letter-spacing:2px;color:#f6b960}.hero,.page{border:1px solid #40505a;background:#172633;padding:32px;margin-bottom:28px}.hero{border-top:5px solid #f6b960;background:linear-gradient(120deg,#233c49,#17212f)}.hero .lead{max-width:720px;font-size:20px;color:#d0dde0}.badge{display:inline-block;border:1px solid #f6b960;color:#f6b960;padding:4px 9px;font:12px monospace}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.facts b{font-size:27px;display:block}.facts span{font-size:12px;color:#c2d0d6}.draft{padding:13px 16px;border-left:3px solid #f6b960;background:#233540;font-size:14px}.stage-head{display:flex;gap:20px;align-items:center}.num{font:58px/1 monospace;color:#f6b960}.stage-head h2{margin:0}.story{font-style:italic;color:#d5dfe1;border-left:2px solid #f6b960;padding-left:16px;margin:18px 0}.state{font:13px/1.6 monospace;border-block:1px solid #53616b;padding:10px 0;margin:16px 0}li{margin:7px 0}ol,ul{padding-left:22px}.iso-map{width:100%;height:auto;display:block;background:#fff;border:1px solid #bac3c6;margin-top:20px}.map-label{font-family:system-ui,sans-serif;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.caption,.small{font-size:12px;color:#c6d3d8}.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid #64717a;padding:7px;text-align:left}button{background:#f6b960;color:#14212d;border:0;padding:10px 16px;font:inherit;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #71e1ec;outline-offset:4px}.map-expand{margin-top:8px;font-size:13px}.map-viewer{width:96vw;max-width:1400px;height:94vh;padding:16px;background:#eef1ef;color:#182c39;border:0}.map-viewer::backdrop{background:#000b}.map-toolbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.map-toolbar h2{font-size:22px}.map-controls{display:flex;gap:6px;flex-wrap:wrap}.map-help{font-size:13px}.map-scroll{overflow:auto;max-height:calc(94vh - 155px)}.map-scroll svg{max-width:none;margin:0}.map-is-open{overflow:hidden}.foot{font:12px monospace;color:#b8c7d1;margin-top:20px}@media(max-width:650px){main{padding:16px 12px}.hero,.page{padding:20px}.cols{grid-template-columns:1fr;gap:8px}.facts{grid-template-columns:1fr 1fr}.num{font-size:42px}h2{font-size:24px}.state{font-size:12px}}@page{size:A4;margin:12mm}@media print{body{background:white;color:black;font:10pt/1.35 sans-serif}main{max-width:none;padding:0}nav,.screen-only,.map-expand,dialog{display:none!important}.hero,.page{background:white;color:black;border:0;padding:0;margin:0;break-before:page;break-inside:avoid}.hero{break-before:auto}.eyebrow,.badge,.num,.hero .lead,.story,.small,.caption,.foot{color:black}.badge{border-color:black}.hero h1{font-size:49pt;margin:8mm 0;letter-spacing:-2px}.hero .lead{font-size:12pt}.facts{margin:6mm 0}.facts b{font-size:20pt}.facts span{color:black}.draft{background:white;border-color:black;font-size:9pt;padding:3mm;margin:4mm 0}h2{font-size:21pt}h3{font-size:11pt;margin:4mm 0 2mm}.num{font-size:35pt}.story{border-color:black;margin:4mm 0;font-size:10pt}.state{font-size:8pt;margin:3mm 0;padding:2mm 0}.stage-head{gap:5mm}.iso-map{height:116mm;width:100%;margin-top:3mm;object-fit:contain;border:1px solid #bbb}.caption,.small{font-size:8pt}.caption{margin:1mm 0 0}li{margin:1.5mm 0}p{margin:2mm 0}.cols{gap:7mm}td,th{padding:2mm;font-size:9pt}.foot{font-size:8pt}.stage-box h3{margin:3mm 0 1mm}.stage-box ol{margin:1mm 0;padding-left:5mm}}
+
+@media print{.stage-box .iso-map{height:110mm}.stage-box{font-size:9pt}.stage-box .story{font-size:9pt}.stage-box .small{font-size:7.7pt}.page:last-of-type{font-size:9pt}.page:last-of-type h3{margin:3mm 0 1mm}.page:last-of-type li{margin:1.2mm 0}.page:last-of-type .small{font-size:7.5pt}}
+
+@media print{.stage-box .iso-map{height:110mm}.stage-box{font-size:9pt}.stage-box .story{font-size:9pt}.stage-box .small{font-size:7.7pt}.page:last-of-type{font-size:9pt}.page:last-of-type h3{margin:3mm 0 1mm}.page:last-of-type li{margin:1.2mm 0}.page:last-of-type .small{font-size:7.5pt}}
+
+.symbol-sheet{background:white;display:flex;align-items:center;justify-content:center;min-height:550px}.symbol-sheet svg{width:80%;max-height:650px}.draw-card{background:white;padding:25px;display:flex;justify-content:center;border-top:1px dashed #777}.draw-card svg{height:250px}.draw-sheet>h2{margin:0}.ending{font-style:italic}@media print{.stage-box .iso-map{height:104mm}.stage-box ol{font-size:9pt}.stage-box .caption{font-size:7pt}.stage-box .ending{font-size:8pt;margin-top:2mm}.symbol-sheet{height:270mm;min-height:0}.symbol-sheet svg{height:210mm;width:100%;max-height:none}.draw-card{height:115mm;padding:9mm}.draw-card svg{height:95mm}.draw-sheet{font-size:10pt}.page:last-of-type{font-size:10pt}}
+  </style>
+ </head>
+ <body>
+  <main>
+   <nav>
+    <a href="../index.html">
+     ← Přehled závodů
+    </a>
+    <a href="#situace-1">
+     Dimenze 1
+    </a>
+    <a href="#situace-2">
+     Dimenze 2
+    </a>
+    <a href="#situace-3">
+     Dimenze 3
+    </a>
+    <button onclick="window.print()">
+     Vytisknout návrh
+    </button>
+   </nav>
+   <header class="hero">
+    <div class="eyebrow">
+     VNITŘNÍ ZÁVOD 08 / PARALELNÍ VESMÍRY
+    </div>
+    <h1>
+     ZASE
+     <br/>
+     PONDĚLÍ.
+    </h1>
+    <span class="badge">
+     PRACOVNÍ NÁVRH 03 · K DOLADĚNÍ
+    </span>
+    <p class="lead">
+     Děláš nočního hlídače v Ústavu pro výzkum alternativních realit. Ranní střídání nepřišlo. Místo něj dorazili žoldáci pro dimenzionální jádro. Jednomu ujela rána a teď tě poškozený prototyp hází mezi sousedními vesmíry. Budova je stejná. Dveře a zaměstnanci se liší.
+    </p>
+    <p>
+     Najdi realitu, ve které někdo umí jádro vypnout. Pak se můžeš vrátit do té, kde ti na stole zůstala snídaně.
+    </p>
+    <div class="facts">
+     <div>
+      <b>
+       3
+      </b>
+      <span>
+       dimenze v pořadí 1 → 2 → 3
+      </span>
+     </div>
+     <div>
+      <b>
+       4
+      </b>
+      <span>
+       střelci, pouze pistole
+      </span>
+     </div>
+     <div>
+      <b>
+       60 min
+      </b>
+      <span>
+       od briefingu po úklid
+      </span>
+     </div>
+     <div>
+      <b>
+       40 ran
+      </b>
+      <span>
+       minimum: 14 + 14 + 12
+      </span>
+     </div>
+    </div>
+    <div class="draft">
+     <strong>
+      Společná stavba:
+     </strong>
+     sedm terčů T1–T7 a pevný neterč NS. T1–T5 ve dvou hloubkách, zadní dvojice T6/T7 za dveřmi B. Ve trojce se jeden z dvojice podle losu mění na další neterč. Návrh rozměrů a výhledů se ověří při stavbě.
+    </div>
+    <h2>
+     Společná pravidla
+    </h2>
+    <div class="cols">
+     <div>
+      <h3>
+       Zásahy a pořadí
+      </h3>
+      <p>
+       Na každém hodnoceném terči se počítají
+       <strong>
+        dva nejlepší zásahy
+       </strong>
+       . Počet výstřelů není omezený. Situace 1 a 2: sedm terčů, minimum 14 ran. Situace 3: šest terčů, minimum 12 ran. Bez předepsaného přebití; potřebné zásobníky má střelec u sebe.
+      </p>
+      <table>
+       <tr>
+        <th>
+         Hodnocení
+        </th>
+        <th>
+         Přirážka
+        </th>
+       </tr>
+       <tr>
+        <td>
+         A / C / D
+        </td>
+        <td>
+         0 / +1 / +2 s
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Chybějící zásah
+        </td>
+        <td>
+         +5 s
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Zasažený neterč
+        </td>
+        <td>
+         +10 s jednou za terč
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Procedura
+        </td>
+        <td>
+         +3 s
+        </td>
+       </tr>
+      </table>
+      <p>
+       Výsledek je součet tří časů s přirážkami, nižší vyhrává. Shoda znamená sdílené pořadí.
+      </p>
+     </div>
+     <div>
+      <h3>
+       Organizace a průchod
+      </h3>
+      <p>
+       Všichni dokončí první situaci, potom druhou a třetí. Každá se měří samostatně. Před startem rozhodčí oznámí stav dveří a připraví střelce.
+      </p>
+      <p>
+       Zavřené odemčené dveře se otevírají; zamčené A ve trojce zůstávají zavřené. Zadními dveřmi B se neprochází.
+      </p>
+      <p>
+       Střílí se po zastavení do zadního valu. Ve středu lze využít skupiny mimo osy pojezdů; u krajů kolmo. Žádné směry do stěn, podlahy či stropu nebo šikmo k okrajům valu. Při přesunu prst mimo spoušť, hlaveň bezpečně k valu.
+      </p>
+      <p class="small">
+       Jde o klubový závod, nikoli oficiální závod LOS. Makety tvoří vizuální kryty. Schémata jsou orientační, bez měřítka.
+      </p>
+     </div>
+    </div>
+   </header>
+   <section class="page stage-box" id="situace-1">
+    <div class="stage-head">
+     <span class="num">
+      01
+     </span>
+     <div>
+      <div class="eyebrow">
+       DIMENZE 1 / PRACOVNÍ NÁVRH
+      </div>
+      <h2>
+       Průvan
+      </h2>
+     </div>
+    </div>
+    <p class="story">
+     V tomhle vesmíru už měsíc nefunguje klimatizace. Dveře jsou dokořán a žoldáci si z laboratoře udělali průchoďák. Vzadu se krčí technik Karel. Údržba o problému ví. O klimatizaci, samozřejmě.
+    </p>
+    <div class="state">
+     A OTEVŘENO · B OTEVŘENO
+     <br/>
+     MINIMUM 14 RAN · 7 HODNOCENÝCH TERČŮ + NS
+    </div>
+    <h3>
+     Start a stav zbraně — návrh
+    </h3>
+    <p>
+     Vsedě na židli u stolu, čelem k lapači, ruce na stole. Pistole nabitá, náboj v komoře, v pouzdře kryjícím spoušť; zajištění podle konstrukce. Zásobníky u střelce. Příprava výhradně na povel rozhodčího.
+    </p>
+    <h3>
+     Postup po signálu
+    </h3>
+    <ol>
+     <li>
+      Na signál vstaň a přejdi k otevřenému vstupu A. Po zastavení v místě P tas a z vertikálního krytu boční stěny dveří řeš T1–T5 podle jejich odkrývání.
+     </li>
+     <li>
+      Po vyřešení T1–T5 přejdi za nízký kryt K. Zaujmi sníženou polohu s výhledem přes jeho horní hranu.
+     </li>
+     <li>
+      Zpoza K řeš T6 a T7 skrz otevřené B. Pevný neterč NS mezi nimi nesmíš zasáhnout. Ke dveřím B už nepostupuj.
+     </li>
+    </ol>
+    <p class="small">
+     <strong>
+      Hodnocení:
+     </strong>
+     Bez výjimky. Sedm hodnocených terčů, pevný NS. Po poslední střelbě zůstaň na místě, vybití a kontrola na povel rozhodčího.
+    </p>
+    <svg aria-labelledby="map-title-1" class="iso-map" role="img" viewbox="0 0 1040 860">
+     <title id="map-title-1">
+      Dimenze 1: dveře A vpředu, dveře B vzadu, nízký kryt K a dvě skupiny terčů. Bez měřítka.
+     </title>
+     <defs>
+      <marker id="m-1" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#236f8b">
+       </path>
+      </marker>
+      <marker id="s-1" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#aa591f">
+       </path>
+      </marker>
+     </defs>
+     <polygon fill="#f4f2ec" points="2.7,684.6 727.2,789.6 940.0,252.0 215.5,147.0" stroke="#c8cec9" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#b2beb0" points="215.5,147.0 940.0,252.0 940.0,231.6 215.5,126.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="16" x="539.8" y="30.80000000000001">
+      ZADNÍ VAL
+     </text>
+     <polyline fill="none" points="110.0,690.0 317.1,166.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="268.7,713.0 475.8,189.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="427.4,736.0 634.5,212.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="586.1,759.0 793.2,235.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="245.6,288.4 245.6,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="289.8,294.8 289.8,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="251.1,156.6 284.3,161.4 284.3,178.4 309.1,192.2 309.1,239.8 298.1,247.0 237.3,238.2 226.3,227.8 226.3,180.2 251.1,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="256.7,169.0 278.7,172.2 278.7,166.7 256.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="253.9,225.7 281.5,229.7 281.5,195.0 253.9,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="257.70000000000005" y="147.43999999999997">
+      T1
+     </text>
+     <polyline fill="none" points="311.9,298.0 311.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="356.0,304.4 356.0,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="317.4,166.2 350.5,171.0 350.5,188.0 375.3,201.8 375.3,249.4 364.3,256.6 303.6,247.8 292.5,237.4 292.5,189.8 317.4,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="322.9,178.6 345.0,181.8 345.0,176.3 322.9,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="320.1,235.3 347.7,239.3 347.7,204.6 320.1,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="323.94000000000005" y="157.04">
+      T2
+     </text>
+     <polyline fill="none" points="385.7,288.4 385.7,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="429.9,294.8 429.9,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="391.2,156.6 424.3,161.4 424.3,178.4 449.2,192.2 449.2,239.8 438.1,247.0 377.4,238.2 366.4,227.8 366.4,180.2 391.2,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="396.7,169.0 418.8,172.2 418.8,166.7 396.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="394.0,225.7 421.6,229.7 421.6,195.0 394.0,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="397.78" y="147.44000000000008">
+      T3
+     </text>
+     <polyline fill="none" points="451.9,298.0 451.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="496.1,304.4 496.1,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="457.5,166.2 490.6,171.0 490.6,188.0 515.4,201.8 515.4,249.4 504.4,256.6 443.7,247.8 432.6,237.4 432.6,189.8 457.5,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="463.0,178.6 485.1,181.8 485.1,176.3 463.0,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="460.2,235.3 487.8,239.3 487.8,204.6 460.2,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="464.02" y="157.04">
+      T4
+     </text>
+     <polyline fill="none" points="518.2,307.6 518.2,215.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="562.3,314.0 562.3,222.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="523.7,175.8 556.8,180.6 556.8,197.6 581.7,211.4 581.7,259.0 570.6,266.2 509.9,257.4 498.9,247.0 498.9,199.4 523.7,192.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="529.2,188.2 551.3,191.4 551.3,185.9 529.2,182.7" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="526.5,244.9 554.1,248.9 554.1,214.2 526.5,210.2" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="530.26" y="166.64000000000001">
+      T5
+     </text>
+     <polyline fill="none" points="675.4,264.4 675.4,172.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="719.5,270.8 719.5,179.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="680.9,132.6 714.0,137.4 714.0,154.4 738.8,168.2 738.8,215.8 727.8,223.0 667.1,214.2 656.0,203.8 656.0,156.2 680.9,149.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="686.4,145.0 708.5,148.2 708.5,142.7 686.4,139.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="683.6,201.7 711.2,205.7 711.2,171.0 683.6,167.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="687.44" y="123.44000000000003">
+      T6
+     </text>
+     <polyline fill="none" points="765.1,277.4 765.1,185.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="809.2,283.8 809.2,192.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="770.6,145.6 803.7,150.4 803.7,167.4 828.5,181.2 828.5,228.8 817.5,236.0 756.8,227.2 745.7,216.8 745.7,169.2 770.6,162.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="776.1,158.0 798.2,161.2 798.2,155.7 776.1,152.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="773.3,214.7 800.9,218.7 800.9,184.0 773.3,180.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="777.14" y="136.44000000000003">
+      T7
+     </text>
+     <polyline fill="none" points="717.1,280.6 717.1,188.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="761.3,287.0 761.3,195.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#fafafa" points="722.6,148.8 755.7,153.6 755.7,170.6 780.6,184.4 780.6,232.0 769.5,239.2 708.8,230.4 697.8,220.0 697.8,172.4 722.6,165.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="714.3,212.2 764.0,185.4" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="764.0,219.4 714.3,178.2" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <text class="map-label" fill="#233641" font-size="15" x="729.1800000000001" y="139.64000000000001">
+      NS
+     </text>
+     <polyline fill="none" marker-end="url(#s-1)" points="242.2,577.2 260.1,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-1)" points="242.2,577.2 400.2,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-1)" points="242.2,577.2 532.7,330.0" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-1)" points="636.1,540.4 689.8,286.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-1)" points="636.1,540.4 779.5,299.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polygon fill="#7e8d93" points="584.9,393.4 641.5,401.6 641.5,258.8 584.9,250.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="584.9,393.4 584.9,250.6 641.5,258.8 641.5,401.6" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="735.3,415.2 791.9,423.4 791.9,280.6 735.3,272.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="735.3,415.2 735.3,272.4 791.9,280.6 791.9,423.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="572.9,434.8 592.8,384.4" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="573.8,432.4 589.0,319.2" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="771.6,463.6 791.6,413.2" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="772.6,461.2 787.8,348.0" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="641.5,258.8 735.3,272.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="641.5,401.6 623.4,447.2 623.4,307.1 641.5,261.5" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M791.9000000000001,423.4l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="812.9000000000001" y="444.4">
+      B · OTEVŘENO
+     </text>
+     <polygon fill="#9aa4a5" points="557.2,511.2 728.4,536.0 728.4,478.2 557.2,453.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="557.2,511.2 557.2,450.0 728.4,474.8 728.4,536.0" stroke="#b29a73" stroke-width="4">
+     </polyline>
+     <path d="M728.3600000000001,536.0l15,16" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="746.3600000000001" y="548.0">
+      K · NÍZKÝ KRYT
+     </text>
+     <polygon fill="#7e8d93" points="127.3,591.0 183.9,599.2 183.9,456.4 127.3,448.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="127.3,591.0 127.3,448.2 183.9,456.4 183.9,599.2" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="277.7,612.8 334.3,621.0 334.3,478.2 277.7,470.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="277.7,612.8 277.7,470.0 334.3,478.2 334.3,621.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="115.3,632.4 135.2,582.0" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="116.2,630.0 131.4,516.8" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="314.0,661.2 334.0,610.8" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="315.0,658.8 330.2,545.6" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="183.9,456.4 277.7,470.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="183.9,599.2 165.8,644.8 165.8,504.7 183.9,459.1" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M334.3,621.0l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="355.3" y="642.0">
+      A · OTEVŘENO
+     </text>
+     <polygon fill="#c19b65" points="327.4,620.0 459.9,639.2 459.9,601.8 425.4,596.8 425.4,563.5 396.4,559.3 396.4,526.0 363.3,521.2 363.3,485.8 327.4,480.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="339.1,524.5 357.1,527.1 357.1,517.5 339.1,514.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="361.2,568.5 379.1,571.1 379.1,561.5 361.2,558.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="398.5,611.3 416.4,613.9 416.4,604.3 398.5,601.7" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="338.4,595.8 349.5,604.2 375.7,591.0 364.7,582.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="323.2,660.0 341.3,614.4" stroke="#ab916b" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="323.2,660.0 338.4,546.8" stroke="#ab916b" stroke-width="4">
+     </polyline>
+     <path d="M448.84000000000003,637.6l20,20" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="471.84000000000003" y="653.6">
+      VTAC
+     </text>
+     <polyline fill="none" marker-end="url(#m-1)" points="288.2,700.6 204.2,673.2 242.2,577.2 632.4,550.0" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </polyline>
+     <ellipse cx="242.20000000000002" cy="577.2" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="234.20000000000002" y="564.2">
+      P
+     </text>
+     <ellipse cx="636.15" cy="540.4" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="628.15" y="527.4">
+      K
+     </text>
+     <polyline fill="none" points="237.8,710.0 237.8,665.8" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="244.6,692.8 244.6,648.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="326.1,722.8 326.1,678.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="332.9,705.6 332.9,661.4" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polygon fill="#cfb083" points="222.6,667.2 338.6,684.0 348.1,660.0 232.1,643.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#9aa8ad" points="254.2,704.0 295.6,710.0 300.3,698.0 258.9,692.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#8c999d" points="254.2,704.0 295.6,710.0 295.6,676.0 254.2,670.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M273.95,736.6l20,28" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="296.95" y="760.6">
+      START
+     </text>
+     <path d="M35 794h45" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="90" y="800">
+      orientační pohyb
+     </text>
+     <path d="M340 794h45" stroke="#aa591f" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="395" y="800">
+      směr střelby
+     </text>
+     <text class="map-label" fill="#233641" font-size="14" x="35" y="829">
+      Šedé osy: čtyři pojezdy · P / Q / K: místa řešení · bez závazných čar
+     </text>
+    </svg>
+    <p class="caption">
+     Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+    </p>
+    <p class="small ending">
+     Poškozené jádro zabzučí. V další realitě snad konečně někdo opraví klimatizaci.
+    </p>
+   </section>
+   <section class="page stage-box" id="situace-2">
+    <div class="stage-head">
+     <span class="num">
+      02
+     </span>
+     <div>
+      <div class="eyebrow">
+       DIMENZE 2 / PRACOVNÍ NÁVRH
+      </div>
+      <h2>
+       Osobní prostor
+      </h2>
+     </div>
+    </div>
+    <p class="story">
+     Klimatizace funguje. Fungují i požární dveře, které při poplachu zaklaply. Žoldáci už jsou uvnitř a Karel má zase ranní. Konečně vesmír, kde něco funguje. Samozřejmě proti tobě.
+    </p>
+    <div class="state">
+     A ZAVŘENO, ODEMČENO · B ZAVŘENO, ODEMČENO
+     <br/>
+     MINIMUM 14 RAN · 7 HODNOCENÝCH TERČŮ + NS
+    </div>
+    <h3>
+     Start a stav zbraně — návrh
+    </h3>
+    <p>
+     Vsedě na židli u stolu, čelem k lapači, ruce na stole. Pistole nabitá, náboj v komoře, v pouzdře kryjícím spoušť; zajištění podle konstrukce. Zásobníky u střelce. Příprava výhradně na povel rozhodčího.
+    </p>
+    <h3>
+     Postup po signálu
+    </h3>
+    <ol>
+     <li>
+      Na signál vstaň, otevři A a projdi jimi. Po zastavení na terčové straně v místě P tas a z hrany dveřní stěny řeš T1–T5 podle odkrývání.
+     </li>
+     <li>
+      Po vyřešení T1–T5 postupuj kolem pravého konce K k zadním dveřím B. Do příchodu zůstávají zavřené.
+     </li>
+     <li>
+      Otevři B a z místa Q před prahem řeš T6 a T7 skrz otvor. Pozor na pevný NS. Dveřmi B neprocházej.
+     </li>
+    </ol>
+    <p class="small">
+     <strong>
+      Hodnocení:
+     </strong>
+     Bez výjimky. Sedm hodnocených terčů, pevný NS. Po poslední střelbě zůstaň na místě, vybití a kontrola na povel rozhodčího.
+    </p>
+    <svg aria-labelledby="map-title-2" class="iso-map" role="img" viewbox="0 0 1040 860">
+     <title id="map-title-2">
+      Dimenze 2: dveře A vpředu, dveře B vzadu, nízký kryt K a dvě skupiny terčů. Bez měřítka.
+     </title>
+     <defs>
+      <marker id="m-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#236f8b">
+       </path>
+      </marker>
+      <marker id="s-2" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#aa591f">
+       </path>
+      </marker>
+     </defs>
+     <polygon fill="#f4f2ec" points="2.7,684.6 727.2,789.6 940.0,252.0 215.5,147.0" stroke="#c8cec9" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#b2beb0" points="215.5,147.0 940.0,252.0 940.0,231.6 215.5,126.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="16" x="539.8" y="30.80000000000001">
+      ZADNÍ VAL
+     </text>
+     <polyline fill="none" points="110.0,690.0 317.1,166.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="268.7,713.0 475.8,189.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="427.4,736.0 634.5,212.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="586.1,759.0 793.2,235.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="245.6,288.4 245.6,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="289.8,294.8 289.8,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="251.1,156.6 284.3,161.4 284.3,178.4 309.1,192.2 309.1,239.8 298.1,247.0 237.3,238.2 226.3,227.8 226.3,180.2 251.1,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="256.7,169.0 278.7,172.2 278.7,166.7 256.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="253.9,225.7 281.5,229.7 281.5,195.0 253.9,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="257.70000000000005" y="147.43999999999997">
+      T1
+     </text>
+     <polyline fill="none" points="311.9,298.0 311.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="356.0,304.4 356.0,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="317.4,166.2 350.5,171.0 350.5,188.0 375.3,201.8 375.3,249.4 364.3,256.6 303.6,247.8 292.5,237.4 292.5,189.8 317.4,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="322.9,178.6 345.0,181.8 345.0,176.3 322.9,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="320.1,235.3 347.7,239.3 347.7,204.6 320.1,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="323.94000000000005" y="157.04">
+      T2
+     </text>
+     <polyline fill="none" points="385.7,288.4 385.7,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="429.9,294.8 429.9,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="391.2,156.6 424.3,161.4 424.3,178.4 449.2,192.2 449.2,239.8 438.1,247.0 377.4,238.2 366.4,227.8 366.4,180.2 391.2,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="396.7,169.0 418.8,172.2 418.8,166.7 396.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="394.0,225.7 421.6,229.7 421.6,195.0 394.0,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="397.78" y="147.44000000000008">
+      T3
+     </text>
+     <polyline fill="none" points="451.9,298.0 451.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="496.1,304.4 496.1,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="457.5,166.2 490.6,171.0 490.6,188.0 515.4,201.8 515.4,249.4 504.4,256.6 443.7,247.8 432.6,237.4 432.6,189.8 457.5,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="463.0,178.6 485.1,181.8 485.1,176.3 463.0,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="460.2,235.3 487.8,239.3 487.8,204.6 460.2,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="464.02" y="157.04">
+      T4
+     </text>
+     <polyline fill="none" points="518.2,307.6 518.2,215.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="562.3,314.0 562.3,222.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="523.7,175.8 556.8,180.6 556.8,197.6 581.7,211.4 581.7,259.0 570.6,266.2 509.9,257.4 498.9,247.0 498.9,199.4 523.7,192.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="529.2,188.2 551.3,191.4 551.3,185.9 529.2,182.7" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="526.5,244.9 554.1,248.9 554.1,214.2 526.5,210.2" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="530.26" y="166.64000000000001">
+      T5
+     </text>
+     <polyline fill="none" points="675.4,264.4 675.4,172.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="719.5,270.8 719.5,179.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="680.9,132.6 714.0,137.4 714.0,154.4 738.8,168.2 738.8,215.8 727.8,223.0 667.1,214.2 656.0,203.8 656.0,156.2 680.9,149.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="686.4,145.0 708.5,148.2 708.5,142.7 686.4,139.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="683.6,201.7 711.2,205.7 711.2,171.0 683.6,167.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="687.44" y="123.44000000000003">
+      T6
+     </text>
+     <polyline fill="none" points="765.1,277.4 765.1,185.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="809.2,283.8 809.2,192.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="770.6,145.6 803.7,150.4 803.7,167.4 828.5,181.2 828.5,228.8 817.5,236.0 756.8,227.2 745.7,216.8 745.7,169.2 770.6,162.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="776.1,158.0 798.2,161.2 798.2,155.7 776.1,152.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="773.3,214.7 800.9,218.7 800.9,184.0 773.3,180.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="777.14" y="136.44000000000003">
+      T7
+     </text>
+     <polyline fill="none" points="717.1,280.6 717.1,188.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="761.3,287.0 761.3,195.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#fafafa" points="722.6,148.8 755.7,153.6 755.7,170.6 780.6,184.4 780.6,232.0 769.5,239.2 708.8,230.4 697.8,220.0 697.8,172.4 722.6,165.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="714.3,212.2 764.0,185.4" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="764.0,219.4 714.3,178.2" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <text class="map-label" fill="#233641" font-size="15" x="729.1800000000001" y="139.64000000000001">
+      NS
+     </text>
+     <polyline fill="none" marker-end="url(#s-2)" points="242.2,577.2 260.1,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-2)" points="242.2,577.2 400.2,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-2)" points="242.2,577.2 532.7,330.0" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-2)" points="681.8,425.2 689.8,286.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-2)" points="681.8,425.2 779.5,299.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polygon fill="#7e8d93" points="584.9,393.4 641.5,401.6 641.5,258.8 584.9,250.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="584.9,393.4 584.9,250.6 641.5,258.8 641.5,401.6" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="735.3,415.2 791.9,423.4 791.9,280.6 735.3,272.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="735.3,415.2 735.3,272.4 791.9,280.6 791.9,423.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="572.9,434.8 592.8,384.4" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="573.8,432.4 589.0,319.2" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="771.6,463.6 791.6,413.2" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="772.6,461.2 787.8,348.0" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="641.5,258.8 735.3,272.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="641.5,401.6 623.4,447.2 623.4,307.1 641.5,261.5" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M791.9000000000001,423.4l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="812.9000000000001" y="444.4">
+      B · OTEVŘÍT
+     </text>
+     <polygon fill="#9aa4a5" points="557.2,511.2 728.4,536.0 728.4,478.2 557.2,453.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="557.2,511.2 557.2,450.0 728.4,474.8 728.4,536.0" stroke="#b29a73" stroke-width="4">
+     </polyline>
+     <path d="M728.3600000000001,536.0l15,16" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="746.3600000000001" y="548.0">
+      K · NÍZKÝ KRYT
+     </text>
+     <polygon fill="#7e8d93" points="127.3,591.0 183.9,599.2 183.9,456.4 127.3,448.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="127.3,591.0 127.3,448.2 183.9,456.4 183.9,599.2" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="277.7,612.8 334.3,621.0 334.3,478.2 277.7,470.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="277.7,612.8 277.7,470.0 334.3,478.2 334.3,621.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="115.3,632.4 135.2,582.0" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="116.2,630.0 131.4,516.8" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="314.0,661.2 334.0,610.8" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="315.0,658.8 330.2,545.6" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="183.9,456.4 277.7,470.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="183.9,599.2 165.8,644.8 165.8,504.7 183.9,459.1" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M334.3,621.0l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="355.3" y="642.0">
+      A · OTEVŘÍT
+     </text>
+     <polygon fill="#c19b65" points="327.4,620.0 459.9,639.2 459.9,601.8 425.4,596.8 425.4,563.5 396.4,559.3 396.4,526.0 363.3,521.2 363.3,485.8 327.4,480.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="339.1,524.5 357.1,527.1 357.1,517.5 339.1,514.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="361.2,568.5 379.1,571.1 379.1,561.5 361.2,558.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="398.5,611.3 416.4,613.9 416.4,604.3 398.5,601.7" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="338.4,595.8 349.5,604.2 375.7,591.0 364.7,582.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="323.2,660.0 341.3,614.4" stroke="#ab916b" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="323.2,660.0 338.4,546.8" stroke="#ab916b" stroke-width="4">
+     </polyline>
+     <path d="M448.84000000000003,637.6l20,20" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="471.84000000000003" y="653.6">
+      VTAC
+     </text>
+     <polyline fill="none" marker-end="url(#m-2)" points="288.2,700.6 204.2,673.2 242.2,577.2 632.4,550.0 745.5,566.4 766.4,513.6 681.8,425.2" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </polyline>
+     <ellipse cx="242.20000000000002" cy="577.2" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="234.20000000000002" y="564.2">
+      P
+     </text>
+     <ellipse cx="681.75" cy="425.20000000000005" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="673.75" y="412.20000000000005">
+      Q
+     </text>
+     <polyline fill="none" points="237.8,710.0 237.8,665.8" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="244.6,692.8 244.6,648.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="326.1,722.8 326.1,678.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="332.9,705.6 332.9,661.4" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polygon fill="#cfb083" points="222.6,667.2 338.6,684.0 348.1,660.0 232.1,643.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#9aa8ad" points="254.2,704.0 295.6,710.0 300.3,698.0 258.9,692.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#8c999d" points="254.2,704.0 295.6,710.0 295.6,676.0 254.2,670.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M273.95,736.6l20,28" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="296.95" y="760.6">
+      START
+     </text>
+     <path d="M35 794h45" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="90" y="800">
+      orientační pohyb
+     </text>
+     <path d="M340 794h45" stroke="#aa591f" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="395" y="800">
+      směr střelby
+     </text>
+     <text class="map-label" fill="#233641" font-size="14" x="35" y="829">
+      Šedé osy: čtyři pojezdy · P / Q / K: místa řešení · bez závazných čar
+     </text>
+    </svg>
+    <p class="caption">
+     Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+    </p>
+    <p class="small ending">
+     Jádro začne přeskakovat do další reality. Reklamace se přijímají v původním vesmíru.
+    </p>
+   </section>
+   <section class="page stage-box" id="situace-3">
+    <div class="stage-head">
+     <span class="num">
+      03
+     </span>
+     <div>
+      <div class="eyebrow">
+       DIMENZE 3 / PRACOVNÍ NÁVRH
+      </div>
+      <h2>
+       Krize identity
+      </h2>
+     </div>
+    </div>
+    <p class="story">
+     Vstup je zamčený. Místní ochranka prý ztratila klíče v roce 1998. Její člověk je ale pořád uvnitř a umí vypnout jádro; poznáš ho podle znaku na propustce. Karel je také pořád Karel. Nekonečně mnoho vesmírů, a ani v jednom ti nepřišlo střídání.
+    </p>
+    <div class="state">
+     A ZAMČENO · B ZAVŘENO, ODEMČENO
+     <br/>
+     MINIMUM 12 RAN · 6 HODNOCENÝCH TERČŮ + 2 NETERČE
+    </div>
+    <h3>
+     Start a stav zbraně — návrh
+    </h3>
+    <p>
+     Vsedě na židli u stolu, čelem k lapači, ruce na stole. Pistole nabitá, náboj v komoře, v pouzdře kryjícím spoušť; zajištění podle konstrukce. Zásobníky u střelce. Příprava výhradně na povel rozhodčího.
+    </p>
+    <h3>
+     Postup po signálu
+    </h3>
+    <ol>
+     <li>
+      Před startem u stolu vylosuj kartu ○ nebo ×. Rozhodčí symbol zapíše, oba si jej prohlédnete a kartu odložíte lícem dolů. Vylosovaný znak označuje kamaráda; na kartu se během situace znovu nedíváš.
+     </li>
+     <li>
+      Na signál vstaň a přejdi před VTAC. Po zastavení tas a řeš T1–T5 skrz jeho otvory; použij libovolné otvory s čistým výhledem. A neotvírej. Nestřílej kolem vnějšího okraje bariéry.
+     </li>
+     <li>
+      Po vyřešení T1–T5 obejdi VTAC zprava, pokračuj kolem pravého konce K k B a otevři je.
+     </li>
+     <li>
+      Z Q řeš pouze protivníka ze zadní dvojice: T6 má ○, T7 má ×. Terč s vylosovaným znakem i pevný NS jsou neterče. B neprocházej.
+     </li>
+    </ol>
+    <p class="small">
+     <strong>
+      Hodnocení:
+     </strong>
+     <strong>
+      Výjimka:
+     </strong>
+     vylosovaný kamarád se nehodnotí jako terč; za jeho vynechání nejsou missy. Jeho zásah = +10 s jednou za terč, stejně jako zásah pevného NS. Dva zásahy se hodnotí na T1–T5 a na druhém ze zadní dvojice. Po poslední střelbě zůstaň na místě, vybití a kontrola na povel rozhodčího.
+    </p>
+    <svg aria-labelledby="map-title-3" class="iso-map" role="img" viewbox="0 0 1040 860">
+     <title id="map-title-3">
+      Dimenze 3: dveře A vpředu, dveře B vzadu, nízký kryt K a dvě skupiny terčů. Bez měřítka.
+     </title>
+     <defs>
+      <marker id="m-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#236f8b">
+       </path>
+      </marker>
+      <marker id="s-3" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3">
+       <path d="M0 0L6 3L0 6" fill="#aa591f">
+       </path>
+      </marker>
+     </defs>
+     <polygon fill="#f4f2ec" points="2.7,684.6 727.2,789.6 940.0,252.0 215.5,147.0" stroke="#c8cec9" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#b2beb0" points="215.5,147.0 940.0,252.0 940.0,231.6 215.5,126.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="16" x="539.8" y="30.80000000000001">
+      ZADNÍ VAL
+     </text>
+     <polyline fill="none" points="110.0,690.0 317.1,166.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="268.7,713.0 475.8,189.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="427.4,736.0 634.5,212.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="586.1,759.0 793.2,235.8" stroke="#c9ccc7" stroke-dasharray="4 7" stroke-width="1">
+     </polyline>
+     <polyline fill="none" points="245.6,288.4 245.6,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="289.8,294.8 289.8,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="251.1,156.6 284.3,161.4 284.3,178.4 309.1,192.2 309.1,239.8 298.1,247.0 237.3,238.2 226.3,227.8 226.3,180.2 251.1,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="256.7,169.0 278.7,172.2 278.7,166.7 256.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="253.9,225.7 281.5,229.7 281.5,195.0 253.9,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="257.70000000000005" y="147.43999999999997">
+      T1
+     </text>
+     <polyline fill="none" points="311.9,298.0 311.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="356.0,304.4 356.0,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="317.4,166.2 350.5,171.0 350.5,188.0 375.3,201.8 375.3,249.4 364.3,256.6 303.6,247.8 292.5,237.4 292.5,189.8 317.4,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="322.9,178.6 345.0,181.8 345.0,176.3 322.9,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="320.1,235.3 347.7,239.3 347.7,204.6 320.1,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="323.94000000000005" y="157.04">
+      T2
+     </text>
+     <polyline fill="none" points="385.7,288.4 385.7,196.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="429.9,294.8 429.9,203.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="391.2,156.6 424.3,161.4 424.3,178.4 449.2,192.2 449.2,239.8 438.1,247.0 377.4,238.2 366.4,227.8 366.4,180.2 391.2,173.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="396.7,169.0 418.8,172.2 418.8,166.7 396.7,163.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="394.0,225.7 421.6,229.7 421.6,195.0 394.0,191.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="397.78" y="147.44000000000008">
+      T3
+     </text>
+     <polyline fill="none" points="451.9,298.0 451.9,206.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="496.1,304.4 496.1,212.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="457.5,166.2 490.6,171.0 490.6,188.0 515.4,201.8 515.4,249.4 504.4,256.6 443.7,247.8 432.6,237.4 432.6,189.8 457.5,183.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="463.0,178.6 485.1,181.8 485.1,176.3 463.0,173.1" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="460.2,235.3 487.8,239.3 487.8,204.6 460.2,200.6" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="464.02" y="157.04">
+      T4
+     </text>
+     <polyline fill="none" points="518.2,307.6 518.2,215.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="562.3,314.0 562.3,222.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="523.7,175.8 556.8,180.6 556.8,197.6 581.7,211.4 581.7,259.0 570.6,266.2 509.9,257.4 498.9,247.0 498.9,199.4 523.7,192.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="529.2,188.2 551.3,191.4 551.3,185.9 529.2,182.7" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="526.5,244.9 554.1,248.9 554.1,214.2 526.5,210.2" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="530.26" y="166.64000000000001">
+      T5
+     </text>
+     <polyline fill="none" points="675.4,264.4 675.4,172.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="719.5,270.8 719.5,179.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="680.9,132.6 714.0,137.4 714.0,154.4 738.8,168.2 738.8,215.8 727.8,223.0 667.1,214.2 656.0,203.8 656.0,156.2 680.9,149.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="686.4,145.0 708.5,148.2 708.5,142.7 686.4,139.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="683.6,201.7 711.2,205.7 711.2,171.0 683.6,167.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="687.44" y="123.44000000000003">
+      T6
+     </text>
+     <polyline fill="none" points="765.1,277.4 765.1,185.6" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="809.2,283.8 809.2,192.0" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#d2af7b" points="770.6,145.6 803.7,150.4 803.7,167.4 828.5,181.2 828.5,228.8 817.5,236.0 756.8,227.2 745.7,216.8 745.7,169.2 770.6,162.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="776.1,158.0 798.2,161.2 798.2,155.7 776.1,152.5" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <polygon fill="none" points="773.3,214.7 800.9,218.7 800.9,184.0 773.3,180.0" stroke="#7a6245" stroke-width="1.5">
+     </polygon>
+     <text class="map-label" fill="#233641" font-size="15" x="777.14" y="136.44000000000003">
+      T7
+     </text>
+     <polyline fill="none" points="717.1,280.6 717.1,188.8" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="761.3,287.0 761.3,195.2" stroke="#8b7254" stroke-width="3">
+     </polyline>
+     <polygon fill="#fafafa" points="722.6,148.8 755.7,153.6 755.7,170.6 780.6,184.4 780.6,232.0 769.5,239.2 708.8,230.4 697.8,220.0 697.8,172.4 722.6,165.8" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="714.3,212.2 764.0,185.4" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="764.0,219.4 714.3,178.2" stroke="#4b5358" stroke-width="3">
+     </polyline>
+     <text class="map-label" fill="#233641" font-size="15" x="729.1800000000001" y="139.64000000000001">
+      NS
+     </text>
+     <polyline fill="none" marker-end="url(#s-3)" points="362.6,634.2 260.1,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-3)" points="362.6,634.2 400.2,310.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-3)" points="362.6,634.2 532.7,330.0" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-3)" points="681.8,425.2 689.8,286.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polyline fill="none" marker-end="url(#s-3)" points="681.8,425.2 779.5,299.8" stroke="#aa591f" stroke-width="2">
+     </polyline>
+     <polygon fill="#7e8d93" points="584.9,393.4 641.5,401.6 641.5,258.8 584.9,250.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="584.9,393.4 584.9,250.6 641.5,258.8 641.5,401.6" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="735.3,415.2 791.9,423.4 791.9,280.6 735.3,272.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="735.3,415.2 735.3,272.4 791.9,280.6 791.9,423.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="572.9,434.8 592.8,384.4" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="573.8,432.4 589.0,319.2" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="771.6,463.6 791.6,413.2" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="772.6,461.2 787.8,348.0" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="641.5,258.8 735.3,272.4" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="641.5,401.6 623.4,447.2 623.4,307.1 641.5,261.5" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M791.9000000000001,423.4l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="812.9000000000001" y="444.4">
+      B · OTEVŘÍT
+     </text>
+     <polygon fill="#9aa4a5" points="557.2,511.2 728.4,536.0 728.4,478.2 557.2,453.4" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="557.2,511.2 557.2,450.0 728.4,474.8 728.4,536.0" stroke="#b29a73" stroke-width="4">
+     </polyline>
+     <path d="M728.3600000000001,536.0l15,16" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="746.3600000000001" y="548.0">
+      K · NÍZKÝ KRYT
+     </text>
+     <polygon fill="#7e8d93" points="127.3,591.0 183.9,599.2 183.9,456.4 127.3,448.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="127.3,591.0 127.3,448.2 183.9,456.4 183.9,599.2" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#7e8d93" points="277.7,612.8 334.3,621.0 334.3,478.2 277.7,470.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="277.7,612.8 277.7,470.0 334.3,478.2 334.3,621.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polyline fill="none" points="115.3,632.4 135.2,582.0" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="116.2,630.0 131.4,516.8" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="314.0,661.2 334.0,610.8" stroke="#af9878" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="315.0,658.8 330.2,545.6" stroke="#af9878" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="183.9,456.4 277.7,470.0" stroke="#b49a75" stroke-width="4">
+     </polyline>
+     <polygon fill="#a7b3b5" points="185.3,599.4 276.3,612.6 276.3,472.5 185.3,459.3" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M334.3,621.0l18,25" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="355.3" y="642.0">
+      A · ZAMČENO
+     </text>
+     <polygon fill="#c19b65" points="327.4,620.0 459.9,639.2 459.9,601.8 425.4,596.8 425.4,563.5 396.4,559.3 396.4,526.0 363.3,521.2 363.3,485.8 327.4,480.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="339.1,524.5 357.1,527.1 357.1,517.5 339.1,514.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="361.2,568.5 379.1,571.1 379.1,561.5 361.2,558.9" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="398.5,611.3 416.4,613.9 416.4,604.3 398.5,601.7" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#f4f2ec" points="338.4,595.8 349.5,604.2 375.7,591.0 364.7,582.6" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polyline fill="none" points="323.2,660.0 341.3,614.4" stroke="#ab916b" stroke-width="6">
+     </polyline>
+     <polyline fill="none" points="323.2,660.0 338.4,546.8" stroke="#ab916b" stroke-width="4">
+     </polyline>
+     <path d="M448.84000000000003,637.6l20,20" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="471.84000000000003" y="653.6">
+      VTAC
+     </text>
+     <polyline fill="none" marker-end="url(#m-3)" points="288.2,700.6 343.2,683.2 362.6,634.2 481.4,655.0 499.4,609.4 632.4,550.0 745.5,566.4 766.4,513.6 681.8,425.2" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </polyline>
+     <ellipse cx="362.62" cy="634.24" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="354.62" y="621.24">
+      P
+     </text>
+     <ellipse cx="681.75" cy="425.20000000000005" fill="white" rx="13" ry="7" stroke="#294c61" stroke-width="2">
+     </ellipse>
+     <text class="map-label" fill="#233641" font-size="16" x="673.75" y="412.20000000000005">
+      Q
+     </text>
+     <polyline fill="none" points="237.8,710.0 237.8,665.8" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="244.6,692.8 244.6,648.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="326.1,722.8 326.1,678.6" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polyline fill="none" points="332.9,705.6 332.9,661.4" stroke="#8b7457" stroke-width="3">
+     </polyline>
+     <polygon fill="#cfb083" points="222.6,667.2 338.6,684.0 348.1,660.0 232.1,643.2" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#9aa8ad" points="254.2,704.0 295.6,710.0 300.3,698.0 258.9,692.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <polygon fill="#8c999d" points="254.2,704.0 295.6,710.0 295.6,676.0 254.2,670.0" stroke="#4c565b" stroke-width="1.5">
+     </polygon>
+     <path d="M273.95,736.6l20,28" fill="none" stroke="#526773">
+     </path>
+     <text class="map-label" fill="#233641" font-size="15" x="296.95" y="760.6">
+      START
+     </text>
+     <path d="M35 794h45" stroke="#236f8b" stroke-dasharray="8 6" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="90" y="800">
+      orientační pohyb
+     </text>
+     <path d="M340 794h45" stroke="#aa591f" stroke-width="3">
+     </path>
+     <text class="map-label" fill="#233641" font-size="14" x="395" y="800">
+      směr střelby
+     </text>
+     <text class="map-label" fill="#233641" font-size="14" x="35" y="829">
+      Šedé osy: čtyři pojezdy · P / Q / K: místa řešení · bez závazných čar
+     </text>
+     <text class="map-label" fill="#233641" font-size="32" x="682.44" y="84.0">
+      ○
+     </text>
+     <text class="map-label" fill="#233641" font-size="32" x="772.14" y="97.0">
+      ×
+     </text>
+     <text class="map-label" fill="#233641" font-size="15" x="470" y="766">
+      T6 ○ / T7 ×: vylosovaný symbol = kamarád; NS zůstává.
+     </text>
+    </svg>
+    <p class="caption">
+     Orientační schéma, bez měřítka. U dvojky a trojky je B nakreslené po otevření; na startu je zavřené. U dvojky totéž platí pro A. Oranžové směry ve trojce zahrnují obě možné volby zadního protivníka; střílí se jen nevylosovaný terč.
+    </p>
+    <p class="small ending">
+     Zachráněný kolega vypne jádro. Do úterý zbývá 24 hodin. Přesčas ti stejně nikdo neproplatí.
+    </p>
+   </section>
+   <section class="page">
+    <div class="eyebrow">
+     STAVBA / STŘELNICE DLOUHÁ 25 M
+    </div>
+    <h2>
+     Jedna budova, tři reality
+    </h2>
+    <div class="draft">
+     Pracovní rozložení, bez měřítka. Stojany a držáky dovolují různé hloubky. Rozhodující je skutečný dopad za každým terčem do zadního valu, nikoli shoda s osou pojezdu.
+    </div>
+    <div class="cols">
+     <div>
+      <h3>
+       Hloubky — výchozí návrh
+      </h3>
+      <p>
+       Vzdálenosti níže se měří od startovní strany směrem k valu, nikoli od každého střelce. Val přibližně na 25 m.
+      </p>
+      <table>
+       <tr>
+        <th>
+         Prvek
+        </th>
+        <th>
+         Hloubka
+        </th>
+       </tr>
+       <tr>
+        <td>
+         Stůl / A + VTAC
+        </td>
+        <td>
+         0–2 m / 5 m
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Nízký kryt K / dveře B
+        </td>
+        <td>
+         10 m / 16 m
+        </td>
+       </tr>
+       <tr>
+        <td>
+         T1–T2 / T3–T5
+        </td>
+        <td>
+         18 m / 20 m
+        </td>
+       </tr>
+       <tr>
+        <td>
+         T6–T7 a NS
+        </td>
+        <td>
+         23 m
+        </td>
+       </tr>
+      </table>
+      <p>
+       První pětice tvoří dvojici a trojici vlevo od B, stále ve středové bezpečné ploše valu. Zadní dvojice je za B. Všechny skupiny musí být dosažitelné z předepsaných míst, včetně otvorů VTACu.
+      </p>
+      <h3>
+       Inventář
+      </h3>
+      <p>
+       2 dveře s látkovými boky, 1 VTAC a druhý v rezervě, nízký horizontální kryt, stůl a židle. 7 IDPA terčů, 1 pevný papírový neterč, dřevěné stojany / držáky pojezdů, přidělávací ručičky a svorky. Počet podstavců podle seskupení. Dále zálepky, časomíra, dvě značky a dvě losovací karty z tohoto tisku.
+      </p>
+      <p class="small">
+       Nízký kryt má být neprůhledný; je-li k dispozici jen otevřený rám, domluvit výplň. Ve trojce zůstanou otvory VTACu volné. Zrcadlovou variantu a stranu opěr zvolit podle průchodu zprava.
+      </p>
+     </div>
+     <div>
+      <h3>
+       Ověření při stavbě
+      </h3>
+      <ul>
+       <li>
+        Z P i přes VTAC zkontrolovat každý z T1–T5 samostatně. Umístění či překrytí nesmí vytvářet průstřely do dalšího hodnoceného terče nebo skrz konstrukci.
+       </li>
+       <li>
+        Pokud některý terč přes VTAC nevidět, upravit celou stavbu před závodem. Žádný konkrétní otvor ani poloha u VTACu není předepsaná.
+       </li>
+       <li>
+        Z K ve snížené poloze i z Q musí být výhled na oba zadní terče skrz B. Výšku papíru a krytu sladit s dopadem do valu.
+       </li>
+       <li>
+        Zavřené B musí skrýt zadní skupinu při příchodu; doplnit druhý VTAC či změnit polohu, pokud se odkrývá předčasně.
+       </li>
+       <li>
+        Trasa k B vede mimo stojany a za vyřešenou první pěticí. Neprocházet před neřešenými terči. Otevřená křídla a opěry nesmějí blokovat trasu rozhodčího.
+       </li>
+       <li>
+        U krajních drah jen kolmo; všechny ostatní směry prodloužit až do valu. Žádné dopady do stěn, podlahy nebo stropu.
+       </li>
+      </ul>
+      <h3>
+       Losování ve trojce
+      </h3>
+      <p>
+       Na T6 upevnit ○, na T7 ×, mimo hodnocené zóny a viditelně z Q. Pozice značek neměnit. Dvě stejně složené karty zamíchat před každým startem; po zápisu losu kartu vrátit do dvojice pro dalšího střelce. Přibližně stejné odkrytí obou terčů zajistí srovnatelnou obtížnost.
+      </p>
+     </div>
+    </div>
+    <table>
+     <tr>
+      <th>
+       Situace
+      </th>
+      <th>
+       A / B na startu
+      </th>
+      <th>
+       Zadní skupina
+      </th>
+     </tr>
+     <tr>
+      <td>
+       1 · Průvan
+      </td>
+      <td>
+       Otevřené / otevřené
+      </td>
+      <td>
+       Oba terče od K, NS se vynechá.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       2 · Osobní prostor
+      </td>
+      <td>
+       Zavřené odemčené / totéž
+      </td>
+      <td>
+       Oba terče od Q po otevření B.
+      </td>
+     </tr>
+     <tr>
+      <td>
+       3 · Krize identity
+      </td>
+      <td>
+       Zamčené / zavřené odemčené
+      </td>
+      <td>
+       Od Q pouze nevylosovaný terč.
+      </td>
+     </tr>
+    </table>
+    <p class="small">
+     Plán hodiny při předem připravené stavbě: 0–10 min briefing, 10–23 první situace, 23–36 druhá, 36–51 třetí, 51–60 rezerva a úklid. Mezi střelci vyhodnotit a zalepit, obnovit dveře a start. Počty zásahů, start a pravidla jsou společné; při přechodu na trojku přidat symboly a los.
+    </p>
+   </section>
+   <section class="page symbol-sheet">
+    <svg aria-label="Kruh" role="img" viewbox="0 0 200 200">
+     <circle cx="100" cy="100" fill="none" r="72" stroke="black" stroke-width="13">
+     </circle>
+    </svg>
+   </section>
+   <section class="page symbol-sheet">
+    <svg aria-label="Kříž" role="img" viewbox="0 0 200 200">
+     <path d="M40 40L160 160M160 40L40 160" stroke="black" stroke-width="20">
+     </path>
+    </svg>
+   </section>
+   <section class="page draw-sheet">
+    <h2>
+     Los kamaráda
+    </h2>
+    <p>
+     Rozstřihnout na dvě karty a stejně složit. Vylosovaný symbol označuje neterč.
+    </p>
+    <div class="draw-card">
+     <svg aria-label="Kruh" role="img" viewbox="0 0 200 200">
+      <circle cx="100" cy="100" fill="none" r="72" stroke="black" stroke-width="13">
+      </circle>
+     </svg>
+    </div>
+    <div class="draw-card">
+     <svg aria-label="Kříž" role="img" viewbox="0 0 200 200">
+      <path d="M40 40L160 160M160 40L40 160" stroke="black" stroke-width="20">
+      </path>
+     </svg>
+    </div>
+   </section>
+  </main>
+  <script src="mobile.js">
+  </script>
+ </body>
+</html>

@@ -8,8 +8,8 @@ Tento soubor uchovává podmínky **vnitřní střelnice** a domluvený způsob 
 
 - Jsou zde **čtyři pojezdové dráhy**. Jejich boční rozestup je pevný.
 - Terče lze posouvat do vzdáleností přibližně **3–25 m**. Vzdálenosti nejsou povinné pro každou situaci.
-- Střílí se **kolmo vpřed v ose příslušné dráhy**. Nenavrhuj křížovou střelbu mezi drahami; ohrožovala by pojezdová lana. Obecný údaj o manipulačním úhlu neznamená povolení střelby do stran.
-- Různé hloubky terčů jsou možné, libovolné boční rozmístění jako venku nikoli. Postavení střelce a nákres musí respektovat čtyři pevné osy.
+- Po úpravě střelnice lze ve středu střílet do celé bezpečné plochy zadního valu i mimo osy pojezdů; lana tomu nebrání. U krajních drah střílej kolmo, nikoli šikmo k okrajům valu. Žádné směry do bočních stěn, podlahy nebo stropu. Každý směr posuzuj až po dopad za terčem.
+- Střelnice má délku 25 m. Vedle pojezdů jsou dostupné dřevěné stojany, držáky a přidělávací ručičky: lze tvořit skupiny a využít různé hloubky, pokud všechny střely za terči dopadají do zadního valu. Překrytí nesmí vést k nechtěným průstřelům do dalších hodnocených terčů.
 - Používají se **papírové IDPA terče a papírové neterče**. Kovy, gongy a poppery nejsou součástí vybavení vnitřní střelnice.
 - Na používaných IDPA terčích jsou obdélníkové alfa zóny: vodorovná v hlavě, svislá v těle. Do schémat nepřidávej označení −1 a −3, které na našich terčích není.
 - Menší IPSC terče či jiné zvláštní terče použij jen po domluvě; jejich použití v Popicích není automatickým rozšířením vnitřního inventáře.
@@ -17,7 +17,7 @@ Tento soubor uchovává podmínky **vnitřní střelnice** a domluvený způsob 
 ## Vnitřní střelnice: známé vybavení
 
 - **2 VTAC bariéry**, zrcadlově orientované, s jednostrannými opěrami. Orientace je důležitá pro stavbu a trasu střelce. Mají stupňovitý profil, čtvercové i šikmé a podlouhlé otvory; nejsou to plné obdélníkové desky.
-- **1 maketa dveří s neprůhlednými bočními rámy/stěnami**. Jde o skutečnou překážku s otevíráním, ne jen příběhové dveře.
+- **2 makety dveří s bočními rámy zakrytými neprůhlednou látkou**. Jde o skutečnou překážku s otevíráním, ne jen příběhové dveře.
 - **1 stůl a 1 židle**.
 - Dřevěný špalek, lehká plastová ohrádka používaná jako nízké okno a barely. Jejich přesné počty nejsou uvedené; nevymýšlej je.
 - Ocelová branka/kabel jako interaktivní prvek pro nůž na startovní čáře, nikoli jako terč.
@@ -61,7 +61,7 @@ Příběh může rekvizitám dát jiný význam, ale plán stavby musí použív
 
 - Formát je HTML pro web i tisk s vloženými SVG. Zachovej použitelnost na mobilu.
 - **Vizuální vzor:** `outside_01_zemska_hlidka/scenario.html`, včetně izometrických schémat a mobilního zvětšování nákresů. Je to vzor zpracování, nikoli vnitřní geometrie, inventáře nebo procedur. Existující vnitřní závody nepřekresluj hromadně bez zadání.
-- Pro nové nákresy preferuj izometrický pohled, dostatečnou hloubku a rozpoznatelné terče, plné zástěny, VTAC a rekvizity. Ve vnitřních schématech vyznač čtyři pevné dráhy a respektuj kolmé směry střelby.
+- Pro nové nákresy preferuj izometrický pohled, dostatečnou hloubku a rozpoznatelné terče, plné zástěny, VTAC a rekvizity. Ve vnitřních schématech vyznač čtyři pevné dráhy a respektuj bezpečné směry do zadního valu a kolmou střelbu u krajů.
 - Rozlišuj orientační pohyb, směr střelby a závazně vyznačené čáry. Doplň čitelnou legendu a poznámku „bez měřítka“.
 - Číslování terčů má odpovídat průchodu a odkrývání, pokud je pořadí dané. Názvy překážek a čísla kroků slaď s textem. Symbolické úkoly označuj především jejich symboly.
 - Zvýrazňuj předepsané otvory; u volitelných otvorů nevytvářej zdání povinné volby. U VTAC respektuj zrcadlení a umístění opěr.
