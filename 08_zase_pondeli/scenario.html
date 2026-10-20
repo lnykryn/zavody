@@ -17,6 +17,8 @@
 
 .facts{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:420px){.facts b{font-size:22px}}
   @media print{#situace-3 .iso-map{height:96mm}}
+
+.voiceovers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}.voiceovers-intro{grid-template-columns:minmax(0,1fr)}.voiceover{min-width:0;margin:0;padding:14px;background:#233540;border:1px solid #40505a;border-radius:6px}.voiceover figcaption{margin-bottom:10px;font-size:14px;font-weight:600;color:#f6b960}.voiceover audio{display:block;width:100%;max-width:100%}.voiceover audio:focus-visible{outline:3px solid #71e1ec;outline-offset:4px}@media(max-width:650px){.voiceovers{grid-template-columns:minmax(0,1fr)}}
 </style>
  </head>
  <body>
@@ -53,6 +55,15 @@
     <p>
      Tvůj úkol pro dnešní směnu je jednoduchý: zlikvidovat útočníky, ochránit prototyp dimenzionálního jádra v zadní laboratoři a ideálně to všechno stihnout dřív, než ti na stole vychladne ranní kafe. Byla by to vlastně úplně běžná přestřelka...
     </p>
+    <div class="voiceovers voiceovers-intro screen-only">
+     <figure class="voiceover">
+      <figcaption id="audio-intro">Úvod do příběhu</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-intro">
+       <source src="audio/08_zase_pondeli-00-intro.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-00-intro.mp3">Stáhnout úvod do příběhu (MP3)</a>
+      </audio>
+     </figure>
+    </div>
     <h2>
      Společná pravidla
     </h2>
@@ -147,6 +158,22 @@
     <p class="story">
      Sedíš u stolu. V laboratoři už měsíc nefunguje klimatizace, takže jsou oboje dveře dokořán. Žoldáci vtrhnou dovnitř, jako by jim to tu patřilo. Vzadu u jádra se krčí technik Karel, kterej ti ještě ráno tvrdil, že dneska bude klid. Chvíli to dokonce vypadá, že tuhle směnu přežijete oba. Pak poslednímu žoldákovi při pádu ujede prst na spoušti. Kulka trefí jádro a realita se rozteče jako špatnej akvarel. Kafe jsi ani neochutnal.
     </p>
+    <div class="voiceovers screen-only">
+     <figure class="voiceover">
+      <figcaption id="audio-story-1">Průvan — příběh situace</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-story-1">
+       <source src="audio/08_zase_pondeli-01-pruvan.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-01-pruvan.mp3">Stáhnout příběh situace Průvan (MP3)</a>
+      </audio>
+     </figure>
+     <figure class="voiceover">
+      <figcaption id="audio-instructions-1">Instrukce rozhodčího</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-instructions-1 audio-story-1">
+       <source src="audio/08_zase_pondeli-01-pruvan-instrukce.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-01-pruvan-instrukce.mp3">Stáhnout instrukce pro situaci Průvan (MP3)</a>
+      </audio>
+     </figure>
+    </div>
     <div class="state">
      A OTEVŘENO · B OTEVŘENO
      <br/>
@@ -462,6 +489,22 @@
     <p class="story">
      Zase sedíš u stolu. Hlava ti třeští. Klimatizace ti fouká za krk a oboje dveře jsou zavřené. „Tak tady na údržbě nešetřili.“ Za dveřmi se ale ozývají stejní žoldáci. Zřejmě položka, kterou neškrtli v žádným rozpočtu. Karel se vzadu krčí na stejném místě — ten chlap je srab napříč celým multivesmírem. Tentokrát si pohlídáš, aby do jádra nikdo nestřelil. Rozpadne se samo. Fialovej záblesk. Samozřejmě.
     </p>
+    <div class="voiceovers screen-only">
+     <figure class="voiceover">
+      <figcaption id="audio-story-2">Osobní prostor — příběh situace</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-story-2">
+       <source src="audio/08_zase_pondeli-02-osobni-prostor.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-02-osobni-prostor.mp3">Stáhnout příběh situace Osobní prostor (MP3)</a>
+      </audio>
+     </figure>
+     <figure class="voiceover">
+      <figcaption id="audio-instructions-2">Instrukce rozhodčího</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-instructions-2 audio-story-2">
+       <source src="audio/08_zase_pondeli-02-osobni-prostor-instrukce.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-02-osobni-prostor-instrukce.mp3">Stáhnout instrukce pro situaci Osobní prostor (MP3)</a>
+      </audio>
+     </figure>
+    </div>
     <div class="state">
      A ZAVŘENO, ODEMČENO · B ZAVŘENO, ODEMČENO
      <br/>
@@ -857,6 +900,22 @@
     <p class="story">
      Třetí vesmír je už vyloženě na houby. Budova ten nápor dimenzionálních skoků nevydržela a začíná se reálně rozpadat. Z přední chodby zbyla jen napůl zřícená zeď s pár dírama, takže útočníky budeš muset řešit skrz ni. Za druhé: paralelní Karel v téhle realitě je zjevně bývalej mariňák, má zbraň a jde ti pomoct. Poznáš ho podle velkýho znaku na propustce. A za třetí: časoprostor nesnese dva Karly v jedné místnosti. Ten původní, krčící se Karel se právě hroutí do paradoxu a budeš ho muset vymazat z existence dřív, než vás to sežere všechny. Vzhledem k tomu, že ti ten srab dluží dvě kila z kantýny, to ale uděláš s vyloženou radostí.
     </p>
+    <div class="voiceovers screen-only">
+     <figure class="voiceover">
+      <figcaption id="audio-story-3">Krize identity — příběh situace</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-story-3">
+       <source src="audio/08_zase_pondeli-03-krize-identity.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-03-krize-identity.mp3">Stáhnout příběh situace Krize identity (MP3)</a>
+      </audio>
+     </figure>
+     <figure class="voiceover">
+      <figcaption id="audio-instructions-3">Instrukce rozhodčího</figcaption>
+      <audio controls preload="none" aria-labelledby="audio-instructions-3 audio-story-3">
+       <source src="audio/08_zase_pondeli-03-krize-identity-instrukce.mp3" type="audio/mpeg"/>
+       <a href="audio/08_zase_pondeli-03-krize-identity-instrukce.mp3">Stáhnout instrukce pro situaci Krize identity (MP3)</a>
+      </audio>
+     </figure>
+    </div>
     <div class="state">
      A ZAMČENO · B ZAVŘENO, ODEMČENO
      <br/>
@@ -1384,6 +1443,8 @@
    </section>
   </main>
   <script src="mobile.js">
+  </script>
+  <script src="audio.js">
   </script>
  </body>
 </html>
