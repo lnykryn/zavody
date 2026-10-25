@@ -17,6 +17,7 @@ Nejedná se o oficiální závody LOS. Cílem je trénink pod kognitivní zátě
 | **[06_dead_zone](./06_dead_zone/scenario.html)** | ☢️ Post-Apo / S.T.A.L.K.E.R. |
 | **[07_zemska_hlidka](./07_zemska_hlidka/scenario.html)** | 🍺 Urban Fantasy / Kotleta |
 | **[08_zase_pondeli](./08_zase_pondeli/scenario.html)** | 🌀 Sci-Fi / Paralelní vesmíry · 3 situace · pistole |
+| **[09_mad_max](./09_mad_max/scenario.html)** | ⛽ Mad Max / Poslední kanystr · 3 situace · pistole |
 
 
 ## Venkovní závody
@@ -29,7 +30,7 @@ Tisk z propozic venkovního závodu obsahuje celý balíček: zadání, stavebn�
 
 ## Struktura repozitáře
 
-- `01_*` až `08_*`: vnitřní série závodů.
+- `01_*` až `09_*`: vnitřní série závodů.
 - `outside_NN_nazev`: samostatně číslovaná venkovní série, první závod je `outside_01_zemska_hlidka`.
 - `popice_zemska_hlidka/scenario.html`: přesměrování původního sdíleného odkazu na venkovní závod; zachovat kvůli zpětné kompatibilitě.
 - `index.html`: společný rozcestník obou sérií.
