@@ -1,381 +1,568 @@
 <!DOCTYPE html>
+
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACKOUT: OUTBREAK</title>
-    <style>
-        /* --- BLACKOUT STYLES (PITCH BLACK & TOXIC GREEN) --- */
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #030303;
-            color: #b0c4b1;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 40px;
-            padding-bottom: 60px;
-            line-height: 1.6;
-            border-top: 5px solid #39ff14;
-        }
-
-        .header-container {
-            border-bottom: 1px solid #1a2e1a;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #39ff14;
-            text-transform: uppercase;
-            letter-spacing: 10px;
-            font-size: 3.5em;
-            margin: 0 0 10px 0;
-            font-weight: 800;
-            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
-        }
-        
-        h2 {
-            color: #ffea00;
-            border-bottom: 2px dashed #39ff14;
-            padding-bottom: 10px;
-            margin-top: 0;
-            text-transform: uppercase;
-            font-size: 1.8em;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            color: #ff3333;
-            margin-bottom: 30px;
-            font-size: 1.2em;
-            letter-spacing: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .mission-brief {
-            background: rgba(57, 255, 20, 0.05);
-            border: 1px solid #39ff14;
-            padding: 20px;
-            margin-bottom: 30px;
-            font-style: italic;
-            font-size: 1.1em;
-            color: #d0f0c0;
-        }
-
-        .rules-box {
-            border: 1px solid #ffea00;
-            padding: 20px;
-            margin-bottom: 40px;
-            background: rgba(255, 234, 0, 0.05);
-        }
-        .rules-box h3 { margin-top: 0; color: #ffea00; text-transform: uppercase; letter-spacing: 2px;}
-
-        .stage-box {
-            background: #080a08;
-            border: 1px solid #1a2e1a;
-            border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 60px;
-            position: relative;
-            page-break-inside: avoid;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-        }
-        
-        .legend {
-            color: #8b9a8b;
-            border-left: 3px solid #39ff14;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: rgba(0,0,0,0.4);
-        }
-        
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 10px; padding-left: 20px; text-indent: -20px; }
-        li::before { content: "► "; color: #39ff14; }
-        strong { color: #fff; }
-
-        .status-bar {
-            font-size: 0.85em;
-            color: #ffea00;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #1a2e1a;
-            padding-bottom: 5px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* --- SVG GRAFIKA --- */
-        svg { display: block; margin: 20px auto; overflow: visible; background: #000; border: 1px solid #1a2e1a; }
-        .grid { stroke: #0a140a; stroke-width: 1; }
-        .wall { stroke: #39ff14; stroke-width: 2; fill: rgba(57, 255, 20, 0.05); }
-        .cover-solid { stroke: #555; stroke-width: 2; fill: #111; }
-        
-        .target-body { fill: #1a1a1a; stroke: #39ff14; stroke-width: 1px; opacity: 0.7;}
-        .target-head { fill: #1a1a1a; stroke: #39ff14; stroke-width: 1px; opacity: 0.7;}
-        .hostage-cover { fill: #ddd; stroke: #ff3333; stroke-width: 2px; opacity: 0.9; }
-        
-        .arrow-path { fill: none; stroke: #ffea00; stroke-width: 2; stroke-dasharray: 4,4; }
-        .start-pos { fill: #000; stroke: #39ff14; stroke-width: 2; }
-        .shoot-line { stroke: #ff3333; stroke-width: 1; stroke-dasharray: 2,2; opacity: 0.8; }
-        .label { fill: #8b9a8b; font-size: 12px; font-weight: bold; }
-        .dist { fill: #444; font-size: 10px; }
-        .warning-text { fill: #ffea00; font-size: 11px; font-weight: bold; text-transform: uppercase;}
-        
-        /* Světelný kužel */
-        .beam { fill: url(#flashlight-grad); opacity: 0.4; }
-        .beam-reverse { fill: url(#flashlight-reverse-grad); opacity: 0.3; }
-        .vision-barrier { stroke: #ffea00; stroke-width: 2; fill: #1a1a00; stroke-dasharray: 5,5; }
-        .start-box-rect { fill: none; stroke: #ffea00; stroke-width: 3; stroke-dasharray: 10,5; }
-
-        /* --- PRINT STYLES --- */
-        @media print {
-            body { background: white !important; color: black !important; border: none; font-size: 12px; }
-            h1, h2, strong { color: black !important; text-shadow: none; }
-            .mission-brief, .rules-box, .stage-box { background: none; border: 1px solid black; box-shadow: none; }
-            .stage-box { break-before: auto; border: 2px solid black; }
-            svg { background: white !important; border: 1px solid #ccc; max-height: 280px; width: auto; }
-            .grid { stroke: #eee; }
-            .wall, .cover-solid { stroke: black; fill: #ddd; }
-            .target-body, .target-head { fill: #eee !important; stroke: black !important; }
-            .arrow-path, .shoot-line { stroke: black !important; }
-            .hostage-cover { fill: white !important; stroke: black !important;}
-            .vision-barrier, .start-box-rect { stroke: black !important; fill: #ddd !important;}
-            .beam, .beam-reverse { display: none; }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>
+   BLACKOUT: OUTBREAK
+  </title>
+<link href="style.css" rel="stylesheet"/>
+<link href="mobile.css" rel="stylesheet"/>
+<script defer="" src="mobile.js">
+</script>
 </head>
 <body>
-
-    <svg width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-        <defs>
-            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" class="grid"/>
-            </pattern>
-            <radialGradient id="flashlight-grad" cx="0%" cy="50%" r="100%">
-                <stop offset="0%" stop-color="#ffea00" stop-opacity="0.8" />
-                <stop offset="100%" stop-color="#ffea00" stop-opacity="0" />
-            </radialGradient>
-            <radialGradient id="flashlight-reverse-grad" cx="50%" cy="100%" r="100%">
-                <stop offset="0%" stop-color="#39ff14" stop-opacity="0.6" />
-                <stop offset="100%" stop-color="#39ff14" stop-opacity="0" />
-            </radialGradient>
-            <radialGradient id="red-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff3333" stop-opacity="0.8" />
-                <stop offset="100%" stop-color="#ff3333" stop-opacity="0" />
-            </radialGradient>
-            <symbol id="badguy" viewBox="0 0 40 60">
-                <rect x="5" y="15" width="30" height="40" class="target-body" />
-                <rect x="12" y="0" width="16" height="12" class="target-head" />
-            </symbol>
-            <symbol id="badguy-hostage" viewBox="0 0 40 60">
-                <rect x="5" y="15" width="30" height="40" class="target-body" />
-                <rect x="12" y="0" width="16" height="12" class="target-head" />
-                <path d="M -5 10 L 20 10 L 20 60 L -5 60 Z" class="hostage-cover" />
-                <circle cx="8" cy="20" r="6" fill="#030303" stroke="#ff3333" stroke-width="1" />
-            </symbol>
-            <marker id="arrowYellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#ffea00" />
-            </marker>
-        </defs>
-    </svg>
-
-    <div class="header-container">
-        <h1>BLACKOUT</h1>
-        <div class="subtitle">☣ BUNKER BREACH ☣</div>
-        <div class="mission-brief">
-            Hlášení systému: Sektor 7 se odmlčel v 03:00. Hlavní generátory selhaly, záložní zdroje neodpovídají. Tlakové uzávěry karantény byly prolomeny zevnitř. Jsi tři patra pod zemí, odříznutý od povrchu, a vysílačka hlásí jen statický šum. Z temnoty chodeb před tebou se ozývají zvuky, které rozhodně nepatří lidem. Co přesně tě tam čeká, nevíš. Máš u sebe jen svou zbraň a baterku. Zhluboka se nadechni. Jdeme do tmy.
-        </div>
+<main class="wrap">
+<nav aria-label="Navigace">
+<a href="../index.html">← Přehled závodů</a>
+<a href="targets.html">Čísla na terče</a>
+<button onclick="window.print()">
+     Vytisknout celý závod
+    </button>
+</nav>
+<header class="hero">
+<div class="eyebrow">
+     Vnitřní závod 04 · survival horror · low-light
     </div>
-
-    <div class="rules-box">
-        <h3>Pravidla Low-Light Operace</h3>
-        <ul>
-            <li><strong>BEZPEČNOST PŘESUNU:</strong> Jsme v absolutní tmě. Jakmile je zbraň vytažena z pouzdra, <strong>svítilna se nesmí zhasnout</strong>! Přesuny s tasenou zbraní probíhají VŽDY s rozsvícenou svítilnou, zbraň míří bezpečně vpřed do lapače, prst viditelně mimo spoušť.</li>
-        </ul>
+<h1>
+     BLACKOUT
+    </h1>
+<p class="subtitle"> ☣ BUNKER BREACH ☣ </p>
+<div class="mission-brief"> Hlášení systému: Sektor 7 se odmlčel v 03:00. Hlavní generátory selhaly, záložní zdroje neodpovídají. Tlakové uzávěry karantény byly prolomeny zevnitř. Jsi tři patra pod zemí, odříznutý od povrchu, a vysílačka hlásí jen statický šum. Z temnoty chodeb před tebou se ozývají zvuky, které rozhodně nepatří lidem. Co přesně tě tam čeká, nevíš. Máš u sebe jen svou zbraň a baterku. Zhluboka se nadechni. Jdeme do tmy. </div>
+</header>
+<section class="rules-box">
+<h2>
+     Společná pravidla
+    </h2>
+<p> <strong>Jsme v absolutní tmě. Jakmile je zbraň vytažena z pouzdra, svítilna se nesmí zhasnout.</strong> Přesuny s tasenou zbraní probíhají vždy s rozsvícenou svítilnou, zbraň míří bezpečně vpřed do lapače a prst je viditelně mimo spoušť. </p>
+<h3>
+     Hodnocení papíru
+    </h3>
+<p> Výchozí klubové hodnocení: dva nejlepší zásahy na terč. A bez přirážky, C +1 s, D +2 s, každý miss +5 s, neterč +10 s jednou za terč, procedura +3 s. Počet hodnocených zásahů není předepsaným počtem výstřelů. Ve čtvrté situaci určuje neterč číslo hozené kostkou. </p>
+<p class="note"> Klubový závod inspirovaný LOS. <a href="../safety.html">Společný bezpečnostní briefing</a>. U krajních drah pouze kolmá střelba; každý směr je nutné posoudit až po dopad do zadního valu. </p>
+<p class="note"> Schémata jsou orientační a bez měřítka. Neověřují bezpečnost skutečné stavby. Čísla met přebírají zadání; poloha prvků v obrázcích není zaměřením střelnice. </p>
+</section>
+<nav aria-label="Situace" class="stage-nav">
+<a href="#situace-1">01</a>
+<a href="#situace-2">02</a>
+<a href="#situace-3">03</a>
+<a href="#situace-4">04</a>
+</nav>
+<section class="stage-box" id="situace-1">
+<h2>
+     01: Probuzení do tmy
+    </h2>
+<div class="status-bar">
+     6 terčů · meta 10 m · rozsvícení před tasením
     </div>
-
-    <div class="stage-box">
-        <h2>01: Probuzení do tmy</h2>
-        <div class="status-bar">METERS: 10m statický start || TARGETS: 3 || TYPE: FLASHLIGHT DEPLOYMENT</div>
-        <div class="legend">
-            "Monotónní hučení ventilace zničehonic utichlo. Místo něj tě probudil vzdálený jekot a duté rány na ocelové dveře tvé ubikace. Než si tvé oči stihly zvyknout na temnotu, něco rozrazilo zámek a vpadlo dovnitř. Zbraň máš na opasku, ale baterka zůstala ležet na stole. Srdce ti buší v krku. Nahmatáš potmě světlo dřív, než si pro tebe dojdou, nebo zemřeš dřív, než stihneš tasit?"
-        </div>
-        <ul>
-            <li><strong>START:</strong> Střelec stojí u stolu (meta 10m). Zbraň nabitá v pouzdře. Ruce se nesmí dotýkat stolu. Svítilna leží na stole zhasnutá.</li>
-            <li><strong>PROCEDURA:</strong>
-                1. Na signál střelec ve tmě nahmatá svítilnu a <strong>zapne ji</strong>.<br>
-                2. Teprve po rozsvícení smí tasit zbraň.<br>
-                3. Za použití libovolné techniky svícení vyřeší ze statické pozice cíle <strong>T1, T2, T3</strong>.
-            </li>
-        </ul>
-        <svg width="700" height="250" viewBox="0 0 700 250">
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist" fill="#39ff14">25m LAPAČ</text>
-            
-            <use href="#badguy" x="200" y="10" width="40" height="60" /> <text x="210" y="5" class="label">T1</text>
-            <use href="#badguy" x="350" y="10" width="40" height="60" /> <text x="360" y="5" class="label">T2</text>
-            <use href="#badguy" x="500" y="10" width="40" height="60" /> <text x="510" y="5" class="label">T3</text>
-            
-            <polygon points="350,210 180,70 540,70" class="beam" />
-
-            <rect x="310" y="220" width="80" height="20" class="cover-solid" />
-            <text x="350" y="235" class="warning-text" text-anchor="middle">STŮL & SVÍTILNA</text>
-
-            <circle cx="350" cy="245" r="5" class="start-pos" />
-            <line x1="350" y1="210" x2="220" y2="70" class="shoot-line" />
-            <line x1="350" y1="210" x2="370" y2="70" class="shoot-line" />
-            <line x1="350" y1="210" x2="520" y2="70" class="shoot-line" />
-        </svg>
+<div class="legend"> "Monotónní hučení ventilace zničehonic utichlo. Místo něj tě probudil vzdálený jekot a duté rány na ocelové dveře tvé ubikace. Než si tvé oči stihly zvyknout na temnotu, něco rozrazilo zámek a vpadlo dovnitř. Zbraň máš na opasku, ale baterka zůstala ležet na stole. Srdce ti buší v krku. Nahmatáš potmě světlo dřív, než si pro tebe dojdou, nebo zemřeš dřív, než stihneš tasit?" </div>
+<h3>
+     Start a stav zbraně
+    </h3>
+<p> Střelec stojí u stolu na metě 10 m. <strong>Zbraň je nabitá v pouzdře.</strong> Ruce se nesmí dotýkat stolu. Svítilna leží na stole zhasnutá. </p>
+<h3>
+     Postup po signálu
+    </h3>
+<ol class="procedure">
+<li> Ve tmě nahmatej svítilnu na stole a <strong>rozsviť ji</strong>. </li>
+<li> <strong>Teprve po rozsvícení tas</strong> zbraň. </li>
+<li> Ze statické pozice vyřeš <strong>T1 až T6</strong>. Techniku svícení si zvol libovolně. </li>
+</ol>
+<p class="note"> Svítilna po tasení zůstává rozsvícená. </p>
+<svg aria-labelledby="map-1-title map-1-desc" class="map iso-map" role="img" viewBox="0 0 1000 610" xmlns="http://www.w3.org/2000/svg">
+<title id="map-1-title">
+      Situace 1 — orientační izometrický nákres
+     </title>
+<desc id="map-1-desc">
+      Čtyři pevné dráhy, zadní val a rekvizity situace. Bez měřítka. Šipky pohybu jsou orientační, nejde o vyznačené čáry.
+     </desc>
+<defs>
+<marker id="move-1" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+<path d="M0 0L8 4L0 8Z" fill="#246b86">
+</path>
+</marker>
+</defs>
+<polygon fill="#f3f5f0" points="80.0,530.0 592.0,554.0 817.0,229.0 305.0,205.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<polygon fill="#c6d0c5" points="305.0,205.0 817.0,229.0 817.0,179.0 305.0,155.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<text font-size="19" text-anchor="middle" x="560.0" y="65">
+      ZADNÍ VAL · délka střelnice 25 m
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="144" x2="369" y1="533" y2="208">
+</line>
+<text font-size="12" text-anchor="middle" x="129.6" y="553.8">
+      DRÁHA 1
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="272" x2="497" y1="539" y2="214">
+</line>
+<text font-size="12" text-anchor="middle" x="257.6" y="559.8">
+      DRÁHA 2
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="400" x2="625" y1="545" y2="220">
+</line>
+<text font-size="12" text-anchor="middle" x="385.6" y="565.8">
+      DRÁHA 3
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="528" x2="753" y1="551" y2="226">
+</line>
+<text font-size="12" text-anchor="middle" x="513.6" y="571.8">
+      DRÁHA 4
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="393.2" y1="383.0" y2="179.4"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="450.8" y1="383.0" y2="182.1"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="508.4" y1="383.0" y2="184.8"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="566.0" y1="383.0" y2="187.5"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="623.6" y1="383.0" y2="190.2"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="681.2" y1="383.0" y2="192.9"></line><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="393.2" x2="393.2" y1="249.4" y2="194.4"></line><g transform="translate(393.2 179.4) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="393.2" y="119.4">T1</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="450.8" x2="450.8" y1="252.1" y2="197.1"></line><g transform="translate(450.8 182.1) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="450.8" y="122.1">T2</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="508.4" x2="508.4" y1="254.8" y2="199.8"></line><g transform="translate(508.4 184.8) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="508.4" y="124.8">T3</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="566.0" x2="566.0" y1="257.5" y2="202.5"></line><g transform="translate(566.0 187.5) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="566.0" y="127.5">T4</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="623.6" x2="623.6" y1="260.2" y2="205.2"></line><g transform="translate(623.6 190.2) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="623.6" y="130.2">T5</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="681.2" x2="681.2" y1="262.9" y2="207.9"></line><g transform="translate(681.2 192.9) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="681.2" y="132.9">T6</text><line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="348.8" x2="348.8" y1="456.7" y2="411.7">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="438.40000000000003" x2="438.40000000000003" y1="460.90000000000003" y2="415.90000000000003">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="359.59999999999997" x2="359.59999999999997" y1="441.09999999999997" y2="396.09999999999997">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="449.2" x2="449.2" y1="445.3" y2="400.3">
+</line>
+<polygon fill="#c4b593" points="348.8,411.7 438.4,415.9 449.2,400.3 359.6,396.1" stroke="#64716b" stroke-width="2">
+</polygon>
+<ellipse cx="379.2" cy="479.6" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="379.2" y="506.6">
+      START · meta 10 m
+     </text>
+<rect fill="#253f33" height="9" rx="3" width="31" x="383" y="397">
+</rect>
+<text font-size="17" text-anchor="middle" x="695.0" y="410.0">
+      Stůl + zhasnutá svítilna
+     </text>
+<rect fill="#fff" height="263" rx="4" stroke="#b8c2b9" width="188" x="805" y="210">
+</rect>
+<text font-size="15" text-anchor="start" x="819.0" y="239.0">
+      1 · Rozsvítit
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="269.0">
+      2 · Tasit
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="299.0">
+      3 · T1 až T6
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="329.0">
+      Statická pozice
+     </text>
+<line stroke="#246b86" stroke-dasharray="8 5" stroke-width="3" x1="810" x2="845" y1="510" y2="510">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="515.0">
+      pohyb
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="2" x1="810" x2="845" y1="539" y2="539">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="544.0">
+      směr střelby
+     </text>
+<text font-size="14" text-anchor="end" x="980.0" y="591.0">
+      ORIENTAČNÍ · BEZ MĚŘÍTKA
+     </text>
+</svg>
+<p class="map-caption"> Přerušovaná šipka: orientační pohyb. Tenká plná čára: směr střelby. Šedé přerušované čáry: čtyři pevné dráhy. Nejde o závazné čáry na podlaze. </p>
+</section>
+<section class="stage-box" id="situace-2">
+<h2>
+     02: Krvavý tunel
+    </h2>
+<div class="status-bar">
+     6 terčů · mety 15 → 10 m · levý a pravý kryt
     </div>
-
-    <div class="stage-box">
-        <h2>02: Krvavý tunel</h2>
-        <div class="status-bar">METERS: 15m -> 10m diagonální přesun || TARGETS: 4 || TYPE: COVER USAGE / SLICING THE PIE</div>
-        <div class="legend">
-            "Prorazil jsi z ubikací do hlavní servisní chodby vedoucí dál do komplexu. Páchne to tu mědí a spálenou izolací. V kuželu tvého světla se ve stínech na vteřinu zableskly oči. Stáhl ses za masivní elektrický rozvaděč, ale dlouho tady nevydržíš. Subjekty se k tobě stahují ze všech stran. Musíš se pod palbou probít dopředu a využít každý dostupný sloup. Nezapomeň správně krájet úhly tmy, abys neodhalil svou siluetu dřív, než musíš."
-        </div>
-        <ul>
-            <li><strong>START:</strong> Meta 15m, <strong>úplně vlevo</strong> za vertikálním krytem. Zbraň v pouzdře, svítilna zhasnutá.</li>
-            <li><strong>PROCEDURA:</strong>
-                1. Na signál rozsvítit a tasit.<br>
-                2. Z <strong>levého krytu</strong> (vyklonění zpoza levé hrany první zástěny) vyřešit T1 a T2.<br>
-                3. Plynulý přesun vpřed a doprava k druhé zástěně (meta 10m). Svítí se celou cestu.<br>
-                4. Z <strong>pravého krytu</strong> (vyklonění zpoza pravé hrany druhé zástěny) vyřešit T3 a T4.
-            </li>
-        </ul>
-        <svg width="700" height="350" viewBox="0 0 700 350">
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist" fill="#39ff14">25m LAPAČ</text>
-            
-            <use href="#badguy" x="150" y="20" width="40" height="60" /> <text x="160" y="15" class="label">T1</text>
-            <use href="#badguy" x="250" y="20" width="40" height="60" /> <text x="260" y="15" class="label">T2</text>
-            <use href="#badguy" x="350" y="20" width="40" height="60" /> <text x="360" y="15" class="label">T3</text>
-            <use href="#badguy" x="450" y="20" width="40" height="60" /> <text x="460" y="15" class="label">T4</text>
-            
-            <rect x="100" y="250" width="80" height="20" class="cover-solid" /> 
-            <text x="140" y="285" class="label" text-anchor="middle">ZÁSTĚNA 1 (15m)</text>
-            <text x="100" y="300" class="warning-text" text-anchor="middle" fill="#ffea00">LEVÁ HRANA</text>
-            
-            <polygon points="100,250 130,80 290,80" class="beam" />
-            <circle cx="80" cy="280" r="8" class="start-pos" />
-            <line x1="100" y1="250" x2="170" y2="80" class="shoot-line" />
-            <line x1="100" y1="250" x2="270" y2="80" class="shoot-line" />
-
-            <rect x="400" y="150" width="80" height="20" class="cover-solid" /> 
-            <text x="440" y="185" class="label" text-anchor="middle">ZÁSTĚNA 2 (10m)</text>
-            <text x="480" y="200" class="warning-text" text-anchor="middle" fill="#ffea00">PRAVÁ HRANA</text>
-            
-            <polygon points="480,150 330,80 470,80" class="beam" />
-            <line x1="480" y1="150" x2="370" y2="80" class="shoot-line" />
-            <line x1="480" y1="150" x2="470" y2="80" class="shoot-line" />
-            
-            <path d="M 80 240 L 480 170" class="arrow-path" marker-end="url(#arrowYellow)" />
-            <text x="280" y="220" class="warning-text" text-anchor="middle">PŘESUN ROZSVÍCENO</text>
-            
-        </svg>
+<div class="legend"> "Prorazil jsi z ubikací do hlavní servisní chodby vedoucí dál do komplexu. Páchne to tu mědí a spálenou izolací. V kuželu tvého světla se ve stínech na vteřinu zableskly oči. Stáhl ses za masivní elektrický rozvaděč, ale dlouho tady nevydržíš. Subjekty se k tobě stahují ze všech stran. Musíš se pod palbou probít dopředu a využít každý dostupný sloup. Nezapomeň správně krájet úhly tmy, abys neodhalil svou siluetu dřív, než musíš." </div>
+<h3>
+     Start a stav zbraně
+    </h3>
+<p> Střelec stojí na metě 15 m, <strong>úplně vlevo za vertikálním krytem</strong>. Zbraň je v pouzdře, svítilna zhasnutá. </p>
+<h3>
+     Postup po signálu
+    </h3>
+<ol class="procedure">
+<li> Rozsviť svítilnu a tas zbraň. </li>
+<li> Vykloněním zpoza <strong>levé hrany malé zástěny</strong> vyřeš T1, T2 a T3. </li>
+<li> Plynule se přesuň <strong>vpřed a doprava</strong> k VTAC bariéře na metě 10 m. Po celou cestu sviť. </li>
+<li> Vykloněním zpoza <strong>pravé hrany VTAC bariéry</strong> vyřeš T4, T5 a T6. </li>
+</ol>
+<p class="note"> T1 až T3 se řeší před přesunem, T4 až T6 až od VTAC. Střílí se kolem pravé hrany VTAC, nikoli skrz otvory. </p>
+<svg aria-labelledby="map-2-title map-2-desc" class="map iso-map" role="img" viewBox="0 0 1000 610" xmlns="http://www.w3.org/2000/svg">
+<title id="map-2-title">
+      Situace 2 — orientační izometrický nákres
+     </title>
+<desc id="map-2-desc">
+      Čtyři pevné dráhy, zadní val a rekvizity situace. Bez měřítka. Šipky pohybu jsou orientační, nejde o vyznačené čáry.
+     </desc>
+<defs>
+<marker id="move-2" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+<path d="M0 0L8 4L0 8Z" fill="#246b86">
+</path>
+</marker>
+</defs>
+<polygon fill="#f3f5f0" points="80.0,530.0 592.0,554.0 817.0,229.0 305.0,205.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<polygon fill="#c6d0c5" points="305.0,205.0 817.0,229.0 817.0,179.0 305.0,155.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<text font-size="19" text-anchor="middle" x="560.0" y="65">
+      ZADNÍ VAL · délka střelnice 25 m
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="144" x2="369" y1="533" y2="208">
+</line>
+<text font-size="12" text-anchor="middle" x="129.6" y="553.8">
+      DRÁHA 1
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="272" x2="497" y1="539" y2="214">
+</line>
+<text font-size="12" text-anchor="middle" x="257.6" y="559.8">
+      DRÁHA 2
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="400" x2="625" y1="545" y2="220">
+</line>
+<text font-size="12" text-anchor="middle" x="385.6" y="565.8">
+      DRÁHA 3
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="528" x2="753" y1="551" y2="226">
+</line>
+<text font-size="12" text-anchor="middle" x="513.6" y="571.8">
+      DRÁHA 4
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="201.8" x2="393.2" y1="413.6" y2="179.4"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="201.8" x2="450.8" y1="413.6" y2="182.1"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="201.8" x2="508.4" y1="413.6" y2="184.8"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="556.6" x2="566.0" y1="349.7" y2="187.5"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="556.6" x2="623.6" y1="349.7" y2="190.2"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="556.6" x2="681.2" y1="349.7" y2="192.9"></line><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="393.2" x2="393.2" y1="249.4" y2="194.4"></line><g transform="translate(393.2 179.4) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="393.2" y="119.4">T1</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="450.8" x2="450.8" y1="252.1" y2="197.1"></line><g transform="translate(450.8 182.1) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="450.8" y="122.1">T2</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="508.4" x2="508.4" y1="254.8" y2="199.8"></line><g transform="translate(508.4 184.8) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="508.4" y="124.8">T3</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="566.0" x2="566.0" y1="257.5" y2="202.5"></line><g transform="translate(566.0 187.5) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="566.0" y="127.5">T4</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="623.6" x2="623.6" y1="260.2" y2="205.2"></line><g transform="translate(623.6 190.2) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="623.6" y="130.2">T5</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="681.2" x2="681.2" y1="262.9" y2="207.9"></line><g transform="translate(681.2 192.9) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="681.2" y="132.9">T6</text><polygon fill="#67786f" points="211.4,469.1 294.6,472.9 294.6,352.9 211.4,349.1" stroke="#34453d" stroke-width="2">
+</polygon>
+<text font-size="17" text-anchor="middle" x="253.0" y="336.0">
+      MALÁ ZÁSTĚNA
+     </text>
+<g transform="translate(106.6 34.4) scale(.84) translate(65 0)"><line stroke="#6c5b40" stroke-dasharray="" stroke-width="6" x1="343" x2="315" y1="438" y2="476">
+</line><line stroke="#6c5b40" stroke-dasharray="" stroke-width="4" x1="343" x2="315" y1="388" y2="476">
+</line><g transform="translate(408 438) skewY(3)">
+<path d="M-75 0V-160H-30V-145H5V-120H35V-95H75V0Z M-60 -142H-40V-124H-60Z M-15 -108L4 -126L16 -114L-3 -96Z M-22 -76H5V-57H-22Z M29 -80H60V-65H29Z M-55 -25H-5V-12H-55Z M25 -45H49V-25H25Z" fill="#bc9b69" fill-rule="evenodd" stroke="#5c4c34" stroke-width="2">
+</path>
+</g></g>
+<text font-size="17" text-anchor="middle" x="505" y="250">VTAC · PRAVÁ HRANA</text>
+<line marker-end="url(#move-2)" stroke="#246b86" stroke-dasharray="8 5" stroke-width="3" x1="183.8" x2="538.6" y1="494.6" y2="430.7">
+</line>
+<ellipse cx="192.8" cy="481.6" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="192.8" y="508.6">
+      START · 15 m
+     </text>
+<ellipse cx="547.6" cy="417.7" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="547.6" y="444.7">
+      10 m
+     </text>
+<rect fill="#fff" height="263" rx="4" stroke="#b8c2b9" width="188" x="805" y="210">
+</rect>
+<text font-size="15" text-anchor="start" x="819.0" y="239.0">
+      Zástěna: T1 až T3
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="269.0">
+      Přesun vpřed
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="299.0">
+      a doprava
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="329.0">
+      VTAC: T4 až T6
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="359.0">
+      Po celou cestu svítit
+     </text>
+<line stroke="#246b86" stroke-dasharray="8 5" stroke-width="3" x1="810" x2="845" y1="510" y2="510">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="515.0">
+      pohyb
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="2" x1="810" x2="845" y1="539" y2="539">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="544.0">
+      směr střelby
+     </text>
+<text font-size="14" text-anchor="end" x="980.0" y="591.0">
+      ORIENTAČNÍ · BEZ MĚŘÍTKA
+     </text>
+</svg>
+<p class="map-caption"> Přerušovaná šipka: orientační pohyb. Tenká plná čára: směr střelby. Šedé přerušované čáry: čtyři pevné dráhy. Nejde o závazné čáry na podlaze. </p>
+</section>
+<section class="stage-box" id="situace-3">
+<h2>
+     03: Ocelová uzávěra
+    </h2>
+<div class="status-bar">
+     6 terčů · meta 10 m · šest různých okének
     </div>
-
-    <div class="stage-box">
-        <h2>03: Ocelová uzávěra</h2>
-        <div class="status-bar">METERS: 10m statický start || TARGETS: 4 || TYPE: V-TAC PORTS / LIGHT TECHNIQUES</div>
-        <div class="legend">
-            "Konečně jsi dorazil k bezpečnostním vratům sektoru 'Líheň', ale systém je uzamkl a pomalu se restartuje. Ti 'venku' už tě ucítili a tlačí tě do kouta. Jediná šance, jak přežít do otevření dveří, je pálit skrz poškozené průzory a větrací šachty v barikádě. Zlom své tělo, prostrč tam hlaveň i světlo a modli se, ať tě odraz tvé vlastní baterky o ocel neoslepí v tu nejhorší možnou chvíli."
-        </div>
-        <ul>
-            <li><strong>START:</strong> Meta 10m. Střelec stojí přímo za V-TAC bariérou. Zbraň v pouzdře, svítilna zhasnutá v ruce.</li>
-            <li><strong>PROCEDURA:</strong>
-                1. Na signál rozsvítit a tasit.<br>
-                2. Všechny 4 terče vyřešit střelbou skrz V-TAC bariéru.<br>
-                3. <strong>PRAVIDLO:</strong> Každý ze 4 terčů se musí střílet skrz <strong>zcela jiné okénko bariéry</strong> (jedno horní, jedno boční, jedno středové, jedno spodní).<br>
-                4. Otestuje to schopnost plynule střídat techniky svícení (Harries, Neck Index, FBI...) bez oslnění o hranu okénka.
-            </li>
-        </ul>
-        <svg width="700" height="250" viewBox="0 0 700 250">
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist" fill="#39ff14">25m LAPAČ</text>
-            
-            <use href="#badguy" x="150" y="10" width="40" height="60" /> <text x="160" y="5" class="label">T1</text>
-            <use href="#badguy" x="300" y="10" width="40" height="60" /> <text x="310" y="5" class="label">T2</text>
-            <use href="#badguy" x="450" y="10" width="40" height="60" /> <text x="460" y="5" class="label">T3</text>
-            <use href="#badguy" x="600" y="10" width="40" height="60" /> <text x="610" y="5" class="label">T4</text>
-
-            <rect x="320" y="180" width="60" height="20" class="cover-solid" />
-            <text x="350" y="215" class="label" text-anchor="middle">V-TAC BARIÉRA (10m)</text>
-            
-            <polygon points="350,180 130,70 640,70" class="beam" />
-            <circle cx="350" cy="240" r="5" class="start-pos" />
-            
-            <line x1="330" y1="180" x2="170" y2="70" class="shoot-line" />
-            <line x1="345" y1="180" x2="320" y2="70" class="shoot-line" />
-            <line x1="355" y1="180" x2="470" y2="70" class="shoot-line" />
-            <line x1="370" y1="180" x2="620" y2="70" class="shoot-line" />
-            
-            <text x="350" y="165" class="warning-text" text-anchor="middle">KAŽDÝ TERČ Z JINÉHO OKÉNKA</text>
-        </svg>
+<div class="legend"> "Konečně jsi dorazil k bezpečnostním vratům sektoru 'Líheň', ale systém je uzamkl a pomalu se restartuje. Ti 'venku' už tě ucítili a tlačí tě do kouta. Jediná šance, jak přežít do otevření dveří, je pálit skrz poškozené průzory a větrací šachty v barikádě. Zlom své tělo, prostrč tam hlaveň i světlo a modli se, ať tě odraz tvé vlastní baterky o ocel neoslepí v tu nejhorší možnou chvíli." </div>
+<h3>
+     Start a stav zbraně
+    </h3>
+<p> Střelec stojí na metě 10 m přímo za VTAC bariérou. Zbraň je v pouzdře, <strong>zhasnutou svítilnu drží v ruce</strong>. </p>
+<h3>
+     Postup po signálu
+    </h3>
+<ol class="procedure">
+<li> Rozsviť svítilnu a tas zbraň. </li>
+<li> Vyřeš všech šest terčů střelbou <strong>skrz VTAC bariéru</strong>. </li>
+<li> Na každý terč použij <strong>jiné okénko: celkem šest různých otvorů</strong>. </li>
+</ol>
+<p class="note"> Techniky svícení (např. Harries, Neck Index, FBI) lze střídat. Každý ze šesti zvolených otvorů použij pro jeden terč; přiřazení terčů i pořadí otvorů si zvol sám. </p>
+<svg aria-labelledby="map-3-title map-3-desc" class="map iso-map" role="img" viewBox="0 0 1000 610" xmlns="http://www.w3.org/2000/svg">
+<title id="map-3-title">
+      Situace 3 — orientační izometrický nákres
+     </title>
+<desc id="map-3-desc">
+      Čtyři pevné dráhy, zadní val a rekvizity situace. Bez měřítka. Šipky pohybu jsou orientační, nejde o vyznačené čáry.
+     </desc>
+<defs>
+<marker id="move-3" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+<path d="M0 0L8 4L0 8Z" fill="#246b86">
+</path>
+</marker>
+</defs>
+<polygon fill="#f3f5f0" points="80.0,530.0 592.0,554.0 817.0,229.0 305.0,205.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<polygon fill="#c6d0c5" points="305.0,205.0 817.0,229.0 817.0,179.0 305.0,155.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<text font-size="19" text-anchor="middle" x="560.0" y="65">
+      ZADNÍ VAL · délka střelnice 25 m
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="144" x2="369" y1="533" y2="208">
+</line>
+<text font-size="12" text-anchor="middle" x="129.6" y="553.8">
+      DRÁHA 1
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="272" x2="497" y1="539" y2="214">
+</line>
+<text font-size="12" text-anchor="middle" x="257.6" y="559.8">
+      DRÁHA 2
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="400" x2="625" y1="545" y2="220">
+</line>
+<text font-size="12" text-anchor="middle" x="385.6" y="565.8">
+      DRÁHA 3
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="528" x2="753" y1="551" y2="226">
+</line>
+<text font-size="12" text-anchor="middle" x="513.6" y="571.8">
+      DRÁHA 4
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="393.2" y1="383.0" y2="179.4"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="450.8" y1="383.0" y2="182.1"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="508.4" y1="383.0" y2="184.8"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="566.0" y1="383.0" y2="187.5"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="623.6" y1="383.0" y2="190.2"></line><line stroke="#98702f" stroke-dasharray="" stroke-width="1.8" x1="408.0" x2="681.2" y1="383.0" y2="192.9"></line><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="393.2" x2="393.2" y1="249.4" y2="194.4"></line><g transform="translate(393.2 179.4) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="393.2" y="119.4">T1</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="450.8" x2="450.8" y1="252.1" y2="197.1"></line><g transform="translate(450.8 182.1) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="450.8" y="122.1">T2</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="508.4" x2="508.4" y1="254.8" y2="199.8"></line><g transform="translate(508.4 184.8) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="508.4" y="124.8">T3</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="566.0" x2="566.0" y1="257.5" y2="202.5"></line><g transform="translate(566.0 187.5) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="566.0" y="127.5">T4</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="623.6" x2="623.6" y1="260.2" y2="205.2"></line><g transform="translate(623.6 190.2) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="623.6" y="130.2">T5</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="681.2" x2="681.2" y1="262.9" y2="207.9"></line><g transform="translate(681.2 192.9) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="681.2" y="132.9">T6</text><line stroke="#6c5b40" stroke-dasharray="" stroke-width="6" x1="343" x2="315" y1="438" y2="476">
+</line>
+<line stroke="#6c5b40" stroke-dasharray="" stroke-width="4" x1="343" x2="315" y1="388" y2="476">
+</line>
+<g transform="translate(408 438) skewY(3)">
+<path d="M-75 0V-160H-30V-145H5V-120H35V-95H75V0Z M-60 -142H-40V-124H-60Z M-15 -108L4 -126L16 -114L-3 -96Z M-22 -76H5V-57H-22Z M29 -80H60V-65H29Z M-55 -25H-5V-12H-55Z M25 -45H49V-25H25Z" fill="#bc9b69" fill-rule="evenodd" stroke="#5c4c34" stroke-width="2">
+</path>
+<path d="M-60 -142H-40V-124H-60Z M-15 -108L4 -126L16 -114L-3 -96Z M29 -80H60V-65H29Z M-22 -76H5V-57H-22Z M-55 -25H-5V-12H-55Z M25 -45H49V-25H25Z" fill="none" stroke="#202c26" stroke-width="4">
+</path>
+</g>
+<text font-size="18" text-anchor="middle" x="408.0" y="473.0">
+      VTAC · meta 10 m
+     </text>
+<ellipse cx="370.2" cy="492.6" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="370.2" y="519.6">
+      START
+     </text>
+<rect fill="#fff" height="263" rx="4" stroke="#b8c2b9" width="188" x="805" y="210">
+</rect>
+<text font-size="15" text-anchor="start" x="819.0" y="239.0">
+      6 terčů / 6 okének
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="269.0">
+      Každý terč
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="299.0">
+      z jiného otvoru.
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="329.0">
+      Využij všech šest.
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="359.0">
+</text>
+<text font-size="15" text-anchor="start" x="819.0" y="389.0">
+      Přiřazení terčů
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="419.0">
+      si zvol sám.
+     </text>
+<line stroke="#246b86" stroke-dasharray="8 5" stroke-width="3" x1="810" x2="845" y1="510" y2="510">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="515.0">
+      pohyb
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="2" x1="810" x2="845" y1="539" y2="539">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="544.0">
+      směr střelby
+     </text>
+<text font-size="14" text-anchor="end" x="980.0" y="591.0">
+      ORIENTAČNÍ · BEZ MĚŘÍTKA
+     </text>
+</svg>
+<p class="map-caption"> Přerušovaná šipka: orientační pohyb. Tenká plná čára: směr střelby. Šedé přerušované čáry: čtyři pevné dráhy. Nejde o závazné čáry na podlaze. </p>
+</section>
+<section class="stage-box" id="situace-4">
+<h2>
+     04: Selekce
+    </h2>
+<div class="status-bar">
+     6 terčů: 5 hrozeb + 1 neterč · mety 25 → 15 m · paměť a hod kostkou
     </div>
-
-    <div class="stage-box" style="border-color: #ff3333;">
-        <h2>04: Selekce</h2>
-        <div class="status-bar">METERS: 25m čtení -> 15m střelba || TARGETS: 4 || TYPE: COGNITIVE OVERLOAD</div>
-        <div class="legend">
-            "Vrata se otevřela, ale při obraně jsi vystřílel poslední zásobník. Ocitl ses v samém srdci laboratoří. Na zdejších subjektech byl testován nový patogen. Tři z nich podlehli nákaze a zmutovali, ale jeden má přirozenou imunitu. V absolutní tmě ses proplížil za nehybné postavy, abys na jejich zádových monitorech přečetl identifikační znaky. V dálce svítí červená lampička na pultu mrtvého strážného, kde leží nabitá zbraň a diagnostický terminál. Sprintuj k červenému světlu! Terminál ti ukáže znak subjektu s čistou krví (NO-SHOOT). Infikovaní musí zemřít, imunní musí přežít, jinak to tu dole bylo všechno zbytečné!"
-        </div>
-        <ul>
-            <li><strong>BEZPEČNOST:</strong> Zbraň po celou první část leží <strong>vybitá na podélném stole na 15m a míří bezpečně doleva do stěny</strong> (nikdy ne nahoru k terčům)! Střelec na 25m (nahoře) je neozbrojen! Svícení z 25m musí být bezpečné (neoslňovat čekající).</li>
-            <li><strong>TERČE:</strong> Na zádech každého terče je symbol (Kruh, Trojúhelník, Kříž, Čtverec). Zepředu jsou to čisté terče.</li>
-            <li><strong>PROCEDURA:</strong>
-                1. Start na 25m (úplně nahoře). Na signál střelec <strong>rozsvítí baterku</strong> a podívá se na zadní stranu terčů (identifikace monitorů).<br>
-                2. Střelec se zapnutou baterkou <strong>sprintuje dolů k červenému světlu</strong> na ovládacím pultu (meta 15m).<br>
-                3. U pultu se natočí doleva k lapači, <strong>vylosuje si kartu se symbolem Imunního subjektu</strong>, srovná se k lapači a tasí zbraň ze stolu (hlaveň stále míří do zdi).<br>
-                4. Poté nabije a zlikviduje 3 Infikované (Hrozby). Musí si v hlavě zrcadlově převrátit pořadí terčů, které viděl zezadu!
-            </li>
-        </ul>
-        <svg width="700" height="380" viewBox="0 0 700 380">
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <line x1="10" y1="30" x2="690" y2="30" class="wall" /> <text x="20" y="25" class="dist" fill="#39ff14">25m LAPAČ</text>
-            
-            <g transform="translate(150, 50)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T1</text>
-                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">Δ</text> </g>
-            <g transform="translate(250, 50)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T2</text>
-                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">O</text> </g>
-            <g transform="translate(350, 50)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T3</text>
-                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">X</text> </g>
-            <g transform="translate(450, 50)">
-                <use href="#badguy" x="0" y="0" width="40" height="60" /> <text x="10" y="-5" class="label">T4</text>
-                <text x="14" y="25" fill="#39ff14" font-weight="bold" font-family="sans-serif">□</text> </g>
-
-            <circle cx="320" cy="15" r="5" class="start-pos" fill="#ffea00" />
-            <text x="335" y="18" class="label" fill="#ffea00">START (25m+) - BEZ ZBRANĚ</text>
-            <polygon points="320,20 120,120 560,120" class="flashlight-reverse-grad" fill="url(#flashlight-reverse-grad)" opacity="0.3" />
-            <text x="180" y="135" class="warning-text" fill="#39ff14">KROK 1: NASVÍTIT MONITORY (ZÁDA)</text>
-
-            <path d="M 320 25 L 560 25 L 560 300 L 370 300" class="arrow-path" marker-end="url(#arrowYellow)" />
-            <text x="575" y="160" class="warning-text" transform="rotate(90 575,160)">KROK 2: SPRINT DOLŮ (ROZSVÍCENO)</text>
-
-            <rect x="340" y="270" width="20" height="80" class="cover-solid" fill="#222" />
-            
-            <circle cx="350" cy="335" r="20" fill="url(#red-glow)" />
-            <circle cx="350" cy="335" r="4" fill="#ff3333" />
-            
-            <text x="370" y="310" class="label" fill="#fff">STŮL (15m)</text>
-            <text x="370" y="325" class="warning-text" fill="#ff3333">ZBRAŇ MÍŘÍ VLEVO DO ZDI</text>
-            <path d="M 350 310 L 310 310" stroke="#ff3333" stroke-width="3" marker-end="url(#arrowYellow)" />
-            
-            <circle cx="350" cy="360" r="5" class="start-pos" fill="#ff3333" />
-            
-            <line x1="350" y1="360" x2="170" y2="115" class="shoot-line" />
-            <line x1="350" y1="360" x2="470" y2="115" class="shoot-line" />
-            
-            <text x="130" y="375" class="warning-text" fill="#ff3333">KROK 3: OTOČIT SE, LOSOVAT, PÁLIT NAHORU</text>
-
-        </svg>
-    </div>
-
+<div class="legend"> "Vrata se otevřela, ale při obraně jsi vystřílel poslední zásobník. Ocitl ses v samém srdci laboratoří. Na zdejších subjektech byl testován nový patogen. Pět z nich podlehlo nákaze a zmutovalo, ale jeden má přirozenou imunitu. V absolutní tmě ses proplížil za nehybné postavy, abys na jejich zádových monitorech přečetl identifikační čísla. V dálce svítí červená lampička na pultu mrtvého strážného, kde leží zbraň, zásobníky a diagnostický terminál. Sprintuj k červenému světlu! Terminál ti ukáže číslo subjektu s čistou krví (NO-SHOOT). Infikovaní musí zemřít, imunní musí přežít, jinak to tu dole bylo všechno zbytečné!" </div>
+<h3>
+     Start a stav zbraně
+    </h3>
+<p>Střelec je <strong>neozbrojený na metě 25 m, za terči</strong>, zhasnutou svítilnu má u sebe. <strong>Všechno, co chceš v situaci použít, polož na stůl na metě 15 m — kromě svítilny, kterou potřebuješ na startu.</strong> Zbraň leží hlavní doleva do stěny, <strong>bez náboje v komoře a se zásobníkem mimo zbraň</strong>. Na stole jsou všechny zásobníky i ostatní vybavení. U stolu svítí červené světlo a je připravená šestistěnná kostka a mělká krabička na hod.</p>
+<h3>
+     Postup po signálu
+    </h3>
+<ol class="procedure">
+<li> Rozsviť baterku a zezadu si prohlédni čísla na terčích. Zapamatuj si jejich rozmístění. </li>
+<li> Se zapnutou baterkou <strong>sprintuj k červenému světlu na pultu na metě 15 m</strong>. </li>
+<li>U pultu <strong>hoď jednou šestistěnnou kostkou do krabičky; hozené číslo označuje imunní subjekt</strong>. Vezmi zbraň ze stolu s prstem mimo spoušť a <strong>před zasunutím zásobníku a nabitím ji nasměruj do zadního valu</strong>.</li>
+<li>Zasuň zásobník, nabij a vyřeš <strong>pět infikovaných terčů</strong>. Terč s číslem hozeným kostkou je <strong>neterč</strong>. Pořadí terčů vidíš zepředu zrcadlově vůči pohledu zezadu.</li>
+</ol>
+<p class="note"> Na zadních stranách terčů jsou čísla 1–6, každé právě jednou. Zepředu jsou terče bez čísel. Při svícení z mety 25 m neoslňuj čekající.  Pokud kostka skončí mimo krabičku nebo nakřivo a výsledek není jednoznačný, hod zopakuj; platný hod se neopakuje.</p>
+<svg aria-labelledby="map-4-title map-4-desc" class="map iso-map" role="img" viewBox="0 0 1000 610" xmlns="http://www.w3.org/2000/svg">
+<title id="map-4-title">
+      Situace 4 — orientační izometrický nákres
+     </title>
+<desc id="map-4-desc">
+      Čtyři pevné dráhy, zadní val a rekvizity situace. Bez měřítka. Šipky pohybu jsou orientační, nejde o vyznačené čáry.
+     </desc>
+<defs>
+<marker id="move-4" markerHeight="8" markerWidth="8" orient="auto" refX="7" refY="4">
+<path d="M0 0L8 4L0 8Z" fill="#246b86">
+</path>
+</marker>
+</defs>
+<polygon fill="#f3f5f0" points="80.0,530.0 592.0,554.0 817.0,229.0 305.0,205.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<polygon fill="#c6d0c5" points="305.0,205.0 817.0,229.0 817.0,179.0 305.0,155.0" stroke="#64716b" stroke-width="2">
+</polygon>
+<text font-size="19" text-anchor="middle" x="560.0" y="65">
+      ZADNÍ VAL · délka střelnice 25 m
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="144" x2="369" y1="533" y2="208">
+</line>
+<text font-size="12" text-anchor="middle" x="129.6" y="553.8">
+      DRÁHA 1
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="272" x2="497" y1="539" y2="214">
+</line>
+<text font-size="12" text-anchor="middle" x="257.6" y="559.8">
+      DRÁHA 2
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="400" x2="625" y1="545" y2="220">
+</line>
+<text font-size="12" text-anchor="middle" x="385.6" y="565.8">
+      DRÁHA 3
+     </text>
+<line stroke="#b6c0bb" stroke-dasharray="4 7" stroke-width="2" x1="528" x2="753" y1="551" y2="226">
+</line>
+<text font-size="12" text-anchor="middle" x="513.6" y="571.8">
+      DRÁHA 4
+     </text>
+<ellipse cx="507.2" cy="227.9" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="285" y="100">START · 25 m · za terči</text>
+<polyline fill="none" marker-end="url(#move-4)" points="507.2,227.9 782.4,240.8 629.4,461.8 437.4,452.8" stroke="#246b86" stroke-dasharray="8 5" stroke-width="3">
+</polyline>
+<line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="375.2" x2="375.2" y1="275.4" y2="220.4"></line><g transform="translate(375.2 205.4) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="375.2" y="145.4">T1</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="432.8" x2="432.8" y1="278.1" y2="223.1"></line><g transform="translate(432.8 208.1) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="432.8" y="148.1">T2</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="490.4" x2="490.4" y1="280.8" y2="225.8"></line><g transform="translate(490.4 210.8) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="490.4" y="150.8">T3</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="548.0" x2="548.0" y1="283.5" y2="228.5"></line><g transform="translate(548.0 213.5) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="548.0" y="153.5">T4</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="605.6" x2="605.6" y1="286.2" y2="231.2"></line><g transform="translate(605.6 216.2) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="605.6" y="156.2">T5</text><line stroke="#77654b" stroke-dasharray="" stroke-width="4" x1="663.2" x2="663.2" y1="288.9" y2="233.9"></line><g transform="translate(663.2 218.9) skewY(3)"><path d="M-10 -47H10V-34H18L25 -24V16L17 26H-17L-25 16V-24L-18 -34H-10Z" fill="#d7b78e" stroke="#574530" stroke-width="2"></path><rect fill="none" height="6" stroke="#574530" width="14" x="-7" y="-43"></rect><rect fill="none" height="34" stroke="#574530" width="18" x="-9" y="-22"></rect></g><text font-size="18" text-anchor="middle" x="663.2" y="158.9">T6</text><line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="348.8" x2="348.8" y1="456.7" y2="411.7">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="438.40000000000003" x2="438.40000000000003" y1="460.90000000000003" y2="415.90000000000003">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="359.59999999999997" x2="359.59999999999997" y1="441.09999999999997" y2="396.09999999999997">
+</line>
+<line stroke="#5e594c" stroke-dasharray="" stroke-width="4" x1="449.2" x2="449.2" y1="445.3" y2="400.3">
+</line>
+<polygon fill="#c4b593" points="348.8,411.7 438.4,415.9 449.2,400.3 359.6,396.1" stroke="#64716b" stroke-width="2">
+</polygon>
+<ellipse cx="379.2" cy="479.6" fill="#fff" rx="17" ry="8" stroke="#244b3d" stroke-width="3">
+</ellipse>
+<text font-size="16" text-anchor="middle" x="379.2" y="506.6">
+      PULT · meta 15 m
+     </text>
+<circle cx="419" cy="402" fill="#b22929" r="7">
+</circle>
+<g aria-label="Krabička s kostkou"><rect fill="#ddd" height="22" rx="2" stroke="#394239" stroke-width="2" width="29" x="382" y="391"></rect><rect fill="#fff" height="14" rx="2" stroke="#394239" width="14" x="389" y="395"></rect><circle cx="393" cy="399" fill="#222" r="1.3"></circle><circle cx="396" cy="402" fill="#222" r="1.3"></circle><circle cx="399" cy="405" fill="#222" r="1.3"></circle></g>
+<line stroke="#b22929" stroke-dasharray="3 3" stroke-width="3" x1="384" x2="334" y1="402" y2="399">
+</line>
+<text font-size="16" text-anchor="middle" x="650.0" y="440.0">
+      Zbraň a všechny zásobníky na stole
+     </text>
+<rect fill="#fff" height="263" rx="4" stroke="#b8c2b9" width="188" x="805" y="210">
+</rect>
+<text font-size="15" text-anchor="start" x="819.0" y="239.0">
+      Čísla pouze vzadu:
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="269.0">
+      1  2  3  4  5  6
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="299.0">
+      Číst → přesun → hod
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="329.0">
+      5 hrozeb / 1 neterč
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="359.0">
+      Prázdná komora,
+     </text>
+<text font-size="15" text-anchor="start" x="819.0" y="389.0">
+      zásobník venku.
+     </text>
+<line stroke="#246b86" stroke-dasharray="8 5" stroke-width="3" x1="810" x2="845" y1="510" y2="510">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="515.0">
+      pohyb
+     </text>
+<line stroke="#98702f" stroke-dasharray="" stroke-width="2" x1="810" x2="845" y1="539" y2="539">
+</line>
+<text font-size="14" text-anchor="start" x="855.0" y="544.0">
+      směr střelby
+     </text>
+<text font-size="14" text-anchor="end" x="980.0" y="591.0">
+      ORIENTAČNÍ · BEZ MĚŘÍTKA
+     </text>
+<path d="M285 110 L320 145 L507 226" fill="none" stroke="#244b3d" stroke-width="1.5"></path></svg>
+<p class="map-caption"> Přerušovaná šipka: orientační pohyb. Tenká plná čára: směr střelby. Šedé přerušované čáry: čtyři pevné dráhy. Nejde o závazné čáry na podlaze. </p>
+</section>
+<section class="organizer" id="stavba">
+<h2>
+     Vybavení a příprava
+    </h2>
+<div class="columns">
+<div>
+<h3>
+       Společné vybavení
+      </h3>
+<ul>
+<li> Papírové IDPA terče a držáky: nejvýše 6 současně, celkem 24 terčových pozic ve čtyřech situacích. </li>
+<li> 1 stůl pro situace 1 a 4. </li>
+<li> 1 malá zástěna pro situaci 2 a 1 VTAC bariéra pro situace 2 a 3. Mezi situacemi se stejný VTAC přemístí; orientaci zvolit s ohledem na jednostranné opěry. </li>
+<li> Svítilna střelce, timer, zálepky a prostředky k označení met. </li>
+</ul>
+<h3>
+       Pro Selekci
+      </h3>
+<ul>
+<li> Červená lampička na stole. </li>
+<li> Čísla 1–6 na zadní strany terčů, šestistěnná kostka a mělká krabička na hod. </li>
+<li> Čísla jsou součástí tisku; samostatně také v <a href="targets.html">tiskových pomůckách</a>. </li>
+</ul>
+</div>
+<div>
+<h3>
+       K dořešení při přípravě
+      </h3>
+<ul>
+<li> <strong>Situace 2 a 3:</strong> zadání uvádí zbraň v pouzdře, ale neurčuje stav komory ani zásobníku. Tyto podmínky je třeba sjednotit před závodem. </li>
+<li><strong>Situace 4:</strong> před startem ověřit prázdnou komoru a zásobník mimo zbraň. Všechny zásobníky a ostatní používané vybavení leží na stole; svítilnu má střelec u sebe. Nabití probíhá až se zbraní směrem do zadního valu.</li>
+</ul>
+</div>
+</div>
+<h3>
+     Kontrola stavby
+    </h3>
+<p> Ověřit dopady za všemi terči, zakrytí a odkrývání od obou hran ve druhé situaci, průstřely mezi terči a prostor pro přesun. U VTAC zkontrolovat směry ze všech šesti otvorů i umístění opěr. </p>
+<p> Ve čtvrté situaci musí zůstat prostor za terči pro čtení čísel i boční cesta zpět ke stolu uvnitř střelnice. Číslo 25 m neznamená prostor za zadním valem. Zepředu nesmí být čísla vidět. Každé číslo 1–6 musí být právě na jednom terči. Mezi střelci čísla promíchejte, aniž by další střelec viděl jejich rozmístění. Označení T1–T6 v nákresu určuje pozice, nikoli čísla na zadních stranách. </p>
+</section>
+<div class="print-extras"><section aria-label="Číslo 1" class="number-page"><svg aria-label="1" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">1</text></svg></section><section aria-label="Číslo 2" class="number-page"><svg aria-label="2" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">2</text></svg></section><section aria-label="Číslo 3" class="number-page"><svg aria-label="3" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">3</text></svg></section><section aria-label="Číslo 4" class="number-page"><svg aria-label="4" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">4</text></svg></section><section aria-label="Číslo 5" class="number-page"><svg aria-label="5" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">5</text></svg></section><section aria-label="Číslo 6" class="number-page"><svg aria-label="6" class="number-large" role="img" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg"><text fill="#000" font-family="Arial, sans-serif" font-size="140" font-weight="700" text-anchor="middle" x="50" y="118">6</text></svg></section></div>
+</main>
 </body>
 </html>
